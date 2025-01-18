@@ -24,6 +24,7 @@
             nodejs
             bun
             xsel
+            uv
           ];
 
           buildInputs = with pkgs; [
