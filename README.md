@@ -1,3 +1,5 @@
+# Episkos
+
 ## GitHook for Conventional commits
 
 execute ./init.sh to activate
