@@ -17,9 +17,11 @@
       {
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
+            bacon
             pkg-config
             gobject-introspection
             cargo
+            cargo-update
             cargo-tauri
             nodejs
             bun
