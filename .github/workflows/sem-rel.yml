@@ -1,5 +1,11 @@
 name: Semantic Release
 on:
+  push:
+    branches:
+      - main
+      - alpha
+      - beta
+      - next
   workflow_dispatch:
 
 jobs:

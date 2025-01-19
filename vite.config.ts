@@ -13,18 +13,18 @@ export default defineConfig({
 		host: host || false,
 		hmr: host
 			? {
-				protocol: "ws",
-				host,
-				port: 1421,
-			}
+					protocol: 'ws',
+					host,
+					port: 1421
+				}
 			: undefined,
 		watch: {
-			ignored: ["**/src-tauri/**"],
-		},
+			ignored: ['**/src-tauri/**']
+		}
 	},
 	resolve: {
 		alias: {
-			$lib: path.resolve("./src/lib"),
-		},
-	},
+			$lib: path.resolve('./src/lib')
+		}
+	}
 });
