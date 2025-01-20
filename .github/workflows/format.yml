@@ -1,0 +1,58 @@
+name: Format front- and backend
+
+on:
+  push:
+    branches:
+      - main
+      - alpha
+      - beta
+      - next
+    paths:
+      - 'src/**'
+      - 'src-tauri/**'
+      - 'tests/**'
+      - 'bun.lockb'
+      - 'src-tauri/Cargo.lock'
+      - '.github/workflows/format.yml'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  format-frontend:
+    strategy:
+      fail-fast: false
+    runs-on: 'ubuntu-24.04'
+    steps:
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: install bun dependencies
+        run: bun i
+
+      - name: frontend checks
+        run: bun format
+
+      - name: format backend
+        working-directory: src-tauri
+        run: rustfmt src/**/*.rs
+
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+
+      - name: Commit and Push Changes
+        run: |
+          git add .
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          git commit -m "chore(workflow): formatted code $TIMESTAMP"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
