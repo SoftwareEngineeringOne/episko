@@ -41,6 +41,8 @@ jobs:
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
 
+      - uses: Swatinem/rust-cache@v2
+
       - name: install dependencies
         run: |
           sudo apt-get update
