@@ -14,13 +14,14 @@ on:
       - 'bun.lockb'
       - 'src-tauri/Cargo.lock'
       - '.github/workflows/format.yml'
-  pull_request:
   workflow_dispatch:
 
 jobs:
-  format-frontend:
+  format:
     runs-on: 'ubuntu-24.04'
     steps:
+      - uses: actions/checkout@v4
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
@@ -30,10 +31,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
 
       - name: install bun dependencies
-        run: |
-          ls
-          ls ..
-          bun i
+        run: bun i
 
       - name: frontend checks
         run: bun format

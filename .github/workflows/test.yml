@@ -18,6 +18,8 @@ jobs:
       contents: write
     runs-on: 'ubuntu-24.04'
     steps:
+      - uses: actions/checkout@v4
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
@@ -25,8 +27,6 @@ jobs:
 
       - name: install bun dependencies
         run: |
-          echo $PWD
-          ls
           bun i
 
 
@@ -41,6 +41,8 @@ jobs:
       contents: write
     runs-on: 'ubuntu-24.04'
     steps:
+      - uses: actions/checkout@v4
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
