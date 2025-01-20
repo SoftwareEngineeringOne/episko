@@ -7,7 +7,7 @@ run:
 run_gui: run
 
 run_cli:
-	cargo run --p episkos_cli
+	cargo run -p episkos_cli
 
 test:
 	bun run test
