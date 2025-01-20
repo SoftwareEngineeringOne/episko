@@ -8,3 +8,7 @@ license = "MIT"
 
 [workspace.dependencies]
 episkos_lib = { path = "episkos_lib" }
+thiserror = "2.0"
+chrono = { version = "0.4.39", features = ["serde"] }
+uuid = { version = "1.12.0", features = ["serde", "v4"] }
+
