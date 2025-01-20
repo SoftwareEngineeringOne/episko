@@ -38,7 +38,7 @@ jobs:
 
       - name: format backend
         working-directory: src-tauri
-        run: rustfmt src/**/*.rs
+        run: rustfmt src/**/*.rs || echo "No files found..."
 
 
       - name: Configure Git
