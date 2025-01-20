@@ -5,6 +5,7 @@
 	"license": "MIT",
 	"scripts": {
 		"test": "vitest",
+		"frontend-dev": "vite dev",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",

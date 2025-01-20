@@ -6,6 +6,9 @@ run:
 
 run_gui: run
 
+run_frontend:
+	bun run frontend-dev
+
 run_cli:
 	cargo run -p episkos_cli
 
