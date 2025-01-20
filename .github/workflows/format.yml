@@ -1,0 +1,64 @@
+name: Format front- and backend
+
+on:
+  push:
+    branches:
+      - main
+      - alpha
+      - beta
+      - next
+    paths:
+      - 'src/**'
+      - 'src-tauri/**'
+      - 'tests/**'
+      - 'bun.lockb'
+      - 'src-tauri/Cargo.lock'
+      - '.github/workflows/format.yml'
+  workflow_dispatch:
+
+jobs:
+  format:
+    permissions:
+      contents: write
+    runs-on: 'ubuntu-24.04'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: install bun dependencies
+        run: bun i
+
+      - name: frontend checks
+        run: bun format
+
+      - name: format backend
+        working-directory: src-tauri
+        run: rustfmt src/**/*.rs || echo "No files found..."
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+
+      - name: Commit Changes
+        run: |
+          git add .
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          git commit -m "chore(workflow): formatted code $TIMESTAMP"
+
+      - name: Push Changes
+        uses: ad-m/github-push-action@77c5b412c50b723d2a4fbc6d71fb5723bcd439aa
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
