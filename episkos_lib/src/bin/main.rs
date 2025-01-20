@@ -1,4 +1,4 @@
-use episkos_lib::metadata::Metadata;
+use episkos_lib::{files::File, metadata::Metadata};
 use std::{error::Error, path::Path};
 
 fn main() -> Result<(), Box<dyn Error>> {
@@ -10,11 +10,11 @@ fn main() -> Result<(), Box<dyn Error>> {
     println!("Path: {:#?}", path);
     println!("Absolut: {:#?}", path.canonicalize()?);
 
-    println!("Metadata: {:#?}", metadata.directory);
+    println!("Metadata: {:#?}", metadata.directory());
 
-    metadata.write_manifest()?;
+    metadata.write_file(&metadata.directory())?;
 
-    let read_metadata = Metadata::from_manifest(Path::new("."))?;
+    let read_metadata = Metadata::from_file(Path::new("."))?;
     println!("Read: {:#?}", read_metadata);
 
     Ok(())

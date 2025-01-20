@@ -1,11 +1,16 @@
+//! # File Handler
+//!
+//! Provides functions for file operations such as reading, writing, and overwriting files
+//! with serialization and deserialization support.
 use std::{fs, path::Path};
 
 use serde::{de::DeserializeOwned, Serialize};
 use thiserror::Error;
 
-pub struct FileSystemHandler;
+/// Utility struct for performing file operations with serialization/deserialization support.
+pub struct FileHandler;
 
-impl FileSystemHandler {
+impl FileHandler {
     pub fn write_file(data: impl Serialize, path: &Path) -> Result<(), Error> {
         let toml = toml::to_string(&data)?;
         fs::write(path, toml)?;
