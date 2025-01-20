@@ -4,4 +4,14 @@ edition = "2021"
 version.workspace = true
 license.workspace = true
 
+[[bin]]
+name = "lib_debug"
+path = "src/bin/main.rs"
+
 [dependencies]
+chrono = { workspace = true, features = ["serde"] }
+uuid.workspace = true
+thiserror.workspace = true
+toml = "0.8.19"
+serde = { version = "1.0.217", features = ["derive"] }
+
