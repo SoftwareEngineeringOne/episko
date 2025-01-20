@@ -56,9 +56,6 @@ jobs:
 
       - name: Rust Cache
         uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: "src-tauri -> src-tauri/target"
-          cache-directories: "src-tauri"
 
       - name: install system dependencies
         run: |
@@ -66,5 +63,4 @@ jobs:
           sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
 
       - name: bakend tests
-        working-directory: src-tauri
-        run: cargo test
+        run: cargo test --all-targets

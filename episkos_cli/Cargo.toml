@@ -1,0 +1,9 @@
+[package]
+name = "episkos_cli"
+edition = "2021"
+version.workspace = true
+license.workspace = true
+
+[dependencies]
+episkos_lib.workspace = true
+

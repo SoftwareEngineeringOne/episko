@@ -1,0 +1,10 @@
+[workspace]
+members = ["episkos_gui_backend", "episkos_lib", "episkos_cli"]
+resolver = "2"
+
+[workspace.package]
+version = "0.0.0-development"
+license = "MIT"
+
+[workspace.dependencies]
+episkos_lib = { path = "episkos_lib" }

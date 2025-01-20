@@ -43,9 +43,6 @@ jobs:
 
       - name: Rust Cache
         uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: "src-tauri -> src-tauri/target"
-          cache-directories: "src-tauri"
 
       - name: install dependencies
         run: |
@@ -54,3 +51,6 @@ jobs:
 
       - name: Build Tauri
         run: bun tauri build
+
+      - name: Build Cli
+        run: cargo build -p episkos_cli

@@ -1,5 +1,10 @@
 # Episkos
 
+## Dependencies for Rust recommendations
+- serde (serde_toml)
+- thiserror (errorhandling)
+- sqlx (database)
+
 ##  Inkrement/Arbeitspaket Dokumente
 - Inkrementübersicht
     - Wer macht was?
