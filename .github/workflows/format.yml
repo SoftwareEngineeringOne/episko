@@ -40,7 +40,6 @@ jobs:
         working-directory: src-tauri
         run: rustfmt src/**/*.rs || echo "No files found..."
 
-
       - name: Configure Git
         run: |
           git config --global user.name 'github-actions[bot]'
