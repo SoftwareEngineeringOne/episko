@@ -4,9 +4,9 @@ edition = "2021"
 version.workspace = true
 license.workspace = true
 
-[[bin]]
-name = "lib_debug"
-path = "src/bin/main.rs"
+[features]
+default = ["files"]
+files = []
 
 [dependencies]
 chrono = { workspace = true, features = ["serde"] }
@@ -15,3 +15,6 @@ thiserror.workspace = true
 toml = "0.8.19"
 serde = { version = "1.0.217", features = ["derive"] }
 
+[[bin]]
+name = "lib_debug"
+path = "src/bin/main.rs"

@@ -1,3 +1,7 @@
+//! # Metadata
+//!
+//! Provides tools for handling project metadata, including the ability to build, update,
+//! and serialize metadata structures.
 use std::{
     io,
     path::{Path, PathBuf},
@@ -18,19 +22,14 @@ pub use build_system::BuildSystem;
 pub use ide::Ide;
 pub use language::Language;
 
-use crate::file_system_handler::{self, FileSystemHandler};
+use crate::files::file_handler;
 
-#[derive(Debug, Serialize, Deserialize)]
-pub struct Manifest {
-    #[serde(rename(serialize = "Metadata", deserialize = "Metadata"))]
-    metadata: Metadata,
-}
-
+/// Core metadata structure containing information about a project.
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Metadata {
     id: Uuid,
     #[serde(skip)]
-    pub directory: PathBuf,
+    directory: PathBuf,
     title: String,
     categories: Vec<String>,
     languages: Vec<Language>,
@@ -43,41 +42,39 @@ pub struct Metadata {
 }
 
 impl Metadata {
-    pub fn from_manifest(path: &Path) -> Result<Metadata, Error> {
-        let path = match path.is_file() {
-            true => path.to_path_buf(),
-            false => path.join("manifest.toml"),
-        }
-        .canonicalize()?;
-        let mut metadata: Metadata = FileSystemHandler::read_file::<Manifest>(&path)?.metadata;
-        metadata.directory = path.canonicalize()?;
-        Ok(metadata)
-    }
-
+    /// Creates a new builder for the metadata struct.
     pub fn builder() -> MetadataBuilder {
         MetadataBuilder::new()
     }
 
+    /// Create a builder to update existing metadata.
     pub fn update(self) -> MetadataBuilder {
         MetadataBuilder::from_metadata(self)
     }
 
-    pub fn write_manifest(self) -> Result<Self, Error> {
-        let manifest = Manifest { metadata: self };
+    /// Returns the directory associated with the metadata.
+    pub fn directory(&self) -> &Path {
+        &self.directory
+    }
 
-        FileSystemHandler::write_file(&manifest, &manifest.metadata.directory)?;
-
-        Ok(manifest.metadata)
+    /// Update the directory of the metadata.
+    ///
+    /// The "directory" field has to be treated differently, as
+    /// it can differ between hosts, as such it is not written
+    /// to the manifest file.
+    pub fn update_directory(&mut self, path: PathBuf) {
+        self.directory = path
     }
 }
 
+/// Errors related to metadata operations.
 #[derive(Debug, Error)]
 pub enum Error {
     #[error("failed to build Metadata")]
     FailedToBuild(#[from] builder::Error),
 
     #[error("file system error")]
-    FileSystem(#[from] file_system_handler::Error),
+    FileSystem(#[from] file_handler::Error),
 
     #[error("io error")]
     Io(#[from] io::Error),
