@@ -26,7 +26,11 @@ jobs:
           bun-version: latest
 
       - name: install bun dependencies
-        run: bun i
+        run: |
+          echo $PWD
+          ls
+          bun i
+
 
       - name: frontend checks
         run: bun check
