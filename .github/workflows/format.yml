@@ -56,9 +56,8 @@ jobs:
           git add .
           TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           git commit -m "chore(workflow): formatted code $TIMESTAMP"
+          # Pushing doesnt work for some reason 
+          # git push
 
-      - name: Push Changes
-        uses: ad-m/github-push-action@77c5b412c50b723d2a4fbc6d71fb5723bcd439aa
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+
+
