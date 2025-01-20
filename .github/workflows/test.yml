@@ -16,8 +16,6 @@ jobs:
   test-frontend:
     permissions:
       contents: write
-    strategy:
-      fail-fast: false
     runs-on: 'ubuntu-24.04'
     steps:
       - name: Setup Bun
@@ -41,8 +39,6 @@ jobs:
   test-backend:
     permissions:
       contents: write
-    strategy:
-      fail-fast: false
     runs-on: 'ubuntu-24.04'
     steps:
       - name: Setup Bun
