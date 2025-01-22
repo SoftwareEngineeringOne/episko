@@ -5,5 +5,7 @@ version.workspace = true
 license.workspace = true
 
 [dependencies]
+camino = "1.1.9"
+clap = { version = "4.5.26", features = ["derive"] }
 episkos_lib.workspace = true
 
