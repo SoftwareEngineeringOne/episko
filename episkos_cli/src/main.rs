@@ -1,7 +1,5 @@
 use clap::Parser;
-
-mod cli;
-mod lib;
+use episkos_cli::cli;
 
 
 
@@ -9,17 +7,18 @@ fn main() {
     let args = cli::Args::parse();
 
     match &args.command {
-        cli::Commands::Create { data } => {
-            lib::create(data.clone());
+        cli::Commands::Create { non_interactive, id, directory, title, categories, languages, preferred_ide, build_systems, description , repository_url } => {
+            // TODO: Take all arguments into a struct and give it to the create function
+            //episkos_cli::create(data.clone());
         }
         cli::Commands::Remove { file } => {
-            lib::remove(file.clone());
+            episkos_cli::remove(file.clone());
         }
         cli::Commands::Add { file } => {
-            lib::add(file.clone());
+            episkos_cli::add(file.clone());
         }
         cli::Commands::Validate { file } => {
-            lib::validate(file.clone());
+            episkos_cli::validate(file.clone());
         }
     }
 }
