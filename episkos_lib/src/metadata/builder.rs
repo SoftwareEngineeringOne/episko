@@ -151,3 +151,74 @@ pub enum Error {
     #[error("io error")]
     IoError(#[from] io::Error),
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_metadata_builder() {
+        let builder = MetadataBuilder::new()
+            .title("Test Project")
+            .directory(Path::new("."))
+            .unwrap()
+            .add_category("Category1")
+            .add_language(Language::new("Rust", "1.84.0"))
+            .preffered_ide(Ide::new("VSCode"))
+            .add_build_system(BuildSystem::new("Cargo", "1.84.0"))
+            .description("A test project")
+            .repository_url("https://github.com/test/project");
+
+        let metadata = builder.build().unwrap();
+        assert_eq!(metadata.title, "Test Project");
+        assert_eq!(metadata.categories.len(), 1);
+        assert_eq!(metadata.categories[0].name, "Category1");
+        assert_eq!(metadata.languages.len(), 1);
+        assert_eq!(metadata.languages[0].name, "Rust");
+        assert!(metadata.preffered_ide.is_some());
+        assert_eq!(metadata.build_systems.len(), 1);
+        assert_eq!(metadata.description, Some("A test project".to_string()));
+        assert_eq!(
+            metadata.repository_url,
+            Some("https://github.com/test/project".to_string())
+        );
+    }
+    #[test]
+    fn test_metadata_missing_title() {
+        let builder = MetadataBuilder::new().directory(Path::new(".")).unwrap();
+        let result = builder.build();
+        assert!(result.is_err());
+        if let Err(err) = result {
+            match err {
+                Error::TitleMissing => (),
+                _ => panic!("Unexpected error type"),
+            }
+        }
+    }
+    #[test]
+    fn test_metadata_missing_dir() {
+        let builder = MetadataBuilder::new().title("Test");
+        let result = builder.build();
+        assert!(result.is_err());
+        if let Err(err) = result {
+            match err {
+                Error::DirectoryMissing => (),
+                _ => panic!("Unexpected error type"),
+            }
+        }
+    }
+
+    #[test]
+    fn test_metadata_invalid_dir() {
+        let builder = MetadataBuilder::new()
+            .title("Test")
+            .directory(Path::new("/a/b/c/d/e/f/g"));
+        assert!(builder.is_err());
+        if let Err(err) = builder {
+            match err {
+                Error::IoError(_) => (),
+                _ => panic!("Unexpected error type"),
+            }
+        }
+    }
+}
