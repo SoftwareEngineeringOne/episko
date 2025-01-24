@@ -15,10 +15,12 @@ use uuid::Uuid;
 
 pub mod build_system;
 mod builder;
+pub mod category;
 pub mod ide;
 pub mod language;
 
 pub use build_system::BuildSystem;
+pub use category::Category;
 pub use ide::Ide;
 pub use language::Language;
 
@@ -31,7 +33,7 @@ pub struct Metadata {
     #[serde(skip)]
     directory: PathBuf,
     title: String,
-    categories: Vec<String>,
+    categories: Vec<Category>,
     languages: Vec<Language>,
     preffered_ide: Option<Ide>,
     build_systems: Vec<BuildSystem>,

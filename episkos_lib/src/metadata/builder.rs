@@ -7,13 +7,13 @@ use chrono::{DateTime, Utc};
 use thiserror::Error;
 use uuid::Uuid;
 
-use super::{BuildSystem, Ide, Language, Metadata};
+use super::{BuildSystem, Category, Ide, Language, Metadata};
 
 pub struct MetadataBuilder {
     id: Option<Uuid>,
     directory: Option<PathBuf>,
     title: Option<String>,
-    categories: Vec<String>,
+    categories: Vec<Category>,
     languages: Vec<Language>,
     preffered_ide: Option<Ide>,
     build_systems: Vec<BuildSystem>,
@@ -89,11 +89,11 @@ impl MetadataBuilder {
         if category.len() == 0 {
             return self;
         }
-        self.categories.push(category.to_string());
+        self.categories.push(Category::new(category));
         self
     }
 
-    pub fn categories(mut self, categories: Vec<String>) -> Self {
+    pub fn categories(mut self, categories: Vec<Category>) -> Self {
         self.categories = categories;
         self
     }

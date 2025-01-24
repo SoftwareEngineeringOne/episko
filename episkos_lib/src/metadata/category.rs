@@ -1,12 +1,12 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Ide {
+pub struct Category {
     pub(crate) id: Option<i32>,
     pub(crate) name: String,
 }
 
-impl Ide {
+impl Category {
     pub fn new(name: &str) -> Self {
         Self {
             id: None,
