@@ -1,19 +1,23 @@
-use std::{error::Error, path::Path};
+use std::{error::Error, io::Split, path::Path};
+use clap::builder::{self, Str};
 use dialoguer::Input;
 use camino::Utf8PathBuf;
 use cli::CreateArgs;
-use episkos_lib::{files::File, metadata::Metadata};
+use episkos_lib::{files::File, metadata::{BuildSystem, Category, Ide, Language, Metadata}};
 
 pub mod cli;
 
 
 
-pub fn create( args: &CreateArgs ) -> Result<(), Box<dyn Error>> {
+pub fn create(args: &mut CreateArgs ) -> Result<(), Box<dyn Error>> {
     // TODO: Get all information from the user in a interactive mode or given data and create a new manifest
     /*match args.non_interactive  {
         false => todo!(),
         true => todo!()
     }*/
+
+
+    
 
     if args.non_interactive {
         if args.directory.is_none() {
@@ -23,47 +27,116 @@ pub fn create( args: &CreateArgs ) -> Result<(), Box<dyn Error>> {
             println!("Error: Title is missing!")
         }
     } else {
-        /*args.directory = Input::<Utf8PathBuf>::new()
-            .with_prompt("Your directory?")
+        args.directory = Some(Input::<Utf8PathBuf>::new()
+            .with_prompt("Directory")
             .interact_text()
-            .unwrap();
-        args.title = Some(Input::<String>::new()
-            .with_prompt("Your title?")
+            .unwrap());
+        args.title = Some(Input::new()
+            .with_prompt("Title")
             .interact_text()
-            .unwrap());*/
+            .unwrap());
+        loop {
+            let input: String = Input::new()
+                .with_prompt("Categories")
+                .allow_empty(true)
+                .interact_text()
+                .unwrap();
+            if input.is_empty() { break };
+            args.categories.push(input); 
+        }
+        loop {
+            let input: String = Input::new()
+                .with_prompt("Languages")
+                .allow_empty(true)
+                .interact_text()
+                .unwrap();
+            if input.is_empty() { break };
+            args.languages.push(input);
+        }
+        args.preferred_ide = Some(Input::new()
+            .with_prompt("Preferred IDE")
+            .allow_empty(true)
+            .interact_text()
+            .unwrap());
+        loop {
+            let input: String = Input::new()
+                .with_prompt("Build systems")
+                .allow_empty(true)
+                .interact_text()
+                .unwrap();
+            if input.is_empty() { break };
+            args.build_systems.push(input);
+        }
+        args.description = Some(Input::new()
+            .with_prompt("Description")
+            .allow_empty(true)
+            .interact_text()
+            .unwrap());
+        args.repository_url = Some(Input::new()
+            .with_prompt("Repository url")
+            .allow_empty(true)
+            .interact_text()
+            .unwrap());
     }
 
-    let metadata = Metadata::builder()
-        .directory(args.directory.as_ref().expect("Error: Directory is missing!").as_std_path())?
-        .title(args.title.as_ref().expect("Error: Title is missing!"))
-        .build()?;
+    let mut builder = Metadata::builder()
+        .directory(".")
+        .title(args.title.as_ref().expect("Error: Title is missing!"));
+ 
+    builder = builder.categories(
+        args.categories
+        .iter()
+        .map(|el| Category::new(el))
+        .collect()
+    );
 
-    /*if args.categories.is_some() {metadata.update().categories(args.categories);}
-    if args.languages.is_some() {metadata.update().languages(args.languages);}
-    if args.preferred_ide.is_some() {metadata.update().preffered_ide(args.preferred_ide);}
-    if args.build_systems.is_some() {metadata.update().build_systems(args.build_systems);}
-    if args.description.is_some() {metadata.update().description(args.description.as_ref().expect(""));}
-    if args.repository_url.is_some() {metadata.update().repository_url(args.repository_url.as_ref().expect(""));}*/
+    for i in args.categories.iter() {
+        builder = builder.add_category(&i);
+    }
 
-    metadata.write_file(&metadata.directory())?;
+    builder = builder.languages(
+        args.languages
+        .iter()
+        .map(|el|{
+            let mut split = el.split(':');
+            let name = split.next();
+            let version = split.next();
+            Language::with_version(name.expect(""), version.expect(""))
+        })
+        .collect()
+    );
+    if args.preferred_ide.is_some() {builder = builder.preffered_ide(Ide::new(args.preferred_ide.as_ref().expect("")));}
+    for i in args.build_systems.clone() {
+        let mut split = i.split(':');
+        let name = split.next();
+        let version = split.next();
+        builder = builder.add_build_system(BuildSystem::with_version(name.expect(""), version.expect("")));
+    }
+    if args.description.is_some() {builder = builder.description(args.description.as_ref().expect(""));}
+    if args.repository_url.is_some() {builder = builder.repository_url(args.repository_url.as_ref().expect(""));}
+
+    let metadata = builder.build()?;
 
     metadata.write_file(&metadata.directory())?;
 
     // TODO: TO BE REMOVED!
-    let read_metadata = Metadata::from_file(Path::new("."))?;
-    println!("Read: {:#?}", read_metadata);
+    let read_builder = Metadata::from_file(Path::new("."))?;
+    println!("Read: {:#?}", read_builder);
 
     Ok(())
 }
 
 pub fn remove( file: &Utf8PathBuf ) {
     // TODO: Call the method to remove the file
+    // Call remove
 }
 
 pub fn add( file: &Utf8PathBuf ) {
     // TODO: Call to add the file to the system
+    // Call from_file
 }
 
 pub fn validate( file: &Utf8PathBuf ) {
     // TODO: Call to validate a given file
+    // Call validate
 }

@@ -1,0 +1,5 @@
+How to execute:
+	> bun run tauri dev
+	> make run_cli
+	With argument:
+	> cargo run -p episkos_cli -- --name paul

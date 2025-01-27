@@ -1,0 +1,28 @@
+id = "f34188d3-6ce7-437b-9b39-a38eb3fe8940"
+title = "Test"
+build_systems = []
+created = "2025-01-27T12:58:07.890811033Z"
+updated = "2025-01-27T12:58:07.890820961Z"
+
+[[categories]]
+name = "g1"
+
+[[categories]]
+name = "g2"
+
+[[categories]]
+name = "g1"
+
+[[categories]]
+name = "g2"
+
+[[languages]]
+name = "test"
+version = "1"
+
+[[languages]]
+name = "test"
+version = "2"
+
+[preffered_ide]
+name = ""
