@@ -1,9 +1,6 @@
 use std::{error::Error, path::Path};
 
-use episkos_lib::{
-    files::File,
-    metadata::Metadata,
-};
+use episkos_lib::{files::File, metadata::Metadata};
 
 fn main() -> Result<(), Box<dyn Error>> {
     // let categories = vec![Category::new("Cool"), Category::new("University")];

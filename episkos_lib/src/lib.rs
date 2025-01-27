@@ -1,5 +1,5 @@
 //! # Episkos Library
-//! 
+//!
 //! This library is part of the projekt [Episkos](https://github.com/SoftwareEngineeringOne/episkos).
 //! It provides functionality and interfaces to create and manage
 //! metadata for projects.
