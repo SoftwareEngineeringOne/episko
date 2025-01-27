@@ -1,17 +1,25 @@
 //! # Episkos Library
+//! 
+//! This library is part of the projekt [Episkos](https://github.com/SoftwareEngineeringOne/episkos).
+//! It provides functionality and interfaces to create and manage
+//! metadata for projects.
 //!
-//! This library provides tools for handling project metadata, including reading, writing,
-//! and manipulating metadata files.
+//! ## Structure
+//! The library is structured into the following modules:
+//! - metadata
+//! - files
 //!
-//! ## Features
-//! - **Files**: Enabled with the `files` feature, includes file handling and serialization utilities.
-//! - **Metadata**: Core utilities for managing project metadata.#[cfg(feature = "files")]
+//! The metadata module is part of the core crate, while the files module
+//! is placed under the "files" feature flag, which is however enabled by
+//! default.
+//!
+//! Detailed documentation can be found within each module.
 
 #[cfg(feature = "files")]
 pub mod files;
-#[macro_use]
 pub mod metadata;
 
+/// Placeholder used as a command by tauri
 pub fn greet(name: String) -> String {
     format!("Hello, {}!", name)
 }

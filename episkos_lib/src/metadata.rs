@@ -1,7 +1,11 @@
-//! # Metadata
+//! # Metadata used within the project
 //!
-//! Provides tools for handling project metadata, including the ability to build, update,
-//! and serialize metadata structures.
+//! This module contains the metadata upon which the project is based.
+//!
+//! ## Important interfaces
+//! blablabla
+//! ### Creation
+//!
 use std::{
     io,
     path::{Path, PathBuf},
@@ -10,6 +14,7 @@ use std::{
 use builder::MetadataBuilder;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
+use sha2::{Digest, Sha256};
 use thiserror::Error;
 
 use uuid::Uuid;
@@ -67,6 +72,14 @@ impl Metadata {
     pub fn update_directory(&mut self, path: PathBuf) {
         self.directory = path
     }
+
+    pub fn get_hash(&self) -> Result<[u8; 32], Error> {
+        let string = toml::to_string(self)?;
+
+        let mut hasher = Sha256::new();
+        hasher.update(string);
+        Ok(hasher.finalize().into())
+    }
 }
 
 /// Errors related to metadata operations.
@@ -77,4 +90,48 @@ pub enum Error {
 
     #[error("io error")]
     Io(#[from] io::Error),
+
+    #[error("serialization error")]
+    Serialization(#[from] toml::ser::Error),
+}
+
+#[cfg(test)]
+mod tests {
+    
+
+    use super::*;
+
+    #[test]
+    fn test_metadata_checksum_is_consistent() {
+        let metadata = get_simple_metadata();
+        let checksum1 = metadata.get_hash().unwrap();
+        for i in 0..100 {
+            let checksum2 = metadata.get_hash().unwrap();
+            assert_eq!(checksum1, checksum2)
+        }
+    }
+
+    #[test]
+    fn test_metadata_checksum_is_changing() {
+        let metadata = get_simple_metadata();
+        let checksum1 = metadata.get_hash().unwrap();
+
+        let metadata = metadata.update().build().unwrap();
+        let checksum2 = metadata.get_hash().unwrap();
+        assert_ne!(checksum1, checksum2);
+
+        let metadata = metadata.update().title("Fun").build().unwrap();
+        let checksum3 = metadata.get_hash().unwrap();
+        assert_ne!(checksum1, checksum3);
+        assert_ne!(checksum2, checksum3);
+    }
+
+    fn get_simple_metadata() -> Metadata {
+        Metadata::builder()
+            .title("Hello")
+            .directory(Path::new("/"))
+            .unwrap()
+            .build()
+            .unwrap()
+    }
 }
