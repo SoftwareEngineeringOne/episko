@@ -9,10 +9,17 @@ pub struct BuildSystem {
 }
 
 impl BuildSystem {
-    pub fn new(name: &str, version: Option<&str>) -> Self {
+    pub fn new(name: &str) -> Self {
         Self {
             name: name.to_string(),
-            version: version.map(|v| v.to_string()),
+            version: None,
+        }
+    }
+
+    pub fn with_version(name: &str, version: &str) -> Self {
+        Self {
+            name: name.to_string(),
+            version: Some(version.to_string()),
         }
     }
 }

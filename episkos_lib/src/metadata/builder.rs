@@ -75,10 +75,12 @@ impl MetadataBuilder {
         self
     }
 
-    pub fn directory(mut self, directory: &Path) -> Result<Self, Error> {
-        let absolute_path = directory.canonicalize()?.join("manifest.toml");
-        self.directory = Some(absolute_path);
-        Ok(self)
+    pub fn directory(mut self, directory: &str) -> Self {
+        match Path::new(directory).canonicalize() {
+            Ok(absolute_path) => self.directory = Some(absolute_path.join("manifest.toml")),
+            Err(_) => self.directory = None,
+        }
+        self
     }
 
     pub fn title(mut self, title: &str) -> Self {
@@ -161,12 +163,11 @@ mod tests {
     fn test_metadata_builder() {
         let builder = MetadataBuilder::new()
             .title("Test Project")
-            .directory(Path::new("."))
-            .unwrap()
+            .directory(".")
             .add_category("Category1")
-            .add_language(Language::new("Rust", Some("1.84.0")))
+            .add_language(Language::with_version("Rust", "1.84.0"))
             .preffered_ide(Ide::new("VSCode"))
-            .add_build_system(BuildSystem::new("Cargo", Some("1.84.0")))
+            .add_build_system(BuildSystem::with_version("Cargo", "1.84.0"))
             .description("A test project")
             .repository_url("https://github.com/test/project");
 
@@ -184,9 +185,10 @@ mod tests {
             Some("https://github.com/test/project".to_string())
         );
     }
+
     #[test]
     fn test_metadata_missing_title() {
-        let builder = MetadataBuilder::new().directory(Path::new(".")).unwrap();
+        let builder = MetadataBuilder::new().directory(".");
         let result = builder.build();
         assert!(result.is_err());
         if let Err(err) = result {
@@ -196,6 +198,7 @@ mod tests {
             }
         }
     }
+
     #[test]
     fn test_metadata_missing_dir() {
         let builder = MetadataBuilder::new().title("Test");
@@ -211,13 +214,14 @@ mod tests {
 
     #[test]
     fn test_metadata_invalid_dir() {
-        let builder = MetadataBuilder::new()
+        let data = MetadataBuilder::new()
             .title("Test")
-            .directory(Path::new("/a/b/c/d/e/f/g"));
-        assert!(builder.is_err());
-        if let Err(err) = builder {
+            .directory("/a/b/c/d/e/f/g")
+            .build();
+        assert!(data.is_err());
+        if let Err(err) = data {
             match err {
-                Error::Io(_) => (),
+                Error::DirectoryMissing => (),
                 _ => panic!("Unexpected error type"),
             }
         }
