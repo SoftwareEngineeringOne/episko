@@ -7,15 +7,12 @@ pub struct Category {
     pub(crate) name: String,
 }
 
-impl Category {
-    pub fn new(name: &str) -> Self {
+impl Property for Category {
+    fn new(name: &str) -> Self {
         Self {
             name: name.to_string(),
         }
     }
-}
-
-impl Property for Category {
     fn name(&self) -> &str {
         &self.name
     }

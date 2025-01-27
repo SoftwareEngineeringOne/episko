@@ -9,13 +9,6 @@ pub struct BuildSystem {
 }
 
 impl BuildSystem {
-    pub fn new(name: &str) -> Self {
-        Self {
-            name: name.to_string(),
-            version: None,
-        }
-    }
-
     pub fn with_version(name: &str, version: &str) -> Self {
         Self {
             name: name.to_string(),
@@ -25,6 +18,12 @@ impl BuildSystem {
 }
 
 impl Property for BuildSystem {
+    fn new(name: &str) -> Self {
+        Self {
+            name: name.to_string(),
+            version: None,
+        }
+    }
     fn name(&self) -> &str {
         &self.name
     }
@@ -35,3 +34,4 @@ impl Property for BuildSystem {
 }
 
 property::impl_property_traits!(BuildSystem);
+property::impl_try_from_tuple!(BuildSystem);

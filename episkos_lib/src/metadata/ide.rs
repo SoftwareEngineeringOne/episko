@@ -7,15 +7,12 @@ pub struct Ide {
     pub(crate) name: String,
 }
 
-impl Ide {
-    pub fn new(name: &str) -> Self {
+impl Property for Ide {
+    fn new(name: &str) -> Self {
         Self {
             name: name.to_string(),
         }
     }
-}
-
-impl Property for Ide {
     fn name(&self) -> &str {
         &self.name
     }

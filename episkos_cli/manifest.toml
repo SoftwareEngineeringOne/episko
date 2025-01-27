@@ -1,0 +1,17 @@
+id = "7e32ec73-c2e1-4695-9ab2-defcd434e0d7"
+title = "Fun"
+categories = []
+build_systems = []
+created = "2025-01-27T20:51:37.356700764Z"
+updated = "2025-01-27T20:51:37.356703714Z"
+
+[[languages]]
+name = "Rust"
+version = "1.84"
+
+[[languages]]
+name = "Rust"
+
+[[languages]]
+name = "JS"
+version = "7"

@@ -21,6 +21,7 @@ use std::hash::Hash;
 /// category1.canonical(); // -> "example"
 /// ```
 pub trait Property: Serialize + DeserializeOwned + PartialEq + Eq + Hash {
+    fn new(name: &str) -> Self;
     fn name(&self) -> &str;
     fn version(&self) -> Option<&str> {
         None
@@ -54,7 +55,61 @@ macro_rules! impl_property_traits {
                 self.canonical().hash(state)
             }
         }
+
+        impl ::std::str::FromStr for $type {
+            type Err = crate::metadata::Error;
+
+            fn from_str(s: &str) -> Result<Self, Self::Err> {
+                match s.is_empty() {
+                    true => Err(Self::Err::EmptyName),
+                    false => Ok(<$type>::new(s)),
+                }
+            }
+        }
+    };
+}
+
+macro_rules! impl_try_from_tuple {
+    ($type:ty) => {
+        impl TryFrom<(&str, &str)> for $type {
+            type Error = crate::metadata::Error;
+
+            fn try_from(value: (&str, &str)) -> Result<Self, Self::Error> {
+                let name = value.0;
+                let version = value.1;
+
+                if name.is_empty() {
+                    return Err(Self::Error::EmptyName);
+                }
+
+                match version.is_empty() {
+                    true => Ok(Self::new(name)),
+                    false => Ok(Self::with_version(name, version)),
+                }
+            }
+        }
+
+        impl TryFrom<(std::string::String, std::string::String)> for $type {
+            type Error = crate::metadata::Error;
+
+            fn try_from(
+                value: (std::string::String, std::string::String),
+            ) -> Result<Self, Self::Error> {
+                let name = value.0;
+                let version = value.1;
+
+                if name.is_empty() {
+                    return Err(Self::Error::EmptyName);
+                }
+
+                match version.is_empty() {
+                    true => Ok(Self::new(&name)),
+                    false => Ok(Self::with_version(&name, &version)),
+                }
+            }
+        }
     };
 }
 
 pub(crate) use impl_property_traits;
+pub(crate) use impl_try_from_tuple;

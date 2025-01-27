@@ -7,7 +7,7 @@ use chrono::{DateTime, Utc};
 use thiserror::Error;
 use uuid::Uuid;
 
-use super::{BuildSystem, Category, Ide, Language, Metadata};
+use super::{property::Property, BuildSystem, Category, Ide, Language, Metadata};
 
 pub struct MetadataBuilder {
     id: Option<Uuid>,
@@ -75,8 +75,12 @@ impl MetadataBuilder {
         self
     }
 
-    pub fn directory(mut self, directory: &str) -> Self {
-        match Path::new(directory).canonicalize() {
+    pub fn directory(self, directory: &str) -> Self {
+        self.directory_path(Path::new(directory))
+    }
+
+    pub fn directory_path(mut self, path: &Path) -> Self {
+        match path.canonicalize() {
             Ok(absolute_path) => self.directory = Some(absolute_path.join("manifest.toml")),
             Err(_) => self.directory = None,
         }
@@ -140,6 +144,19 @@ impl MetadataBuilder {
             _ => Some(url.to_string()),
         };
         self
+    }
+}
+
+pub trait ApplyIf: Sized {
+    fn apply_if<T>(self, value: Option<T>, f: fn(Self, T) -> Self) -> Self;
+}
+
+impl ApplyIf for MetadataBuilder {
+    fn apply_if<T>(self, value: Option<T>, f: fn(Self, T) -> Self) -> Self {
+        match value {
+            Some(x) => f(self, x),
+            None => self,
+        }
     }
 }
 

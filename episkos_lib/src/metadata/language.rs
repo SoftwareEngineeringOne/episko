@@ -9,13 +9,6 @@ pub struct Language {
 }
 
 impl Language {
-    pub fn new(name: &str) -> Self {
-        Self {
-            name: name.to_string(),
-            version: None,
-        }
-    }
-
     pub fn with_version(name: &str, version: &str) -> Self {
         Self {
             name: name.to_string(),
@@ -25,6 +18,12 @@ impl Language {
 }
 
 impl Property for Language {
+    fn new(name: &str) -> Self {
+        Self {
+            name: name.to_string(),
+            version: None,
+        }
+    }
     fn name(&self) -> &str {
         &self.name
     }
@@ -35,3 +34,4 @@ impl Property for Language {
 }
 
 property::impl_property_traits!(Language);
+property::impl_try_from_tuple!(Language);

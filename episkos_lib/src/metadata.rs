@@ -51,7 +51,6 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use builder::MetadataBuilder;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
@@ -60,13 +59,14 @@ use thiserror::Error;
 use uuid::Uuid;
 
 pub mod build_system;
-mod builder;
+pub mod builder;
 pub mod category;
 pub mod ide;
 pub mod language;
 pub mod property;
 
 pub use build_system::BuildSystem;
+pub use builder::MetadataBuilder;
 pub use category::Category;
 pub use ide::Ide;
 pub use language::Language;
@@ -135,6 +135,9 @@ pub enum Error {
 
     #[error("serialization error")]
     Serialization(#[from] toml::ser::Error),
+
+    #[error("name cant be empty")]
+    EmptyName,
 }
 
 #[cfg(test)]
