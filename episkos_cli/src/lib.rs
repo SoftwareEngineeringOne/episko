@@ -37,10 +37,18 @@ pub fn create(args: &mut CreateArgs ) -> Result<(), Box<dyn Error>> {
             let mut split = el.split(':');
             let name = split.next();
             let version = split.next();
-            Language::with_version(name.expect(""), version.expect(""))
+            if version.is_some() {
+                return Language::with_version(name.expect(""), version.expect(""));
+            }
+            else {
+                return Language::new(name.expect(""));
+            }
         })
         .collect()
     );
+    if args.preferred_ide.is_some() {
+        builder = builder.preffered_ide(Ide::new(args.preferred_ide.as_ref().expect("")));
+    }
     builder = builder.build_systems(
         args.build_systems
         .iter()
@@ -48,40 +56,20 @@ pub fn create(args: &mut CreateArgs ) -> Result<(), Box<dyn Error>> {
         let mut split = el.split(':');
         let name = split.next();
         let version = split.next();
-        BuildSystem::with_version(name.expect(""), version.expect(""))
+        if version.is_some() {
+            return BuildSystem::with_version(name.expect(""), version.expect(""));
+        } else {
+            return BuildSystem::new(name.expect("msg"));
+        }
         })
         .collect()
     );
-    if args.preferred_ide.is_some() {
-        builder = builder.preffered_ide(Ide::new(args.preferred_ide.as_ref().expect("")));
-    }
     if args.description.is_some() {
         builder = builder.description(args.description.as_ref().expect(""));
     }
     if args.repository_url.is_some() {
         builder = builder.repository_url(args.repository_url.as_ref().expect(""));
     }
-
-    builder = builder.languages(
-        args.languages
-        .iter()
-        .map(|el|{
-            let mut split = el.split(':');
-            let name = split.next();
-            let version = split.next();
-            Language::with_version(name.expect(""), version.expect(""))
-        })
-        .collect()
-    );
-    if args.preferred_ide.is_some() {builder = builder.preffered_ide(Ide::new(args.preferred_ide.as_ref().expect("")));}
-    for i in args.build_systems.clone() {
-        let mut split = i.split(':');
-        let name = split.next();
-        let version = split.next();
-        builder = builder.add_build_system(BuildSystem::with_version(name.expect(""), version.expect("")));
-    }
-    if args.description.is_some() {builder = builder.description(args.description.as_ref().expect(""));}
-    if args.repository_url.is_some() {builder = builder.repository_url(args.repository_url.as_ref().expect(""));}
 
     let metadata = builder.build()?;
 
