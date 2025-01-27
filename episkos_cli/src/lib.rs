@@ -91,18 +91,15 @@ pub fn create(args: &mut CreateArgs ) -> Result<(), Box<dyn Error>> {
 }
 
 pub fn remove( file: &Utf8PathBuf ) {
-    // TODO: Call the method to remove the file
-    // Call remove
+    let _ = Metadata::remove_file(file.as_std_path());
 }
 
 pub fn add( file: &Utf8PathBuf ) {
-    // TODO: Call to add the file to the system
-    // Call from_file
+    let _ = Metadata::from_file(file.as_std_path());
 }
 
 pub fn validate( file: &Utf8PathBuf ) {
-    // TODO: Call to validate a given file
-    // Call validate
+    let _ = Metadata::validate_file(file.as_std_path());
 }
 
 fn interactive_input(args: &mut CreateArgs ) {
