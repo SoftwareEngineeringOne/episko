@@ -26,6 +26,7 @@ pub trait File: Serialize + DeserializeOwned {
     ///
     /// # Parameters
     /// - `path`: The path to the file where the data should be written.
+    ///
     /// _To keep the trait flexible, it won't be asumed, that the implementing
     /// type knows where the file should be placed, as it would be the case with
     /// Metadata._

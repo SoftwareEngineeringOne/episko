@@ -56,8 +56,8 @@ impl MetadataBuilder {
     pub fn build(self) -> Result<Metadata, Error> {
         Ok(Metadata {
             id: self.id.unwrap_or_else(Uuid::new_v4),
-            directory: self.directory.ok_or_else(|| Error::DirectoryMissing)?,
-            title: self.title.ok_or_else(|| Error::TitleMissing)?,
+            directory: self.directory.ok_or(Error::DirectoryMissing)?,
+            title: self.title.ok_or(Error::TitleMissing)?,
             categories: self.categories,
             languages: self.languages,
             preffered_ide: self.preffered_ide,
@@ -86,7 +86,7 @@ impl MetadataBuilder {
     }
 
     pub fn add_category(mut self, category: &str) -> Self {
-        if category.len() == 0 {
+        if category.is_empty() {
             return self;
         }
         self.categories.push(Category::new(category));
@@ -149,7 +149,7 @@ pub enum Error {
     DirectoryMissing,
 
     #[error("io error")]
-    IoError(#[from] io::Error),
+    Io(#[from] io::Error),
 }
 
 #[cfg(test)]
@@ -216,7 +216,7 @@ mod tests {
         assert!(builder.is_err());
         if let Err(err) = builder {
             match err {
-                Error::IoError(_) => (),
+                Error::Io(_) => (),
                 _ => panic!("Unexpected error type"),
             }
         }

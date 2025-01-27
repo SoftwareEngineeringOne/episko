@@ -6,7 +6,7 @@ impl File for Metadata {
     type Error = metadata::Error;
 
     fn write_file(&self, path: &std::path::Path) -> Result<(), Self::Error> {
-        Ok(FileHandler::write_file(&self, path)?)
+        Ok(FileHandler::write_file(self, path)?)
     }
 
     fn from_file(path: &std::path::Path) -> Result<Self, Self::Error> {
