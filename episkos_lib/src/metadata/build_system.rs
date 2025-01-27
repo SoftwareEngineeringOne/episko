@@ -1,8 +1,9 @@
 use serde::{Deserialize, Serialize};
+use uuid::Uuid;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct BuildSystem {
-    pub(crate) id: Option<i32>,
+    id: Uuid,
     pub(crate) name: String,
     pub(crate) version: String,
 }
@@ -10,14 +11,14 @@ pub struct BuildSystem {
 impl BuildSystem {
     pub fn new(name: &str, version: &str) -> Self {
         Self {
-            id: None,
+            id: Uuid::new_v4(),
             name: name.to_string(),
             version: version.to_string(),
         }
     }
 
-    pub fn with_id(mut self, id: i32) -> Self {
-        self.id = Some(id);
+    pub fn with_id(mut self, id: Uuid) -> Self {
+        self.id = id;
         self
     }
 }
