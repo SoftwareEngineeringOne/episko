@@ -2,7 +2,7 @@ use std::error::Error;
 use dialoguer::Input;
 use camino::Utf8PathBuf;
 use cli::CreateArgs;
-use episkos_lib::metadata::{BuildSystem, Category, Ide, Language, Metadata};
+use episkos_lib::{files::File, metadata::{BuildSystem, Category, Ide, Language, Metadata}};
 
 pub mod cli;
 
@@ -84,6 +84,8 @@ pub fn create(args: &mut CreateArgs ) -> Result<(), Box<dyn Error>> {
     if args.repository_url.is_some() {builder = builder.repository_url(args.repository_url.as_ref().expect(""));}
 
     let metadata = builder.build()?;
+
+    metadata.write_file(&metadata.directory())?;
 
     Ok(())
 }

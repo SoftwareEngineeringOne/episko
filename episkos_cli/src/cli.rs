@@ -36,16 +36,16 @@ pub struct CreateArgs {
         #[arg(short, long)]
         pub title: Option<String>,
         /// Categories of the project
-        #[arg(short, long)]
+        #[arg(short, long, value_parser, num_args = 1..)]
         pub categories: Vec<String>,
         /// Languages of the project, syntax: <NAME>:<VERSION> ...
-        #[arg(short, long)]
+        #[arg(short, long, value_parser, num_args = 1..)]
         pub languages: Vec<String>,
         /// Preferred IDE of the project, syntax: <NAME>:<VERSION>
         #[arg(short, long)]
         pub preferred_ide: Option<String>,
         /// Build systems of the project, syntax: <NAME>:<VERSION> ...
-        #[arg(short, long)]
+        #[arg(short, long, value_parser, num_args = 1..)]
         pub build_systems: Vec<String>,
         /// Description of the project
         #[arg(short = 'D', long)]
