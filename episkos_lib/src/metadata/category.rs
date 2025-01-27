@@ -10,7 +10,7 @@ pub struct Category {
 impl Category {
     pub fn new(name: &str) -> Self {
         Self {
-            name: name.to_lowercase(),
+            name: name.to_string(),
         }
     }
 }
