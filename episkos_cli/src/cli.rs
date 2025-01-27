@@ -24,10 +24,10 @@ pub enum Commands {
     Validate { file: Utf8PathBuf },
 }
 
-#[derive(Args)]
+#[derive(Args, Clone)]
 pub struct CreateArgs {
         /// Create the file with given data without the interactive mode
-        #[arg(short, long, action=ArgAction::SetFalse)]
+        #[arg(short, long, action=ArgAction::SetTrue)]
         pub non_interactive: bool,
         /// Directory of the project
         #[arg(short, long)]
@@ -37,16 +37,16 @@ pub struct CreateArgs {
         pub title: Option<String>,
         /// Categories of the project
         #[arg(short, long)]
-        pub categories: Option<Vec<String>>,
+        pub categories: Vec<String>,
         /// Languages of the project, syntax: <NAME>:<VERSION> ...
         #[arg(short, long)]
-        pub languages: Option<Vec<String>>,
+        pub languages: Vec<String>,
         /// Preferred IDE of the project, syntax: <NAME>:<VERSION>
         #[arg(short, long)]
         pub preferred_ide: Option<String>,
         /// Build systems of the project, syntax: <NAME>:<VERSION> ...
         #[arg(short, long)]
-        pub build_systems: Option<Vec<String>>,
+        pub build_systems: Vec<String>,
         /// Description of the project
         #[arg(short = 'D', long)]
         pub description: Option<String>,
