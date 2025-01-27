@@ -4,8 +4,26 @@
 //!
 //! ## Important interfaces
 //! blablabla
-//! ### Creation
+//! ### Builder
+//! A metadata object can be created using the MetadataBuilder.
 //!
+//! #### Example
+//! ```
+//! use episkos_lib::metadata::Metadata;
+//! use std::path::Path;
+//!
+//! // Creating a minimal metadata object
+//! let metadata = Metadata::builder()
+//!     .title("Example Project")
+//!     .directory(".")
+//!     .build()
+//!     .unwrap();
+//!
+//! ```
+//! ### Validation
+//! ### Properties
+//! #### Simple
+//! #### Advanced
 use std::{
     io,
     path::{Path, PathBuf},
@@ -31,7 +49,7 @@ pub use category::Category;
 pub use ide::Ide;
 pub use language::Language;
 
-/// Core metadata structure containing information about a project.
+/// Metadata structure containing information about a project.
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Metadata {
     id: Uuid,
@@ -49,26 +67,18 @@ pub struct Metadata {
 }
 
 impl Metadata {
-    /// Creates a new builder for the metadata struct.
     pub fn builder() -> MetadataBuilder {
         MetadataBuilder::new()
     }
 
-    /// Create a builder to update existing metadata.
     pub fn update(self) -> MetadataBuilder {
         MetadataBuilder::from_metadata(self)
     }
 
-    /// Returns the directory associated with the metadata.
     pub fn directory(&self) -> &Path {
         &self.directory
     }
 
-    /// Update the directory of the metadata.
-    ///
-    /// The "directory" field has to be treated differently, as
-    /// it can differ between hosts, as such it is not written
-    /// to the manifest file.
     pub fn update_directory(&mut self, path: PathBuf) {
         self.directory = path
     }
@@ -82,7 +92,6 @@ impl Metadata {
     }
 }
 
-/// Errors related to metadata operations.
 #[derive(Debug, Error)]
 pub enum Error {
     #[error("failed to build Metadata")]
@@ -129,8 +138,7 @@ mod tests {
     fn get_simple_metadata() -> Metadata {
         Metadata::builder()
             .title("Hello")
-            .directory(Path::new("/"))
-            .unwrap()
+            .directory("/")
             .build()
             .unwrap()
     }
