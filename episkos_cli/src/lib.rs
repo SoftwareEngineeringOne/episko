@@ -2,7 +2,7 @@ use std::error::Error;
 use dialoguer::Input;
 use camino::Utf8PathBuf;
 use cli::CreateArgs;
-use episkos_lib::{files::File, metadata::{BuildSystem, Category, Ide, Language, Metadata}};
+use episkos_lib::metadata::{BuildSystem, Category, Ide, Language, Metadata};
 
 pub mod cli;
 
@@ -62,9 +62,28 @@ pub fn create(args: &mut CreateArgs ) -> Result<(), Box<dyn Error>> {
         builder = builder.repository_url(args.repository_url.as_ref().expect(""));
     }
 
-    let metadata = builder.build()?;
+    builder = builder.languages(
+        args.languages
+        .iter()
+        .map(|el|{
+            let mut split = el.split(':');
+            let name = split.next();
+            let version = split.next();
+            Language::with_version(name.expect(""), version.expect(""))
+        })
+        .collect()
+    );
+    if args.preferred_ide.is_some() {builder = builder.preffered_ide(Ide::new(args.preferred_ide.as_ref().expect("")));}
+    for i in args.build_systems.clone() {
+        let mut split = i.split(':');
+        let name = split.next();
+        let version = split.next();
+        builder = builder.add_build_system(BuildSystem::with_version(name.expect(""), version.expect("")));
+    }
+    if args.description.is_some() {builder = builder.description(args.description.as_ref().expect(""));}
+    if args.repository_url.is_some() {builder = builder.repository_url(args.repository_url.as_ref().expect(""));}
 
-    metadata.write_file(&metadata.directory())?;
+    let metadata = builder.build()?;
 
     Ok(())
 }
