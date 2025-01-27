@@ -1,6 +1,5 @@
 use camino::Utf8PathBuf;
 use clap::{ArgAction, Args, Parser, Subcommand};
-use color_eyre::{eyre::eyre, Result};
 
 pub mod prompts;
 
@@ -19,9 +18,9 @@ pub enum Commands {
     Create(CreateArgs),
     /// Remove a given file from the filesystem and the program
     Remove { file: Utf8PathBuf },
-    /// Add a given file to the program
-    Add { file: Utf8PathBuf },
-    /// Check a manual changed file
+    /// Cache an unknown manifest file for future use
+    Cache { file: Utf8PathBuf },
+    /// Validate a manually changed or potentially corrupted file
     Validate { file: Utf8PathBuf },
 }
 

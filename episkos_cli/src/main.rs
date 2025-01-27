@@ -9,16 +9,16 @@ fn main() -> Result<()> {
 
     match args.command {
         cli::Commands::Create(create_args) => {
-            episkos_cli::create(create_args).unwrap();
+            episkos_cli::create_manifest(create_args).unwrap();
         }
         cli::Commands::Remove { file } => {
-            episkos_cli::remove(&file)?;
+            episkos_cli::remove_manifest(&file)?;
         }
-        cli::Commands::Add { file } => {
-            episkos_cli::add(&file)?;
+        cli::Commands::Cache { file } => {
+            episkos_cli::cache_manifest(&file)?;
         }
         cli::Commands::Validate { file } => {
-            episkos_cli::validate(&file)?;
+            episkos_cli::validate_manifest(&file)?;
         }
     }
     Ok(())
