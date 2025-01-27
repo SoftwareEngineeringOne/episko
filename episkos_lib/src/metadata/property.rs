@@ -1,7 +1,25 @@
+//! # Advanced Property trait and macro
 use serde::{de::DeserializeOwned, Serialize};
 use sha2::{Digest, Sha256};
 use std::hash::Hash;
 
+/// The Property trait is implemented by advanced properties.
+///
+/// It is used to allow for comparison of properties, independent of
+/// their case.
+/// ```
+/// use episkos_lib::metadata::Category;
+/// use episkos_lib::metadata::property::Property as _;
+///
+/// let category1 = Category::new("Example");
+/// let category2 = Category::new("example");
+///
+/// category1 == category2; // -> true
+///
+/// // Fields of advanced properties are converted to lowercase
+/// // for comparisons and id generation
+/// category1.canonical(); // -> "example"
+/// ```
 pub trait Property: Serialize + DeserializeOwned + PartialEq + Eq + Hash {
     fn name(&self) -> &str;
     fn version(&self) -> Option<&str> {

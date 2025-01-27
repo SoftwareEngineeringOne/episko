@@ -17,13 +17,35 @@
 //!     .title("Example Project")
 //!     .directory(".")
 //!     .build()
+//!     // Building can fail e.g. if the title is missing or the directory is invalid
 //!     .unwrap();
+//!
+//! // The builder can also be used to update metadata
+//! metadata.update()
+//! .add_category("example")
+//! .build()
+//! .unwrap();
 //!
 //! ```
 //! ### Validation
+//! In order to check wether or not a Manifest/Metadata has been changed,
+//! the `get_hash()` function can be used. As this also serializes the
+//! struct in the process, receiving a hash, also implies a valid struct.
+//!
 //! ### Properties
+//! The metadata struct holds different kinds of attributes, as were defined
+//! during the earlier phases of this project. Properties can be split into
+//! 2 categories.
 //! #### Simple
+//! These properties can be described by a type from the std library or another
+//! crate that is used. They need no special attention.
 //! #### Advanced
+//! Advanced Properties are properties, which would be described as
+//! seperate entities in an ERM model. They can be shared between
+//! metadata and can be used to describe relations.
+//!
+//! These properties are accompanied by additional traits and structures, which can
+//! be found as submodules.
 use std::{
     io,
     path::{Path, PathBuf},
@@ -67,14 +89,23 @@ pub struct Metadata {
 }
 
 impl Metadata {
+    /// Retrieve a builder to create a new Metadata object.
     pub fn builder() -> MetadataBuilder {
         MetadataBuilder::new()
     }
 
+    /// Consumes the instance and returns a builder with
+    /// the corresponding values.
     pub fn update(self) -> MetadataBuilder {
         MetadataBuilder::from_metadata(self)
     }
 
+    /// Retrieve the directory the manifest file of this
+    /// metadata object is/should be safed in.
+    ///
+    /// As the directory can differ from host to host, this
+    /// property needs to be treated special and as such is also
+    /// not serialied/deserialized.
     pub fn directory(&self) -> &Path {
         &self.directory
     }
@@ -83,6 +114,8 @@ impl Metadata {
         self.directory = path
     }
 
+    /// Generate a Sha256 hash based on the instance for
+    /// validation purposes or to check for changes.
     pub fn get_hash(&self) -> Result<[u8; 32], Error> {
         let string = toml::to_string(self)?;
 
@@ -106,7 +139,6 @@ pub enum Error {
 
 #[cfg(test)]
 mod tests {
-    
 
     use super::*;
 
