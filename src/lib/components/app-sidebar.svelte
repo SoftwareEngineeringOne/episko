@@ -1,13 +1,11 @@
 <script lang="ts" module>
-	import BookOpen from "lucide-svelte/icons/book-open";
-	import Bot from "lucide-svelte/icons/bot";
-	import ChartPie from "lucide-svelte/icons/chart-pie";
-	import Frame from "lucide-svelte/icons/frame";
-	import LifeBuoy from "lucide-svelte/icons/life-buoy";
-	import Map from "lucide-svelte/icons/map";
-	import Send from "lucide-svelte/icons/send";
-	import Settings2 from "lucide-svelte/icons/settings-2";
-	import SquareTerminal from "lucide-svelte/icons/square-terminal";
+	import {
+		BarChart3,
+		FolderOpen,
+		Home,
+		Import,
+		SettingsIcon
+	} from 'lucide-svelte';
 
 	const data = {
 		user: {
@@ -17,118 +15,31 @@
 		},
 		navMain: [
 			{
-				title: "Playground",
+				title: "Home",
 				url: "#",
-				icon: SquareTerminal,
-				isActive: true,
-				items: [
-					{
-						title: "History",
-						url: "#",
-					},
-					{
-						title: "Starred",
-						url: "#",
-					},
-					{
-						title: "Settings",
-						url: "#",
-					},
-				],
+				icon: Home,
 			},
 			{
-				title: "Models",
+				title: "All Projects",
 				url: "#",
-				icon: Bot,
-				items: [
-					{
-						title: "Genesis",
-						url: "#",
-					},
-					{
-						title: "Explorer",
-						url: "#",
-					},
-					{
-						title: "Quantum",
-						url: "#",
-					},
-				],
+				icon: FolderOpen,
 			},
 			{
-				title: "Documentation",
+				title: "Import Project",
 				url: "#",
-				icon: BookOpen,
-				items: [
-					{
-						title: "Introduction",
-						url: "#",
-					},
-					{
-						title: "Get Started",
-						url: "#",
-					},
-					{
-						title: "Tutorials",
-						url: "#",
-					},
-					{
-						title: "Changelog",
-						url: "#",
-					},
-				],
+				icon: Import,
 			},
 			{
-				title: "Settings",
+				title: "Statistics",
 				url: "#",
-				icon: Settings2,
-				items: [
-					{
-						title: "General",
-						url: "#",
-					},
-					{
-						title: "Team",
-						url: "#",
-					},
-					{
-						title: "Billing",
-						url: "#",
-					},
-					{
-						title: "Limits",
-						url: "#",
-					},
-				],
+				icon: BarChart3,
 			},
 		],
 		navSecondary: [
 			{
-				title: "DEPP",
+				title: "Settings",
 				url: "#",
-				icon: LifeBuoy,
-			},
-			{
-				title: "Feedback",
-				url: "#",
-				icon: Send,
-			},
-		],
-		projects: [
-			{
-				name: "Design Engineering",
-				url: "#",
-				icon: Frame,
-			},
-			{
-				name: "Sales & Marketing",
-				url: "#",
-				icon: ChartPie,
-			},
-			{
-				name: "Travel",
-				url: "#",
-				icon: Map,
+				icon: SettingsIcon,
 			},
 		],
 	};
@@ -136,9 +47,7 @@
 
 <script lang="ts">
 	import NavMain from "$lib/components/nav-main.svelte";
-	import NavProjects from "$lib/components/nav-projects.svelte";
 	import NavSecondary from "$lib/components/nav-secondary.svelte";
-	import NavUser from "$lib/components/nav-user.svelte";
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
 	import Command from "lucide-svelte/icons/command";
 	import type { ComponentProps } from "svelte";
@@ -152,15 +61,14 @@
 			<Sidebar.MenuItem>
 				<Sidebar.MenuButton size="lg">
 					{#snippet child({ props })}
-						<a href="##" {...props}>
+						<a {...props}>
 							<div
-								class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg"
+								class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg "
 							>
 								<Command class="size-4" />
 							</div>
 							<div class="grid flex-1 text-left text-sm leading-tight">
-								<span class="truncate font-semibold">Acme Inc</span>
-								<span class="truncate text-xs">Enterprise</span>
+								<span class="truncate font-semibold">Episco</span>
 							</div>
 						</a>
 					{/snippet}
@@ -170,10 +78,8 @@
 	</Sidebar.Header>
 	<Sidebar.Content>
 		<NavMain items={data.navMain} />
-		<NavProjects projects={data.projects} />
-		<NavSecondary items={data.navSecondary} class="mt-auto" />
 	</Sidebar.Content>
 	<Sidebar.Footer>
-		<NavUser user={data.user} />
+		<NavSecondary items={data.navSecondary} class="mt-auto" />
 	</Sidebar.Footer>
 </Sidebar.Root>
