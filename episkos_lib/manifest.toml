@@ -1,8 +1,37 @@
-[Metadata]
-id = "3b3c35e8-14f9-4a08-9a50-83168c9e273e"
+id = "8805d4ce-ecdc-491a-9294-3cc1c3dfd2bb"
 title = "Hello, World!"
-categories = []
-languages = []
-build_systems = []
-created = "2025-01-20T14:35:34.043704250Z"
-updated = "2025-01-20T14:35:34.043706370Z"
+description = "SoftwareEngineering Project"
+created = "2025-01-27T07:22:05.045382522Z"
+updated = "2025-01-27T07:22:05.045392049Z"
+
+[[categories]]
+id = "8178e267-155d-4d5a-840c-5c4ffe6a754b"
+name = "Cool"
+
+[[categories]]
+id = "7abdcb81-a157-45fd-a215-0659a855b464"
+name = "University"
+
+[[languages]]
+id = "b3242293-84cc-463a-be57-8d923bba2854"
+name = "Rust"
+version = "1.84"
+
+[[languages]]
+id = "8caaafb4-d66a-4300-9b1b-d1306b83271a"
+name = "Typescript"
+version = ""
+
+[preffered_ide]
+id = "670798fb-ad99-485a-bc8e-644a4196e198"
+name = "neovim"
+
+[[build_systems]]
+id = "d6a01d8d-7378-4d84-9df0-c8ce3c6d9797"
+name = "Cargo"
+version = "1.83"
+
+[[build_systems]]
+id = "b019ae3e-7f42-465e-95e0-1d4681290c1a"
+name = "Bun"
+version = "1.1.43"

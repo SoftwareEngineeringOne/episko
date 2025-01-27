@@ -18,6 +18,7 @@
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
             bacon
+            cargo-watch
             pkg-config
             gobject-introspection
             cargo

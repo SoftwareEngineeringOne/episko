@@ -1,12 +1,12 @@
-use crate::metadata::{self, Metadata};
+use crate::metadata::Metadata;
 
-use super::{file_handler::FileHandler, File};
+use super::{file_handler::FileHandler, Error, File};
 
 impl File for Metadata {
-    type Error = metadata::Error;
+    type Error = Error;
 
     fn write_file(&self, path: &std::path::Path) -> Result<(), Self::Error> {
-        Ok(FileHandler::write_file(self, path)?)
+        FileHandler::write_file(self, path)
     }
 
     fn from_file(path: &std::path::Path) -> Result<Self, Self::Error> {

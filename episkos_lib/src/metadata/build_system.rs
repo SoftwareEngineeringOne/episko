@@ -1,24 +1,30 @@
 use serde::{Deserialize, Serialize};
-use uuid::Uuid;
+
+use super::property::{self, Property};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct BuildSystem {
-    id: Uuid,
     pub(crate) name: String,
-    pub(crate) version: String,
+    pub(crate) version: Option<String>,
 }
 
 impl BuildSystem {
-    pub fn new(name: &str, version: &str) -> Self {
+    pub fn new(name: &str, version: Option<&str>) -> Self {
         Self {
-            id: Uuid::new_v4(),
             name: name.to_string(),
-            version: version.to_string(),
+            version: version.map(|v| v.to_string()),
         }
     }
+}
 
-    pub fn with_id(mut self, id: Uuid) -> Self {
-        self.id = id;
-        self
+impl Property for BuildSystem {
+    fn name(&self) -> &str {
+        &self.name
+    }
+
+    fn version(&self) -> Option<&str> {
+        self.version.as_deref()
     }
 }
+
+property::impl_property_traits!(BuildSystem);

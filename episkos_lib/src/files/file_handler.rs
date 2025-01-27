@@ -5,7 +5,8 @@
 use std::{fs, path::Path};
 
 use serde::{de::DeserializeOwned, Serialize};
-use thiserror::Error;
+
+use super::Error;
 
 /// Utility struct for performing file operations with serialization/deserialization support.
 pub struct FileHandler;
@@ -45,22 +46,4 @@ impl FileHandler {
     pub fn read_file<T: DeserializeOwned>(path: &Path) -> Result<T, Error> {
         Ok(toml::from_str(&fs::read_to_string(path)?)?)
     }
-}
-
-#[derive(Debug, Error)]
-pub enum Error {
-    #[error("io error")]
-    Io(#[from] std::io::Error),
-
-    #[error("toml serialization error")]
-    TomlSerialization(#[from] toml::ser::Error),
-
-    #[error("toml deserialization error")]
-    TomlDeserialization(#[from] toml::de::Error),
-
-    #[error("path {0} already exists")]
-    PathExists(String),
-
-    #[error("path {0} does not exist")]
-    PathDoesNotExist(String),
 }

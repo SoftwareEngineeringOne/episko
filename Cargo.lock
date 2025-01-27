@@ -861,6 +861,7 @@ version = "0.0.0-development"
 dependencies = [
  "chrono",
  "serde",
+ "sha2",
  "thiserror 2.0.11",
  "toml 0.8.19",
  "uuid",

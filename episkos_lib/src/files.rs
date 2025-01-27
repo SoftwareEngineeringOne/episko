@@ -7,9 +7,10 @@
 //! - `file_handler`: Core file handling utilities.
 //! - `metadata`: File-specific implementations for metadata handling.
 
-use std::path::Path;
+use std::{io, path::Path};
 
 use serde::{de::DeserializeOwned, Serialize};
+use thiserror::Error;
 
 pub mod file_handler;
 pub mod metadata;
@@ -20,7 +21,7 @@ pub mod metadata;
 /// e.g. be used for Metadata or the Config
 pub trait File: Serialize + DeserializeOwned {
     /// The error type returned by file operations.
-    type Error;
+    type Error: From<io::Error>;
 
     /// Writes the current object to the specified file path.
     ///
@@ -43,4 +44,37 @@ pub trait File: Serialize + DeserializeOwned {
     /// # Errors
     /// Returns `Self::Error` if the operation fails.
     fn from_file(path: &Path) -> Result<Self, Self::Error>;
+
+    fn remove_file(path: &Path) -> Result<(), Self::Error> {
+        match Self::validate_file(path) {
+            Ok(()) => Ok(std::fs::remove_file(path)?),
+            Err(e) => Err(e),
+        }
+    }
+
+    fn validate_file(path: &Path) -> Result<(), Self::Error> {
+        Self::from_file(path)?;
+        Ok(())
+    }
+}
+
+#[derive(Debug, Error)]
+pub enum Error {
+    #[error("io error")]
+    Io(#[from] std::io::Error),
+
+    #[error("toml serialization error")]
+    TomlSerialization(#[from] toml::ser::Error),
+
+    #[error("toml deserialization error")]
+    TomlDeserialization(#[from] toml::de::Error),
+
+    #[error("path {0} already exists")]
+    PathExists(String),
+
+    #[error("path {0} does not exist")]
+    PathDoesNotExist(String),
+
+    #[error("validation error")]
+    Invalid(#[from] crate::metadata::Error),
 }

@@ -9,6 +9,7 @@
 
 #[cfg(feature = "files")]
 pub mod files;
+#[macro_use]
 pub mod metadata;
 
 pub fn greet(name: String) -> String {

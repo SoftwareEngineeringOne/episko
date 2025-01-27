@@ -11,6 +11,7 @@ use builder::MetadataBuilder;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
+
 use uuid::Uuid;
 
 pub mod build_system;
@@ -18,13 +19,12 @@ mod builder;
 pub mod category;
 pub mod ide;
 pub mod language;
+pub mod property;
 
 pub use build_system::BuildSystem;
 pub use category::Category;
 pub use ide::Ide;
 pub use language::Language;
-
-use crate::files::file_handler;
 
 /// Core metadata structure containing information about a project.
 #[derive(Debug, Serialize, Deserialize)]
@@ -74,9 +74,6 @@ impl Metadata {
 pub enum Error {
     #[error("failed to build Metadata")]
     FailedToBuild(#[from] builder::Error),
-
-    #[error("file system error")]
-    FileSystem(#[from] file_handler::Error),
 
     #[error("io error")]
     Io(#[from] io::Error),

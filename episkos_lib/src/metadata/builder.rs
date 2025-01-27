@@ -23,6 +23,7 @@ pub struct MetadataBuilder {
 }
 
 impl MetadataBuilder {
+    #[allow(clippy::new_without_default)]
     pub fn new() -> MetadataBuilder {
         Self {
             id: None,
@@ -163,9 +164,9 @@ mod tests {
             .directory(Path::new("."))
             .unwrap()
             .add_category("Category1")
-            .add_language(Language::new("Rust", "1.84.0"))
+            .add_language(Language::new("Rust", Some("1.84.0")))
             .preffered_ide(Ide::new("VSCode"))
-            .add_build_system(BuildSystem::new("Cargo", "1.84.0"))
+            .add_build_system(BuildSystem::new("Cargo", Some("1.84.0")))
             .description("A test project")
             .repository_url("https://github.com/test/project");
 
