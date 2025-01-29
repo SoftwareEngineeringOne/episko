@@ -3,8 +3,12 @@ members = ["episkos_gui_backend", "episkos_lib", "episkos_cli"]
 resolver = "2"
 
 [workspace.package]
-version = "0.0.0-development"
-license = "MIT"
+version = "0.0.1-dev"
+license = "GPL-3.0-or-later"
+authors = ["Simon Blum", "Ben Oeckl", "Paul Stöckle", "Maximilian Rodler"]
+edition = "2021"
+description = "TBC: Project for University"
+repository = "https://github.com/SoftwareEngineeringOne/episkos"
 
 [workspace.dependencies]
 episkos_lib = { path = "episkos_lib" }
