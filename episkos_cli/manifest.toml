@@ -1,17 +1,17 @@
-id = "7e32ec73-c2e1-4695-9ab2-defcd434e0d7"
-title = "Fun"
+id = "e8c0a2fa-fde0-48be-a29e-8b9caf069093"
+title = "test"
 categories = []
-build_systems = []
-created = "2025-01-27T20:51:37.356700764Z"
-updated = "2025-01-27T20:51:37.356703714Z"
+description = "funnig"
+created = "2025-01-29T12:09:23.352309008Z"
+updated = "2025-01-29T12:09:23.352315779Z"
 
 [[languages]]
-name = "Rust"
+name = "rust"
 version = "1.84"
 
 [[languages]]
-name = "Rust"
+name = "rust"
 
-[[languages]]
-name = "JS"
-version = "7"
+[[build_systems]]
+name = "cargo"
+version = "1.84"

@@ -9,7 +9,7 @@ fn main() -> Result<()> {
 
     match args.command {
         cli::Commands::Create(create_args) => {
-            episkos_cli::create_manifest(create_args).unwrap();
+            episkos_cli::create_manifest(create_args)?;
         }
         cli::Commands::Remove { file } => {
             episkos_cli::remove_manifest(&file)?;

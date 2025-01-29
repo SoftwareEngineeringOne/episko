@@ -7,18 +7,31 @@ use dialoguer::{theme::ColorfulTheme, Input};
 use episkos_lib::metadata::{BuildSystem, Category, Ide, Language};
 
 pub fn directory_prompt(default: Option<Utf8PathBuf>) -> Result<Utf8PathBuf> {
+    if let Some(dir) = default {
+        return Ok(dir);
+    }
     text_prompt("Directory", false, default)
 }
 
 pub fn title_prompt(default: Option<String>) -> Result<String> {
+    if let Some(title) = default {
+        return Ok(title);
+    }
     text_prompt("Title", false, default)
 }
 
 pub fn description_prompt(default: Option<String>) -> Result<Option<String>> {
+    if let Some(description) = default {
+        return Ok(Some(description));
+    }
     optional_text_prompt("Description", default)
 }
 
 pub fn categories_prompt(defaults: Vec<String>) -> Result<Vec<Category>> {
+    if !defaults.is_empty() {
+        return Ok(defaults);
+    }
+
     let mut categories = vec![];
     let mut defaults = defaults.iter();
 
@@ -37,14 +50,25 @@ pub fn categories_prompt(defaults: Vec<String>) -> Result<Vec<Category>> {
 }
 
 pub fn languages_prompt(defaults: Vec<String>) -> Result<Vec<Language>> {
+    if !defaults.is_empty() {
+        return Ok(defaults);
+    }
+
     looping_prompt_with_version("Language", defaults)
 }
 
 pub fn build_systems_prompt(defaults: Vec<String>) -> Result<Vec<BuildSystem>> {
+    if !defaults.is_empty() {
+        return defaults;
+    }
+
     looping_prompt_with_version("Build System", defaults)
 }
 
 pub fn ide_prompt(default: Option<String>) -> Result<Option<Ide>> {
+    if let Some(ide) = default {
+        return;
+    }
     optional_text_prompt("Preferred Ide", default)
 }
 
