@@ -53,4 +53,4 @@ jobs:
         run: bun tauri build
 
       - name: Build Cli
-        run: cargo build -p episkos_cli
+        run: cargo build -p episko_cli
