@@ -13,6 +13,9 @@ use color_eyre::Result;
 use dialoguer::{theme::ColorfulTheme, Input};
 use episkos_lib::metadata::{BuildSystem, Category, Ide, Language};
 
+/// Maximum number of input prompts for vec data
+const MAX_ROUNDS: i8 = 25;
+
 /// Specific prompt for the directory
 pub fn directory_prompt(default: Option<Utf8PathBuf>) -> Result<Utf8PathBuf> {
     if let Some(dir) = default {
@@ -49,8 +52,7 @@ pub fn categories_prompt(defaults: Vec<String>) -> Result<Vec<Category>> {
         return Ok(categories);
     }
 
-    // Definite loop to limit the number of inputs
-    for i in 1..25 {
+    for i in 1..MAX_ROUNDS {
         let default = defaults.next().map(|el| el.to_string());
         let input: String = text_prompt(&format!("Category {}", i), true, default)?;
 
@@ -139,8 +141,7 @@ where
         return Ok(data);
     }
 
-    // Definite loop to limit the number of inputs
-    for i in 1..25 {
+    for i in 1..MAX_ROUNDS {
         let name: String = text_prompt(&format!("{} {} Name", prompt, i), true, None)?;
 
         if name.is_empty() {
