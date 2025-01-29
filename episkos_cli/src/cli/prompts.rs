@@ -28,12 +28,15 @@ pub fn description_prompt(default: Option<String>) -> Result<Option<String>> {
 }
 
 pub fn categories_prompt(defaults: Vec<String>) -> Result<Vec<Category>> {
-    if !defaults.is_empty() {
-        return Ok(defaults);
-    }
-
-    let mut categories = vec![];
+    let mut categories = Vec::with_capacity(defaults.len());
     let mut defaults = defaults.iter();
+
+    if defaults.len() > 0 {
+        for default in defaults {
+            categories.push(Category::from_str(default)?);
+        }
+        return Ok(categories);
+    }
 
     // 25 as max - i still prefer less, but doesnt really matter
     for i in 1..25 {
@@ -50,29 +53,24 @@ pub fn categories_prompt(defaults: Vec<String>) -> Result<Vec<Category>> {
 }
 
 pub fn languages_prompt(defaults: Vec<String>) -> Result<Vec<Language>> {
-    if !defaults.is_empty() {
-        return Ok(defaults);
-    }
-
     looping_prompt_with_version("Language", defaults)
 }
 
 pub fn build_systems_prompt(defaults: Vec<String>) -> Result<Vec<BuildSystem>> {
-    if !defaults.is_empty() {
-        return defaults;
-    }
-
     looping_prompt_with_version("Build System", defaults)
 }
 
 pub fn ide_prompt(default: Option<String>) -> Result<Option<Ide>> {
     if let Some(ide) = default {
-        return;
+        return Ok(Some(Ide::from_str(&ide)?));
     }
     optional_text_prompt("Preferred Ide", default)
 }
 
 pub fn repository_url_prompt(default: Option<String>) -> Result<Option<String>> {
+    if let Some(url) = default {
+        return Ok(Some(url));
+    }
     optional_text_prompt("Repository Url", default)
 }
 
@@ -115,28 +113,24 @@ where
     <T as TryFrom<(String, String)>>::Error: std::error::Error + Send + Sync + 'static,
 {
     let mut data = vec![];
-    let mut defaults = defaults.iter();
+
+    if !defaults.is_empty() {
+        let mut data: Vec<T> = Vec::with_capacity(defaults.len());
+        for default in defaults.iter() {
+            data.push(T::try_from(default.clone().parse_tuple()?)?)
+        }
+        return Ok(data);
+    }
 
     // 25 as max - i still prefer less, but doesnt really matter
     for i in 1..25 {
-        let mut default = match defaults.next() {
-            Some(val) => {
-                let values = val.clone().parse_tuple()?;
-                (Some(values.0), Some(values.1))
-            }
-            None => (None, None),
-        };
-        let name: String = text_prompt(&format!("{} {} Name", prompt, i), true, default.0)?;
+        let name: String = text_prompt(&format!("{} {} Name", prompt, i), true, None)?;
 
         if name.is_empty() {
             break;
         }
 
-        let version: String = text_prompt(
-            &format!("{} {} Version", prompt, i),
-            true,
-            default.1.take_if(|el| !el.is_empty()),
-        )?;
+        let version: String = text_prompt(&format!("{} {} Version", prompt, i), true, None)?;
         data.push((name, version).try_into()?)
     }
     Ok(data)

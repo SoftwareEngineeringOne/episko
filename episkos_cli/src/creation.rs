@@ -18,9 +18,10 @@ use episkos_lib::{
 pub fn create_manifest(args: CreateArgs) -> Result<()> {
     let builder = Metadata::builder();
 
-    let builder = match args.non_interactive {
-        false => run_interactive_creation(args, builder)?,
-        true => run_non_interactiv_creation(args, builder)?,
+    let builder = if args.non_interactive {
+        run_non_interactiv_creation(args, builder)?
+    } else {
+        run_interactive_creation(args, builder)?
     };
 
     let metadata = builder.build()?;
