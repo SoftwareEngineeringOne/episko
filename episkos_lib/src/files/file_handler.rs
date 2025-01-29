@@ -12,12 +12,28 @@ use super::Error;
 pub struct FileHandler;
 
 impl FileHandler {
+    /// Write a file with toml data, overwriting it if it exists or creating a new one if not.
+    ///
+    /// # Errors
+    ///
+    /// - [`Error::Io`] when a [`std::io::Error`] occurred
+    /// - [`Error::TomlSerialization`] when serialization of the given data failed
     pub fn write_file(data: impl Serialize, path: &Path) -> Result<(), Error> {
         let toml = toml::to_string(&data)?;
         fs::write(path, toml)?;
 
         Ok(())
     }
+
+    /// Write a file with toml data, only if it doesn't exist yet.
+    /// This function should be used when you ensure, that no exising file is
+    /// overwritten.
+    ///
+    /// # Errors
+    ///
+    /// - [`Error::Io`] when a [`std::io::Error`] occurred
+    /// - [`Error::TomlSerialization`] when serialization of the given data failed
+    /// - [`Error::PathExists`] when the given file aready exists
     pub fn write_new_file(data: impl Serialize, path: &Path) -> Result<(), Error> {
         if path.exists() {
             return Err(Error::PathExists(
@@ -31,6 +47,14 @@ impl FileHandler {
         Ok(())
     }
 
+    /// Write toml data to an existing file.
+    /// This function is used when you want to ensure, that an existing file is updated.
+    ///
+    /// # Errors
+    ///
+    /// - [`Error::Io`] when a [`std::io::Error`] occurred
+    /// - [`Error::TomlSerialization`] when serialization of the given data failed
+    /// - [`Error::PathDoesNotExist`] when the given file doesn't exists
     pub fn overwrite_file(data: impl Serialize, path: &Path) -> Result<(), Error> {
         if !path.exists() {
             return Err(Error::PathDoesNotExist(
@@ -43,6 +67,13 @@ impl FileHandler {
 
         Ok(())
     }
+
+    /// Read toml data from a given file.
+    ///
+    /// # Errors
+    ///
+    /// - [`Error::Io`] when a `std::io::Error` occurred
+    /// - [`Error::TomlDeserialization`] when deserialization of the given data failed
     pub fn read_file<T: DeserializeOwned>(path: &Path) -> Result<T, Error> {
         Ok(toml::from_str(&fs::read_to_string(path)?)?)
     }

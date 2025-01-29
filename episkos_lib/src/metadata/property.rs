@@ -21,11 +21,15 @@ use std::hash::Hash;
 /// category1.canonical(); // -> "example"
 /// ```
 pub trait Property: Serialize + DeserializeOwned + PartialEq + Eq + Hash {
+    #[must_use]
     fn new(name: &str) -> Self;
+
     fn name(&self) -> &str;
+
     fn version(&self) -> Option<&str> {
         None
     }
+
     fn canonical(&self) -> String {
         format!(
             "{}{}",
@@ -33,6 +37,7 @@ pub trait Property: Serialize + DeserializeOwned + PartialEq + Eq + Hash {
             self.version().unwrap_or_default().to_lowercase()
         )
     }
+
     fn generate_id(&self) -> [u8; 32] {
         let mut hasher = Sha256::new();
         hasher.update(self.canonical());

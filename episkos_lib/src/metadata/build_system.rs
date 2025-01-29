@@ -9,6 +9,7 @@ pub struct BuildSystem {
 }
 
 impl BuildSystem {
+    #[must_use]
     pub fn with_version(name: &str, version: &str) -> Self {
         Self {
             name: name.to_string(),
@@ -24,6 +25,7 @@ impl Property for BuildSystem {
             version: None,
         }
     }
+
     fn name(&self) -> &str {
         &self.name
     }

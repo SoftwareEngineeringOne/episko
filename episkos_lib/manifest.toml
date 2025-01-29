@@ -1,29 +1,29 @@
-id = "10f7470c-5e72-4bf7-999d-56036ca5088c"
+id = "c91f5816-a205-4e6c-82c1-f61e9deb1ad6"
 title = "Hello, World!"
 description = "SoftwareEngineering Project"
-created = "2025-01-27T12:21:15.703308322Z"
-updated = "2025-01-27T12:21:15.703309514Z"
+created = "2025-01-29T11:44:49.760321523Z"
+updated = "2025-01-29T11:44:49.760325692Z"
 
-[[categories]]
+[[category]]
 name = "Cool"
 
-[[categories]]
+[[category]]
 name = "University"
 
-[[languages]]
+[[language]]
 name = "Rust"
 version = "1.84"
 
-[[languages]]
+[[language]]
 name = "Typescript"
 
-[preffered_ide]
-name = "neovim"
-
-[[build_systems]]
+[[build_system]]
 name = "Cargo"
 version = "1.83"
 
-[[build_systems]]
+[[build_system]]
 name = "Bun"
 version = "1.1.43"
+
+[preffered_ide]
+name = "neovim"

@@ -1,3 +1,4 @@
+#![deny(clippy::pedantic)]
 //! # Episkos Library
 //!
 //! This library is part of the projekt [Episkos](https://github.com/SoftwareEngineeringOne/episkos).
@@ -18,6 +19,12 @@
 #[cfg(feature = "files")]
 pub mod files;
 pub mod metadata;
+
+/// Trait to perform a self consuming action based on a condition.
+pub trait ApplyIf: Sized {
+    #[must_use]
+    fn apply_if<T>(self, value: Option<T>, f: fn(Self, T) -> Self) -> Self;
+}
 
 /// Placeholder used as a command by tauri
 pub fn greet(name: String) -> String {

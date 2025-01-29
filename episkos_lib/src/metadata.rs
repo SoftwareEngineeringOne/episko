@@ -3,9 +3,10 @@
 //! This module contains the metadata upon which the project is based.
 //!
 //! ## Important interfaces
-//! blablabla
+//! The [`Metadata`] struct is at the core of the whole project and
+//! as such offers a few important interfaces which should be used.
 //! ### Builder
-//! A metadata object can be created using the MetadataBuilder.
+//! A metadata object can be created or updated using the [`MetadataBuilder`]
 //!
 //! #### Example
 //! ```
@@ -22,20 +23,21 @@
 //!
 //! // The builder can also be used to update metadata
 //! metadata.update()
-//! .add_category("example")
-//! .build()
-//! .unwrap();
+//!     .add_category("example")
+//!     .build()
+//!     .unwrap();
 //!
 //! ```
 //! ### Validation
 //! In order to check wether or not a Manifest/Metadata has been changed,
-//! the `get_hash()` function can be used. As this also serializes the
+//! the [`Metadata::get_hash()`] function can be used. As this also serializes the
 //! struct in the process, receiving a hash, also implies a valid struct.
 //!
 //! ### Properties
 //! The metadata struct holds different kinds of attributes, as were defined
 //! during the earlier phases of this project. Properties can be split into
 //! 2 categories.
+//!
 //! #### Simple
 //! These properties can be described by a type from the std library or another
 //! crate that is used. They need no special attention.
@@ -78,10 +80,13 @@ pub struct Metadata {
     #[serde(skip)]
     directory: PathBuf,
     title: String,
+    #[serde(rename = "category")]
     categories: Vec<Category>,
+    #[serde(rename = "language")]
     languages: Vec<Language>,
-    preffered_ide: Option<Ide>,
+    #[serde(rename = "build_system")]
     build_systems: Vec<BuildSystem>,
+    preffered_ide: Option<Ide>,
     description: Option<String>,
     repository_url: Option<String>,
     created: DateTime<Utc>,

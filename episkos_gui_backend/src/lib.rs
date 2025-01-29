@@ -1,3 +1,4 @@
+#![deny(clippy::pedantic)]
 mod commands;
 use commands::*;
 
