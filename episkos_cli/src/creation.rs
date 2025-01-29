@@ -94,8 +94,8 @@ fn run_non_interactiv_creation(
     let languages: Vec<Language> = args
         .languages
         .into_iter()
-        .map(|arg| {
-            let tuple = arg.parse_tuple()?;
+        .map(|el| {
+            let tuple = el.parse_tuple()?;
             Ok(tuple.try_into()?)
         })
         .collect::<Result<_>>()?;
@@ -103,8 +103,8 @@ fn run_non_interactiv_creation(
     let build_systems: Vec<BuildSystem> = args
         .build_systems
         .into_iter()
-        .map(|bs_arg| {
-            let tuple = bs_arg.parse_tuple()?;
+        .map(|el| {
+            let tuple = el.parse_tuple()?;
             Ok(tuple.try_into()?)
         })
         .collect::<Result<_>>()?;
