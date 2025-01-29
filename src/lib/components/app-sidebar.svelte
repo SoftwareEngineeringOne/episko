@@ -3,8 +3,8 @@
 		BarChart3,
 		FolderOpen,
 		Home,
-		Import,
-		SettingsIcon
+		Import, Plus,
+		SettingsIcon, SquarePen
 	} from 'lucide-svelte';
 
 	const data = {
@@ -25,9 +25,9 @@
 				icon: FolderOpen,
 			},
 			{
-				title: "Import Project",
+				title: "Create project",
 				url: "#",
-				icon: Import,
+				icon: Plus,
 			},
 			{
 				title: "Statistics",
@@ -68,7 +68,7 @@
 								<Command class="size-4" />
 							</div>
 							<div class="grid flex-1 text-left text-sm leading-tight">
-								<span class="truncate font-semibold">Episco</span>
+								<span class="truncate font-semibold">Episko</span>
 							</div>
 						</a>
 					{/snippet}
