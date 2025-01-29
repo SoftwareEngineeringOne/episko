@@ -45,7 +45,8 @@
 	"dependencies": {
 		"@tauri-apps/api": "^2.2.0",
 		"@tauri-apps/cli": "^2.2.5",
-		"bun-types": "^1.1.45"
+		"bun-types": "^1.1.45",
+		"mode-watcher": "^0.5.1"
 	},
 	"repository": {
 		"type": "git",
