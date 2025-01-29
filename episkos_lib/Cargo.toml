@@ -1,7 +1,10 @@
 [package]
 name = "episkos_lib"
-edition = "2021"
+description = "Library for episkos project"
+authors.workspace = true
 version.workspace = true
+edition.workspace = true
 license.workspace = true
+repository.workspace = true
 
 [dependencies]
