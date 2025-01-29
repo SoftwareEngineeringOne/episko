@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  release:
+  release-frontend:
     runs-on: ubuntu-24.04
     permissions:
       contents: write
@@ -19,10 +19,41 @@ jobs:
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+
       - run: bun i
       - run: bun test
-      - name: Release
+
+      - name: Release Bun
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bunx semantic-release
+
+  release-backend:
+    runs-on: ubuntu-24.04
+    permissions:
+      contens: write
+    steps: 
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      
+      - run: bun i
+
+      - name: Setup Cargo
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Release Crates
+        uses: katyo/publish-crates@v2
+        with:
+          registry-token: ${{ secrets.CRATES_TOKEN }}
+          ignore-unpublished-changes: true
+
+
+
+
+
+

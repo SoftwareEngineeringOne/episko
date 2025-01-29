@@ -32,7 +32,7 @@ jobs:
         with:
           bun-version: latest
 
-      - name: install Rust stable
+      - name: Setup Rust stable
         uses: dtolnay/rust-toolchain@stable
 
       - name: install bun dependencies
