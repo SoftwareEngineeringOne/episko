@@ -1,3 +1,16 @@
+//! # Main
+//! 
+//! This module contains the start of the program.
+//! 
+//! ## Structure
+//! The library is structured into the following modules:
+//! - cli
+//! - creation
+//! - removal
+//! - validation
+//! 
+//! Detailed documentation can be found within each module.
+
 use clap::Parser;
 use color_eyre::Result;
 use episkos_cli::cli;

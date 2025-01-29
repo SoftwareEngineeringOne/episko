@@ -1,3 +1,7 @@
+//! # Creation of a new manifest
+//! 
+//! This module contains the first level of code for the creation of a manifest and is directly used by the the create command.
+
 use std::str::FromStr;
 
 use super::cli::{
@@ -32,7 +36,7 @@ pub fn create_manifest(args: CreateArgs) -> Result<()> {
 }
 
 fn run_interactive_creation(args: CreateArgs, builder: MetadataBuilder) -> Result<MetadataBuilder> {
-    println!("If values have been provided via flags, they will be set as the defaults!");
+    println!("Flag passed values will not be prompted!");
     let directory = directory_prompt(args.directory)?;
     let title = title_prompt(args.title)?;
     let description = description_prompt(args.description)?;

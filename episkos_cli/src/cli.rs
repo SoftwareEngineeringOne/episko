@@ -1,3 +1,10 @@
+//! # CLI settings
+//! 
+//! This module contains the cli settings of the program.
+//! 
+//! ## Arguments
+//! The first given argument is one of the commands. The second is a file or, in case of create, there is the possibility to pass flags.
+
 use camino::Utf8PathBuf;
 use clap::{ArgAction, Args, Parser, Subcommand};
 
@@ -35,16 +42,16 @@ pub struct CreateArgs {
     /// Title of the project
     #[arg(short, long)]
     pub title: Option<String>,
-    /// Categories of the project
+    /// Categories of the project (space seperated), syntax: <CATEGORY> ...
     #[arg(short, long, value_parser, num_args = 1..)]
     pub categories: Vec<String>,
-    /// Languages of the project, syntax: <NAME>:<VERSION> ...
+    /// Languages of the project (space seperated), syntax: <NAME>:<VERSION> ...
     #[arg(short, long, value_parser, num_args = 1..)]
     pub languages: Vec<String>,
     /// Preferred IDE of the project, syntax: <NAME>:<VERSION>
     #[arg(short, long)]
     pub preferred_ide: Option<String>,
-    /// Build systems of the project, syntax: <NAME>:<VERSION> ...
+    /// Build systems of the project (space seperated), syntax: <NAME>:<VERSION> ...
     #[arg(short, long, value_parser, num_args = 1..)]
     pub build_systems: Vec<String>,
     /// Description of the project
