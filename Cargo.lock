@@ -704,10 +704,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "episkos"
-version = "0.0.0-development"
+name = "episko"
+version = "0.0.1-dev"
 dependencies = [
- "episkos_lib",
+ "episko_lib",
  "serde",
  "serde_json",
  "tauri",
@@ -716,15 +716,15 @@ dependencies = [
 ]
 
 [[package]]
-name = "episkos_cli"
-version = "0.0.0-development"
+name = "episko_cli"
+version = "0.0.1-dev"
 dependencies = [
- "episkos_lib",
+ "episko_lib",
 ]
 
 [[package]]
-name = "episkos_lib"
-version = "0.0.0-development"
+name = "episko_lib"
+version = "0.0.1-dev"
 
 [[package]]
 name = "equivalent"

@@ -1,5 +1,5 @@
 [workspace]
-members = ["episkos_gui_backend", "episkos_lib", "episkos_cli"]
+members = ["episko_gui_backend", "episko_lib", "episko_cli"]
 resolver = "2"
 
 [workspace.package]
@@ -8,7 +8,7 @@ license = "GPL-3.0-or-later"
 authors = ["Simon Blum", "Ben Oeckl", "Paul Stöckle", "Maximilian Rodler"]
 edition = "2021"
 description = "TBC: Project for University"
-repository = "https://github.com/SoftwareEngineeringOne/episkos"
+repository = "https://github.com/SoftwareEngineeringOne/episko"
 
 [workspace.dependencies]
-episkos_lib = { path = "episkos_lib" }
+episko_lib = { path = "episko_lib", version = "0.0.1-dev" }

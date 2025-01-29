@@ -1,10 +1,13 @@
 [package]
-name = "episkos_lib"
-description = "Library for episkos project"
+name = "episko_cli"
+description = "Cli for the episko project"
 authors.workspace = true
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 repository.workspace = true
 
+
 [dependencies]
+episko_lib.workspace = true
+
