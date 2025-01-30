@@ -1,5 +1,5 @@
 [package]
-name = "episkos_lib"
+name = "episko_lib"
 edition = "2021"
 version.workspace = true
 license.workspace = true

@@ -1,7 +1,7 @@
 //! # CLI settings
-//! 
+//!
 //! This module contains the cli settings of the program.
-//! 
+//!
 //! ## Arguments
 //! The first given argument is one of the commands. The second is a file or, in case of create, there is the possibility to pass flags.
 
@@ -10,7 +10,7 @@ use clap::{ArgAction, Args, Parser, Subcommand};
 
 pub mod prompts;
 
-/// CLI interface of Episkos
+/// CLI interface of Episko
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 #[command(propagate_version = true)]

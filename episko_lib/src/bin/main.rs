@@ -1,6 +1,6 @@
 use std::{error::Error, path::Path};
 
-use episkos_lib::{
+use episko_lib::{
     files::File,
     metadata::{property::Property, BuildSystem, Category, Ide, Language, Metadata},
 };

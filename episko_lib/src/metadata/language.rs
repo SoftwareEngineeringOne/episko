@@ -9,6 +9,7 @@ pub struct Language {
 }
 
 impl Language {
+    #[must_use]
     pub fn with_version(name: &str, version: &str) -> Self {
         Self {
             name: name.to_string(),
@@ -18,6 +19,7 @@ impl Language {
 }
 
 impl Property for Language {
+    #[must_use]
     fn new(name: &str) -> Self {
         Self {
             name: name.to_string(),

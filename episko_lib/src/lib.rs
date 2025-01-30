@@ -1,7 +1,7 @@
 #![deny(clippy::pedantic)]
-//! # Episkos Library
+//! # Episko Library
 //!
-//! This library is part of the projekt [Episkos](https://github.com/SoftwareEngineeringOne/episkos).
+//! This library is part of the projekt [Episko](https://github.com/SoftwareEngineeringOne/episkos).
 //! It provides functionality and interfaces to create and manage
 //! metadata for projects.
 //!
@@ -27,6 +27,7 @@ pub trait ApplyIf: Sized {
 }
 
 /// Placeholder used as a command by tauri
-pub fn greet(name: String) -> String {
-    format!("Hello, {}!", name)
+#[must_use]
+pub fn greet(name: &str) -> String {
+    format!("Hello, {name}!")
 }

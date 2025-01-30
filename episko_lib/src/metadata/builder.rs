@@ -87,7 +87,6 @@ impl MetadataBuilder {
     /// - [`Error::DirectoryMissing`], when the caller didn't provide a directory
     ///     or provided an invalid directory.
     /// - [`Error::TitleMissing`], when the caller didn't provide a title.
-    #[must_use]
     pub fn build(self) -> Result<Metadata, Error> {
         Ok(Metadata {
             id: self.id.unwrap_or_else(Uuid::new_v4),
@@ -214,12 +213,12 @@ impl MetadataBuilder {
 /// # Example
 ///
 /// ```
-/// use episkos_lib::ApplyIf;
+/// use episko_lib::{ApplyIf, metadata::{Metadata, MetadataBuilder, Category, property::Property}};
 ///
 /// let builder: MetadataBuilder = Metadata::builder().title("Example").directory(".");
 ///
-/// let category_some: Option<Category> = Some(Category::new("Optional"));
-/// let category_none: Option<Category> = None;
+/// let category_some: Option<&str> = Some("Optional");
+/// let category_none: Option<&str> = None;
 ///
 /// // metadata will have the "Optional" category.
 /// let metadata = builder

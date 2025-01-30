@@ -1,7 +1,7 @@
 //! Prompts for interactive creation mode
-//! 
+//!
 //! This module contains the prompts for the interactive creation mode.
-//! 
+//!
 //! ## Default values
 //! A default value (value from a flag) disables the prompt and is used instead of some input.
 
@@ -11,7 +11,7 @@ use crate::ComplexArg;
 use camino::Utf8PathBuf;
 use color_eyre::Result;
 use dialoguer::{theme::ColorfulTheme, Input};
-use episkos_lib::metadata::{BuildSystem, Category, Ide, Language};
+use episko_lib::metadata::{BuildSystem, Category, Ide, Language};
 
 /// Maximum number of input prompts for vec data
 const MAX_ROUNDS: i8 = 25;

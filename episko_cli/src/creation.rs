@@ -1,5 +1,5 @@
 //! # Creation of a new manifest
-//! 
+//!
 //! This module contains the first level of code for the creation of a manifest and is directly used by the the create command.
 
 use std::str::FromStr;
@@ -14,7 +14,7 @@ use super::cli::{
 use super::ComplexArg;
 use camino::Utf8Path;
 use color_eyre::Result;
-use episkos_lib::{
+use episko_lib::{
     files::File,
     metadata::{builder::ApplyIf, BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder},
 };

@@ -10,7 +10,7 @@
 //!
 //! #### Example
 //! ```
-//! use episkos_lib::metadata::Metadata;
+//! use episko_lib::metadata::Metadata;
 //! use std::path::Path;
 //!
 //! // Creating a minimal metadata object
@@ -95,12 +95,14 @@ pub struct Metadata {
 
 impl Metadata {
     /// Retrieve a builder to create a new Metadata object.
+    #[must_use]
     pub fn builder() -> MetadataBuilder {
         MetadataBuilder::new()
     }
 
     /// Consumes the instance and returns a builder with
     /// the corresponding values.
+    #[must_use]
     pub fn update(self) -> MetadataBuilder {
         MetadataBuilder::from_metadata(self)
     }
@@ -111,16 +113,21 @@ impl Metadata {
     /// As the directory can differ from host to host, this
     /// property needs to be treated special and as such is also
     /// not serialied/deserialized.
+    #[must_use]
     pub fn directory(&self) -> &Path {
         &self.directory
     }
 
     pub fn update_directory(&mut self, path: PathBuf) {
-        self.directory = path
+        self.directory = path;
     }
 
     /// Generate a Sha256 hash based on the instance for
     /// validation purposes or to check for changes.
+    ///
+    /// # Errors
+    ///
+    /// - [`Error::Serialization`], when unable to serialize into toml string
     pub fn get_hash(&self) -> Result<[u8; 32], Error> {
         let string = toml::to_string(self)?;
 

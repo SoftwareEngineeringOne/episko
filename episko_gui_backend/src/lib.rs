@@ -1,7 +1,11 @@
 #![deny(clippy::pedantic)]
 mod commands;
-use commands::*;
+use commands::greet;
 
+/// Docs will be added
+///
+/// # Panics
+///
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()

@@ -8,8 +8,8 @@ use std::hash::Hash;
 /// It is used to allow for comparison of properties, independent of
 /// their case.
 /// ```
-/// use episkos_lib::metadata::Category;
-/// use episkos_lib::metadata::property::Property as _;
+/// use episko_lib::metadata::Category;
+/// use episko_lib::metadata::property::Property as _;
 ///
 /// let category1 = Category::new("Example");
 /// let category2 = Category::new("example");
