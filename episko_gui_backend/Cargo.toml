@@ -1,8 +1,12 @@
 [package]
-name = "episkos"
-edition = "2021"
+name = "episko"
+authors.workspace = true
 version.workspace = true
+edition.workspace = true
 license.workspace = true
+description.workspace = true
+repository.workspace = true
+
 
 [lib]
 name = "gui_lib"
@@ -16,4 +20,4 @@ tauri = { version = "2", features = [] }
 tauri-plugin-shell = "2"
 serde_json = "1"
 serde = { version = "1", features = ["derive"] }
-episkos_lib.workspace = true
+episko_lib.workspace = true
