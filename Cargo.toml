@@ -11,4 +11,8 @@ description = "TBC: Project for University"
 repository = "https://github.com/SoftwareEngineeringOne/episko"
 
 [workspace.dependencies]
+thiserror = "2.0"
+chrono = { version = "0.4.39", features = ["serde"] }
+uuid = { version = "1.12.0", features = ["serde", "v4"] }
 episko_lib = { path = "episko_lib", version = "0.0.1-dev" }
+
