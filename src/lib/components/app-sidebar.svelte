@@ -16,29 +16,29 @@
 		navMain: [
 			{
 				title: "Home",
-				url: "#",
+				url: "/",
 				icon: Home,
 			},
 			{
 				title: "All Projects",
-				url: "#",
+				url: "all-projects",
 				icon: FolderOpen,
 			},
 			{
 				title: "Create project",
-				url: "#",
+				url: "create-project",
 				icon: Plus,
 			},
 			{
 				title: "Statistics",
-				url: "#",
+				url: "statistics",
 				icon: BarChart3,
 			},
 		],
 		navSecondary: [
 			{
 				title: "Settings",
-				url: "#",
+				url: "settings",
 				icon: SettingsIcon,
 			},
 		],
