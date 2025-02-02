@@ -54,6 +54,7 @@ jobs:
       - name: Release Crates
         uses: katyo/publish-crates@v2
         with:
+          no-verify: true
           registry-token: ${{ secrets.CRATES_TOKEN }}
           ignore-unpublished-changes: true
 
