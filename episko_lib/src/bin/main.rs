@@ -1,21 +1,36 @@
-use std::{error::Error, path::Path};
+use std::{error::Error, str::FromStr};
 
 use episko_lib::{
-    files::File,
-    metadata::{property::Property, BuildSystem, Category, Ide, Language, Metadata},
+    database::object::DatabaseObject,
+    metadata::{property::Property, Category, Language},
 };
 use sqlx::sqlite::SqlitePoolOptions;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    dotenvy::dotenv();
+    let connection_str = String::from_str("sqlite://episko.db")?;
 
-    let connection_str = dotenvy::var("DATABASE_URL")?;
-
+    println!("Connecting..");
     let conn = SqlitePoolOptions::new()
         .max_connections(1)
         .connect(&connection_str)
         .await?;
+
+    let lang1 = Language::with_version("Rust", "1.84");
+    let lang2 = Language::with_version("Rust", "1.83");
+
+    let id1 = lang1.generate_id();
+    let id2 = lang2.generate_id();
+
+    lang1.remove_from_db(&conn).await?;
+
+    let exists1 = lang1.exists(&conn).await?;
+    let exists2 = lang2.exists(&conn).await?;
+
+    println!("Language 1 exists: {}", exists1);
+    println!("Language 2 exists: {}", exists2);
+
+    // category.write_to_db(&conn).await?;
 
     // let categories = vec![Category::new("Cool"), Category::new("University")];
     // let languages = vec![

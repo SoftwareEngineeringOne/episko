@@ -1,5 +1,5 @@
 [workspace]
-members = ["episko_gui_backend", "episko_lib", "episko_cli"]
+members = ["episko_gui_backend", "episko_lib", "episko_cli", "episko_derive"]
 resolver = "2"
 
 [workspace.package]

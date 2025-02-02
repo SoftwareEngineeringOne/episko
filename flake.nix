@@ -23,6 +23,7 @@
             pkg-config
             gobject-introspection
             cargo
+            cargo-expand
             nushell
             cargo-update
             cargo-tauri

@@ -1,12 +1,13 @@
-use std::marker::PhantomData;
 use thiserror::Error;
 
-use sqlx::{sqlite::SqlitePoolOptions, SqliteExecutor, SqlitePool};
+pub mod handler;
+pub mod object;
+pub use object::DatabaseObject;
 
-mod database_handler;
+pub type Result<T> = std::result::Result<T, Error>;
 
 #[derive(Debug, Error)]
-enum Error {
+pub enum Error {
     #[error("Database error")]
     Db(#[from] sqlx::Error),
 
