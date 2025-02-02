@@ -18,10 +18,12 @@
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
             bacon
+            sql-formatter
             cargo-watch
             pkg-config
             gobject-introspection
             cargo
+            nushell
             cargo-update
             cargo-tauri
             nodejs
@@ -44,6 +46,7 @@
             webkitgtk_4_1
             openssl
           ];
+
         };
       }
     );

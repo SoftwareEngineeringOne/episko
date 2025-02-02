@@ -80,6 +80,7 @@ pub struct Metadata {
     #[serde(skip)]
     directory: PathBuf,
     title: String,
+    description: Option<String>,
     #[serde(rename = "category")]
     categories: Vec<Category>,
     #[serde(rename = "language")]
@@ -87,7 +88,6 @@ pub struct Metadata {
     #[serde(rename = "build_system")]
     build_systems: Vec<BuildSystem>,
     preffered_ide: Option<Ide>,
-    description: Option<String>,
     repository_url: Option<String>,
     created: DateTime<Utc>,
     updated: DateTime<Utc>,
