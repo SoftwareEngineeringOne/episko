@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS category (
 CREATE TABLE IF NOT EXISTS language (
   id BLOB PRIMARY KEY NOT NULL,
   name TEXT NOT NULL,
-  version TEXT NOT NULL,
+  version TEXT,
   -- Theoretically not needed as the id hash ensures uniqueness
   CONSTRAINT unq UNIQUE (name, version)
 );
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS language (
 CREATE TABLE IF NOT EXISTS build_system (
   id BLOB PRIMARY KEY NOT NULL,
   name TEXT NOT NULL,
-  version TEXT NOT NULL,
+  version TEXT,
   -- Theoretically not needed as the id hash ensures uniqueness
   CONSTRAINT unq UNIQUE (name, version)
 );

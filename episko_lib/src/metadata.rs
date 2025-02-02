@@ -76,21 +76,21 @@ pub use language::Language;
 /// Metadata structure containing information about a project.
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Metadata {
-    id: Uuid,
+    pub(crate) id: Uuid,
     #[serde(skip)]
-    directory: PathBuf,
-    title: String,
-    description: Option<String>,
+    pub(crate) directory: PathBuf,
+    pub(crate) title: String,
+    pub(crate) description: Option<String>,
     #[serde(rename = "category")]
-    categories: Vec<Category>,
+    pub(crate) categories: Vec<Category>,
     #[serde(rename = "language")]
-    languages: Vec<Language>,
+    pub(crate) languages: Vec<Language>,
     #[serde(rename = "build_system")]
-    build_systems: Vec<BuildSystem>,
-    preffered_ide: Option<Ide>,
-    repository_url: Option<String>,
-    created: DateTime<Utc>,
-    updated: DateTime<Utc>,
+    pub(crate) build_systems: Vec<BuildSystem>,
+    pub(crate) preffered_ide: Option<Ide>,
+    pub(crate) repository_url: Option<String>,
+    pub(crate) created: DateTime<Utc>,
+    pub(crate) updated: DateTime<Utc>,
 }
 
 impl Metadata {
