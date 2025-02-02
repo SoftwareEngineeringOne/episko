@@ -37,7 +37,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .build()?;
 
     let db = DatabaseHandler::default().await?;
-    db.insert_metadata(metadata).await?;
+    metadata.write_to_db(&db).await?;
 
     Ok(())
 }

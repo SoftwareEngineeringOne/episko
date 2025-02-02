@@ -1,4 +1,8 @@
-use sqlx::{query, sqlite::SqlitePoolOptions, SqlitePool};
+use sqlx::{
+    query::{self, Query},
+    sqlite::{SqliteArguments, SqlitePoolOptions},
+    SqliteConnection, SqliteExecutor, SqlitePool,
+};
 
 use crate::metadata::{build_system, property::Property, BuildSystem, Metadata};
 
@@ -22,73 +26,94 @@ impl DatabaseHandler {
         Self::new(&connection_str).await
     }
 
-    pub async fn insert_metadata(&self, metadata: Metadata) -> Result<()> {
-        // 1 - m Relations
-        if let Some(ref ide) = metadata.preffered_ide {
-            if !ide.exists(&self.conn).await? {
-                ide.write_to_db(&self.conn).await?;
-            }
-        }
+    pub fn conn(&self) -> &SqlitePool {
+        &self.conn
+    }
+}
 
-        self.change_my_name_bitch(&metadata).await?;
+impl Metadata {
+    const REL_INSERT_QUERY: &str = "INSERT INTO rel_metadata_{}(metadata_id, {}_id) VALUES(?, ?)";
+    const METADATA_INSERT_QUERY: &str = "
+        INSERT INTO metadata(
+            id, directory, title, description, 
+            preferred_ide, repository_url, created, updated
+        ) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 
-        // n - m Relations
-        for category in metadata.categories.iter() {
-            if !category.exists(&self.conn).await? {
-                category.write_to_db(&self.conn).await?;
-            }
-            query("INSERT INTO rel_metadata_category(metadata_id, category_id) VALUES(?, ?)")
-                .bind(metadata.id)
-                .bind(category.generate_id().to_vec())
-                .execute(&self.conn)
-                .await?;
-        }
+    pub async fn write_to_db(&self, db: &DatabaseHandler) -> Result<()> {
+        let mut transaction = db.conn.begin().await?;
 
-        for language in metadata.languages.iter() {
-            if !language.exists(&self.conn).await? {
-                language.write_to_db(&self.conn).await?;
-            }
-            query("INSERT INTO rel_metadata_language(metadata_id, language_id) VALUES(?, ?)")
-                .bind(metadata.id)
-                .bind(language.generate_id().to_vec())
-                .execute(&self.conn)
-                .await?;
-        }
-
-        for build_system in metadata.build_systems.iter() {
-            if !build_system.exists(&self.conn).await? {
-                build_system.write_to_db(&self.conn).await?;
-            }
-            query(
-                "INSERT INTO rel_metadata_build_system(metadata_id, build_system_id) VALUES(?, ?)",
-            )
-            .bind(metadata.id)
-            .bind(build_system.generate_id().to_vec())
-            .execute(&self.conn)
+        // Handle preferred IDE relationship
+        self.handle_relation(&mut transaction, &self.preffered_ide)
             .await?;
+
+        // Insert main metadata
+        self.insert_metadata(&mut transaction).await?;
+
+        // Handle all many-to-many relationships
+        self.handle_relations(&mut transaction, "category", &self.categories)
+            .await?;
+        self.handle_relations(&mut transaction, "language", &self.languages)
+            .await?;
+        self.handle_relations(&mut transaction, "build_system", &self.build_systems)
+            .await?;
+
+        transaction.commit().await?;
+        Ok(())
+    }
+
+    async fn handle_relation<T: DatabaseObject>(
+        &self,
+        executor: &mut SqliteConnection,
+        relation: &Option<T>,
+    ) -> Result<()> {
+        if let Some(item) = relation {
+            if !item.exists(&mut *executor).await? {
+                item.write_to_db(executor).await?;
+            }
         }
         Ok(())
     }
 
-    async fn change_my_name_bitch(&self, metadata: &Metadata) -> Result<()> {
-        let ide_id = match &metadata.preffered_ide {
-            Some(ide) => Some(ide.generate_id().to_vec()),
-            None => None,
-        };
-        query("
-            INSERT INTO 
-                metadata(id, directory, title, description, preferred_ide, repository_url, created, updated)
-            VALUES(?, ?, ?, ?, ?, ?, ?, ?)
-            ")
-            .bind(metadata.id)
-            .bind(metadata.directory.to_str())
-            .bind(metadata.title.clone())
-            .bind(metadata.description.clone())
+    async fn handle_relations<T: DatabaseObject + Property>(
+        &self,
+        executor: &mut SqliteConnection,
+        relation_type: &str,
+        items: &[T],
+    ) -> Result<()> {
+        let query_str = Self::REL_INSERT_QUERY.replace("{}", relation_type);
+
+        for item in items {
+            if !item.exists(&mut *executor).await? {
+                item.write_to_db(&mut *executor).await?;
+            }
+
+            sqlx::query(&query_str)
+                .bind(&self.id)
+                .bind(item.generate_id().as_slice())
+                .execute(&mut *executor)
+                .await?;
+        }
+        Ok(())
+    }
+
+    async fn insert_metadata(&self, executor: &mut SqliteConnection) -> Result<()> {
+        let directory_str = self.directory.to_str();
+        let ide_id = self
+            .preffered_ide
+            .as_ref()
+            .map(|ide| ide.generate_id().to_vec());
+
+        sqlx::query(Self::METADATA_INSERT_QUERY)
+            .bind(&self.id)
+            .bind(directory_str)
+            .bind(&self.title)
+            .bind(&self.description)
             .bind(ide_id)
-            .bind(metadata.repository_url.clone())
-            .bind(metadata.created)
-            .bind(metadata.updated)
-            .execute(&self.conn).await?;
+            .bind(&self.repository_url)
+            .bind(self.created)
+            .bind(self.updated)
+            .execute(executor)
+            .await?;
 
         Ok(())
     }
