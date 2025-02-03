@@ -3,7 +3,7 @@ members = ["episko_gui_backend", "episko_lib", "episko_cli", "episko_derive"]
 resolver = "2"
 
 [workspace.package]
-version = "0.0.1-dev"
+version = "1.0.0-alpha.1"
 license = "GPL-3.0-or-later"
 authors = ["Simon Blum", "Ben Oeckl", "Paul Stöckle", "Maximilian Rodler"]
 edition = "2021"
