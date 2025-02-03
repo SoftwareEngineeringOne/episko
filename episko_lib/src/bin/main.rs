@@ -5,7 +5,6 @@ use episko_lib::{
     files::File,
     metadata::{property::Property, BuildSystem, Category, Ide, Language, Metadata},
 };
-use sqlx::sqlite::{SqliteError, SqlitePoolOptions};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {

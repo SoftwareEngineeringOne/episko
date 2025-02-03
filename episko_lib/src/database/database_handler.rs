@@ -1,12 +1,6 @@
-use sqlx::{
-    query::{self, Query},
-    sqlite::{SqliteArguments, SqlitePoolOptions},
-    SqliteConnection, SqliteExecutor, SqlitePool,
-};
+use sqlx::{sqlite::SqlitePoolOptions, SqlitePool};
 
-use crate::metadata::{build_system, property::Property, BuildSystem, Metadata};
-
-use super::{DatabaseObject, Result};
+use super::Result;
 
 pub struct DatabaseHandler {
     conn: SqlitePool,

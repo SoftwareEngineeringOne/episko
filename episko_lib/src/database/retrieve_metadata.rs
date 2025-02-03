@@ -2,7 +2,7 @@ use super::{DatabaseHandler, DatabaseObject, Result};
 use crate::metadata::{BuildSystem, Category, Ide, Language, Metadata};
 use chrono::DateTime;
 use sqlx::Row;
-use std::{path::PathBuf, str::FromStr};
+use std::str::FromStr;
 use uuid::Uuid;
 
 impl Metadata {

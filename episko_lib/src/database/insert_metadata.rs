@@ -59,7 +59,7 @@ impl Metadata {
             }
 
             sqlx::query(&query_str)
-                .bind(&self.id)
+                .bind(self.id)
                 .bind(item.generate_id().as_slice())
                 .execute(&mut *executor)
                 .await?;
@@ -75,7 +75,7 @@ impl Metadata {
             .map(|ide| ide.generate_id().to_vec());
 
         sqlx::query(Self::METADATA_INSERT_QUERY)
-            .bind(&self.id)
+            .bind(self.id)
             .bind(directory_str)
             .bind(&self.title)
             .bind(&self.description)
