@@ -15,11 +15,12 @@ use super::ComplexArg;
 use camino::Utf8Path;
 use color_eyre::Result;
 use episko_lib::{
+    database::DatabaseHandler,
     files::File,
     metadata::{builder::ApplyIf, BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder},
 };
 
-pub fn create_manifest(args: CreateArgs) -> Result<()> {
+pub async fn create_manifest(args: CreateArgs) -> Result<()> {
     let builder = Metadata::builder();
 
     let builder = if args.non_interactive {
@@ -30,6 +31,8 @@ pub fn create_manifest(args: CreateArgs) -> Result<()> {
 
     let metadata = builder.build()?;
 
+    let db = DatabaseHandler::default().await?;
+    Metadata::write_to_db(&metadata, &db).await?;
     metadata.write_file(metadata.directory())?;
 
     Ok(())

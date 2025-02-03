@@ -4,8 +4,11 @@
 
 use camino::Utf8PathBuf;
 use color_eyre::Result;
-use episko_lib::{files::File, metadata::Metadata};
+use episko_lib::{database::DatabaseHandler, files::File, metadata::Metadata};
 
-pub fn remove_manifest(file: &Utf8PathBuf) -> Result<()> {
-    Ok(Metadata::remove_file(file.as_std_path())?)
+pub async fn remove_manifest(file: &Utf8PathBuf) -> Result<()> {
+    let db = DatabaseHandler::default().await?;
+    Metadata::remove_from_db(&Metadata::from_file(file.as_std_path())?, &db).await?;
+    Metadata::remove_file(file.as_std_path())?;
+    Ok(())
 }

@@ -1054,6 +1054,7 @@ dependencies = [
  "color-eyre",
  "dialoguer",
  "episko_lib",
+ "tokio",
 ]
 
 [[package]]

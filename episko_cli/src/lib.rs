@@ -1,5 +1,5 @@
 //! # Library of the CLI
-//! 
+//!
 //! This module contains little help functions.
 
 use color_eyre::{eyre::eyre, Result};
