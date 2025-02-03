@@ -54,6 +54,7 @@ use std::{
 };
 
 use chrono::{DateTime, Utc};
+use property::Property;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use thiserror::Error;
@@ -120,6 +121,17 @@ impl Metadata {
 
     pub fn update_directory(&mut self, path: PathBuf) {
         self.directory = path;
+    }
+
+    pub fn id(&self) -> Uuid {
+        self.id
+    }
+
+    pub fn update_ids(&mut self) {
+        self.categories.iter_mut().for_each(Property::update_id);
+        self.languages.iter_mut().for_each(Property::update_id);
+        self.build_systems.iter_mut().for_each(Property::update_id);
+        self.preffered_ide.iter_mut().for_each(Property::update_id);
     }
 
     /// Generate a Sha256 hash based on the instance for

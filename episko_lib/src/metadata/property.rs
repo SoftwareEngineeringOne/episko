@@ -43,6 +43,8 @@ pub trait Property: Serialize + DeserializeOwned + PartialEq + Eq + Hash {
         hasher.update(self.canonical());
         hasher.finalize().into()
     }
+
+    fn update_id(&mut self);
 }
 
 macro_rules! impl_property_traits {

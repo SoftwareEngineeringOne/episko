@@ -32,8 +32,8 @@ CREATE TABLE IF NOT EXISTS metadata (
   description TEXT,
   preferred_ide INTEGER,
   repository_url TEXT,
-  created BLOB NOT NULL,
-  updated BLOB NOT NULL,
+  created TEXT NOT NULL,
+  updated TEXT NOT NULL,
   FOREIGN KEY (preferred_ide) REFERENCES ide (id)
 );
 

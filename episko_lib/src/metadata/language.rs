@@ -1,12 +1,13 @@
-use crate::database::object::DatabaseObject;
+use crate::database::DatabaseObject;
 use serde::{Deserialize, Serialize};
 use sqlx::FromRow;
 
 use super::property::{self, Property};
 
-#[derive(Debug, Serialize, Deserialize, DatabaseObject, FromRow)]
+#[derive(Debug, Serialize, Deserialize, DatabaseObject, FromRow, PartialOrd, Ord)]
 #[db(table = "language")]
 pub struct Language {
+    #[serde(skip)]
     #[db(col = "id")]
     id: Vec<u8>,
     #[db(col = "name")]
@@ -33,7 +34,7 @@ impl Property for Language {
             name: name.to_string(),
             version: None,
         };
-        s.id = s.generate_id().to_vec();
+        s.update_id();
         s
     }
     fn name(&self) -> &str {
@@ -42,6 +43,10 @@ impl Property for Language {
 
     fn version(&self) -> Option<&str> {
         self.version.as_deref()
+    }
+
+    fn update_id(&mut self) {
+        self.id = self.generate_id().to_vec();
     }
 }
 

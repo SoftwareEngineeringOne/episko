@@ -1,12 +1,13 @@
-use crate::database::object::DatabaseObject;
+use crate::database::DatabaseObject;
 use serde::{Deserialize, Serialize};
 use sqlx::FromRow;
 
 use super::property::{self, Property};
 
-#[derive(Debug, Serialize, Deserialize, DatabaseObject, FromRow)]
+#[derive(Debug, Serialize, Deserialize, DatabaseObject, FromRow, PartialOrd, Ord)]
 #[db(table = "ide")]
 pub struct Ide {
+    #[serde(skip)]
     #[db(col = "id")]
     id: Vec<u8>,
     #[db(col = "name")]
@@ -22,8 +23,13 @@ impl Property for Ide {
         s.id = s.generate_id().to_vec();
         s
     }
+
     fn name(&self) -> &str {
         &self.name
+    }
+
+    fn update_id(&mut self) {
+        self.id = self.generate_id().to_vec();
     }
 }
 

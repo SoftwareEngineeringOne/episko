@@ -1,35 +1,6 @@
-use sqlx::{
-    query::{self, Query},
-    sqlite::{SqliteArguments, SqlitePoolOptions},
-    SqliteConnection, SqliteExecutor, SqlitePool,
-};
-
-use crate::metadata::{build_system, property::Property, BuildSystem, Metadata};
-
-use super::{DatabaseObject, Result};
-
-pub struct DatabaseHandler {
-    conn: SqlitePool,
-}
-
-impl DatabaseHandler {
-    pub async fn new(url: &str) -> Result<Self> {
-        let conn = SqlitePoolOptions::new()
-            .max_connections(1)
-            .connect(url)
-            .await?;
-        Ok(Self { conn })
-    }
-
-    pub async fn default() -> Result<Self> {
-        let connection_str = dotenvy::var("DATABASE_URL")?;
-        Self::new(&connection_str).await
-    }
-
-    pub fn conn(&self) -> &SqlitePool {
-        &self.conn
-    }
-}
+use super::{DatabaseHandler, DatabaseObject, Result};
+use crate::metadata::{property::Property, Metadata};
+use sqlx::SqliteConnection;
 
 impl Metadata {
     const REL_INSERT_QUERY: &str = "INSERT INTO rel_metadata_{}(metadata_id, {}_id) VALUES(?, ?)";
@@ -40,7 +11,7 @@ impl Metadata {
         ) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 
     pub async fn write_to_db(&self, db: &DatabaseHandler) -> Result<()> {
-        let mut transaction = db.conn.begin().await?;
+        let mut transaction = db.conn().begin().await?;
 
         // Handle preferred IDE relationship
         self.handle_relation(&mut transaction, &self.preffered_ide)
@@ -110,8 +81,8 @@ impl Metadata {
             .bind(&self.description)
             .bind(ide_id)
             .bind(&self.repository_url)
-            .bind(self.created)
-            .bind(self.updated)
+            .bind(self.created.to_string())
+            .bind(self.updated.to_string())
             .execute(executor)
             .await?;
 

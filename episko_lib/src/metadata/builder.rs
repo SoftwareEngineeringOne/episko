@@ -34,8 +34,8 @@ pub struct MetadataBuilder {
     build_systems: Vec<BuildSystem>,
     description: Option<String>,
     repository_url: Option<String>,
-    /// Can't be set by the caller, will be evaluated when built.
     created: Option<DateTime<Utc>>,
+    updated: Option<DateTime<Utc>>,
 }
 
 impl MetadataBuilder {
@@ -55,6 +55,7 @@ impl MetadataBuilder {
             description: None,
             repository_url: None,
             created: None,
+            updated: None,
         }
     }
 
@@ -74,6 +75,7 @@ impl MetadataBuilder {
             description: metadata.description,
             repository_url: metadata.repository_url,
             created: Some(metadata.created),
+            updated: None,
         }
     }
 
@@ -87,7 +89,11 @@ impl MetadataBuilder {
     /// - [`Error::DirectoryMissing`], when the caller didn't provide a directory
     ///     or provided an invalid directory.
     /// - [`Error::TitleMissing`], when the caller didn't provide a title.
-    pub fn build(self) -> Result<Metadata, Error> {
+    pub fn build(mut self) -> Result<Metadata, Error> {
+        self.categories.sort();
+        self.build_systems.sort();
+        self.languages.sort();
+
         Ok(Metadata {
             id: self.id.unwrap_or_else(Uuid::new_v4),
             directory: self.directory.ok_or(Error::DirectoryMissing)?,
@@ -99,8 +105,15 @@ impl MetadataBuilder {
             description: self.description,
             repository_url: self.repository_url,
             created: self.created.unwrap_or_else(Utc::now),
-            updated: Utc::now(),
+            updated: self.updated.unwrap_or_else(Utc::now),
         })
+    }
+
+    /// Assign a set id instead of generating one when building.
+    #[must_use]
+    pub fn id(mut self, id: Uuid) -> Self {
+        self.id = Some(id);
+        self
     }
 
     /// Set the directory based on a `&str`.
@@ -203,6 +216,20 @@ impl MetadataBuilder {
             0 => None,
             _ => Some(url.to_string()),
         };
+        self
+    }
+
+    /// Set the creation [`DateTime`]
+    #[must_use]
+    pub fn created(mut self, created: DateTime<Utc>) -> Self {
+        self.created = Some(created);
+        self
+    }
+
+    /// Set the updated [`DateTime`]
+    #[must_use]
+    pub fn updated(mut self, updated: DateTime<Utc>) -> Self {
+        self.updated = Some(updated);
         self
     }
 }

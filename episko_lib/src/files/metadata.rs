@@ -29,6 +29,7 @@ impl File for Metadata {
 
         let mut metadata: Metadata = FileHandler::read_file(&path)?;
         metadata.update_directory(path);
+        metadata.update_ids();
         Ok(metadata)
     }
 }

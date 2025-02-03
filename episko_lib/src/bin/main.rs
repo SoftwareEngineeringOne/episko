@@ -1,7 +1,8 @@
-use std::{error::Error, str::FromStr};
+use std::{error::Error, path::Path, str::FromStr};
 
 use episko_lib::{
-    database::{handler::DatabaseHandler, object::DatabaseObject},
+    database::{DatabaseHandler, DatabaseObject},
+    files::File,
     metadata::{property::Property, BuildSystem, Category, Ide, Language, Metadata},
 };
 use sqlx::sqlite::{SqliteError, SqlitePoolOptions};
@@ -38,6 +39,25 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     let db = DatabaseHandler::default().await?;
     metadata.write_to_db(&db).await?;
+    metadata.write_file(Path::new("./manifest1.toml"))?;
+
+    let metadata3 = Metadata::from_file(Path::new("./manifest1.toml"))?;
+    println!("Read metadata from file: {:#?}", metadata3);
+
+    let id = metadata.id();
+
+    let hash1 = metadata.get_hash()?;
+    println!("Written metadata with hash: {:#?}", hash1);
+
+    println!("Retrieving from db...");
+
+    let metadata2 = Metadata::from_db(&db, id).await?;
+    let hash2 = metadata2.get_hash()?;
+    metadata2.write_file(Path::new("./manifest2.toml"))?;
+
+    println!("Received metadata with hash: {:#?}", hash2);
+
+    println!("Hashes are equal: {}", hash1 == hash2);
 
     Ok(())
 }
