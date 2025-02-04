@@ -1,8 +1,11 @@
 [package]
 name = "episko_cli"
-edition = "2021"
+description = "Cli for the episko project"
+authors.workspace = true
 version.workspace = true
+edition.workspace = true
 license.workspace = true
+repository.workspace = true
 
 [dependencies]
 camino = "1.1.9"
