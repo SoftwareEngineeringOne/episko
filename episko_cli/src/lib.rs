@@ -1,3 +1,4 @@
+#![deny(clippy::pedantic)]
 //! # Library of the CLI
 //!
 //! This module contains little help functions.
@@ -15,12 +16,28 @@ pub use removal::remove_manifest;
 pub use validation::{cache_manifest, validate_manifest};
 
 pub trait ComplexArg {
+    /// Parse a ":" seperated, two parted argument into
+    /// a [`(String, String)`] tuple.
+    ///
+    /// # Example
+    /// ```
+    /// let language_arg = "Rust:1.84".to_string();
+    ///
+    /// let tuple: (String, String) = language_arg.parse_tuple().unwrap();
+    ///
+    /// println!("Language: {}", tuple.0); // "Rust"
+    /// println!("Version: {}", tuple.1); // "1.84"
+    ///
+    /// ```
+    /// # Errors
+    /// - [`color_eyre::Report`] when the given String does not contain 1 or 2
+    ///   parts.
     fn parse_tuple(self) -> Result<(String, String)>;
 }
 
 impl ComplexArg for String {
     fn parse_tuple(self) -> Result<(String, String)> {
-        let parts: Vec<&str> = self.split(":").collect();
+        let parts: Vec<&str> = self.split(':').collect();
 
         // Name has to be given, version is optional
         match parts.len() {
@@ -31,6 +48,11 @@ impl ComplexArg for String {
     }
 }
 
+/// Connect to the cache database by creating a [`DatabaseHandler`].
+///
+/// # Errors
+/// - Error report when connecting to the database/creating the
+///   [`DatabaseHandler`] fails.
 pub async fn connect_to_db() -> Result<DatabaseHandler> {
     Ok(DatabaseHandler::default().await?)
 }

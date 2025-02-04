@@ -1,4 +1,4 @@
-#![deny(clippy_pedantic)]
+#![deny(clippy::pedantic)]
 //! # Main
 //!
 //! This module contains the start of the program.
@@ -19,7 +19,7 @@ use episko_cli::cli;
 #[tokio::main]
 async fn main() -> Result<()> {
     color_eyre::install()?;
-    dotenvy::dotenv();
+    dotenvy::dotenv()?;
 
     let args = cli::Cli::parse();
 
