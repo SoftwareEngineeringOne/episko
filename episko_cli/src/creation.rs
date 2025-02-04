@@ -4,6 +4,8 @@
 
 use std::str::FromStr;
 
+use crate::connect_to_db;
+
 use super::cli::{
     prompts::{
         build_systems_prompt, categories_prompt, description_prompt, directory_prompt, ide_prompt,
@@ -31,8 +33,8 @@ pub async fn create_manifest(args: CreateArgs) -> Result<()> {
 
     let metadata = builder.build()?;
 
-    let db = DatabaseHandler::default().await?;
-    Metadata::write_to_db(&metadata, &db).await?;
+    let db = connect_to_db().await?;
+    metadata.write_to_db(&db).await?;
     metadata.write_file(metadata.directory())?;
 
     Ok(())

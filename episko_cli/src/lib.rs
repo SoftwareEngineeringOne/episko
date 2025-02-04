@@ -10,6 +10,7 @@ pub mod removal;
 pub mod validation;
 
 pub use creation::create_manifest;
+use episko_lib::database::DatabaseHandler;
 pub use removal::remove_manifest;
 pub use validation::{cache_manifest, validate_manifest};
 
@@ -28,4 +29,8 @@ impl ComplexArg for String {
             _ => Err(eyre!("invalid input")),
         }
     }
+}
+
+pub async fn connect_to_db() -> Result<DatabaseHandler> {
+    Ok(DatabaseHandler::default().await?)
 }

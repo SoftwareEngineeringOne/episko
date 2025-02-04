@@ -8,7 +8,7 @@ use episko_lib::{database::DatabaseHandler, files::File, metadata::Metadata};
 
 pub async fn validate_manifest(file: &Utf8PathBuf) -> Result<()> {
     // TODO
-    //let db = DatabaseHandler::default().await?;
+    // let db = connect_to_db().await?;
     //Metadata::validate_db(&Metadata::from_file(file.as_std_path())?, &db).await?;
     Metadata::validate_file(file.as_std_path())?;
     Ok(())
