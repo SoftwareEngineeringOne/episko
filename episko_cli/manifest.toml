@@ -1,0 +1,17 @@
+id = "e8c0a2fa-fde0-48be-a29e-8b9caf069093"
+title = "test"
+categories = []
+description = "funnig"
+created = "2025-01-29T12:09:23.352309008Z"
+updated = "2025-01-29T12:09:23.352315779Z"
+
+[[languages]]
+name = "rust"
+version = "1.84"
+
+[[languages]]
+name = "rust"
+
+[[build_systems]]
+name = "cargo"
+version = "1.84"

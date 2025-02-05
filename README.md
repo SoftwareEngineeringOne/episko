@@ -1,4 +1,4 @@
-# Episkos
+# Episko
 
 ## Dependencies for Rust recommendations
 - serde (serde_toml)

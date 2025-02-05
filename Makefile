@@ -10,7 +10,7 @@ run_frontend:
 	bun run frontend-dev
 
 run_cli:
-	cargo run -p episkos_cli
+	cargo run -p episko_cli
 
 test:
 	bun run test
