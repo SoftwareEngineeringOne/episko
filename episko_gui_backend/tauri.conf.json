@@ -1,8 +1,8 @@
 {
 	"$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-	"productName": "tauri2-svelte5-shadcn",
-	"version": "1.0.0",
-	"identifier": "com.tauri2-svelte5-shadcn.dev",
+	"productName": "episko",
+	"version": "1.0.0-alpha.1",
+	"identifier": "org.episko.dev",
 	"build": {
 		"frontendDist": "../build",
 		"devUrl": "http://localhost:1420",
@@ -12,7 +12,7 @@
 	"app": {
 		"windows": [
 			{
-				"title": "tauri2-svelte5-shadcn",
+				"title": "episko",
 				"width": 800,
 				"height": 600,
 				"resizable": true,
