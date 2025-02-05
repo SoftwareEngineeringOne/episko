@@ -3,7 +3,7 @@ members = ["episko_gui_backend", "episko_lib", "episko_cli"]
 resolver = "2"
 
 [workspace.package]
-version = "0.0.1-dev"
+version = "1.0.0-alpha.1"
 license = "GPL-3.0-or-later"
 authors = ["Simon Blum", "Ben Oeckl", "Paul Stöckle", "Maximilian Rodler"]
 edition = "2021"
@@ -14,4 +14,4 @@ repository = "https://github.com/SoftwareEngineeringOne/episko"
 thiserror = "2.0"
 chrono = { version = "0.4.39", features = ["serde"] }
 uuid = { version = "1.12.0", features = ["serde", "v4"] }
-episko_lib = { path = "episko_lib" }
+episko_lib = { path = "episko_lib", version = "1.0.0-alpha.1" }
