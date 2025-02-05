@@ -10,6 +10,13 @@ impl Metadata {
             preferred_ide, repository_url, created, updated
         ) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 
+    /// Write a [`Metadata`] instance to the database.
+    ///
+    /// All sub-properties will also be inserted if they don't exist yet.
+    /// Furthermore all relation tables will also be updated accordingly.
+    ///
+    /// # Errors
+    /// - [`super::Error`]
     pub async fn write_to_db(&self, db: &DatabaseHandler) -> Result<()> {
         let mut transaction = db.conn().begin().await?;
 

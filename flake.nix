@@ -25,6 +25,7 @@
             cargo
             cargo-expand
             nushell
+            sqlx-cli
             cargo-update
             cargo-tauri
             nodejs

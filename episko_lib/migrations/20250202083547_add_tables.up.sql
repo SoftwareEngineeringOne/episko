@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS metadata (
   directory TEXT NOT NULL,
   title TEXT NOT NULL,
   description TEXT,
-  preferred_ide INTEGER,
+  preferred_ide BLOB,
   repository_url TEXT,
   created TEXT NOT NULL,
   updated TEXT NOT NULL,

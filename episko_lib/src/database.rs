@@ -1,17 +1,44 @@
+//! # Database Module
+//!
+//! This module contains code regarding the interaction with
+//! the database, which is used as a persistent cache.
+//!
+//! ## [`DatabaseHandler`]
+//!
+//! The [`DatabaseHandler`] is mainly used for establishing and managing
+//! the connection to the sqlite database using [`sqlx::sqlite::SqlitePool`].
+//!
+//! ## [`DatabaseObject`]
+//!
+//! The [`DatabaseObject`] is implemented by sub-properties of [`crate::metadata::Metadata`]
+//! such as [`crate::metadata::Category`].
+//! The implementation can be done via a macro defined in the `episko_derive` crate.
+//!
+//! ## [`crate::metadata::Metadata`]
+//!
+//! The database functions regarding [`crate::metadata::Metadata`] are implemented directly
+//! on the struct.
+//! The implementations can be found in the submodules:
+//! - [`insert_metadata`]
+//! - [`retrieve_metadata`]
+//! - [`update_metadata`]
+//! - [`remove_metadata`]
+//! - [`validate_stored_metadata`]
 use thiserror::Error;
 
 pub mod database_handler;
 pub mod database_object;
 
-mod insert_metadata;
-mod remove_metadata;
-mod retrieve_metadata;
-mod update_metadata;
-mod validate_stored_metadata;
+pub mod insert_metadata;
+pub mod remove_metadata;
+pub mod retrieve_metadata;
+pub mod update_metadata;
+pub mod validate_stored_metadata;
 
 pub use database_handler::DatabaseHandler;
 pub use database_object::DatabaseObject;
 
+/// Result type for this module using [`enum@Error`]
 pub type Result<T> = std::result::Result<T, Error>;
 
 #[derive(Debug, Error)]
