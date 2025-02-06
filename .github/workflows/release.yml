@@ -53,7 +53,6 @@ jobs:
         with:
           tagName: v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version.
           releaseName: 'v__VERSION__'
-          releaseBody: 'See [CHANGES.md](https://github.com/alysonhower/tauri2-svelte5-shadcn/blob/main/CHANGES.md) for a complete list of changes.'
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}

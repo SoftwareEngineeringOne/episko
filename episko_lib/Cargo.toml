@@ -28,4 +28,3 @@ episko_derive = { path = "../episko_derive"}
 [[bin]]
 name = "lib_debug"
 path = "src/bin/main.rs"
-
