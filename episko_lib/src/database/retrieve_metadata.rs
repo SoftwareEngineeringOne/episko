@@ -6,6 +6,7 @@ use std::str::FromStr;
 use uuid::Uuid;
 
 impl Metadata {
+    /// Retrieve a metadata object based on it's id.
     pub async fn from_db(db: &DatabaseHandler, id: Uuid) -> Result<Self> {
         let row = sqlx::query(
             "SELECT id, directory, title, description, preferred_ide, repository_url, created, updated 

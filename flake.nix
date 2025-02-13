@@ -16,6 +16,9 @@
       in
       {
         devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            helix
+          ];
           nativeBuildInputs = with pkgs; [
             bacon
             sql-formatter
