@@ -27,3 +27,6 @@ vite.config.ts.timestamp-*
 .direnv
 
 target
+
+# IntelliJ
+.idea
