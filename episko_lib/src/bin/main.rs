@@ -1,11 +1,21 @@
-use std::{error::Error, path::Path};
+use std::{error::Error, path::Path, str::FromStr};
 
 use episko_lib::{
+    database::{DatabaseHandler, DatabaseObject},
     files::File,
     metadata::{property::Property, BuildSystem, Category, Ide, Language, Metadata},
 };
 
-fn main() -> Result<(), Box<dyn Error>> {
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn Error>> {
+    let connection_str = String::from_str("sqlite://episko.db")?;
+
+    // println!("Connecting..");
+    // let conn = SqlitePoolOptions::new()
+    //     .max_connections(1)
+    //     .connect(&connection_str)
+    //     .await?;
+
     let categories = vec![Category::new("Cool"), Category::new("University")];
     let languages = vec![
         Language::with_version("Rust", "1.84"),
@@ -26,9 +36,27 @@ fn main() -> Result<(), Box<dyn Error>> {
         .description("SoftwareEngineering Project")
         .build()?;
 
-    metadata.write_file(&metadata.directory())?;
+    let db = DatabaseHandler::default().await?;
+    metadata.write_to_db(&db).await?;
+    metadata.write_file(Path::new("./manifest1.toml"))?;
 
-    let metadata = Metadata::from_file(Path::new("./manifest.toml"))?;
+    let metadata3 = Metadata::from_file(Path::new("./manifest1.toml"))?;
+    println!("Read metadata from file: {:#?}", metadata3);
+
+    let id = metadata.id();
+
+    let hash1 = metadata.get_hash()?;
+    println!("Written metadata with hash: {:#?}", hash1);
+
+    println!("Retrieving from db...");
+
+    let metadata2 = Metadata::from_db(&db, id).await?;
+    let hash2 = metadata2.get_hash()?;
+    metadata2.write_file(Path::new("./manifest2.toml"))?;
+
+    println!("Received metadata with hash: {:#?}", hash2);
+
+    println!("Hashes are equal: {}", hash1 == hash2);
 
     Ok(())
 }

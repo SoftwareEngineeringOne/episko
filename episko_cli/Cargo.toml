@@ -12,5 +12,7 @@ camino = "1.1.9"
 clap = { version = "4.5.26", features = ["derive"] }
 color-eyre = "0.6.3"
 dialoguer = "0.11.0"
+dotenvy = "0.15.7"
 episko_lib.workspace = true
+tokio = "1.43.0"
 

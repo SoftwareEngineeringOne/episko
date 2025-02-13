@@ -1,20 +1,34 @@
+use crate::database::DatabaseObject;
 use serde::{Deserialize, Serialize};
+use sqlx::FromRow;
 
 use super::property::{self, Property};
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, DatabaseObject, FromRow, PartialOrd, Ord)]
+#[db(table = "category")]
 pub struct Category {
+    #[serde(skip)]
+    #[db(col = "id")]
+    id: Vec<u8>,
+    #[db(col = "name")]
     pub(crate) name: String,
 }
 
 impl Property for Category {
     fn new(name: &str) -> Self {
-        Self {
+        let mut s = Self {
+            id: vec![],
             name: name.to_string(),
-        }
+        };
+        s.update_id();
+        s
     }
     fn name(&self) -> &str {
         &self.name
+    }
+
+    fn update_id(&mut self) {
+        self.id = self.generate_id().to_vec();
     }
 }
 

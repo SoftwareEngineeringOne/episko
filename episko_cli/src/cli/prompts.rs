@@ -17,6 +17,9 @@ use episko_lib::metadata::{BuildSystem, Category, Ide, Language};
 const MAX_ROUNDS: i8 = 25;
 
 /// Specific prompt for the directory
+///
+/// # Errors
+/// - Propogates errors from [`text_prompt`]
 pub fn directory_prompt(default: Option<Utf8PathBuf>) -> Result<Utf8PathBuf> {
     if let Some(dir) = default {
         return Ok(dir);
@@ -25,6 +28,9 @@ pub fn directory_prompt(default: Option<Utf8PathBuf>) -> Result<Utf8PathBuf> {
 }
 
 /// Specific prompt for the title
+///
+/// # Errors
+/// - Propogates errors from [`text_prompt`]
 pub fn title_prompt(default: Option<String>) -> Result<String> {
     if let Some(title) = default {
         return Ok(title);
@@ -33,6 +39,9 @@ pub fn title_prompt(default: Option<String>) -> Result<String> {
 }
 
 /// Specific prompt for the description
+///
+/// # Errors
+/// - Propogates errors from [`optional_text_prompt`]
 pub fn description_prompt(default: Option<String>) -> Result<Option<String>> {
     if let Some(description) = default {
         return Ok(Some(description));
@@ -41,7 +50,11 @@ pub fn description_prompt(default: Option<String>) -> Result<Option<String>> {
 }
 
 /// Specific prompt for the categories
-pub fn categories_prompt(defaults: Vec<String>) -> Result<Vec<Category>> {
+///
+/// # Errors
+/// - Propogates errors from [`text_prompt`]
+/// - [`color_eyre::Report`] when creating a [`Category`] fails.
+pub fn categories_prompt(defaults: &[String]) -> Result<Vec<Category>> {
     let mut categories = Vec::with_capacity(defaults.len());
     let mut defaults = defaults.iter();
 
@@ -53,8 +66,8 @@ pub fn categories_prompt(defaults: Vec<String>) -> Result<Vec<Category>> {
     }
 
     for i in 1..MAX_ROUNDS {
-        let default = defaults.next().map(|el| el.to_string());
-        let input: String = text_prompt(&format!("Category {}", i), true, default)?;
+        let default = defaults.next().map(ToString::to_string);
+        let input: String = text_prompt(&format!("Category {i}"), true, default)?;
 
         if input.is_empty() {
             break;
@@ -66,16 +79,27 @@ pub fn categories_prompt(defaults: Vec<String>) -> Result<Vec<Category>> {
 }
 
 /// Specific prompt for the languages
-pub fn languages_prompt(defaults: Vec<String>) -> Result<Vec<Language>> {
+///
+/// # Errors
+/// - Propogates errors from [`looping_prompt_with_version`]
+pub fn languages_prompt(defaults: &[String]) -> Result<Vec<Language>> {
     looping_prompt_with_version("Language", defaults)
 }
 
 /// Specific prompt for the build systems
-pub fn build_systems_prompt(defaults: Vec<String>) -> Result<Vec<BuildSystem>> {
+///
+/// # Errors
+/// - Propogates errors from [`looping_prompt_with_version`]
+pub fn build_systems_prompt(defaults: &[String]) -> Result<Vec<BuildSystem>> {
     looping_prompt_with_version("Build System", defaults)
 }
 
 /// Specific prompt for the ide
+///
+/// # Errors
+/// - Propogates errors from [`optional_text_prompt`]
+/// - [`color_eyre::Report`] when creating an [`Ide`] instance from the default
+///   value fails.
 pub fn ide_prompt(default: Option<String>) -> Result<Option<Ide>> {
     if let Some(ide) = default {
         return Ok(Some(Ide::from_str(&ide)?));
@@ -84,6 +108,9 @@ pub fn ide_prompt(default: Option<String>) -> Result<Option<Ide>> {
 }
 
 /// Specific prompt for the repository url
+///
+/// # Errors
+/// - Propogates errors from [`optional_text_prompt`]
 pub fn repository_url_prompt(default: Option<String>) -> Result<Option<String>> {
     if let Some(url) = default {
         return Ok(Some(url));
@@ -92,6 +119,9 @@ pub fn repository_url_prompt(default: Option<String>) -> Result<Option<String>> 
 }
 
 /// Universal prompt for standard text
+///
+/// # Errors
+/// - [`color_eyre::Report`] when [`Input::interact_text`] fails
 fn text_prompt<T>(prompt: &str, allow_empty: bool, default: Option<T>) -> Result<T>
 where
     T: Clone + FromStr + std::fmt::Display,
@@ -111,6 +141,11 @@ where
 }
 
 /// Universal prompt for optional standard text
+///
+/// # Errors
+/// - Propogates errors from [`text_prompt`]
+/// - [`color_eyre::Report`] when [`Input::interact_text`] fails
+/// - [`color_eyre::Report`] when [`FromStr::from_str`] fails
 fn optional_text_prompt<T>(prompt: &str, default: Option<String>) -> Result<Option<T>>
 where
     T: FromStr,
@@ -118,14 +153,21 @@ where
 {
     let data: String = text_prompt(prompt, true, default)?;
 
-    match data.is_empty() {
-        true => Ok(None),
-        false => Ok(Some(T::from_str(&data)?)),
+    if data.is_empty() {
+        Ok(None)
+    } else {
+        Ok(Some(T::from_str(&data)?))
     }
 }
 
 /// Universal prompt for multiple inputs with version
-fn looping_prompt_with_version<T>(prompt: &str, defaults: Vec<String>) -> Result<Vec<T>>
+///
+/// # Errors
+/// - Propogates errors from [`text_prompt`]
+/// - [`color_eyre::Report`] when [`ComplexArg::parse_tuple`] fails
+/// - [`color_eyre::Report`] when [`TryFrom<(String, String)>`] fails
+///
+fn looping_prompt_with_version<T>(prompt: &str, defaults: &[String]) -> Result<Vec<T>>
 where
     T: TryFrom<(String, String)>,
     // Accept every type of error for color_eyre
@@ -135,21 +177,21 @@ where
 
     if !defaults.is_empty() {
         let mut data: Vec<T> = Vec::with_capacity(defaults.len());
-        for default in defaults.iter() {
-            data.push(T::try_from(default.clone().parse_tuple()?)?)
+        for default in defaults {
+            data.push(T::try_from(default.clone().parse_tuple()?)?);
         }
         return Ok(data);
     }
 
     for i in 1..MAX_ROUNDS {
-        let name: String = text_prompt(&format!("{} {} Name", prompt, i), true, None)?;
+        let name: String = text_prompt(&format!("{prompt} {i} Name"), true, None)?;
 
         if name.is_empty() {
             break;
         }
 
-        let version: String = text_prompt(&format!("{} {} Version", prompt, i), true, None)?;
-        data.push((name, version).try_into()?)
+        let version: String = text_prompt(&format!("{prompt} {i} Version"), true, None)?;
+        data.push((name, version).try_into()?);
     }
     Ok(data)
 }

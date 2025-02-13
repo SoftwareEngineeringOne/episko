@@ -54,6 +54,7 @@ use std::{
 };
 
 use chrono::{DateTime, Utc};
+use property::Property;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use thiserror::Error;
@@ -76,21 +77,21 @@ pub use language::Language;
 /// Metadata structure containing information about a project.
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Metadata {
-    id: Uuid,
+    pub(crate) id: Uuid,
     #[serde(skip)]
-    directory: PathBuf,
-    title: String,
+    pub(crate) directory: PathBuf,
+    pub(crate) title: String,
+    pub(crate) description: Option<String>,
     #[serde(rename = "category")]
-    categories: Vec<Category>,
+    pub(crate) categories: Vec<Category>,
     #[serde(rename = "language")]
-    languages: Vec<Language>,
+    pub(crate) languages: Vec<Language>,
     #[serde(rename = "build_system")]
-    build_systems: Vec<BuildSystem>,
-    preffered_ide: Option<Ide>,
-    description: Option<String>,
-    repository_url: Option<String>,
-    created: DateTime<Utc>,
-    updated: DateTime<Utc>,
+    pub(crate) build_systems: Vec<BuildSystem>,
+    pub(crate) preffered_ide: Option<Ide>,
+    pub(crate) repository_url: Option<String>,
+    pub(crate) created: DateTime<Utc>,
+    pub(crate) updated: DateTime<Utc>,
 }
 
 impl Metadata {
@@ -120,6 +121,17 @@ impl Metadata {
 
     pub fn update_directory(&mut self, path: PathBuf) {
         self.directory = path;
+    }
+
+    pub fn id(&self) -> Uuid {
+        self.id
+    }
+
+    pub fn update_ids(&mut self) {
+        self.categories.iter_mut().for_each(Property::update_id);
+        self.languages.iter_mut().for_each(Property::update_id);
+        self.build_systems.iter_mut().for_each(Property::update_id);
+        self.preffered_ide.iter_mut().for_each(Property::update_id);
     }
 
     /// Generate a Sha256 hash based on the instance for

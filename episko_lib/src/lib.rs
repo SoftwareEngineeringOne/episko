@@ -1,4 +1,4 @@
-#![deny(clippy::pedantic)]
+// #![deny(clippy::pedantic)]
 //! # Episko Library
 //!
 //! This library is part of the projekt [Episko](https://github.com/SoftwareEngineeringOne/episkos).
@@ -9,13 +9,21 @@
 //! The library is structured into the following modules:
 //! - metadata
 //! - files
+//! - database
 //!
 //! The metadata module is part of the core crate, while the files module
 //! is placed under the "files" feature flag, which is however enabled by
 //! default.
 //!
+//! Disabling default features may lead to errors, as currently macros
+//! are used in the core crate that don't work without some of the
+//! features.
+//! This needs to be adressed at a later point in the project.
+//!
 //! Detailed documentation can be found within each module.
 
+#[cfg(feature = "database")]
+pub mod database;
 #[cfg(feature = "files")]
 pub mod files;
 pub mod metadata;

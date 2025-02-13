@@ -4,6 +4,8 @@
 
 use std::str::FromStr;
 
+use crate::connect_to_db;
+
 use super::cli::{
     prompts::{
         build_systems_prompt, categories_prompt, description_prompt, directory_prompt, ide_prompt,
@@ -19,30 +21,53 @@ use episko_lib::{
     metadata::{builder::ApplyIf, BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder},
 };
 
-pub fn create_manifest(args: CreateArgs) -> Result<()> {
+/// Create a manifest based on the given cli arguments
+///
+/// # Errors
+/// - Propogates errors from [`run_non_interactiv_creation`]
+/// - Propogates errors from [`run_interactive_creation`]
+/// - Propogates errors from [`connect_to_db`]
+/// - [`color_eyre::Report`] if [`MetadataBuilder::build`] fails
+/// - [`color_eyre::Report`] if [`Metadata::write_to_db`] fails
+/// - [`color_eyre::Report`] if [`Metadata::write_file`] fails
+pub async fn create_manifest(args: CreateArgs) -> Result<()> {
     let builder = Metadata::builder();
 
     let builder = if args.non_interactive {
-        run_non_interactiv_creation(args, builder)?
+        run_non_interactive_creation(args, builder)?
     } else {
         run_interactive_creation(args, builder)?
     };
 
     let metadata = builder.build()?;
 
+    let db = connect_to_db().await?;
+    metadata.write_to_db(&db).await?;
     metadata.write_file(metadata.directory())?;
 
     Ok(())
 }
 
+/// Create a manifest with interactive prompts for missing attributes
+///
+/// # Errors
+/// - Propogates errors from each prompt:
+///     - [`directory_prompt`]
+///     - [`title_prompt`]
+///     - [`description_prompt`]
+///     - [`categories_prompt`]
+///     - [`languages_prompt`]
+///     - [`build_systems_prompt`]
+///     - [`ide_prompt`]
+///     - [`repository_url_prompt`]
 fn run_interactive_creation(args: CreateArgs, builder: MetadataBuilder) -> Result<MetadataBuilder> {
     println!("Flag passed values will not be prompted!");
     let directory = directory_prompt(args.directory)?;
     let title = title_prompt(args.title)?;
     let description = description_prompt(args.description)?;
-    let categories = categories_prompt(args.categories)?;
-    let languages = languages_prompt(args.languages)?;
-    let build_systems = build_systems_prompt(args.build_systems)?;
+    let categories = categories_prompt(&args.categories)?;
+    let languages = languages_prompt(&args.languages)?;
+    let build_systems = build_systems_prompt(&args.build_systems)?;
     let preferred_ide = ide_prompt(args.preferred_ide)?;
     let repository_url = repository_url_prompt(args.repository_url)?;
 
@@ -57,7 +82,13 @@ fn run_interactive_creation(args: CreateArgs, builder: MetadataBuilder) -> Resul
         .apply_if(repository_url.as_deref(), MetadataBuilder::repository_url))
 }
 
-fn run_non_interactiv_creation(
+/// Create a manifest with interactive prompts for missing attributes
+///
+/// # Errors
+/// - [`color_eyre::Report`] when [`Ide::from_str`] fails
+/// - [`color_eyre::Report`] when [`ComplexArg::parse_tuple`] fails
+///     - This is called for [`Language`] and [`BuildSystem`]
+fn run_non_interactive_creation(
     args: CreateArgs,
     builder: MetadataBuilder,
 ) -> Result<MetadataBuilder> {
