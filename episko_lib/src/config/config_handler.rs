@@ -1,7 +1,4 @@
-use std::{
-    env, fs,
-    path::{Path, PathBuf},
-};
+use std::{env, fs, path::PathBuf};
 
 use crate::{config::CONFIG_FILE_NAME, files::File};
 
@@ -54,7 +51,7 @@ impl ConfigHandler {
     fn get_config_dir() -> Result<PathBuf> {
         #[cfg(unix)]
         {
-            return env::var("XDG_CONFIG_DIR")
+            env::var("XDG_CONFIG_DIR")
                 .map(PathBuf::from)
                 .map(|p| p.join(DIR_NAME))
                 .or_else(|_| {
@@ -62,20 +59,20 @@ impl ConfigHandler {
                         .map(PathBuf::from)
                         .map(|p| p.join(".config").join(DIR_NAME))
                 })
-                .map_err(|_| Error::Directory);
+                .map_err(|_| Error::Directory)
         }
 
         #[cfg(windows)]
         {
-            return env::var("APPDATA")
+            env::var("APPDATA")
                 .map(PathBuf::from)
                 .map(|p| p.join(DIR_NAME))
-                .map_err(|_| Error::Directory);
+                .map_err(|_| Error::Directory)
         }
 
         #[cfg(not(any(unix, windows)))]
         {
-            return Err(Error::UnknownOs(env::consts::OS.to_string()));
+            Err(Error::UnknownOs(env::consts::OS.to_string()))
         }
     }
 }
