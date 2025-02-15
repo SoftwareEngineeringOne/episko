@@ -8,7 +8,7 @@ use crate::{config::CONFIG_FILE_NAME, files::File};
 use super::{Config, Error, Result, DIR_NAME};
 
 pub struct ConfigHandler {
-    config_path: PathBuf,
+    pub config_path: PathBuf,
 }
 
 impl ConfigHandler {
@@ -69,7 +69,7 @@ impl ConfigHandler {
         {
             return env::var("APPDATA")
                 .map(PathBuf::from)
-                .map(|p| p.join(CONFIG_DIR_NAME))
+                .map(|p| p.join(DIR_NAME))
                 .map_err(|_| Error::Directory);
         }
 
