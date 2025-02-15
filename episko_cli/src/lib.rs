@@ -11,10 +11,7 @@ pub mod removal;
 pub mod validation;
 
 pub use creation::create_manifest;
-use episko_lib::{
-    config::Config,
-    database::DatabaseHandler,
-};
+use episko_lib::{config::Config, database::DatabaseHandler};
 pub use removal::remove_manifest;
 pub use validation::{cache_manifest, validate_manifest};
 
@@ -24,6 +21,8 @@ pub trait ComplexArg {
     ///
     /// # Example
     /// ```
+    /// use episko_cli::ComplexArg;
+    ///
     /// let language_arg = "Rust:1.84".to_string();
     ///
     /// let tuple: (String, String) = language_arg.parse_tuple().unwrap();
