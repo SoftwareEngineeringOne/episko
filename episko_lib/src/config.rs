@@ -1,5 +1,6 @@
 use serde::{Deserialize, Serialize};
 use std::{
+    collections::HashSet,
     env, fs, io,
     path::{Path, PathBuf},
 };
@@ -9,17 +10,17 @@ use crate::files;
 
 pub mod config_handler;
 
-pub static DIR_NAME: &'static str = "episko";
-pub static DB_FILE_NAME: &'static str = "cache.db";
-pub static CONFIG_FILE_NAME: &'static str = "config.toml";
+pub static DIR_NAME: &str = "episko";
+pub static DB_FILE_NAME: &str = "cache.db";
+pub static CONFIG_FILE_NAME: &str = "config.toml";
 
 pub type Result<T> = std::result::Result<T, Error>;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Config {
     pub database_path: PathBuf,
-    pub directories_to_load: Vec<PathBuf>,
-    pub files_to_load: Vec<PathBuf>,
+    pub directories_to_load: HashSet<PathBuf>,
+    pub files_to_load: HashSet<PathBuf>,
 }
 
 impl Config {
@@ -33,23 +34,23 @@ impl Config {
 
         Ok(Self {
             database_path,
-            directories_to_load: vec![],
-            files_to_load: vec![],
+            directories_to_load: HashSet::default(),
+            files_to_load: HashSet::default(),
         })
     }
 
     pub fn add_saved_file(&mut self, file: &Path) {
-        self.files_to_load.push(file.to_path_buf())
+        self.files_to_load.insert(file.to_path_buf());
     }
 
     pub fn add_saved_directory(&mut self, dir: &Path) {
-        self.directories_to_load.push(dir.to_path_buf())
+        self.directories_to_load.insert(dir.to_path_buf());
     }
 
     fn generate_db_path() -> Result<PathBuf> {
         #[cfg(unix)]
         {
-            return env::var("XDG_CACHE_HOME")
+            env::var("XDG_CACHE_HOME")
                 .map(PathBuf::from)
                 .map(|p| p.join(DIR_NAME).join(DB_FILE_NAME))
                 .or_else(|_| {
@@ -57,20 +58,20 @@ impl Config {
                         .map(PathBuf::from)
                         .map(|p| p.join(".cache").join(DIR_NAME).join(DB_FILE_NAME))
                 })
-                .map_err(|_| Error::Directory);
+                .map_err(|_| Error::Directory)
         }
 
         #[cfg(windows)]
         {
-            return env::var("LOCALAPPDATA")
+            env::var("LOCALAPPDATA")
                 .map(PathBuf::from)
                 .map(|p| p.join(DIR_NAME).join(DB_FILE_NAME))
-                .map_err(|_| Error::Directory);
+                .map_err(|_| Error::Directory)
         }
 
         #[cfg(not(any(unix, windows)))]
         {
-            return Err(Error::UnknownOs(env::consts::OS.to_string()));
+            Err(Error::UnknownOs(env::consts::OS.to_string()))
         }
     }
 }
