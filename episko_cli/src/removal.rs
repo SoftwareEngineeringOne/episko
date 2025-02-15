@@ -4,7 +4,7 @@
 
 use camino::Utf8PathBuf;
 use color_eyre::Result;
-use episko_lib::{files::File, metadata::Metadata};
+use episko_lib::{config::Config, files::File, metadata::Metadata};
 
 use crate::connect_to_db;
 
@@ -12,8 +12,8 @@ use crate::connect_to_db;
 ///
 /// # Errors
 /// - [`color_eyre::Report`] when [`Metadata::remove_file`] fails
-pub async fn remove_manifest(file: &Utf8PathBuf) -> Result<()> {
-    if try_remove_from_db(file).await.is_err() {
+pub async fn remove_manifest(file: &Utf8PathBuf, config: &Config) -> Result<()> {
+    if try_remove_from_db(file, config).await.is_err() {
         eprintln!("WARNING: Unable to remove metadata from cache!");
         eprintln!("The file will be deleted anyway...");
     }
@@ -21,8 +21,8 @@ pub async fn remove_manifest(file: &Utf8PathBuf) -> Result<()> {
     Ok(())
 }
 
-async fn try_remove_from_db(file: &Utf8PathBuf) -> Result<()> {
-    let db = connect_to_db().await?;
+async fn try_remove_from_db(file: &Utf8PathBuf, config: &Config) -> Result<()> {
+    let db = connect_to_db(config).await?;
 
     Ok(Metadata::from_file(file.as_std_path())?
         .remove_from_db(&db)

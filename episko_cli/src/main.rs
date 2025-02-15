@@ -15,26 +15,27 @@
 use clap::Parser;
 use color_eyre::Result;
 use episko_cli::cli;
+use episko_lib::config::config_handler::ConfigHandler;
 
 #[tokio::main]
 async fn main() -> Result<()> {
     color_eyre::install()?;
-    dotenvy::dotenv()?;
 
     let args = cli::Cli::parse();
+    let config = ConfigHandler::new()?.load_config()?;
 
     match args.command {
         cli::Commands::Create(create_args) => {
-            episko_cli::create_manifest(create_args).await?;
+            episko_cli::create_manifest(create_args, &config).await?;
         }
         cli::Commands::Remove { file } => {
-            episko_cli::remove_manifest(&file).await?;
+            episko_cli::remove_manifest(&file, &config).await?;
         }
         cli::Commands::Cache { file } => {
-            episko_cli::cache_manifest(&file).await?;
+            episko_cli::cache_manifest(&file, &config).await?;
         }
         cli::Commands::Validate { file } => {
-            episko_cli::validate_manifest(&file).await?;
+            episko_cli::validate_manifest(&file, &config).await?;
         }
     }
     Ok(())
