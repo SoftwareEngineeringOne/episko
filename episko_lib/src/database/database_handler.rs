@@ -1,7 +1,15 @@
 //! Submodule of [`crate::database`] for the [`DatabaseHandler`]
-use sqlx::{sqlite::SqlitePoolOptions, SqlitePool};
+use sqlx::{
+    migrate::{MigrateDatabase, Migrator},
+    sqlite::SqlitePoolOptions,
+    SqlitePool,
+};
+
+use crate::config::Config;
 
 use super::Result;
+
+static MIGRATOR: Migrator = sqlx::migrate!();
 
 /// This struct is used to initialize and manage
 /// the connection to the database using a [`SqlitePool`] instance.
@@ -10,22 +18,28 @@ pub struct DatabaseHandler {
 }
 
 impl DatabaseHandler {
+    pub async fn with_config(config: &Config) -> Result<Self> {
+        let url = format!(
+            "sqlite:///{}",
+            config.database_path.to_str().unwrap_or_default()
+        );
+
+        Self::new(&url).await
+    }
     /// Creates a new instance using the provided url.
     pub async fn new(url: &str) -> Result<Self> {
+        if !sqlx::Sqlite::database_exists(url).await? {
+            sqlx::Sqlite::create_database(url).await?;
+        }
+
         let conn = SqlitePoolOptions::new()
             .max_connections(1)
             .connect(url)
             .await?;
-        Ok(Self { conn })
-    }
 
-    /// Create a new instance based on the default behaviour.
-    /// This currently means using the environmental variable `DATABASE_URL`.
-    ///
-    /// Later on the default behaviour should be managed by the a config.
-    pub async fn default() -> Result<Self> {
-        let connection_str = dotenvy::var("DATABASE_URL")?;
-        Self::new(&connection_str).await
+        MIGRATOR.run(&conn).await?;
+
+        Ok(Self { conn })
     }
 
     /// Provides a reference to the [`SqlitePool`] which can be used

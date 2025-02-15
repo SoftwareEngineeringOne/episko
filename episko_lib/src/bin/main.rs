@@ -1,6 +1,7 @@
 use std::{error::Error, path::Path, str::FromStr};
 
 use episko_lib::{
+    config::{config_handler::ConfigHandler, Config},
     database::{DatabaseHandler, DatabaseObject},
     files::File,
     metadata::{property::Property, BuildSystem, Category, Ide, Language, Metadata},
@@ -9,6 +10,19 @@ use episko_lib::{
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
     let connection_str = String::from_str("sqlite://episko.db")?;
+
+    let ch = ConfigHandler::new()?;
+
+    let config = Config::try_default()?;
+    println!("DB Path: {:#?}", config.database_path);
+
+    let db = DatabaseHandler::with_config(&config).await?;
+
+    ch.save_config(&config)?;
+
+    // let db = DatabaseHandler::new(&connection_str).await?;
+
+    return Ok(());
 
     // println!("Connecting..");
     // let conn = SqlitePoolOptions::new()
@@ -36,7 +50,6 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .description("SoftwareEngineering Project")
         .build()?;
 
-    let db = DatabaseHandler::default().await?;
     metadata.write_to_db(&db).await?;
     metadata.write_file(Path::new("./manifest1.toml"))?;
 
