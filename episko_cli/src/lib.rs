@@ -11,7 +11,10 @@ pub mod removal;
 pub mod validation;
 
 pub use creation::create_manifest;
-use episko_lib::database::DatabaseHandler;
+use episko_lib::{
+    config::Config,
+    database::DatabaseHandler,
+};
 pub use removal::remove_manifest;
 pub use validation::{cache_manifest, validate_manifest};
 
@@ -53,6 +56,6 @@ impl ComplexArg for String {
 /// # Errors
 /// - Error report when connecting to the database/creating the
 ///   [`DatabaseHandler`] fails.
-pub async fn connect_to_db() -> Result<DatabaseHandler> {
-    Ok(DatabaseHandler::default().await?)
+pub async fn connect_to_db(config: &Config) -> Result<DatabaseHandler> {
+    Ok(DatabaseHandler::with_config(config).await?)
 }

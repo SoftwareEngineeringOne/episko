@@ -17,6 +17,7 @@ use super::ComplexArg;
 use camino::Utf8Path;
 use color_eyre::Result;
 use episko_lib::{
+    config::Config,
     files::File,
     metadata::{builder::ApplyIf, BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder},
 };
@@ -30,7 +31,7 @@ use episko_lib::{
 /// - [`color_eyre::Report`] if [`MetadataBuilder::build`] fails
 /// - [`color_eyre::Report`] if [`Metadata::write_to_db`] fails
 /// - [`color_eyre::Report`] if [`Metadata::write_file`] fails
-pub async fn create_manifest(args: CreateArgs) -> Result<()> {
+pub async fn create_manifest(args: CreateArgs, config: &Config) -> Result<()> {
     let builder = Metadata::builder();
 
     let builder = if args.non_interactive {
@@ -41,7 +42,7 @@ pub async fn create_manifest(args: CreateArgs) -> Result<()> {
 
     let metadata = builder.build()?;
 
-    let db = connect_to_db().await?;
+    let db = connect_to_db(config).await?;
     metadata.write_to_db(&db).await?;
     metadata.write_file(metadata.directory())?;
 
