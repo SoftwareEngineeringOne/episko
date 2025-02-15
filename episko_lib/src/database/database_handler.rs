@@ -48,3 +48,13 @@ impl DatabaseHandler {
         &self.conn
     }
 }
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[tokio::test]
+    async fn create_mem_db() {
+        let _ = DatabaseHandler::new("sqlite://").await.unwrap();
+    }
+}
