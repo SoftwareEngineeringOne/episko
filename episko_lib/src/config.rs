@@ -64,7 +64,7 @@ impl Config {
         {
             return env::var("LOCALAPPDATA")
                 .map(PathBuf::from)
-                .map(|p| p.join(CONFIG_DIR_NAME).join(DB_FILE_NAME))
+                .map(|p| p.join(DIR_NAME).join(DB_FILE_NAME))
                 .map_err(|_| Error::Directory);
         }
 
