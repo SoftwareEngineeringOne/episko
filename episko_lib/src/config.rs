@@ -43,8 +43,16 @@ impl Config {
         self.files_to_load.insert(file.to_path_buf());
     }
 
+    pub fn remove_saved_file(&mut self, file: &Path) {
+        self.files_to_load.remove(&file.to_path_buf());
+    }
+
     pub fn add_saved_directory(&mut self, dir: &Path) {
         self.directories_to_load.insert(dir.to_path_buf());
+    }
+
+    pub fn remove_saved_directory(&mut self, dir: &Path) {
+        self.directories_to_load.remove(&dir.to_path_buf());
     }
 
     fn generate_db_path() -> Result<PathBuf> {

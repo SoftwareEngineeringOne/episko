@@ -13,8 +13,10 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     let ch = ConfigHandler::new()?;
 
-    let config = Config::try_default()?;
+    let mut config = Config::try_default()?;
     println!("DB Path: {:#?}", config.database_path);
+    config.add_saved_directory(&Path::new("Test"));
+    config.remove_saved_directory(&Path::new("Test"));
 
     let db = DatabaseHandler::with_config(&config).await?;
 
