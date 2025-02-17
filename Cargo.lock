@@ -1052,6 +1052,7 @@ dependencies = [
  "camino",
  "clap",
  "color-eyre",
+ "console",
  "dialoguer",
  "dotenvy",
  "episko_lib",
