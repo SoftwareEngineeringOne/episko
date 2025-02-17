@@ -7,13 +7,6 @@ on:
       - alpha
       - beta
       - next
-    paths:
-      - 'src/**'
-      - 'src-tauri/**'
-      - 'tests/**'
-      - 'bun.lockb'
-      - 'src-tauri/Cargo.lock'
-      - '.github/workflows/format.yml'
   workflow_dispatch:
 
 jobs:
