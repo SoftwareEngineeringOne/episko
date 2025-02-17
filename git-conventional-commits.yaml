@@ -32,9 +32,9 @@ changelog:
     breakingChange: BREAKING CHANGES
 
   # GitHub
-  commitUrl: https://github.com/SoftwareEngineeringOne/episkos/commit/%commit%
-  commitRangeUrl: https://github.com/SoftwareEngineeringOne/episkos/compare/%from%...%to%?diff=split
+  commitUrl: https://github.com/SoftwareEngineeringOne/episko/commit/%commit%
+  commitRangeUrl: https://github.com/SoftwareEngineeringOne/episko/compare/%from%...%to%?diff=split
 
   # GitHub Issues
   issueRegexPattern: '#[0-9]+'
-  issueUrl: https://github.com/SoftwareEngineeringOne/episkos/issues/%issue%
+  issueUrl: https://github.com/SoftwareEngineeringOne/episko/issues/%issue%
