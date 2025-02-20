@@ -16,6 +16,7 @@ database = []
 chrono = { workspace = true, features = ["serde"] }
 uuid.workspace = true
 thiserror.workspace = true
+episko_derive.workspace = true
 toml = "0.8.19"
 serde = { version = "1.0.217", features = ["derive"] }
 sha2 = "0.10.8"
@@ -23,7 +24,6 @@ sqlx = { version = "0.8.3", features = ["chrono", "runtime-tokio", "sqlite", "uu
 dotenvy = "0.15.7"
 tokio = {version = "1.43.0", features = ["full"]}
 async-trait = "0.1.86"
-episko_derive = { path = "../episko_derive"}
 
 [[bin]]
 name = "lib_debug"

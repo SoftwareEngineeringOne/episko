@@ -1,4 +1,4 @@
-name: Build
+name: Build Gui Application
 
 on:
   push:
@@ -7,13 +7,6 @@ on:
       - alpha
       - beta
       - next
-    paths:
-      - 'src/**'
-      - 'src-tauri/**'
-      - 'tests/**'
-      - 'bun.lockb'
-      - 'src-tauri/Cargo.lock'
-      - '.github/workflows/test-build.yml'
   pull_request:
   workflow_dispatch:
 

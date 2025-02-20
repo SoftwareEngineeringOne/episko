@@ -6,6 +6,13 @@ use super::DatabaseObject;
 use super::Result;
 
 impl Metadata {
+    /// Update a given metadata.
+    ///
+    /// For simplicity reasons the object is basically replaced completly even if
+    /// not all properties have changed.
+    ///
+    /// # Errors
+    /// Returns [Ok] when the item was updated.
     pub async fn update_in_db(&self, db: &DatabaseHandler) -> Result<()> {
         let mut transaction = db.conn().begin().await?;
 

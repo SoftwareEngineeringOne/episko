@@ -4,11 +4,18 @@ use crate::{config::CONFIG_FILE_NAME, files::File};
 
 use super::{Config, Error, Result, DIR_NAME};
 
+/// The [`ConfigHandler`] is used to load and save the [`Config`] object
+/// to a file as defined in [`ConfigHandler::config_path`].
 pub struct ConfigHandler {
     pub config_path: PathBuf,
 }
 
 impl ConfigHandler {
+    /// Create a new [`ConfigHandler`].
+    ///
+    /// # Errors
+    /// - [`Error::Io`] when creating the config directory fails
+    /// - Propogates errors from [`ConfigHandler::get_config_dir`].
     pub fn new() -> Result<Self> {
         let config_path = Self::get_config_dir()?;
         if !config_path.exists() {
@@ -18,6 +25,12 @@ impl ConfigHandler {
         Ok(Self { config_path })
     }
 
+    /// Load a config from the path saved in the receiver instance.
+    /// If no config file exists a default will be created.
+    ///
+    /// # Errors
+    /// - Propogates errors from [`Config::try_default`]
+    /// - Propogates errors from [`Config::from_file`]
     pub fn load_config(&self) -> Result<Config> {
         let config_file = self.config_path.join(CONFIG_FILE_NAME);
 

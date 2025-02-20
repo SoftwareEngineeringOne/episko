@@ -16,6 +16,9 @@
       in
       {
         devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            rust-analyzer
+          ];
           nativeBuildInputs = with pkgs; [
             bacon
             sql-formatter
