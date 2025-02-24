@@ -4,7 +4,10 @@ use episko_lib::{
     config::{config_handler::ConfigHandler, Config},
     database::{DatabaseHandler, DatabaseObject},
     files::File,
-    metadata::{property::Property, BuildSystem, Category, Ide, Language, Metadata},
+    metadata::{
+        metadata_handler::MetadataHandler, property::Property, BuildSystem, Category, Ide,
+        Language, Metadata,
+    },
 };
 
 #[tokio::main]
@@ -13,12 +16,17 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     let ch = ConfigHandler::new()?;
 
-    let mut config = Config::try_default()?;
-    println!("DB Path: {:#?}", config.database_path);
-    config.add_saved_directory(&Path::new("Test"));
-    config.remove_saved_directory(&Path::new("Test"));
-
+    let mut config = ch.load_config()?;
     let db = DatabaseHandler::with_config(&config).await?;
+
+    let mut metadata_handler = MetadataHandler::new();
+
+    metadata_handler.load_from_config(&config)?;
+
+    println!(
+        "Loaded {} manifests from config!",
+        metadata_handler.loaded_metadata.len(),
+    );
 
     ch.save_config(&config)?;
 

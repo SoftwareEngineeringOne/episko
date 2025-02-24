@@ -34,13 +34,15 @@ impl ConfigHandler {
     pub fn load_config(&self) -> Result<Config> {
         let config_file = self.config_path.join(CONFIG_FILE_NAME);
 
-        if !config_file.exists() {
+        let config = if config_file.exists() {
+            Config::from_file(&config_file)?
+        } else {
             let config = Config::try_default()?;
             config.write_file(&config_file)?;
-            return Ok(config);
-        }
+            config
+        };
 
-        Ok(Config::from_file(&config_file)?)
+        Ok(config)
     }
 
     pub fn save_config(&self, config: &Config) -> Result<()> {

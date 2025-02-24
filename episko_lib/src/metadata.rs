@@ -165,6 +165,12 @@ pub enum Error {
 
     #[error("name cant be empty")]
     EmptyName,
+
+    #[error("failed to load from file: {0}")]
+    File(String),
+
+    #[error("unable to save metadata {0}")]
+    Save(String),
 }
 
 #[cfg(test)]

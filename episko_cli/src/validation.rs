@@ -17,7 +17,7 @@ use crate::connect_to_db;
 ///
 /// # Errors
 /// - [`color_eyre::Report`] when [`Metadata::validate_file`] fails
-pub async fn validate_manifest(file: &Utf8PathBuf, config: &Config) -> Result<()> {
+pub async fn validate_manifest(file: &Utf8PathBuf, config_handler: &ConfigHandler) -> Result<()> {
     // TODO
     // let db = connect_to_db().await?;
     //Metadata::validate_db(&Metadata::from_file(file.as_std_path())?, &db).await?;
@@ -33,16 +33,15 @@ pub async fn validate_manifest(file: &Utf8PathBuf, config: &Config) -> Result<()
 ///
 /// # Errors
 /// - Error report when [`Metadata::update_in_db`] fails.
-pub async fn cache_manifest(file: &Utf8PathBuf, config: &Config) -> Result<()> {
-    let db = connect_to_db(config).await?;
+pub async fn cache_manifest(file: &Utf8PathBuf, config_handler: &ConfigHandler) -> Result<()> {
+    let mut config = config_handler.load_config()?;
+    let db = connect_to_db(&config).await?;
 
     let metadata = Metadata::from_file(file.as_std_path())?;
     Metadata::update_in_db(&metadata, &db).await?;
 
     // Reloading the config_handler / config isn't very pretty,
     // however I think it still that it's the simplest way to do this.
-    let config_handler = ConfigHandler::new()?;
-    let mut config = config_handler.load_config()?;
     config.add_saved_file(metadata.directory());
     config_handler.save_config(&config)?;
 
