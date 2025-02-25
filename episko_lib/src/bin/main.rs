@@ -13,6 +13,7 @@ use episko_lib::{
         Language, Metadata,
     },
 };
+use uuid::Uuid;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
@@ -27,12 +28,12 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     let dir = PathBuf::from("/home/simon/2_Uni");
 
-    let locations = MetadataHandler::search_directory(&dir)?;
-    println!("Found manifest at: ");
-    for manifest in locations.iter() {
-        println!("\t{}", manifest.display());
-    }
-    println!("Total of {} manifests found.", locations.len());
+    // let locations = MetadataHandler::search_directory(&dir)?;
+    // println!("Found manifest at: ");
+    // for manifest in locations.iter() {
+    //     println!("\t{}", manifest.display());
+    // }
+    // println!("Total of {} manifests found.", locations.len());
     //
     // metadata_handler.load_from_config(&config)?;
     //
@@ -44,8 +45,6 @@ async fn main() -> Result<(), Box<dyn Error>> {
     // ch.save_config(&config)?;
 
     // let db = DatabaseHandler::new(&connection_str).await?;
-
-    return Ok(());
 
     // println!("Connecting..");
     // let conn = SqlitePoolOptions::new()
@@ -63,7 +62,9 @@ async fn main() -> Result<(), Box<dyn Error>> {
         BuildSystem::with_version("Bun", "1.1.43"),
     ];
     let ide = Ide::new("neovim");
+    let id = Uuid::from_str("c4aec118-dc18-46e8-9a2f-3dfbc2b5da40")?;
     let metadata = Metadata::builder()
+        .id(id)
         .title("Hello, World!")
         .directory("./")
         .languages(languages)
@@ -73,26 +74,32 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .description("SoftwareEngineering Project")
         .build()?;
 
-    metadata.write_to_db(&db).await?;
-    metadata.write_file(Path::new("./manifest1.toml"))?;
+    let equal = metadata.validate_db(&db).await?;
+    println!("Database is up to date: {}", equal);
+    println!("Updating...");
+    metadata.update_in_db(&db).await?;
+    let equal = metadata.validate_db(&db).await?;
+    println!("Database is up to date: {}", equal);
 
-    let metadata3 = Metadata::from_file(Path::new("./manifest1.toml"))?;
-    println!("Read metadata from file: {:#?}", metadata3);
+    // metadata.write_to_db(&db).await?;
 
-    let id = metadata.id();
-
-    let hash1 = metadata.get_hash()?;
-    println!("Written metadata with hash: {:#?}", hash1);
-
-    println!("Retrieving from db...");
-
-    let metadata2 = Metadata::from_db(&db, id).await?;
-    let hash2 = metadata2.get_hash()?;
-    metadata2.write_file(Path::new("./manifest2.toml"))?;
-
-    println!("Received metadata with hash: {:#?}", hash2);
-
-    println!("Hashes are equal: {}", hash1 == hash2);
-
+    // let metadata3 = Metadata::from_file(Path::new("./manifest1.toml"))?;
+    // println!("Read metadata from file: {:#?}", metadata3);
+    //
+    // let id = metadata.id();
+    //
+    // let hash1 = metadata.get_hash()?;
+    // println!("Written metadata with hash: {:#?}", hash1);
+    //
+    // println!("Retrieving from db...");
+    //
+    // let metadata2 = Metadata::from_db(&db, id).await?;
+    // let hash2 = metadata2.get_hash()?;
+    // metadata2.write_file(Path::new("./manifest2.toml"))?;
+    //
+    // println!("Received metadata with hash: {:#?}", hash2);
+    //
+    // println!("Hashes are equal: {}", hash1 == hash2);
+    //
     Ok(())
 }

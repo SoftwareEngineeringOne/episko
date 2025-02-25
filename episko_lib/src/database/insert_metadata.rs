@@ -1,4 +1,4 @@
-use super::{DatabaseHandler, DatabaseObject, Result};
+use super::{DatabaseHandler, DatabaseObject, Error, Result};
 use crate::metadata::{property::Property, Metadata};
 use sqlx::SqliteConnection;
 
@@ -7,8 +7,8 @@ impl Metadata {
     const METADATA_INSERT_QUERY: &str = "
         INSERT INTO metadata(
             id, directory, title, description, 
-            preferred_ide, repository_url, created, updated
-        ) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+            preferred_ide, repository_url, created, updated, checksum
+        ) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     /// Write a [`Metadata`] instance to the database.
     ///
@@ -88,8 +88,13 @@ impl Metadata {
             .bind(&self.description)
             .bind(ide_id)
             .bind(&self.repository_url)
-            .bind(self.created.to_string())
-            .bind(self.updated.to_string())
+            .bind(self.created)
+            .bind(self.updated)
+            .bind(
+                self.get_hash()
+                    .map_err(|err| Error::Checksum(err.to_string()))?
+                    .to_vec(),
+            )
             .execute(executor)
             .await?;
 

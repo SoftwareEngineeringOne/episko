@@ -60,4 +60,7 @@ pub enum Error {
 
     #[error("Migration error")]
     Migration(#[from] sqlx::migrate::MigrateError),
+
+    #[error("unable to create checksum: {0}")]
+    Checksum(String),
 }
