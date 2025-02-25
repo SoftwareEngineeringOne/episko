@@ -1,4 +1,8 @@
-use std::collections::{HashMap, HashSet};
+use glob::glob;
+use std::{
+    collections::{HashMap, HashSet},
+    path::{Path, PathBuf},
+};
 
 use crate::{
     config::{Config, ConfigHandler},
@@ -21,6 +25,8 @@ impl MetadataHandler {
         }
     }
 
+    /// Loading should be done using tauri and events and stuff
+    /// This function will probably be removed?
     pub fn load_from_config(&mut self, config: &Config) -> Result<()> {
         config
             .files_to_load
@@ -67,8 +73,18 @@ impl MetadataHandler {
         Ok(())
     }
 
-    pub fn search_directory() -> Result<Vec<Metadata>> {
-        todo!()
+    /// Get paths to locations of manifests
+    ///
+    /// Loading should be done using tauri and events and stuff
+    pub fn search_directory(dir: &Path) -> Result<Vec<PathBuf>> {
+        Ok(glob(
+            dir.join("**/manifest.toml")
+                .to_str()
+                .ok_or(Error::Directory("unable to locate dir".to_string()))?,
+        )
+        .map_err(|err| Error::Directory(err.to_string()))?
+        .map(|manifest| manifest.map_err(|err| Error::File(err.to_string())))
+        .collect::<Result<Vec<_>>>()?)
     }
 
     pub fn search_metadata(query: &str) -> Result<Vec<Metadata>> {

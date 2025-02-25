@@ -1,4 +1,8 @@
-use std::{error::Error, path::Path, str::FromStr};
+use std::{
+    error::Error,
+    path::{Path, PathBuf},
+    str::FromStr,
+};
 
 use episko_lib::{
     config::{config_handler::ConfigHandler, Config},
@@ -21,14 +25,23 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     let mut metadata_handler = MetadataHandler::new();
 
-    metadata_handler.load_from_config(&config)?;
+    let dir = PathBuf::from("/home/simon/2_Uni");
 
-    println!(
-        "Loaded {} manifests from config!",
-        metadata_handler.loaded_metadata.len(),
-    );
-
-    ch.save_config(&config)?;
+    let locations = MetadataHandler::search_directory(&dir)?;
+    println!("Found manifest at: ");
+    for manifest in locations.iter() {
+        println!("\t{}", manifest.display());
+    }
+    println!("Total of {} manifests found.", locations.len());
+    //
+    // metadata_handler.load_from_config(&config)?;
+    //
+    // println!(
+    //     "Loaded {} manifests from config!",
+    //     metadata_handler.loaded_metadata.len(),
+    // );
+    //
+    // ch.save_config(&config)?;
 
     // let db = DatabaseHandler::new(&connection_str).await?;
 

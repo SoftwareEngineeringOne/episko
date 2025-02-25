@@ -169,8 +169,11 @@ pub enum Error {
     #[error("failed to load from file: {0}")]
     File(String),
 
-    #[error("unable to save metadata {0}")]
+    #[error("unable to save metadata: {0}")]
     Save(String),
+
+    #[error("unable to find manifests in directory: {0}")]
+    Directory(String),
 }
 
 #[cfg(test)]
