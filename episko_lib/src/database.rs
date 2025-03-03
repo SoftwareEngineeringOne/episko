@@ -57,4 +57,10 @@ pub enum Error {
 
     #[error("Build error")]
     Build(#[from] crate::metadata::builder::Error),
+
+    #[error("Migration error")]
+    Migration(#[from] sqlx::migrate::MigrateError),
+
+    #[error("unable to create checksum: {0}")]
+    Checksum(String),
 }

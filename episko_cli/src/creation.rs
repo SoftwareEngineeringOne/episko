@@ -17,8 +17,12 @@ use super::ComplexArg;
 use camino::Utf8Path;
 use color_eyre::Result;
 use episko_lib::{
+    config::{Config, ConfigHandler},
     files::File,
-    metadata::{builder::ApplyIf, BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder},
+    metadata::{
+        builder::ApplyIf, metadata_handler::MetadataHandler, BuildSystem, Category, Ide, Language,
+        Metadata, MetadataBuilder,
+    },
 };
 
 /// Create a manifest based on the given cli arguments
@@ -30,7 +34,7 @@ use episko_lib::{
 /// - [`color_eyre::Report`] if [`MetadataBuilder::build`] fails
 /// - [`color_eyre::Report`] if [`Metadata::write_to_db`] fails
 /// - [`color_eyre::Report`] if [`Metadata::write_file`] fails
-pub async fn create_manifest(args: CreateArgs) -> Result<()> {
+pub async fn create_manifest(args: CreateArgs, config_handler: &ConfigHandler) -> Result<()> {
     let builder = Metadata::builder();
 
     let builder = if args.non_interactive {
@@ -41,9 +45,10 @@ pub async fn create_manifest(args: CreateArgs) -> Result<()> {
 
     let metadata = builder.build()?;
 
-    let db = connect_to_db().await?;
-    metadata.write_to_db(&db).await?;
-    metadata.write_file(metadata.directory())?;
+    let config = config_handler.load_config()?;
+
+    let db = connect_to_db(&config).await?;
+    MetadataHandler::save_metadata_static(&metadata, &db, config_handler).await?;
 
     Ok(())
 }

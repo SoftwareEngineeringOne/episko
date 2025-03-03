@@ -17,7 +17,7 @@
       {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            helix
+            rust-analyzer
           ];
           nativeBuildInputs = with pkgs; [
             bacon

@@ -2,13 +2,6 @@ name: Test front- and backend
 
 on:
   push:
-    paths:
-      - 'src/**'
-      - 'src-tauri/**'
-      - 'tests/**'
-      - 'bun.lockb'
-      - 'src-tauri/Cargo.lock'
-      - '.github/workflows/test.yml'
   pull_request:
   workflow_dispatch:
 
@@ -28,7 +21,6 @@ jobs:
       - name: install bun dependencies
         run: |
           bun i
-
 
       - name: frontend checks
         run: bun check

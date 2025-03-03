@@ -3,6 +3,7 @@ use crate::metadata::Metadata;
 
 use super::DatabaseHandler;
 use super::DatabaseObject;
+use super::Error;
 use super::Result;
 
 impl Metadata {
@@ -29,7 +30,8 @@ impl Metadata {
                  preferred_ide = ?,
                  repository_url = ?,
                  created = ?,
-                 updated = ?
+                 updated = ?,
+                 checksum = ?
              WHERE id = ?",
         )
         .bind(self.directory.to_str())
@@ -39,6 +41,11 @@ impl Metadata {
         .bind(&self.repository_url)
         .bind(self.created)
         .bind(self.updated)
+        .bind(
+            self.get_hash()
+                .map_err(|err| Error::Checksum(err.to_string()))?
+                .to_vec(),
+        )
         .bind(self.id)
         .execute(&mut *transaction)
         .await?;

@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main  
-      - alpha
-      - next
-    tags:
-      - v*.*.*
   workflow_dispatch:
 
 permissions:
@@ -36,12 +32,10 @@ jobs:
 
       - name: Prepare Documentation for Deployment
         run: |
-          BRANCH=$(echo $GITHUB_REF_NAME | tr '/' '-')
-          echo '<meta http-equiv="refresh" content="0; url=episkos/index.html">' > target/doc/index.html
-          rm -rf docs/$BRANCH
+          rm -rf docs
           mkdir -p docs
-          mv target/doc docs/$BRANCH
-          touch docs/$BRANCH/.nojekyll
+          mv target/doc docs
+          touch docs/.nojekyll
 
       - name: Upload Documentation Artifact
         id: deployment

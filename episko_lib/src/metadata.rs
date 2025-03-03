@@ -66,6 +66,7 @@ pub mod builder;
 pub mod category;
 pub mod ide;
 pub mod language;
+pub mod metadata_handler;
 pub mod property;
 
 pub use build_system::BuildSystem;
@@ -73,6 +74,8 @@ pub use builder::MetadataBuilder;
 pub use category::Category;
 pub use ide::Ide;
 pub use language::Language;
+
+pub type Result<T> = std::result::Result<T, Error>;
 
 /// Metadata structure containing information about a project.
 #[derive(Debug, Serialize, Deserialize)]
@@ -140,7 +143,7 @@ impl Metadata {
     /// # Errors
     ///
     /// - [`Error::Serialization`], when unable to serialize into toml string
-    pub fn get_hash(&self) -> Result<[u8; 32], Error> {
+    pub fn get_hash(&self) -> Result<[u8; 32]> {
         let string = toml::to_string(self)?;
 
         let mut hasher = Sha256::new();
@@ -162,6 +165,15 @@ pub enum Error {
 
     #[error("name cant be empty")]
     EmptyName,
+
+    #[error("failed to load from file: {0}")]
+    File(String),
+
+    #[error("unable to save metadata: {0}")]
+    Save(String),
+
+    #[error("unable to find manifests in directory: {0}")]
+    Directory(String),
 }
 
 #[cfg(test)]
