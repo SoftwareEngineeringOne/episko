@@ -1,7 +1,10 @@
+//! # Statistics about all projects
+
 use std::collections::HashMap;
 
 pub mod statistic_handler;
 
+/// Statistic structure containing different metrics about all projects.
 #[derive(Debug)]
 pub struct Statistic {
     pub projects_by_language: HashMap<String, u32>,

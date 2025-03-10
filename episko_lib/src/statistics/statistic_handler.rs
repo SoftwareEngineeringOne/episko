@@ -1,12 +1,13 @@
+//! # Statistic handling
+
 use crate::database::DatabaseHandler;
 
 use super::Statistic;
 
-//use crate::database::retrieve_metrics;
-
 pub struct StatisticHandler;
 
 impl StatisticHandler {
+    /// Generate the newest statistics
     pub async fn generate_statistics(
         db: &DatabaseHandler,
     ) -> Result<Statistic, Box<dyn std::error::Error>> {
