@@ -15,18 +15,20 @@ use episko_lib::{
 };
 use uuid::Uuid;
 
+use episko_lib::statistics::statistic_handler::StatisticHandler;
+
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    let connection_str = String::from_str("sqlite://episko.db")?;
+    //let connection_str = String::from_str("sqlite://episko.db")?;
 
     let ch = ConfigHandler::new()?;
 
     let mut config = ch.load_config()?;
     let db = DatabaseHandler::with_config(&config).await?;
 
-    let mut metadata_handler = MetadataHandler::new();
+    //let mut metadata_handler = MetadataHandler::new();
 
-    let dir = PathBuf::from("/home/simon/2_Uni");
+    //let dir = PathBuf::from("/home/simon/2_Uni");
 
     // let locations = MetadataHandler::search_directory(&dir)?;
     // println!("Found manifest at: ");
@@ -52,7 +54,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     //     .connect(&connection_str)
     //     .await?;
 
-    let categories = vec![Category::new("Cool"), Category::new("University")];
+    /*let categories = vec![Category::new("Cool"), Category::new("University")];
     let languages = vec![
         Language::with_version("Rust", "1.84"),
         Language::new("Typescript"),
@@ -79,8 +81,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     println!("Updating...");
     metadata.update_in_db(&db).await?;
     let equal = metadata.validate_db(&db).await?;
-    println!("Database is up to date: {}", equal);
-
+    println!("Database is up to date: {}", equal);*/
     // metadata.write_to_db(&db).await?;
 
     // let metadata3 = Metadata::from_file(Path::new("./manifest1.toml"))?;
@@ -101,5 +102,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
     //
     // println!("Hashes are equal: {}", hash1 == hash2);
     //
+
+    println!("{:?}", StatisticHandler::generate_statistics(&db).await?);
+
     Ok(())
 }

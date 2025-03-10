@@ -32,6 +32,7 @@ pub mod database_object;
 pub mod insert_metadata;
 pub mod remove_metadata;
 pub mod retrieve_metadata;
+pub mod retrieve_metrics;
 pub mod update_metadata;
 pub mod validate_stored_metadata;
 
