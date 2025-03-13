@@ -1,0 +1,27 @@
+id = "211e6315-6232-4858-8581-5a484e0236a1"
+title = "BlueVioletfinger"
+description = "Seldom e.g. phew someone myself back bravo news in a."
+build_system = []
+created = "2025-03-13T08:17:41.651162184Z"
+updated = "2025-03-13T08:17:41.651166815Z"
+
+[[category]]
+name = "none"
+
+[[category]]
+name = "there"
+
+[[language]]
+name = "Rust"
+version = "1.1"
+
+[[language]]
+name = "Rust"
+version = "5.0"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:1.5"

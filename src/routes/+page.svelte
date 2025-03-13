@@ -3,6 +3,8 @@
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { Input } from '$lib/components/ui/input/index.js';
 	import * as Card from '$lib/components/ui/card/index.js';
+	import { invoke } from '@tauri-apps/api/core';
+	import type { Metadata } from '$lib/types';
 
 	const gs = new GlobalState();
 

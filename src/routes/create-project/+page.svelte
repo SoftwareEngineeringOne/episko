@@ -1,13 +1,13 @@
 <script lang="ts">
 	import ProjectForm from '$lib/components/project/ProjectForm.svelte';
-	import type { ProjectData } from '$lib/types';
+	import type { Metadata } from '$lib/types';
 
-	let projectData: ProjectData = {
+	let projectData: Metadata = {
 		directory: '',
 		title: '',
-		categories: '',
-		languages: '',
-		preferredIDE: '',
+		categories: [],
+		languages: [],
+		preferredIDE: none,
 		buildSystem: '',
 		repositoryLink: '',
 		filePath: ''
@@ -19,4 +19,4 @@
 	}
 </script>
 
-<ProjectForm formTitle="Create New Project" projectData={projectData} onSubmit={handleCreate} />
+<ProjectForm formTitle="Create New Project" {projectData} onSubmit={handleCreate} />

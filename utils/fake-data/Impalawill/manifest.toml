@@ -1,0 +1,22 @@
+id = "e36a28c7-301a-4c5b-9643-e1008e73125d"
+title = "Impalawill"
+category = []
+build_system = []
+repository_url = "http://www.dynamicunleash.net/integrated/embrace/efficient/one-to-one"
+created = "2025-03-13T08:17:41.142540913Z"
+updated = "2025-03-13T08:17:41.142545131Z"
+
+[[language]]
+name = "JavaScript"
+version = "1.8"
+
+[[language]]
+name = "JavaScript"
+version = "5.1"
+
+[[language]]
+name = "Python"
+version = "4.0"
+
+[preffered_ide]
+name = "IntelliJ:1.5"

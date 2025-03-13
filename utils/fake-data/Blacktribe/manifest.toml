@@ -1,0 +1,17 @@
+id = "7a3bc16e-b901-44d1-85e4-4bc3f546c641"
+title = "Blacktribe"
+build_system = []
+repository_url = "https://www.dynamicexploit.net/front-end/rich"
+created = "2025-03-13T08:17:41.032584340Z"
+updated = "2025-03-13T08:17:41.032588294Z"
+
+[[category]]
+name = "none"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "3.5"

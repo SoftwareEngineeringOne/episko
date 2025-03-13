@@ -1,0 +1,26 @@
+id = "b14a77ca-d6a2-411b-b336-fa1704333d0a"
+title = "Mancry"
+repository_url = "http://www.legacyb2b.io/virtual"
+created = "2025-03-13T08:17:40.753710791Z"
+updated = "2025-03-13T08:17:40.753713198Z"
+
+[[category]]
+name = "fondly"
+
+[[category]]
+name = "how"
+
+[[language]]
+name = "C#"
+version = "1.2"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "2.2"
+
+[preffered_ide]
+name = "IntelliJ:2.1"

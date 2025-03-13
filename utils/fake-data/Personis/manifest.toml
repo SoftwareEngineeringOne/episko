@@ -1,0 +1,25 @@
+id = "354df01a-5687-4782-bf95-402a5d5353bc"
+title = "Personis"
+created = "2025-03-13T08:17:41.493566920Z"
+updated = "2025-03-13T08:17:41.493573Z"
+
+[[category]]
+name = "it"
+
+[[category]]
+name = "eek"
+
+[[language]]
+name = "JavaScript"
+version = "1.7"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:2.1"

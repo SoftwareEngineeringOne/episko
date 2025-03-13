@@ -1,0 +1,25 @@
+id = "e60e9ee6-2e86-4c7d-876b-3236792a7f60"
+title = "LemonChiffonapartment"
+description = "Enchanted bow ourselves for building think several hand this elsewhere."
+category = []
+created = "2025-03-13T08:17:40.795549642Z"
+updated = "2025-03-13T08:17:40.795552136Z"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "4.6"
+
+[[language]]
+name = "Rust"
+version = "2.6"
+
+[[build_system]]
+name = "Webpack"
+version = "2.6"
+
+[preffered_ide]
+name = "IntelliJ:1.5"

@@ -30,7 +30,7 @@ pub static CONFIG_FILE_NAME: &str = "config.toml";
 
 pub type Result<T> = std::result::Result<T, Error>;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Config {
     pub database_path: PathBuf,
     pub directories_to_load: HashSet<PathBuf>,

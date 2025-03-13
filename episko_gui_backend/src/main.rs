@@ -2,8 +2,9 @@
 #![deny(clippy::pedantic)]
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-fn main() {
-    gui_lib::run();
+#[tokio::main]
+async fn main() {
+    gui_lib::run().await.expect("starting application");
 }
 
 #[cfg(test)]

@@ -1,0 +1,31 @@
+id = "7d4181e5-d083-4979-9974-56612fba9429"
+title = "DarkSeaGreengame"
+repository_url = "https://www.globalcross-platform.name/methodologies/roi/schemas"
+created = "2025-03-13T08:17:41.011793911Z"
+updated = "2025-03-13T08:17:41.011798571Z"
+
+[[category]]
+name = "corner"
+
+[[language]]
+name = "JavaScript"
+version = "4.0"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "5.7"
+
+[[build_system]]
+name = "CMake"
+version = "1.8"
+
+[[build_system]]
+name = "Make"
+version = "1.5"
+
+[preffered_ide]
+name = "IntelliJ:1.3"

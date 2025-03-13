@@ -1,0 +1,23 @@
+id = "e81ebf14-fc0c-4e6c-9650-419bebfe0d86"
+title = "Alpacabe"
+build_system = []
+repository_url = "http://www.humanextensible.net/engineer/innovative/experiences"
+created = "2025-03-13T08:17:40.811688542Z"
+updated = "2025-03-13T08:17:40.811692045Z"
+
+[[category]]
+name = "to"
+
+[[category]]
+name = "what"
+
+[[category]]
+name = "as"
+
+[[language]]
+name = "Python"
+version = "1.8"
+
+[[language]]
+name = "Rust"
+version = "unknown"

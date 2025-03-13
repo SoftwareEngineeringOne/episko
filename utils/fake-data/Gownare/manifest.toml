@@ -1,0 +1,31 @@
+id = "e512b130-03b6-4f2a-945b-7b8e3ba9237c"
+title = "Gownare"
+repository_url = "https://www.globale-markets.com/brand/real-time/markets/iterate"
+created = "2025-03-13T08:17:41.419079626Z"
+updated = "2025-03-13T08:17:41.419082532Z"
+
+[[category]]
+name = "when"
+
+[[language]]
+name = "Go"
+version = "5.1"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "2.4"
+
+[preffered_ide]
+name = "VSCode:1.1"

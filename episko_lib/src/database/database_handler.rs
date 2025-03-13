@@ -1,4 +1,6 @@
 //! Submodule of [`crate::database`] for the [`DatabaseHandler`]
+use std::time::Duration;
+
 use sqlx::{
     migrate::{MigrateDatabase, Migrator},
     sqlite::SqlitePoolOptions,
@@ -13,6 +15,7 @@ static MIGRATOR: Migrator = sqlx::migrate!();
 
 /// This struct is used to initialize and manage
 /// the connection to the database using a [`SqlitePool`] instance.
+#[derive(Debug)]
 pub struct DatabaseHandler {
     conn: SqlitePool,
 }
@@ -34,6 +37,7 @@ impl DatabaseHandler {
 
         let conn = SqlitePoolOptions::new()
             .max_connections(1)
+            .acquire_timeout(Duration::from_secs(5))
             .connect(url)
             .await?;
 

@@ -48,7 +48,7 @@ pub async fn create_manifest(args: CreateArgs, config_handler: &ConfigHandler) -
     let config = config_handler.load_config()?;
 
     let db = connect_to_db(&config).await?;
-    MetadataHandler::save_metadata_static(&metadata, &db, config_handler).await?;
+    MetadataHandler::save_metadata(&metadata, &db, config_handler).await?;
 
     Ok(())
 }

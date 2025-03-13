@@ -14,42 +14,24 @@ use super::{Error, Metadata, Result};
 use uuid::Uuid;
 
 #[derive(Default, Debug)]
-pub struct MetadataHandler {
-    pub loaded_metadata: HashMap<Uuid, Metadata>,
-}
+pub struct MetadataHandler;
 
 impl MetadataHandler {
     pub fn new() -> Self {
-        Self {
-            loaded_metadata: HashMap::new(),
-        }
+        Self
     }
 
     /// Loading should be done using tauri and events and stuff
     /// This function will probably be removed?
-    pub fn load_from_config(&mut self, config: &Config) -> Result<()> {
-        config
+    pub fn load_from_config(&self, config: &Config) -> Result<Vec<Metadata>> {
+        Ok(config
             .files_to_load
             .iter()
             .filter_map(|el| Metadata::from_file(&el).ok())
-            .for_each(|metadata| {
-                self.loaded_metadata.insert(metadata.id(), metadata);
-            });
-        Ok(())
+            .collect())
     }
 
     pub async fn save_metadata(
-        &mut self,
-        metadata: Metadata,
-        db: &DatabaseHandler,
-        config_handler: &ConfigHandler,
-    ) -> Result<()> {
-        Self::save_metadata_static(&metadata, db, config_handler).await?;
-        self.loaded_metadata.insert(metadata.id(), metadata);
-        Ok(())
-    }
-
-    pub async fn save_metadata_static(
         metadata: &Metadata,
         db: &DatabaseHandler,
         config_handler: &ConfigHandler,

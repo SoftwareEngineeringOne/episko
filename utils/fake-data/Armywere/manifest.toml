@@ -1,0 +1,23 @@
+id = "fe64a4e3-a594-4e78-9980-d8b3a0b5ffc4"
+title = "Armywere"
+build_system = []
+repository_url = "https://www.internationalwireless.biz/ubiquitous/out-of-the-box/dynamic/repurpose"
+created = "2025-03-13T08:13:00.267342662Z"
+updated = "2025-03-13T08:13:00.267345983Z"
+
+[[category]]
+name = "never"
+
+[[category]]
+name = "other"
+
+[[category]]
+name = "there"
+
+[[language]]
+name = "Java"
+version = "5.4"
+
+[[language]]
+name = "Rust"
+version = "1.0"

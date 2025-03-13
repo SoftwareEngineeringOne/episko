@@ -1,0 +1,19 @@
+id = "34c0e912-2248-4b49-88f3-6c8dc2b54b1f"
+title = "Yellowcatalog"
+description = "Thing nobody an hers our inspect this was aloof quit."
+category = []
+repository_url = "http://www.productvisionary.net/back-end/reintermediate/end-to-end"
+created = "2025-03-13T08:17:41.284036109Z"
+updated = "2025-03-13T08:17:41.284039296Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "3.2"
+
+[[build_system]]
+name = "Webpack"
+version = "1.1"

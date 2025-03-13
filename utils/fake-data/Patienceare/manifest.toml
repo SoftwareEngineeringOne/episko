@@ -1,0 +1,27 @@
+id = "a172ec7f-4b26-43f9-b3f7-c38279fb7b58"
+title = "Patienceare"
+created = "2025-03-13T08:13:00.268237773Z"
+updated = "2025-03-13T08:13:00.268241308Z"
+
+[[category]]
+name = "away"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "3.4"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "1.5"

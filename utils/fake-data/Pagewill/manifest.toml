@@ -1,0 +1,31 @@
+id = "cbc99b46-6e20-4a75-81d4-cd52146f3c69"
+title = "Pagewill"
+description = "In run but itself play that our mob therefore there."
+created = "2025-03-13T08:17:40.700859423Z"
+updated = "2025-03-13T08:17:40.700861536Z"
+
+[[category]]
+name = "themselves"
+
+[[language]]
+name = "C#"
+version = "1.7"
+
+[[language]]
+name = "Go"
+version = "4.9"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "1.5"
+
+[preffered_ide]
+name = "Emacs:2.1"

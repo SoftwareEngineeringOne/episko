@@ -5,7 +5,7 @@ use sqlx::SqliteConnection;
 impl Metadata {
     const REL_INSERT_QUERY: &str = "INSERT INTO rel_metadata_{}(metadata_id, {}_id) VALUES(?, ?)";
     const METADATA_INSERT_QUERY: &str = "
-        INSERT INTO metadata(
+        INSERT OR REPLACE INTO metadata(
             id, directory, title, description, 
             preferred_ide, repository_url, created, updated, checksum
         ) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";

@@ -26,7 +26,10 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     let mut metadata_handler = MetadataHandler::new();
 
-    let dir = PathBuf::from("/home/simon/2_Uni");
+    for dir in config.directories_to_load {
+        let paths = MetadataHandler::search_directory(&dir)?;
+        println!("Loading paths: {:#?}", paths);
+    }
 
     // let locations = MetadataHandler::search_directory(&dir)?;
     // println!("Found manifest at: ");
