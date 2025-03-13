@@ -33,6 +33,7 @@ export const MetadataSchema = MetadataBackendSchema.transform((data) => ({
 
 
 export function parseMetadata(data: unknown): Metadata {
+	console.log("Parsing: ", data);
 	return MetadataSchema.parse(data);
 }
 

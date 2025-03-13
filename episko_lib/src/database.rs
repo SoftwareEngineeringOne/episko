@@ -37,6 +37,7 @@ pub mod validate_stored_metadata;
 
 pub use database_handler::DatabaseHandler;
 pub use database_object::DatabaseObject;
+use uuid::Uuid;
 
 /// Result type for this module using [`enum@Error`]
 pub type Result<T> = std::result::Result<T, Error>;
@@ -63,4 +64,10 @@ pub enum Error {
 
     #[error("unable to create checksum: {0}")]
     Checksum(String),
+
+    #[error("manifest was not found")]
+    NotFound(Uuid),
+
+    #[error("async: {0}")]
+    Async(String),
 }

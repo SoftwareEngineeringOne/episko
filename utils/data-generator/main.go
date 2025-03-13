@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"sync"
 	"log"
 	"os"
 	"os/exec"
@@ -20,13 +21,20 @@ func main() {
 
 	gofakeit.Seed(time.Now().UnixNano())
 
+
+	var wg sync.WaitGroup
+
 	for i := 0; i < *numProjects; i++ {
-		createProject(i+1, *baseDir)
+		wg.Add(1)
+		go createProject(i+1, *baseDir, &wg)
 	}
+
+	wg.Wait()
 }
 
 
-func createProject(projectNum int, baseDir string) {
+func createProject(projectNum int, baseDir string, wg *sync.WaitGroup) {
+	defer wg.Done()
 
 	languagesList := []string{"Go", "Python", "JavaScript", "TypeScript", "Rust", "Java", "C#"}
 	buildSystemsList := []string{"Make", "CMake", "Gradle", "Maven", "Webpack", "Bazel"}

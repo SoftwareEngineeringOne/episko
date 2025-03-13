@@ -36,7 +36,7 @@ impl DatabaseHandler {
         }
 
         let conn = SqlitePoolOptions::new()
-            .max_connections(1)
+            .max_connections(12)
             .acquire_timeout(Duration::from_secs(5))
             .connect(url)
             .await?;

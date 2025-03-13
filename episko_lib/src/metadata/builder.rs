@@ -21,6 +21,7 @@ use super::{property::Property, BuildSystem, Category, Ide, Language, Metadata};
 ///
 /// All fields, that don't say otherwise can be set
 /// by the caller, but are optional
+#[derive(Debug)]
 pub struct MetadataBuilder {
     /// Can't be set by the caller, will be generated when building new
     id: Option<Uuid>,
@@ -133,9 +134,16 @@ impl MetadataBuilder {
     #[must_use]
     pub fn directory_path(mut self, path: &Path) -> Self {
         match path.canonicalize() {
-            Ok(absolute_path) => self.directory = Some(absolute_path.join("manifest.toml")),
+            Ok(absolute_path) => {
+                if absolute_path.is_dir() {
+                    self.directory = Some(absolute_path.join("manifest.toml"));
+                } else {
+                    self.directory = Some(absolute_path);
+                }
+            }
             Err(_) => self.directory = None,
         }
+
         self
     }
 
