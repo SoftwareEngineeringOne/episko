@@ -1,5 +1,5 @@
 use super::{DatabaseHandler, DatabaseObject, Error, Result};
-use crate::metadata::{property::Property, Metadata};
+use crate::metadata::{Metadata, property::Property};
 use sqlx::SqliteConnection;
 
 impl Metadata {
@@ -99,5 +99,29 @@ impl Metadata {
             .await?;
 
         Ok(())
+    }
+}
+
+#[cfg(test)]
+mod test {
+    use sqlx::migrate::Migrator;
+
+    use super::*;
+    use crate::database::setup_db;
+
+    static MIGRATOR: Migrator = sqlx::migrate!();
+
+    #[tokio::test]
+    async fn insert_metadata() {
+        // let db = DatabaseHandler::new("sqlite://").await.unwrap();
+        let db = setup_db().await;
+
+        let metadata = Metadata::builder()
+            .directory(".")
+            .title("Test")
+            .build()
+            .unwrap();
+
+        metadata.write_to_db(&db).await.unwrap();
     }
 }

@@ -5,6 +5,7 @@
 	import * as Card from '$lib/components/ui/card/index.js';
 	import { invoke } from '@tauri-apps/api/core';
 	import type { Metadata } from '$lib/types';
+	import { goto } from '$app/navigation';
 
 	const gs = new GlobalState();
 
@@ -12,6 +13,9 @@
 
 	const onsubmit = preventDefault(() => gs.nlen && gs.submit());
 	const onclick = () => gs.reset();
+
+	//!TODO
+	goto('/project');
 </script>
 
 <div

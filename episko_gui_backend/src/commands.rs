@@ -1,3 +1,4 @@
+use tauri::{AppHandle, Manager};
 use tokio::sync::Mutex;
 use uuid::Uuid;
 

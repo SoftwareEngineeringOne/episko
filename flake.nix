@@ -18,23 +18,30 @@
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             rust-analyzer
+            cargo
+            rustc
+            rustfmt
           ];
           nativeBuildInputs = with pkgs; [
             bacon
-            sql-formatter
-            cargo-watch
-            pkg-config
-            gobject-introspection
+            bun
             cargo
             cargo-expand
-            nushell
-            sqlx-cli
-            cargo-update
             cargo-tauri
+            cargo-tauri
+            cargo-update
+            cargo-watch
+            gobject-introspection
+            gtk3
+            gtk4
             nodejs
-            bun
-            xsel
+            nushell
+            pkg-config
+            sql-formatter
+            sqlx-cli
             uv
+            xsel
+            wrapGAppsHook
           ];
 
           buildInputs = with pkgs; [
@@ -44,14 +51,18 @@
             gdk-pixbuf
             glib
             gtk3
+            gtk4
             harfbuzz
             librsvg
             libsoup_3
+            openssl
             pango
             webkitgtk_4_1
-            openssl
           ];
 
+          shellHook = ''
+            export XDG_DATA_DIRS=${pkgs.gtk3.out}/share/gsettings-schemas/gtk+3-3.24.48
+          '';
         };
       }
     );

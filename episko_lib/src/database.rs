@@ -71,3 +71,24 @@ pub enum Error {
     #[error("async: {0}")]
     Async(String),
 }
+
+#[cfg(test)]
+pub async fn setup_db() -> DatabaseHandler {
+    use sqlx::migrate::Migrator;
+    static MIGRATOR: Migrator = sqlx::migrate!();
+
+    let db = DatabaseHandler::new("sqlite://").await.unwrap();
+    MIGRATOR.run(db.conn()).await.unwrap();
+
+    db
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[tokio::test]
+    async fn setup_test_db() {
+        setup_db().await;
+    }
+}
