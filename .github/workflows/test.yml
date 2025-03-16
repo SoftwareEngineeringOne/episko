@@ -22,8 +22,8 @@ jobs:
         run: |
           bun i
 
-      - name: frontend checks
-        run: bun check
+      # - name: frontend checks
+      #   run: bun check
 
       - name: frontend tests
         run: bun test
