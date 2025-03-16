@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS metadata (
   repository_url TEXT,
   created TEXT NOT NULL,
   updated TEXT NOT NULL,
+  checksum BLOB NOT NULL,
   FOREIGN KEY (preferred_ide) REFERENCES ide (id)
 );
 

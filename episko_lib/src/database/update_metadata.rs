@@ -3,9 +3,17 @@ use crate::metadata::Metadata;
 
 use super::DatabaseHandler;
 use super::DatabaseObject;
+use super::Error;
 use super::Result;
 
 impl Metadata {
+    /// Update a given metadata.
+    ///
+    /// For simplicity reasons the object is basically replaced completly even if
+    /// not all properties have changed.
+    ///
+    /// # Errors
+    /// Returns [Ok] when the item was updated.
     pub async fn update_in_db(&self, db: &DatabaseHandler) -> Result<()> {
         let mut transaction = db.conn().begin().await?;
 
@@ -22,7 +30,8 @@ impl Metadata {
                  preferred_ide = ?,
                  repository_url = ?,
                  created = ?,
-                 updated = ?
+                 updated = ?,
+                 checksum = ?
              WHERE id = ?",
         )
         .bind(self.directory.to_str())
@@ -32,6 +41,11 @@ impl Metadata {
         .bind(&self.repository_url)
         .bind(self.created)
         .bind(self.updated)
+        .bind(
+            self.get_hash()
+                .map_err(|err| Error::Checksum(err.to_string()))?
+                .to_vec(),
+        )
         .bind(self.id)
         .execute(&mut *transaction)
         .await?;

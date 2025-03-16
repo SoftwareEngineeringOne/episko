@@ -1,7 +1,7 @@
 // #![deny(clippy::pedantic)]
 //! # Episko Library
 //!
-//! This library is part of the projekt [Episko](https://github.com/SoftwareEngineeringOne/episkos).
+//! This library is part of the projekt [Episko](https://github.com/SoftwareEngineeringOne/episko).
 //! It provides functionality and interfaces to create and manage
 //! metadata for projects.
 //!
@@ -22,6 +22,7 @@
 //!
 //! Detailed documentation can be found within each module.
 
+pub mod config;
 #[cfg(feature = "database")]
 pub mod database;
 #[cfg(feature = "files")]

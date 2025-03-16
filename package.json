@@ -17,6 +17,7 @@
 		"semantic-release": "semantic-release"
 	},
 	"devDependencies": {
+		"@semantic-release-cargo/semantic-release-cargo": "2.4.10",
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
 		"@sveltejs/adapter-static": "^3.0.8",
@@ -49,7 +50,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/SoftwareEngineeringOne/episkos.git"
+		"url": "git+https://github.com/SoftwareEngineeringOne/episko.git"
 	},
 	"release": {
 		"plugins": [

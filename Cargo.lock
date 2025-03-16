@@ -1035,7 +1035,7 @@ dependencies = [
 
 [[package]]
 name = "episko"
-version = "1.0.0-alpha.1"
+version = "1.1.0"
 dependencies = [
  "episko_lib",
  "serde",
@@ -1047,11 +1047,12 @@ dependencies = [
 
 [[package]]
 name = "episko_cli"
-version = "1.0.0-alpha.1"
+version = "1.1.0"
 dependencies = [
  "camino",
  "clap",
  "color-eyre",
+ "console",
  "dialoguer",
  "dotenvy",
  "episko_lib",
@@ -1060,7 +1061,7 @@ dependencies = [
 
 [[package]]
 name = "episko_derive"
-version = "1.0.0-alpha.1"
+version = "1.1.0"
 dependencies = [
  "deluxe",
  "proc-macro2",
@@ -1070,12 +1071,13 @@ dependencies = [
 
 [[package]]
 name = "episko_lib"
-version = "1.0.0-alpha.1"
+version = "1.1.0"
 dependencies = [
  "async-trait",
  "chrono",
  "dotenvy",
  "episko_derive",
+ "glob",
  "serde",
  "sha2",
  "sqlx",
