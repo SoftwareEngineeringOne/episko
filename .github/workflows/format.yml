@@ -6,8 +6,7 @@ on:
 
 jobs:
   format:
-    permissions:
-      contents: write
+    permissions: write-all
     runs-on: 'ubuntu-24.04'
     steps:
       - name: Checkout repository
@@ -27,7 +26,7 @@ jobs:
         run: bun i
 
       - name: Format frontend 
-        run: bun format
+        run: bun format-ci
 
       - name: Format backend
         run: |

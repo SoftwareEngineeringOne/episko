@@ -12,6 +12,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
+		"format-ci": "prettier --ignore-path .prettierignore.ci --write .",
 		"lint": "prettier --check .",
 		"tauri": "tauri",
 		"prepare": "svelte-kit sync",
