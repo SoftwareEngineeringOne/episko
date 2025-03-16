@@ -33,16 +33,16 @@ jobs:
     runs-on: ubuntu-24.04
     permissions:
       contents: write
-    steps: 
+    steps:
       - uses: actions/checkout@v4
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-      
+
       - run: bun i
-      
+
       - name: install dependencies
         run: |
           sudo apt-get update
@@ -57,9 +57,3 @@ jobs:
           no-verify: true
           registry-token: ${{ secrets.CRATES_TOKEN }}
           ignore-unpublished-changes: true
-
-
-
-
-
-

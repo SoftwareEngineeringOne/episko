@@ -1,4 +1,4 @@
-name: Generate Test Coverage 
+name: Generate Test Coverage
 
 on:
   push:
@@ -15,7 +15,6 @@ jobs:
         run: |
           sudo apt-get install -y jq
 
-
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
@@ -24,9 +23,9 @@ jobs:
       - name: Install bun dependencies
         run: |
           bun i
-          
+
       - name: Analyse code coverage
-        run : |
+        run: |
           bunx vitest run --coverage
           COVERAGE_PERCENT=$(printf "%.0f\n" $(cat coverage/coverage-summary.json| jq '.total.functions.pct'))
           echo "coverage_frontend=${COVERAGE_PERCENT}" >> $GITHUB_ENV
@@ -39,16 +38,13 @@ jobs:
           gistID: 6576287f91ca84ec0583a5ca2d5ec495
           filename: coverage_frontend.json
           label: Coverage Frontend
-          labelColor: "#1e1e2e"
+          labelColor: '#1e1e2e'
           namedLogo: vitest
           style: flat
           message: ${{ env.coverage_frontend }}%
           valColorRange: ${{ env.coverage_frontend }}%
           minColorRange: 50
           maxColorRange: 90
-
-
-
 
   coverage-backend:
     runs-on: 'ubuntu-24.04'
@@ -83,11 +79,10 @@ jobs:
           gistID: 6576287f91ca84ec0583a5ca2d5ec495
           filename: coverage_backend.json
           label: Coverage Backend
-          labelColor: "#1e1e2e"
+          labelColor: '#1e1e2e'
           namedLogo: rust
           style: flat
           message: ${{ env.coverage_backend }}%
           valColorRange: ${{ env.coverage_backend }}%
           minColorRange: 50
           maxColorRange: 90
-

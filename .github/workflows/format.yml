@@ -2,11 +2,6 @@ name: Format front- and backend
 
 on:
   push:
-    branches:
-      - main
-      - alpha
-      - beta
-      - next
   workflow_dispatch:
 
 jobs:
@@ -15,10 +10,10 @@ jobs:
       contents: write
     runs-on: 'ubuntu-24.04'
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          persist-credentials: false
-          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -28,28 +23,27 @@ jobs:
       - name: Setup Rust stable
         uses: dtolnay/rust-toolchain@stable
 
-      - name: install bun dependencies
+      - name: Install frontend dependencies
         run: bun i
 
-      - name: frontend checks
+      - name: Format frontend 
         run: bun format
 
-      - name: format backend
-        run: rustfmt ./**/*.rs || echo "No files found..."
-
-      - name: Configure Git
+      - name: Format backend
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          shopt -s globstar
 
+          rustfmt --edition 2021 episko_cli/src/**/*.rs
+          rustfmt --edition 2021 episko_derive/src/**/*.rs
+          rustfmt --edition 2021 episko_gui_backend/src/**/*.rs
+          rustfmt --edition 2021 episko_lib/src/**/*.rs
 
-      - name: Commit Changes
-        run: |
-          git add .
-          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-          git commit -m "chore(workflow): formatted code $TIMESTAMP"
-          # Pushing doesnt work for some reason 
-          # git push
-
-
-
+      - name: Commit and push changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: '.'
+          message: '[Actions] Automated compilation: Update static HTML pages'
+          author_name: github-actions[bot]
+          committer_name: github-actions[bot]
+          author_email: github-actions[bot]@github.com
+          committer_email: github-actions[bot]@github.com

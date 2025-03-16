@@ -46,7 +46,7 @@ jobs:
           gistID: 6576287f91ca84ec0583a5ca2d5ec495
           filename: tests_frontend.json
           label: Tests Frontend
-          labelColor: "#1e1e2e"
+          labelColor: '#1e1e2e'
           namedLogo: vitest
           style: flat
           message: ${{ env.frontend_message }}
@@ -54,7 +54,6 @@ jobs:
 
       - name: Validate frontend tests
         run: bun test
-
 
   test-backend:
     permissions:
@@ -98,7 +97,7 @@ jobs:
           gistID: 6576287f91ca84ec0583a5ca2d5ec495
           filename: tests_backend.json
           label: Tests Backend
-          labelColor: "#1e1e2e"
+          labelColor: '#1e1e2e'
           namedLogo: rust
           style: flat
           message: ${{ env.backend_message }}
@@ -106,5 +105,3 @@ jobs:
 
       - name: Validate backend tests
         run: cargo test --workspace --all-features
-
-
