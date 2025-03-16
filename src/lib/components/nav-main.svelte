@@ -1,8 +1,8 @@
 <script lang="ts">
-	import * as Sidebar from "$lib/components/ui/sidebar";
+	import * as Sidebar from '$lib/components/ui/sidebar';
 
 	let {
-		items,
+		items
 	}: {
 		items: {
 			title: string;
@@ -12,13 +12,12 @@
 	} = $props();
 </script>
 
-
 <Sidebar.Group>
 	<Sidebar.Menu>
 		{#each items as item (item.title)}
 			<Sidebar.MenuItem>
 				<Sidebar.MenuButton size="sm">
-					{#snippet child({ props})}
+					{#snippet child({ props })}
 						<a href={item.url} {...props}>
 							<item.icon />
 							<span>{item.title}</span>

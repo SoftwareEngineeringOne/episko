@@ -1,11 +1,11 @@
 export type Some<T> = {
-	_tag: "Some",
-	value: T
-}
+	_tag: 'Some';
+	value: T;
+};
 
 export type None = {
-	_tag: "None"
-}
+	_tag: 'None';
+};
 
 export type Option<T> = Some<T> | None;
 
@@ -22,26 +22,26 @@ export type Metadata = {
 	repositoryUrl: Option<string>;
 	created: Date;
 	updated: Date;
-}
+};
 
-export type MetadataOverview = Pick<Metadata, 'title' | 'categories' | 'languages' | 'updated'>
+export type MetadataOverview = Pick<Metadata, 'title' | 'categories' | 'languages' | 'updated'>;
 
 export type Category = {
-	name: string,
-}
+	name: string;
+};
 
 export type Language = {
-	name: string,
-	version: Option<string>,
-}
+	name: string;
+	version: Option<string>;
+};
 
 export type BuildSystem = {
-	name: string,
-	version: Option<string>
-}
+	name: string;
+	version: Option<string>;
+};
 
 export type Ide = {
-	name: string
-}
+	name: string;
+};
 
 type Uuid = string & { readonly __brand: unique symbol };
