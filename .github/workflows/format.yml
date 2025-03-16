@@ -26,7 +26,7 @@ jobs:
         run: bun i
 
       - name: Format frontend 
-        run: bun format-ci
+        run: bun format:ci
 
       - name: Format backend
         run: |
@@ -41,7 +41,7 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           add: '.'
-          message: '[Actions] Automated compilation: Update static HTML pages'
+          message: 'style(actions): improve formatting [skip ci]'
           author_name: github-actions[bot]
           committer_name: github-actions[bot]
           author_email: github-actions[bot]@github.com
