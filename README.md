@@ -1,4 +1,6 @@
-![rust_coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/DefinitelyNotSimon13/6576287f91ca84ec0583a5ca2d5ec495/raw/coverage.json)
+![backend_coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/DefinitelyNotSimon13/6576287f91ca84ec0583a5ca2d5ec495/raw/coverage_backend.json)
+![frontend_coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/DefinitelyNotSimon13/6576287f91ca84ec0583a5ca2d5ec495/raw/coverage_frontend.json)
+
 # Episko
 
 ## Dependencies for Rust recommendations
