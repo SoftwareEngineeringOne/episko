@@ -18,15 +18,42 @@ jobs:
         with:
           bun-version: latest
 
-      - name: install bun dependencies
+      - name: Install bun dependencies
         run: |
           bun i
 
-      # - name: frontend checks
-      #   run: bun check
+      - name: Run frontend tests for badge
+        if: ${{ github.ref_name == 'main' }}
+        continue-on-error: true
+        run: |
+          bun test
+          EXIT_CODE=$?
 
-      - name: frontend tests
+          if [ $EXIT_CODE -eq 0 ]; then
+            echo "frontend_message=Passing" >> $GITHUB_ENV
+            echo "color=#0a731a" >> $GITHUB_ENV
+          else
+            echo "frontend_message=Failing" >> $GITHUB_ENV
+            echo "color=#6b0a1a" >> $GITHUB_ENB
+          fi
+
+      - name: Create frontend tests badge
+        if: ${{ github.ref_name == 'main' }}
+        uses: schneegans/dynamic-badges-action@v1.7.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 6576287f91ca84ec0583a5ca2d5ec495
+          filename: tests_frontend.json
+          label: Tests Frontend
+          labelColor: "#1e1e2e"
+          namedLogo: vitest
+          style: flat
+          message: ${{ env.frontend_message }}%
+          color: ${{ env.color }}
+
+      - name: Validate frontend tests
         run: bun test
+
 
   test-backend:
     permissions:
@@ -35,24 +62,47 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
-      - name: install bun dependencies
-        run: bun i
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
 
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Rust Cache
-        uses: Swatinem/rust-cache@v2
-
-      - name: install system dependencies
+      - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
 
-      - name: bakend tests
-        run: cargo test --all-targets
+      - name: Run backend tests for badge
+        if: ${{ github.ref_name == 'main' }}
+        continue-on-error: true
+        run: |
+          cargo test --workspace --all-features
+          EXIT_CODE=$?
+
+          if [ $EXIT_CODE -eq 0 ]; then
+            echo "backend_message=Passing" >> $GITHUB_ENV
+            echo "color=#0a731a" >> $GITHUB_ENV
+          else
+            echo "backend_message=Failing" >> $GITHUB_ENV
+            echo "color=#6b0a1a" >> $GITHUB_ENB
+          fi
+
+      - name: Create backend tests badge
+        if: ${{ github.ref_name == 'main' }}
+        uses: schneegans/dynamic-badges-action@v1.7.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 6576287f91ca84ec0583a5ca2d5ec495
+          filename: tests_backend.json
+          label: Tests Backend
+          labelColor: "#1e1e2e"
+          namedLogo: rust
+          style: flat
+          message: ${{ env.backend_message }}%
+          color: ${{ env.color }}
+
+      - name: Validate backend tests
+        run: cargo test --workspace --all-features
+
+
