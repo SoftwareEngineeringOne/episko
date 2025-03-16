@@ -16,7 +16,6 @@
 		"format:ci": "prettier --ignore-path .prettierignore.ci --write .",
 		"lint": "prettier --check .",
 		"tauri": "tauri",
-		"prepare": "svelte-kit sync",
 		"semantic-release": "semantic-release"
 	},
 	"devDependencies": {

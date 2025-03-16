@@ -33,7 +33,8 @@ jobs:
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-      - run: bun i
+      - run: |
+          bun i
 
       - name: Setup Rust stable
         uses: dtolnay/rust-toolchain@stable
