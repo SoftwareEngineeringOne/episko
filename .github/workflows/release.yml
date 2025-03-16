@@ -1,11 +1,5 @@
 name: Release front and backend
 on:
-  push:
-    branches:
-      - main
-      - alpha
-      - beta
-      - next
   workflow_dispatch:
 
 jobs:
@@ -59,7 +53,7 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           add: 'Cargo.toml'
-          message: 'chore(actions): update backend version'
+          message: '[Actions] chore: update backend version [skip ci]'
           author_name: github-actions[bot]
           committer_name: github-actions[bot]
           author_email: github-actions[bot]@github.com
