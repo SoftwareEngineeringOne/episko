@@ -35,13 +35,35 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        width:
+          fetch-depth: 0
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
-      - run: bun i
+      - name: Install Bun dependencies
+        run: bun i
+
+      - name: Get next version
+        id: get_next_version
+        uses: thenativeweb/get-next-version@main
+
+      - name: Update backend version
+        run: |
+          NEXT_VERSION=${{ steps.get_next_version.outputs.version }}
+          sed -i 's/^\(version = "\).*\("\)/\1'$NEXT_VERSION'\2/' Cargo.toml
+
+      - name: Commit and push changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: 'Cargo.toml'
+          message: 'chore(actions): update backend version'
+          author_name: github-actions[bot]
+          committer_name: github-actions[bot]
+          author_email: github-actions[bot]@github.com
+          committer_email: github-actions[bot]@github.com
 
       - name: install dependencies
         run: |

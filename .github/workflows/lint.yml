@@ -43,6 +43,7 @@ jobs:
           valColorRange: ${{ env.frontend_problems }}
           minColorRange: 0
           maxColorRange: 3
+          invertColorRange: true
 
 
       - name: Validate frontend linting
@@ -92,6 +93,7 @@ jobs:
           valColorRange: ${{ env.backend_problems }}
           minColorRange: 0
           maxColorRange: 3
+          invertColorRange: true
 
       - name: Validate backend lints
         run: cargo clippy --workspace --all-features -- --deny warnings
