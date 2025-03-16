@@ -39,7 +39,7 @@ jobs:
           gistID: 6576287f91ca84ec0583a5ca2d5ec495
           filename: coverage_frontend.json
           label: Coverage Frontend
-          labelColor: "#6E9F18"
+          labelColor: "#1e1e2e"
           namedLogo: vitest
           style: flat
           message: ${{ env.coverage_frontend }}%
@@ -83,7 +83,7 @@ jobs:
           gistID: 6576287f91ca84ec0583a5ca2d5ec495
           filename: coverage_backend.json
           label: Coverage Backend
-          labelColor: "#000000"
+          labelColor: "#1e1e2e"
           namedLogo: rust
           style: flat
           message: ${{ env.coverage_backend }}%
