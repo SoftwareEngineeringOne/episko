@@ -42,8 +42,8 @@ jobs:
           labelColor: "#1e1e2e"
           namedLogo: vitest
           style: flat
-          message: ${{ env.coverage_frontend }}%
-          valColorRange: ${{ env.coverage_frontend }}%
+          message: ${{ env.coverage_frontend }}
+          valColorRange: ${{ env.coverage_frontend }}
           minColorRange: 50
           maxColorRange: 90
 
@@ -86,8 +86,8 @@ jobs:
           labelColor: "#1e1e2e"
           namedLogo: rust
           style: flat
-          message: ${{ env.coverage_backend }}%
-          valColorRange: ${{ env.coverage_backend }}%
+          message: ${{ env.coverage_backend }}
+          valColorRange: ${{ env.coverage_backend }}
           minColorRange: 50
           maxColorRange: 90
 
