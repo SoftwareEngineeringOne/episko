@@ -26,6 +26,7 @@ jobs:
         if: ${{ github.ref_name == 'main' }}
         continue-on-error: true
         run: |
+          set +e
           bun test
           EXIT_CODE=$?
 
@@ -48,7 +49,7 @@ jobs:
           labelColor: "#1e1e2e"
           namedLogo: vitest
           style: flat
-          message: ${{ env.frontend_message }}%
+          message: ${{ env.frontend_message }}
           color: ${{ env.color }}
 
       - name: Validate frontend tests
@@ -77,6 +78,7 @@ jobs:
         if: ${{ github.ref_name == 'main' }}
         continue-on-error: true
         run: |
+          set +e
           cargo test --workspace --all-features
           EXIT_CODE=$?
 
@@ -99,7 +101,7 @@ jobs:
           labelColor: "#1e1e2e"
           namedLogo: rust
           style: flat
-          message: ${{ env.backend_message }}%
+          message: ${{ env.backend_message }}
           color: ${{ env.color }}
 
       - name: Validate backend tests
