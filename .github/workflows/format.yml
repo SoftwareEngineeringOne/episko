@@ -41,7 +41,7 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           add: '.'
-          message: 'style(actions): improve formatting [skip ci]'
+          message: '[Actions] style(actions): improve formatting [skip ci]'
           author_name: github-actions[bot]
           committer_name: github-actions[bot]
           author_email: github-actions[bot]@github.com
