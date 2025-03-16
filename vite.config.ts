@@ -13,10 +13,10 @@ export default defineConfig({
 		host: host || false,
 		hmr: host
 			? {
-					protocol: 'ws',
-					host,
-					port: 1421
-				}
+				protocol: 'ws',
+				host,
+				port: 1421
+			}
 			: undefined,
 		watch: {
 			ignored: ['**/src-tauri/**']
@@ -26,5 +26,12 @@ export default defineConfig({
 		alias: {
 			$lib: path.resolve('./src/lib')
 		}
+	},
+	test: {
+		coverage: {
+			provider: 'v8',
+			reporter: ['text', 'json-summary']
+		}
 	}
+
 });

@@ -6,6 +6,7 @@ node_modules
 /.svelte-kit
 !.svelte-kit/tsconfig.json
 /build
+coverage
 
 # OS
 .DS_Store
