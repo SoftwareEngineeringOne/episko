@@ -47,7 +47,9 @@ jobs:
       - name: Update backend version
         run: |
           NEXT_VERSION=${{ steps.get_next_version.outputs.version }}
+
           sed -i 's/^\(version = "\).*\("\)/\1'$NEXT_VERSION'\2/' Cargo.toml
+          sed -i 's/\("version": "\).*\("\)/\1'$NEXT_VERSION'\2/' episko_gui_backend/tauri.conf.json
 
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v9
