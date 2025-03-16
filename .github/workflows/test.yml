@@ -32,10 +32,10 @@ jobs:
 
           if [ $EXIT_CODE -eq 0 ]; then
             echo "frontend_message=Passing" >> $GITHUB_ENV
-            echo "color=\"#0a731a\"" >> $GITHUB_ENV
+            echo "color=#0a731a" >> $GITHUB_ENV
           else
             echo "frontend_message=Failing" >> $GITHUB_ENV
-            echo "color=\"#6b0a1a\"" >> $GITHUB_ENB
+            echo "color=#6b0a1a" >> $GITHUB_ENV
           fi
 
       - name: Create frontend tests badge
@@ -84,10 +84,10 @@ jobs:
 
           if [ $EXIT_CODE -eq 0 ]; then
             echo "backend_message=Passing" >> $GITHUB_ENV
-            echo "color=\""#0a731a\"" >> $GITHUB_ENV
+            echo "color=#0a731a" >> $GITHUB_ENV
           else
             echo "backend_message=Failing" >> $GITHUB_ENV
-            echo "color=\"#6b0a1a\"" >> $GITHUB_ENB
+            echo "color=#6b0a1a" >> $GITHUB_ENV
           fi
 
       - name: Create backend tests badge
