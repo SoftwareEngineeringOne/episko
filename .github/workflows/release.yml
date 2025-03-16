@@ -54,7 +54,7 @@ jobs:
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v9
         with:
-          add: 'Cargo.toml'
+          add: '.'
           message: '[Actions] chore: update backend version [skip ci]'
           author_name: github-actions[bot]
           committer_name: github-actions[bot]
