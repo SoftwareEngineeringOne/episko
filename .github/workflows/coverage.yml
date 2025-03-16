@@ -27,7 +27,7 @@ jobs:
 
       - name: Generate code coverage
         run: |
-          cargo llvm-cov --all-features --workspace --codecov --json --output-path codecov.json
+          cargo llvm-cov --all-features --workspace --json --output-path cov.json
           COVERAGE_PERCENT=$(printf "%.0f\n" $(cat cov.json | jq '.data[].totals.regions.percent'))
           echo "coverage=${COVERAGE_PERCENT}" >> $GITHUB_ENV
 
