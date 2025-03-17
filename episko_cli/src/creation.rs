@@ -17,8 +17,7 @@ use super::cli::{
 use camino::Utf8Path;
 use color_eyre::Result;
 use episko_lib::{
-    config::{Config, ConfigHandler},
-    files::File,
+    config::ConfigHandler,
     metadata::{
         BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder, builder::ApplyIf,
         metadata_handler::MetadataHandler,

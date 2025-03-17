@@ -1,12 +1,12 @@
 #![deny(clippy::pedantic)]
 #![allow(clippy::used_underscore_binding)]
 use episko_lib::{
-    config::{Config, ConfigHandler},
+    config::ConfigHandler,
     database::DatabaseHandler,
     files::File as _,
     metadata::{Metadata, metadata_handler::MetadataHandler},
 };
-use tauri::{Builder, Manager};
+use tauri::Manager;
 
 mod commands;
 use commands::{all, get_with_id, greet, load_from_directory, load_from_file};
@@ -34,7 +34,7 @@ impl AppState {
 pub async fn run() -> Result<(), Box<dyn std::error::Error>> {
     let config_handler = ConfigHandler::load()?;
 
-    let db = DatabaseHandler::with_config(&config_handler.config()).await?;
+    let db = DatabaseHandler::with_config(config_handler.config()).await?;
 
     let files = config_handler.files();
     for file in files {

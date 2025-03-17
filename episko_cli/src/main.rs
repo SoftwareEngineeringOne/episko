@@ -35,7 +35,7 @@ async fn main() -> Result<()> {
             episko_cli::cache_manifest(&file, &mut config_handler).await?;
         }
         cli::Commands::Validate { file } => {
-            episko_cli::validate_manifest(&file, &config_handler).await?;
+            episko_cli::validate_manifest(&file, &mut config_handler).await?;
         }
     }
     Ok(())

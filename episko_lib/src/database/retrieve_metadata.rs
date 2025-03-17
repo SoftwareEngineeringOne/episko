@@ -7,6 +7,10 @@ use std::str::FromStr;
 use uuid::Uuid;
 
 impl Metadata {
+    /// !TODO!
+    ///
+    /// # Errors
+    /// !TODO!
     pub async fn from_db(db: &DatabaseHandler, id: Uuid) -> Result<Self> {
         let row = sqlx::query(
             "SELECT id, directory, title, description, preferred_ide, repository_url, created, updated 
@@ -20,6 +24,10 @@ impl Metadata {
     }
 
     /// This is very bad and slow :(
+    /// !TODO!
+    ///
+    /// # Errors
+    /// !TODO!
     pub async fn all_from_db(db: &DatabaseHandler) -> Result<Vec<Self>> {
         let rows = sqlx::query(
             "SELECT id, directory, title, description, preferred_ide, repository_url, created, updated 
@@ -91,7 +99,7 @@ async fn build_metadata_from_row(
         builder = builder.preffered_ide(ide);
     }
 
-    Ok(builder.build().map_err(|_| Error::NotFound(id))?)
+    builder.build().map_err(|_| Error::NotFound(id))
 }
 
 async fn load_categories(db: &DatabaseHandler, metadata_id: &[u8]) -> Result<Vec<Category>> {

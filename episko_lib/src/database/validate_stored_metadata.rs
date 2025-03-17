@@ -1,5 +1,5 @@
-use sqlx::query;
 use sqlx::Row;
+use sqlx::query;
 
 use crate::metadata::Metadata;
 
@@ -9,7 +9,10 @@ impl Metadata {
     /// Validate the hash of a given metadata and update
     /// the cache if not up to date.
     ///
-    /// TODO!
+    /// !TODO!
+    ///
+    /// # Errors
+    /// !TODO!
     pub async fn validate_db(&self, db: &DatabaseHandler) -> Result<bool> {
         let checksum = self
             .get_hash()

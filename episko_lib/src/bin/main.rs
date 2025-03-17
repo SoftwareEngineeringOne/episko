@@ -1,19 +1,5 @@
-use std::{
-    error::Error,
-    path::{Path, PathBuf},
-    str::FromStr,
-};
+use std::error::Error;
 
-use episko_lib::{
-    config::{Config, config_handler::ConfigHandler},
-    database::{DatabaseHandler, DatabaseObject},
-    files::File,
-    metadata::{
-        BuildSystem, Category, Ide, Language, Metadata, metadata_handler::MetadataHandler,
-        property::Property,
-    },
-};
-use uuid::Uuid;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {

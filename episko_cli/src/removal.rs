@@ -17,7 +17,7 @@ use crate::connect_to_db;
 /// # Errors
 /// - [`color_eyre::Report`] when [`Metadata::remove_file`] fails
 pub async fn remove_manifest(file: &Utf8PathBuf, config_handler: &mut ConfigHandler) -> Result<()> {
-    if try_remove_from_db(file, &config_handler.config())
+    if try_remove_from_db(file, config_handler.config())
         .await
         .is_err()
     {
@@ -26,7 +26,7 @@ pub async fn remove_manifest(file: &Utf8PathBuf, config_handler: &mut ConfigHand
     }
 
     if config_handler.remove_saved_file(file.as_std_path()) {
-        config_handler.save_config();
+        config_handler.save_config()?;
     }
 
     Metadata::remove_file(file.as_std_path())?;

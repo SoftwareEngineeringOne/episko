@@ -52,7 +52,6 @@ impl ConfigHandler {
     ///
     /// # Errors
     /// !TODO!
-    #[must_use]
     pub fn save_config(&self) -> Result<()> {
         let config_file = self.config_path.join(CONFIG_FILE_NAME);
 

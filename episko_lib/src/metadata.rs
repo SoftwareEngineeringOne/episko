@@ -122,14 +122,18 @@ impl Metadata {
         &self.directory
     }
 
+    /// !TODO!
     pub fn update_directory(&mut self, path: PathBuf) {
         self.directory = path;
     }
 
+    /// !TODO!
+    #[must_use]
     pub fn id(&self) -> Uuid {
         self.id
     }
 
+    /// !TODO!
     pub fn update_ids(&mut self) {
         self.categories.iter_mut().for_each(Property::update_id);
         self.languages.iter_mut().for_each(Property::update_id);

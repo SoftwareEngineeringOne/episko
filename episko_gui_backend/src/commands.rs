@@ -1,11 +1,8 @@
 use std::path::Path;
-use tauri::{AppHandle, Manager};
 use tokio::sync::Mutex;
 use uuid::Uuid;
 
 use episko_lib::{
-    config::{Config, ConfigHandler},
-    database::DatabaseHandler,
     files::File,
     metadata::{Metadata, metadata_handler::MetadataHandler},
 };
@@ -51,9 +48,9 @@ pub async fn get_with_id(
 ) -> Result<Metadata, String> {
     let state = state.lock().await;
 
-    Ok(Metadata::from_db(&state.db, id)
+    Metadata::from_db(&state.db, id)
         .await
-        .map_err(|err| err.to_string())?)
+        .map_err(|err| err.to_string())
 }
 
 #[tauri::command]

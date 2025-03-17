@@ -1,8 +1,5 @@
 use glob::glob;
-use std::{
-    collections::{HashMap, HashSet},
-    path::{Path, PathBuf},
-};
+use std::path::{Path, PathBuf};
 
 use crate::{
     config::{Config, ConfigHandler},
@@ -11,26 +8,34 @@ use crate::{
 };
 
 use super::{Error, Metadata, Result};
-use uuid::Uuid;
 
 #[derive(Default, Debug)]
 pub struct MetadataHandler;
 
 impl MetadataHandler {
+    /// !TODO!
+    #[must_use]
     pub fn new() -> Self {
         Self
     }
 
     /// Loading should be done using tauri and events and stuff
     /// This function will probably be removed?
+    ///
+    /// # Errors
+    /// !TODO!
     pub fn load_from_config(&self, config: &Config) -> Result<Vec<Metadata>> {
         Ok(config
             .files_to_load
             .iter()
-            .filter_map(|el| Metadata::from_file(&el).ok())
+            .filter_map(|el| Metadata::from_file(el).ok())
             .collect())
     }
 
+    /// !TODO!
+    ///
+    /// # Errors
+    /// !TODO!
     pub async fn save_metadata(
         metadata: &Metadata,
         db: &DatabaseHandler,
@@ -40,6 +45,7 @@ impl MetadataHandler {
             .write_to_db(db)
             .await
             .map_err(|err| Error::Save(err.to_string()))?;
+
         metadata
             .write_file(metadata.directory())
             .map_err(|err| Error::Save(err.to_string()))?;
@@ -56,18 +62,25 @@ impl MetadataHandler {
     /// Get paths to locations of manifests
     ///
     /// Loading should be done using tauri and events and stuff
+    ///
+    /// # Errors
+    /// !TODO!
     pub fn search_directory(dir: &Path) -> Result<Vec<PathBuf>> {
-        Ok(glob(
+        glob(
             dir.join("**/manifest.toml")
                 .to_str()
                 .ok_or(Error::Directory("unable to locate dir".to_string()))?,
         )
         .map_err(|err| Error::Directory(err.to_string()))?
         .map(|manifest| manifest.map_err(|err| Error::File(err.to_string())))
-        .collect::<Result<Vec<_>>>()?)
+        .collect::<Result<Vec<_>>>()
     }
 
-    pub fn search_metadata(query: &str) -> Result<Vec<Metadata>> {
+    /// !TODO!
+    ///
+    /// # Errors
+    /// !TODO!
+    pub fn search_metadata(_query: &str) -> Result<Vec<Metadata>> {
         todo!()
     }
 }
