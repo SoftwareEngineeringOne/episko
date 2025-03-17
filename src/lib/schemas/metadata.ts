@@ -40,7 +40,7 @@ export const MetadataFormSchema = z.object({
 	languages: z.array(LanguageSchema),
 	buildSystems: z.array(BuildSystemSchema),
 	preferredIde: z.optional(IdeSchema),
-	repositoryUrl: z.string().optional(),
+	repositoryUrl: z.string().optional()
 });
 
 export function parseMetadata(data: unknown): Metadata {
@@ -56,7 +56,7 @@ export function parseFormData(metadata: Metadata): FormMetadata {
 		buildSystems: metadata.buildSystems,
 		preferredIde: metadata.preferredIde,
 		repositoryUrl: metadata.repositoryUrl
-	}
+	};
 }
 
 export function parseMetadataArray(data: unknown): Metadata[] {

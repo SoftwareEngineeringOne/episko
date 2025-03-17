@@ -8,6 +8,5 @@ import { fail, type Actions } from '@sveltejs/kit';
 export const load: LayoutLoad = async () => {
 	return {
 		form: await superValidate(zod(MetadataFormSchema))
-	}
-}
-
+	};
+};
