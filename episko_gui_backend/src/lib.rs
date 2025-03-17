@@ -4,7 +4,7 @@ use episko_lib::{
     config::ConfigHandler,
     database::DatabaseHandler,
     files::File as _,
-    metadata::{Metadata, metadata_handler::MetadataHandler},
+    metadata::{metadata_handler::MetadataHandler, Metadata},
 };
 use tauri::Manager;
 

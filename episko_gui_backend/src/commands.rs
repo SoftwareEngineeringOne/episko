@@ -4,7 +4,7 @@ use uuid::Uuid;
 
 use episko_lib::{
     files::File,
-    metadata::{Metadata, metadata_handler::MetadataHandler},
+    metadata::{metadata_handler::MetadataHandler, Metadata},
 };
 
 use crate::AppState;

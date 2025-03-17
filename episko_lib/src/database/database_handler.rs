@@ -2,9 +2,9 @@
 use std::time::Duration;
 
 use sqlx::{
-    SqlitePool,
     migrate::{MigrateDatabase, Migrator},
     sqlite::SqlitePoolOptions,
+    SqlitePool,
 };
 
 use crate::config::Config;
