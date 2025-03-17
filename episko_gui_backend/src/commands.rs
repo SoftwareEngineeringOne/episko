@@ -7,7 +7,7 @@ use episko_lib::{
     config::{Config, ConfigHandler},
     database::DatabaseHandler,
     files::File,
-    metadata::{metadata_handler::MetadataHandler, Metadata},
+    metadata::{Metadata, metadata_handler::MetadataHandler},
 };
 
 use crate::AppState;
@@ -82,14 +82,13 @@ pub async fn load_from_directory(
 
     let mut projects: Vec<Metadata> = Vec::with_capacity(files.len());
     for file in files {
-        projects.push(load_file(&file, &mut state, false).await?)
+        projects.push(load_file(&file, &mut state, false).await?);
     }
 
-    state.config.add_saved_directory(path);
-    state
-        .config_handler
-        .save_config(&state.config)
-        .map_err(|err| err.to_string())?;
+    let ch = &mut state.config_handler;
+
+    ch.add_saved_directory(path);
+    ch.save_config().map_err(|err| err.to_string())?;
 
     Ok(projects.len())
 }
@@ -107,11 +106,9 @@ async fn load_file(
         .map_err(|err| err.to_string())?;
 
     if save_to_config {
-        state.config.add_saved_file(path);
-        state
-            .config_handler
-            .save_config(&state.config)
-            .map_err(|err| err.to_string())?;
+        let ch = &mut state.config_handler;
+        ch.add_saved_file(path);
+        ch.save_config().map_err(|err| err.to_string())?;
     }
 
     Ok(metadata)

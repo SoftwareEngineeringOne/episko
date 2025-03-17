@@ -2,9 +2,9 @@
 use std::time::Duration;
 
 use sqlx::{
+    SqlitePool,
     migrate::{MigrateDatabase, Migrator},
     sqlite::SqlitePoolOptions,
-    SqlitePool,
 };
 
 use crate::config::Config;
@@ -21,6 +21,10 @@ pub struct DatabaseHandler {
 }
 
 impl DatabaseHandler {
+    /// !TODO!
+    ///
+    /// # Errors
+    /// !TODO!
     pub async fn with_config(config: &Config) -> Result<Self> {
         let url = format!(
             "sqlite:///{}",
@@ -30,6 +34,9 @@ impl DatabaseHandler {
         Self::new(&url).await
     }
     /// Creates a new instance using the provided url.
+    ///
+    /// # Errors
+    /// !TODO!
     pub async fn new(url: &str) -> Result<Self> {
         if !sqlx::Sqlite::database_exists(url).await? {
             sqlx::Sqlite::create_database(url).await?;
@@ -48,6 +55,7 @@ impl DatabaseHandler {
 
     /// Provides a reference to the [`SqlitePool`] which can be used
     /// as a [`sqlx::sqlite::SqliteExecutor`].
+    #[must_use]
     pub fn conn(&self) -> &SqlitePool {
         &self.conn
     }

@@ -1,5 +1,5 @@
 use super::{DatabaseHandler, DatabaseObject, Error, Result};
-use crate::metadata::{property::Property, Metadata};
+use crate::metadata::{Metadata, property::Property};
 use sqlx::SqliteConnection;
 
 impl Metadata {
@@ -21,7 +21,7 @@ impl Metadata {
         let mut transaction = db.conn().begin().await?;
 
         // Handle preferred IDE relationship
-        self.handle_relation(&mut transaction, &self.preffered_ide)
+        self.handle_relation(&mut transaction, self.preffered_ide.as_ref())
             .await?;
 
         // Insert main metadata
@@ -42,7 +42,7 @@ impl Metadata {
     async fn handle_relation<T: DatabaseObject>(
         &self,
         executor: &mut SqliteConnection,
-        relation: &Option<T>,
+        relation: Option<&T>,
     ) -> Result<()> {
         if let Some(item) = relation {
             if !item.exists(&mut *executor).await? {

@@ -12,11 +12,7 @@
 //! The serialiaztion and deserialization of the file is done using
 //! [`serde`] and the [`files::File`] trait.
 use serde::{Deserialize, Serialize};
-use std::{
-    collections::HashSet,
-    env, fs, io,
-    path::{Path, PathBuf},
-};
+use std::{collections::HashSet, env, fs, io, path::PathBuf};
 use thiserror::Error;
 
 use crate::files;
@@ -60,40 +56,6 @@ impl Config {
         })
     }
 
-    /// Add a file to the config which will automatically be loaded
-    /// when running the GUI application.
-    ///
-    /// Duplicate entries will be ignored.
-    pub fn add_saved_file(&mut self, file: &Path) {
-        self.files_to_load.insert(file.to_path_buf());
-    }
-
-    /// Remove a file from the config, which will no longer be automatically
-    /// loaded when running the GUI application.
-    ///
-    /// Returns `false` when the entry can't be removed, implying it doesn't
-    /// exist.
-    pub fn remove_saved_file(&mut self, file: &Path) -> bool {
-        self.files_to_load.remove(&file.to_path_buf())
-    }
-
-    /// Add a directory to the config, whose underlying manifest files will automatically be loaded
-    /// recursively when running the GUI application.
-    ///
-    /// Duplicate entries will be ignored.
-    pub fn add_saved_directory(&mut self, dir: &Path) {
-        self.directories_to_load.insert(dir.to_path_buf());
-    }
-
-    /// Remove a directory from the config, which will no longer be automatically
-    /// searched when running the GUI application.
-    ///
-    /// Returns `false` when the entry can't be removed, implying it doesn't
-    /// exist.
-    pub fn remove_saved_directory(&mut self, dir: &Path) -> bool {
-        self.directories_to_load.remove(&dir.to_path_buf())
-    }
-
     /// Generate the default path for where the sqlite database should be located.
     /// On Unix-like systems it is placed in `$XDG_CACHE_HOME/episko/cache.db` or
     /// `$HOME/.cache/episko/cache.db` if the former is not set.
@@ -101,7 +63,7 @@ impl Config {
     ///
     /// # Errors
     /// - [`Error::EnvironmentVar`] when `XDG_CACHE_HOME` or `LOCALAPPDATA` are not set
-    /// - [`Error::UnknownOs] when not on a Unix-like or Windows system
+    /// - [`Error::UnknownOs`] when not on a Unix-like or Windows system
     fn generate_db_path() -> Result<PathBuf> {
         #[cfg(unix)]
         {

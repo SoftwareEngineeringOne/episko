@@ -6,22 +6,22 @@ use std::str::FromStr;
 
 use crate::connect_to_db;
 
+use super::ComplexArg;
 use super::cli::{
+    CreateArgs,
     prompts::{
         build_systems_prompt, categories_prompt, description_prompt, directory_prompt, ide_prompt,
         languages_prompt, repository_url_prompt, title_prompt,
     },
-    CreateArgs,
 };
-use super::ComplexArg;
 use camino::Utf8Path;
 use color_eyre::Result;
 use episko_lib::{
     config::{Config, ConfigHandler},
     files::File,
     metadata::{
-        builder::ApplyIf, metadata_handler::MetadataHandler, BuildSystem, Category, Ide, Language,
-        Metadata, MetadataBuilder,
+        BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder, builder::ApplyIf,
+        metadata_handler::MetadataHandler,
     },
 };
 
@@ -34,7 +34,7 @@ use episko_lib::{
 /// - [`color_eyre::Report`] if [`MetadataBuilder::build`] fails
 /// - [`color_eyre::Report`] if [`Metadata::write_to_db`] fails
 /// - [`color_eyre::Report`] if [`Metadata::write_file`] fails
-pub async fn create_manifest(args: CreateArgs, config_handler: &ConfigHandler) -> Result<()> {
+pub async fn create_manifest(args: CreateArgs, config_handler: &mut ConfigHandler) -> Result<()> {
     let builder = Metadata::builder();
 
     let builder = if args.non_interactive {
@@ -45,9 +45,7 @@ pub async fn create_manifest(args: CreateArgs, config_handler: &ConfigHandler) -
 
     let metadata = builder.build()?;
 
-    let config = config_handler.load_config()?;
-
-    let db = connect_to_db(&config).await?;
+    let db = connect_to_db(config_handler.config()).await?;
     MetadataHandler::save_metadata(&metadata, &db, config_handler).await?;
 
     Ok(())

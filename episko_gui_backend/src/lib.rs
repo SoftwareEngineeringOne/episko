@@ -1,9 +1,10 @@
 #![deny(clippy::pedantic)]
+#![allow(clippy::used_underscore_binding)]
 use episko_lib::{
     config::{Config, ConfigHandler},
     database::DatabaseHandler,
     files::File as _,
-    metadata::{metadata_handler::MetadataHandler, Metadata},
+    metadata::{Metadata, metadata_handler::MetadataHandler},
 };
 use tauri::{Builder, Manager};
 
@@ -13,39 +14,34 @@ use tokio::sync::Mutex;
 
 struct AppState {
     pub db: DatabaseHandler,
-    pub config: Config,
     pub config_handler: ConfigHandler,
-    pub metadata_handler: MetadataHandler,
 }
 impl AppState {
-    pub fn new(db: DatabaseHandler, config: Config, config_handler: ConfigHandler) -> Self {
-        let metadata_handler = MetadataHandler::new();
-        Self {
-            db,
-            config,
-            config_handler,
-            metadata_handler,
-        }
+    pub fn new(db: DatabaseHandler, config_handler: ConfigHandler) -> Self {
+        Self { db, config_handler }
     }
 }
 
-/// Docs will be added
+/// !TODO!
+///
+/// # Errors
+/// !TODO!
 ///
 /// # Panics
+/// !TODO!
 ///
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub async fn run() -> Result<(), Box<dyn std::error::Error>> {
-    let config_handler = ConfigHandler::new()?;
-    let config = config_handler.load_config()?;
+    let config_handler = ConfigHandler::load()?;
 
-    let db = DatabaseHandler::with_config(&config).await?;
+    let db = DatabaseHandler::with_config(&config_handler.config()).await?;
 
-    let files = &config.files_to_load;
+    let files = config_handler.files();
     for file in files {
         Metadata::from_file(file)?.write_to_db(&db).await?;
     }
 
-    let dirs = &config.directories_to_load;
+    let dirs = config_handler.dirs();
     for dir in dirs {
         let files = MetadataHandler::search_directory(dir)?;
         for file in &files {
@@ -58,7 +54,7 @@ pub async fn run() -> Result<(), Box<dyn std::error::Error>> {
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
         .setup(|app| {
-            app.manage(Mutex::new(AppState::new(db, config, config_handler)));
+            app.manage(Mutex::new(AppState::new(db, config_handler)));
             Ok(())
         })
         .plugin(tauri_plugin_shell::init())

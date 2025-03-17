@@ -5,7 +5,7 @@
 use camino::Utf8PathBuf;
 use color_eyre::Result;
 use episko_lib::{
-    config::{config_handler::ConfigHandler, Config},
+    config::{Config, config_handler::ConfigHandler},
     files::File,
     metadata::Metadata,
 };
@@ -33,17 +33,16 @@ pub async fn validate_manifest(file: &Utf8PathBuf, config_handler: &ConfigHandle
 ///
 /// # Errors
 /// - Error report when [`Metadata::update_in_db`] fails.
-pub async fn cache_manifest(file: &Utf8PathBuf, config_handler: &ConfigHandler) -> Result<()> {
-    let mut config = config_handler.load_config()?;
-    let db = connect_to_db(&config).await?;
+pub async fn cache_manifest(file: &Utf8PathBuf, config_handler: &mut ConfigHandler) -> Result<()> {
+    let db = connect_to_db(&config_handler.config()).await?;
 
     let metadata = Metadata::from_file(file.as_std_path())?;
     Metadata::update_in_db(&metadata, &db).await?;
 
     // Reloading the config_handler / config isn't very pretty,
     // however I think it still that it's the simplest way to do this.
-    config.add_saved_file(metadata.directory());
-    config_handler.save_config(&config)?;
+    config_handler.add_saved_file(metadata.directory());
+    config_handler.save_config()?;
 
     Ok(())
 }

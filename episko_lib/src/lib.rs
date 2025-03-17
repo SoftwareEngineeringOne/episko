@@ -1,4 +1,4 @@
-// #![deny(clippy::pedantic)]
+#![warn(clippy::pedantic)]
 //! # Episko Library
 //!
 //! This library is part of the projekt [Episko](https://github.com/SoftwareEngineeringOne/episko).

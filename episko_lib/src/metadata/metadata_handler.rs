@@ -34,7 +34,7 @@ impl MetadataHandler {
     pub async fn save_metadata(
         metadata: &Metadata,
         db: &DatabaseHandler,
-        config_handler: &ConfigHandler,
+        config_handler: &mut ConfigHandler,
     ) -> Result<()> {
         metadata
             .write_to_db(db)
@@ -44,12 +44,10 @@ impl MetadataHandler {
             .write_file(metadata.directory())
             .map_err(|err| Error::Save(err.to_string()))?;
 
-        let mut config = config_handler
-            .load_config()
-            .map_err(|err| Error::Save(err.to_string()))?;
-        config.add_saved_file(metadata.directory());
+        config_handler.add_saved_file(metadata.directory());
+
         config_handler
-            .save_config(&config)
+            .save_config()
             .map_err(|err| Error::Save(err.to_string()))?;
 
         Ok(())

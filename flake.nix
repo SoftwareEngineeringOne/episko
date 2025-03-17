@@ -17,21 +17,15 @@
       {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            rust-analyzer
-            cargo
-            rustc
             rustfmt
+            bacon
           ];
           nativeBuildInputs = with pkgs; [
-            bacon
             bun
-            cargo
-            cargo-expand
             nushell
             sqlx-cli
             cargo-llvm-cov
             cargo-update
-            cargo-tauri
             cargo-tauri
             cargo-update
             cargo-watch
