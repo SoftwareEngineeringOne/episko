@@ -32,6 +32,11 @@
 				icon: Plus
 			},
 			{
+				title: 'Import project',
+				url: '/project/import',
+				icon: Import
+			},
+			{
 				title: 'Statistics',
 				url: '/statistics',
 				icon: ChartArea

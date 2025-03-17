@@ -6,6 +6,8 @@
 	import { type SuperValidated, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import { MetadataFormSchema } from '$lib/schemas/metadata';
+	import Badge from '../ui/badge/badge.svelte';
+	import { Button } from '../ui/button';
 
 	interface Props {
 		metadata?: Metadata;
@@ -22,6 +24,16 @@
 	});
 
 	const { form: formData, enhance } = form;
+
+	function removeCategory(index: number) {
+		return () => {
+			formData.update((data) => {
+				data.categories.splice(index, 1);
+
+				return data;
+			});
+		};
+	}
 
 	const formTitle = metadata === undefined ? 'Create a Project' : 'Edit Project';
 </script>
@@ -40,6 +52,15 @@
 	</Form.Field>
 
 	<FormLanguages {form} />
+
+	<!-- similiar like languages probably also seperate component-->
+	{#each $formData.categories as _, i}
+		<Badge
+			>{$formData.categories[i].name}
+			<Button variant="ghost" onclick={removeCategory(i)}>X</Button></Badge
+		>&nbsp;
+	{/each}
+	<Input />
 
 	<Form.Button>Submit</Form.Button>
 </form>
