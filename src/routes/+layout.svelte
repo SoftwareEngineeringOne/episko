@@ -7,10 +7,12 @@
 	import { Separator } from '$lib/components/ui/separator/index.js';
 	import * as Sidebar from '$lib/components/ui/sidebar';
 	import { Moon, Sun } from 'lucide-svelte';
+	import { Toaster } from '$lib/components/ui/sonner';
 
 	let { children } = $props();
 </script>
 
+<Toaster />
 <ModeWatcher />
 <Sidebar.Provider>
 	<AppSidebar />

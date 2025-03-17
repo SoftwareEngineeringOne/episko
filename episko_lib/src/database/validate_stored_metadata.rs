@@ -1,5 +1,5 @@
-use sqlx::Row;
 use sqlx::query;
+use sqlx::Row;
 
 use crate::metadata::Metadata;
 

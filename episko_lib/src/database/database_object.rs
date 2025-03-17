@@ -2,7 +2,7 @@
 use std::{future::Future, pin::Pin};
 
 use super::Result;
-use sqlx::{FromRow, SqliteExecutor, sqlite::SqliteRow};
+use sqlx::{sqlite::SqliteRow, FromRow, SqliteExecutor};
 
 pub type BoxedFuture<'r, T> = Pin<Box<dyn Future<Output = T> + Send + 'r>>;
 pub use episko_derive::DatabaseObject;

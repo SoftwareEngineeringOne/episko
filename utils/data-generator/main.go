@@ -26,7 +26,7 @@ func main() {
 
 	for i := 0; i < *numProjects; i++ {
 		wg.Add(1)
-		go createProject(i+1, *baseDir, &wg)
+		createProject(i+1, *baseDir, &wg)
 	}
 
 	wg.Wait()

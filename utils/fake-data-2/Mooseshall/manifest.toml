@@ -1,0 +1,18 @@
+id = "1bbff740-d2b4-4c14-852b-4a9f143a79f1"
+title = "Mooseshall"
+description = "To where are sensibly watch off childhood our that your."
+category = []
+created = "2025-03-17T07:32:37.059510806Z"
+updated = "2025-03-17T07:32:37.059515397Z"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "2.7"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"

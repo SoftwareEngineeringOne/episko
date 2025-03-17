@@ -1,0 +1,36 @@
+id = "0c257cdc-0411-4c17-959f-d931c803e0b6"
+title = "Aquamonkey"
+created = "2025-03-17T07:32:17.772397807Z"
+updated = "2025-03-17T07:32:17.772402748Z"
+
+[[category]]
+name = "wander"
+
+[[category]]
+name = "let"
+
+[[category]]
+name = "thing"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "2.1"
+
+[[build_system]]
+name = "CMake"
+version = "2.3"
+
+[[build_system]]
+name = "Maven"
+version = "1.1"
+
+[preffered_ide]
+name = "Emacs:1.9"

@@ -1,7 +1,6 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 export const BuildSystemSchema = z.object({
 	name: z.string(),
-	version: z.string().optional().nullable(),
-})
-
+	version: z.string().optional().nullable()
+});

@@ -8,20 +8,22 @@ use episko_lib::{
 use tauri::{Builder, Manager};
 
 mod commands;
-use commands::{all, get_with_id, greet};
+use commands::{all, get_with_id, greet, load_from_directory, load_from_file};
 use tokio::sync::Mutex;
 
 struct AppState {
     pub db: DatabaseHandler,
     pub config: Config,
+    pub config_handler: ConfigHandler,
     pub metadata_handler: MetadataHandler,
 }
 impl AppState {
-    pub fn new(db: DatabaseHandler, config: Config) -> Self {
+    pub fn new(db: DatabaseHandler, config: Config, config_handler: ConfigHandler) -> Self {
         let metadata_handler = MetadataHandler::new();
         Self {
             db,
             config,
+            config_handler,
             metadata_handler,
         }
     }
@@ -56,11 +58,17 @@ pub async fn run() -> Result<(), Box<dyn std::error::Error>> {
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
         .setup(|app| {
-            app.manage(Mutex::new(AppState::new(db, config)));
+            app.manage(Mutex::new(AppState::new(db, config, config_handler)));
             Ok(())
         })
         .plugin(tauri_plugin_shell::init())
-        .invoke_handler(tauri::generate_handler![greet, all, get_with_id])
+        .invoke_handler(tauri::generate_handler![
+            greet,
+            all,
+            get_with_id,
+            load_from_file,
+            load_from_directory,
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 
