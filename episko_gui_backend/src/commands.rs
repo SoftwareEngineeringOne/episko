@@ -3,9 +3,9 @@ use tokio::sync::Mutex;
 use uuid::Uuid;
 
 use episko_lib::{
-    ApplyIf,
     files::File,
-    metadata::{Metadata, MetadataBuilder, metadata_handler::MetadataHandler},
+    metadata::{metadata_handler::MetadataHandler, Metadata, MetadataBuilder},
+    ApplyIf,
 };
 
 use crate::{AppState, MetadataDco, MetadataDto};

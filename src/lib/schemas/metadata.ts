@@ -54,7 +54,7 @@ export const MetadataDcoSchema = MetadataFormSchema.transform((data) => ({
 	languages: data.languages,
 	build_systems: data.buildSystems,
 	preferred_ide: data.preferredIde,
-	repository_url: data.repositoryUrl,
+	repository_url: data.repositoryUrl
 }));
 
 export function parseMetadata(data: unknown): Metadata {

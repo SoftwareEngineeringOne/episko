@@ -1,5 +1,10 @@
 import type { z } from 'zod';
-import type { MetadataDcoSchema, MetadataFormSchema, MetadataSchema, UuidSchema } from './schemas/metadata';
+import type {
+	MetadataDcoSchema,
+	MetadataFormSchema,
+	MetadataSchema,
+	UuidSchema
+} from './schemas/metadata';
 import type { LanguageSchema } from './schemas/language';
 import type { CategorySchema } from './schemas/category';
 import type { BuildSystemSchema } from './schemas/buildSystem';

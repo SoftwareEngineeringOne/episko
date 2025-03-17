@@ -12,7 +12,9 @@ export default {
 	},
 
 	async update_metadata(id: Uuid, updated: FormMetadata): Promise<Metadata> {
-		return invoke('update_metadata', { id: id, updated: parseMetadataDco(updated) }).then((data) => parseMetadata(data));
+		return invoke('update_metadata', { id: id, updated: parseMetadataDco(updated) }).then((data) =>
+			parseMetadata(data)
+		);
 	},
 
 	async load_from_file(path: string): Promise<Uuid> {

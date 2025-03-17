@@ -5,9 +5,9 @@ use episko_lib::{
     config::ConfigHandler,
     database::DatabaseHandler,
     files::File as _,
-    metadata::{BuildSystem, Category, Ide, Language, Metadata, metadata_handler::MetadataHandler},
+    metadata::{metadata_handler::MetadataHandler, BuildSystem, Category, Ide, Language, Metadata},
 };
-use serde::{Deserialize, Serialize, de::DeserializeOwned};
+use serde::{de::DeserializeOwned, Deserialize, Serialize};
 use tauri::Manager;
 
 mod commands;
