@@ -80,21 +80,21 @@ pub type Result<T> = std::result::Result<T, Error>;
 /// Metadata structure containing information about a project.
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Metadata {
-    pub(crate) id: Uuid,
+    pub id: Uuid,
     #[serde(skip)]
-    pub(crate) directory: PathBuf,
-    pub(crate) title: String,
-    pub(crate) description: Option<String>,
+    pub directory: PathBuf,
+    pub title: String,
+    pub description: Option<String>,
     #[serde(rename = "category")]
-    pub(crate) categories: Vec<Category>,
+    pub categories: Vec<Category>,
     #[serde(rename = "language")]
-    pub(crate) languages: Vec<Language>,
+    pub languages: Vec<Language>,
     #[serde(rename = "build_system")]
-    pub(crate) build_systems: Vec<BuildSystem>,
-    pub(crate) preffered_ide: Option<Ide>,
-    pub(crate) repository_url: Option<String>,
-    pub(crate) created: DateTime<Utc>,
-    pub(crate) updated: DateTime<Utc>,
+    pub build_systems: Vec<BuildSystem>,
+    pub preffered_ide: Option<Ide>,
+    pub repository_url: Option<String>,
+    pub created: DateTime<Utc>,
+    pub updated: DateTime<Utc>,
 }
 
 impl Metadata {
@@ -189,7 +189,7 @@ mod tests {
     fn test_metadata_checksum_is_consistent() {
         let metadata = get_simple_metadata();
         let checksum1 = metadata.get_hash().unwrap();
-        for i in 0..100 {
+        for _ in 0..100 {
             let checksum2 = metadata.get_hash().unwrap();
             assert_eq!(checksum1, checksum2)
         }

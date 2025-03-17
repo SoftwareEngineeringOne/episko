@@ -3,17 +3,18 @@ import { CategorySchema } from './category';
 import { LanguageSchema } from './language';
 import { BuildSystemSchema } from './buildSystem';
 import { IdeSchema } from './ide';
-import type { FormMetadata, Metadata } from '$lib/types';
+import type { FormMetadata, Metadata, MetadataDco } from '$lib/types';
 
 export const UuidSchema = z.string().uuid();
 
 export const MetadataBackendSchema = z.object({
 	id: z.string().uuid(),
 	title: z.string(),
+	directory: z.string(),
 	description: z.string().optional().nullable(),
-	category: z.array(CategorySchema),
-	language: z.array(LanguageSchema),
-	build_system: z.array(BuildSystemSchema),
+	categories: z.array(CategorySchema),
+	languages: z.array(LanguageSchema),
+	build_systems: z.array(BuildSystemSchema),
 	preffered_ide: z.optional(IdeSchema).nullable(),
 	repository_url: z.string().optional().nullable(),
 	created: z.string(),
@@ -23,10 +24,11 @@ export const MetadataBackendSchema = z.object({
 export const MetadataSchema = MetadataBackendSchema.transform((data) => ({
 	id: data.id,
 	title: data.title,
+	directory: data.directory,
 	description: data.description ?? undefined,
-	categories: data.category,
-	languages: data.language,
-	buildSystems: data.build_system,
+	categories: data.categories,
+	languages: data.languages,
+	buildSystems: data.build_systems,
 	preferredIde: data.preffered_ide ?? undefined,
 	repositoryUrl: data.repository_url ?? undefined,
 	created: new Date(data.created),
@@ -34,7 +36,8 @@ export const MetadataSchema = MetadataBackendSchema.transform((data) => ({
 }));
 
 export const MetadataFormSchema = z.object({
-	title: z.string(),
+	title: z.string().nonempty(),
+	directory: z.string().nonempty(),
 	description: z.string().optional(),
 	categories: z.array(CategorySchema),
 	languages: z.array(LanguageSchema),
@@ -43,6 +46,17 @@ export const MetadataFormSchema = z.object({
 	repositoryUrl: z.string().optional()
 });
 
+export const MetadataDcoSchema = MetadataFormSchema.transform((data) => ({
+	title: data.title,
+	directory: data.directory,
+	description: data.description,
+	categories: data.categories,
+	languages: data.languages,
+	build_systems: data.buildSystems,
+	preferred_ide: data.preferredIde,
+	repository_url: data.repositoryUrl,
+}));
+
 export function parseMetadata(data: unknown): Metadata {
 	return MetadataSchema.parse(data);
 }
@@ -50,6 +64,7 @@ export function parseMetadata(data: unknown): Metadata {
 export function parseFormData(metadata: Metadata): FormMetadata {
 	return {
 		title: metadata.title,
+		directory: metadata.directory,
 		description: metadata.description,
 		categories: metadata.categories,
 		languages: metadata.languages,
@@ -57,6 +72,10 @@ export function parseFormData(metadata: Metadata): FormMetadata {
 		preferredIde: metadata.preferredIde,
 		repositoryUrl: metadata.repositoryUrl
 	};
+}
+
+export function parseMetadataDco(data: FormMetadata): MetadataDco {
+	return MetadataDcoSchema.parse(data);
 }
 
 export function parseMetadataArray(data: unknown): Metadata[] {

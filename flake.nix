@@ -17,7 +17,6 @@
       {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            rustfmt
             bacon
           ];
           nativeBuildInputs = with pkgs; [
@@ -29,7 +28,6 @@
             cargo-tauri
             cargo-update
             cargo-watch
-            rustc
             gobject-introspection
             gtk3
             gtk4

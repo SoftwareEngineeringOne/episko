@@ -1,21 +1,25 @@
-use std::path::Path;
+use std::{ops::Deref, path::Path};
 use tokio::sync::Mutex;
 use uuid::Uuid;
 
 use episko_lib::{
+    ApplyIf,
     files::File,
-    metadata::{metadata_handler::MetadataHandler, Metadata},
+    metadata::{Metadata, MetadataBuilder, metadata_handler::MetadataHandler},
 };
 
-use crate::AppState;
+use crate::{AppState, MetadataDco, MetadataDto};
 
 #[tauri::command]
-pub async fn get_all(state: tauri::State<'_, Mutex<AppState>>) -> Result<Vec<Metadata>, String> {
+pub async fn get_all(state: tauri::State<'_, Mutex<AppState>>) -> Result<Vec<MetadataDto>, String> {
     let state = state.lock().await;
 
     let projects = Metadata::all_from_db(&state.db)
         .await
-        .map_err(|err| err.to_string())?;
+        .map_err(|err| err.to_string())?
+        .into_iter()
+        .map(Into::into)
+        .collect();
 
     Ok(projects)
 }
@@ -24,12 +28,52 @@ pub async fn get_all(state: tauri::State<'_, Mutex<AppState>>) -> Result<Vec<Met
 pub async fn get_with_id(
     id: Uuid,
     state: tauri::State<'_, Mutex<AppState>>,
-) -> Result<Metadata, String> {
+) -> Result<MetadataDto, String> {
     let state = state.lock().await;
 
     Metadata::from_db(&state.db, id)
         .await
         .map_err(|err| err.to_string())
+        .map(Into::into)
+}
+
+#[tauri::command]
+pub async fn update_metadata(
+    id: Uuid,
+    updated: MetadataDco,
+    state: tauri::State<'_, Mutex<AppState>>,
+) -> Result<MetadataDto, String> {
+    let state = state.lock().await;
+
+    let metadata = Metadata::from_db(&state.db, id)
+        .await
+        .map_err(|err| err.to_string())?;
+
+    let metadata = metadata
+        .update()
+        .directory_path(&updated.directory)
+        .title(&updated.title)
+        .categories(updated.categories)
+        .languages(updated.languages)
+        .build_systems(updated.build_systems)
+        .apply_if(updated.preffered_ide, MetadataBuilder::preffered_ide)
+        .apply_if(updated.description.as_deref(), MetadataBuilder::description)
+        .apply_if(
+            updated.repository_url.as_deref(),
+            MetadataBuilder::repository_url,
+        )
+        .build()
+        .map_err(|err| err.to_string())?;
+
+    metadata
+        .write_to_db(&state.db)
+        .await
+        .map_err(|err| err.to_string())?;
+    metadata
+        .write_file(&metadata.directory)
+        .map_err(|err| err.to_string())?;
+
+    Ok(metadata.into())
 }
 
 #[tauri::command]

@@ -3,11 +3,14 @@
 	import FormLanguages from './form-languages.svelte';
 	import { Input } from '$lib/components/ui/input';
 	import type { FormMetadata, Metadata } from '$lib/types';
-	import { type SuperValidated, superForm } from 'sveltekit-superforms';
+	import { type SuperValidated, setError, setMessage, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import { MetadataFormSchema } from '$lib/schemas/metadata';
 	import Badge from '../ui/badge/badge.svelte';
 	import { Button } from '../ui/button';
+	import { goto } from '$app/navigation';
+	import Commands from '$lib/commands';
+	import { upsertMetadata } from '../../../routes/metadata-state.svelte';
 
 	interface Props {
 		metadata?: Metadata;
@@ -20,7 +23,29 @@
 	const form = superForm(formProp, {
 		SPA: true,
 		validators: zodClient(MetadataFormSchema),
-		dataType: 'json'
+		dataType: 'json',
+		onUpdate: async ({ form }) => {
+			console.log('FormValid:', form.valid);
+			if (form.valid) {
+				if (metadata) {
+					console.log('Metadata found');
+					await Commands.update_metadata(metadata.id, form.data)
+						.then((metadata) => {
+							console.log('Promise resolved');
+							upsertMetadata(metadata);
+							history.back();
+						})
+						.catch((err) => {
+							console.error('Promise failed:', err);
+							setError(form, err);
+						});
+				} else {
+					setMessage(form, 'TODO: Create');
+				}
+			} else {
+				console.log('Helloo I am under the water');
+			}
+		}
 	});
 
 	const { form: formData, enhance } = form;
@@ -39,7 +64,18 @@
 </script>
 
 <h1>{formTitle}</h1>
-<form use:enhance>
+<form method="POST" use:enhance>
+	<Form.Field {form} name="directory">
+		<Form.Control>
+			{#snippet children({ props })}
+				<Form.Label>Directory</Form.Label>
+				<Input {...props} bind:value={$formData.directory} />
+			{/snippet}
+		</Form.Control>
+		<Form.FieldErrors />
+		<Form.Description>Todo: Use tauri file chooser</Form.Description>
+	</Form.Field>
+
 	<Form.Field {form} name="title">
 		<Form.Control>
 			{#snippet children({ props })}
@@ -47,13 +83,14 @@
 				<Input {...props} bind:value={$formData.title} />
 			{/snippet}
 		</Form.Control>
-		<Form.Description>TBC: Title of the Project</Form.Description>
 		<Form.FieldErrors />
+		<Form.Description>TBC: Title of the Project</Form.Description>
 	</Form.Field>
 
 	<FormLanguages {form} />
 
 	<!-- similiar like languages probably also seperate component-->
+	Categories
 	{#each $formData.categories as _, i}
 		<Badge
 			>{$formData.categories[i].name}

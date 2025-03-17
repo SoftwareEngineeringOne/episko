@@ -1126,6 +1126,7 @@ dependencies = [
 name = "episko"
 version = "1.2.1"
 dependencies = [
+ "chrono",
  "episko_lib",
  "serde",
  "serde_json",
