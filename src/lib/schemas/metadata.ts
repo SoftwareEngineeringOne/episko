@@ -3,7 +3,7 @@ import { CategorySchema } from './category';
 import { LanguageSchema } from './language';
 import { BuildSystemSchema } from './buildSystem';
 import { IdeSchema } from './ide';
-import type { Metadata } from '$lib/types';
+import type { FormMetadata, Metadata } from '$lib/types';
 
 export const UuidSchema = z.string().uuid();
 
@@ -33,9 +33,30 @@ export const MetadataSchema = MetadataBackendSchema.transform((data) => ({
 	updated: new Date(data.updated)
 }));
 
+export const MetadataFormSchema = z.object({
+	title: z.string(),
+	description: z.string().optional(),
+	categories: z.array(CategorySchema),
+	languages: z.array(LanguageSchema),
+	buildSystems: z.array(BuildSystemSchema),
+	preferredIde: z.optional(IdeSchema),
+	repositoryUrl: z.string().optional(),
+});
+
 export function parseMetadata(data: unknown): Metadata {
-	console.log('Parsing: ', data);
 	return MetadataSchema.parse(data);
+}
+
+export function parseFormData(metadata: Metadata): FormMetadata {
+	return {
+		title: metadata.title,
+		description: metadata.description,
+		categories: metadata.categories,
+		languages: metadata.languages,
+		buildSystems: metadata.buildSystems,
+		preferredIde: metadata.preferredIde,
+		repositoryUrl: metadata.repositoryUrl
+	}
 }
 
 export function parseMetadataArray(data: unknown): Metadata[] {

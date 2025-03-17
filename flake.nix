@@ -29,6 +29,7 @@
             cargo-tauri
             cargo-update
             cargo-watch
+            rustc
             gobject-introspection
             gtk3
             gtk4

@@ -1,42 +1,57 @@
 <script lang="ts">
+	import * as Form from '$lib/components/ui/form/index.js';
+	import FormLanguages from './form-languages.svelte';
 	import { Input } from '$lib/components/ui/input';
-	import { Button } from '$lib/components/ui/button';
-	import { Label } from '$lib/components/ui/label';
-	import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
-	import { Tabs, TabsList, TabsTrigger, TabsContent } from '$lib/components/ui/tabs';
-	import type { ProjectData } from '$lib/types';
+	import type { FormMetadata, Metadata } from '$lib/types';
+	import { type SuperValidated, superForm } from 'sveltekit-superforms';
+	import { zodClient } from 'sveltekit-superforms/adapters';
+	import { MetadataFormSchema } from '$lib/schemas/metadata';
 
-	export let projectData: ProjectData;
-	export let formTitle: string = 'Create New Project';
-	export let onSubmit: (data: ProjectData) => void = () => {};
-
-	let selectedTab: 'manual' | 'file' = 'manual';
-	let fileInput: HTMLInputElement;
-
-	function handleBrowseClick(): void {
-		fileInput.click();
+	interface Props {
+		metadata?: Metadata;
+		form: SuperValidated<FormMetadata>;
 	}
 
-	function handleFileChange(event: Event): void {
-		const target = event.target as HTMLInputElement;
-		const files = target.files;
-		if (files && files.length > 0) {
-			projectData.filePath = files[0].name;
-		}
-	}
+	let { metadata, form: formProp }: Props = $props();
 
-	function handleFormSubmit(): void {
-		onSubmit(projectData);
-	}
+	console.log('FormProp:', formProp);
+	const form = superForm(formProp, {
+		SPA: true,
+		validators: zodClient(MetadataFormSchema),
+		dataType: 'json'
+	});
+
+	const { form: formData, enhance } = form;
+
+	const formTitle = metadata === undefined ? 'Create a Project' : 'Edit Project';
 </script>
 
+<h1>{formTitle}</h1>
+<form use:enhance>
+	<Form.Field {form} name="title">
+		<Form.Control>
+			{#snippet children({ props })}
+				<Form.Label>Title</Form.Label>
+				<Input {...props} bind:value={$formData.title} />
+			{/snippet}
+		</Form.Control>
+		<Form.Description>TBC: Title of the Project</Form.Description>
+		<Form.FieldErrors />
+	</Form.Field>
+
+	<FormLanguages {form} />
+
+	<Form.Button>Submit</Form.Button>
+</form>
+
+<!--
 <div class="container mx-auto p-4">
 	<Card class="w-full max-w-3xl mx-auto shadow-md">
 		<CardHeader>
 			<CardTitle>{formTitle}</CardTitle>
 		</CardHeader>
-		<CardContent>
-			<Tabs bind:value={selectedTab} class="w-full">
+	<CardContent>
+			<Tabs value="manual" class="w-full">
 				<TabsList class="grid grid-cols-2 w-full">
 					<TabsTrigger value="manual" class="py-2">Manual Entry</TabsTrigger>
 					<TabsTrigger value="file" class="py-2">From File</TabsTrigger>
@@ -84,7 +99,7 @@
 							<Label for="preferredIDE">Preferred IDE</Label>
 							<Input
 								id="preferredIDE"
-								bind:value={projectData.preferredIDE}
+								bind:value={projectData.preferredIde}
 								placeholder="Enter preferred IDE"
 								class="mt-1 w-full"
 							/>
@@ -102,7 +117,7 @@
 							<Label for="repositoryLink">Repository Link</Label>
 							<Input
 								id="repositoryLink"
-								bind:value={projectData.repositoryLink}
+								bind:value={projectData.repositoryUrl}
 								placeholder="Enter repository link"
 								class="mt-1 w-full"
 							/>
@@ -120,7 +135,7 @@
 								placeholder="Enter file path manually"
 								class="w-full"
 							/>
-							<Button type="button" on:click={handleBrowseClick} class="ml-2">Browse</Button>
+							<Button type="button" onclick={handleBrowseClick} class="ml-2">Browse</Button>
 							<input
 								type="file"
 								bind:this={fileInput}
@@ -131,7 +146,8 @@
 					</div>
 				</TabsContent>
 			</Tabs>
-			<Button on:click={handleFormSubmit} class="w-full bg-primary mt-6">Save</Button>
+			<Button onclick={handleFormSubmit} class="w-full bg-primary mt-6">Save</Button>
 		</CardContent>
 	</Card>
 </div>
+-->

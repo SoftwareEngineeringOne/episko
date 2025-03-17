@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card/index';
 	import { Badge } from '$lib/components/ui/badge/index.js';
-	import type { Metadata } from '$lib/schemas/metadata';
+	import type { Metadata } from '$lib/types';
 	import { goto } from '$app/navigation';
 
 	let { project }: { project: Metadata } = $props();
@@ -9,8 +9,6 @@
 	let seeDetails = () => {
 		goto(`/project/${project.id}`);
 	};
-
-	console.log('Got project: ', project);
 </script>
 
 <Card.Root class="transition hover:-translate-y-1 hover:cursor-pointer" onclick={seeDetails}>

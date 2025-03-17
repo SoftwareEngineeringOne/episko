@@ -1,16 +1,26 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { Button } from '$lib/components/ui/button';
+	import type { Uuid } from '$lib/types';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
-	let promise = data.projectPromise;
+	let project = data.project;
+
+	function goBack() {
+		history.back();
+	}
+
+	function edit(id: Uuid) {
+		return () => {
+			goto(`/project/${id}/edit`);
+		};
+	}
 </script>
 
-{#await promise}
-	<h2>Loading...</h2>
-{:then project}
-	<a href="javascript:history.back()">Back</a>
+<div>
+	<Button onclick={goBack} variant="link">Back</Button>
 	<h1>{project.title}</h1>
 	<p>All details can be displayed here</p>
-{:catch err}
-	<p>ERROR: ${err}</p>
-{/await}
+	<Button onclick={edit(project.id)}>Edit</Button>
+</div>

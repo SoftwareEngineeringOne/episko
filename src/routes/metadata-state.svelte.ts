@@ -1,4 +1,4 @@
-import { Commands } from '$lib/commands.svelte';
+import Commands from '$lib/commands';
 import { SvelteMap } from 'svelte/reactivity';
 import type { Metadata, Uuid } from '$lib/types';
 

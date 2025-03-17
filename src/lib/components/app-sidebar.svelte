@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import {
-		BarChart3,
+		ChartArea,
 		FolderOpen,
 		Home,
 		Import,
@@ -28,19 +28,19 @@
 			},
 			{
 				title: 'Create project',
-				url: '/create-project',
+				url: '/project/new',
 				icon: Plus
 			},
 			{
 				title: 'Statistics',
 				url: '/statistics',
-				icon: BarChart3
+				icon: ChartArea
 			}
 		],
 		navSecondary: [
 			{
 				title: 'Settings',
-				url: 'settings',
+				url: '/settings',
 				icon: SettingsIcon
 			}
 		]
