@@ -26,5 +26,11 @@ export default defineConfig({
 		alias: {
 			$lib: path.resolve('./src/lib')
 		}
+	},
+	test: {
+		coverage: {
+			provider: 'v8',
+			reporter: ['text', 'json-summary']
+		}
 	}
 });

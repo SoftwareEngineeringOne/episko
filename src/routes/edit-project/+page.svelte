@@ -28,7 +28,7 @@
 	}
 </script>
 
-<ProjectForm formTitle="Edit Project" projectData={projectData} onSubmit={handleEdit} />
+<ProjectForm formTitle="Edit Project" {projectData} onSubmit={handleEdit} />
 
 <div class="flex justify-end mt-4">
 	<Dialog>

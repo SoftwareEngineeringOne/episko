@@ -1,11 +1,11 @@
 <script lang="ts">
-	import "../app.css";
-	import AppSidebar from "$lib/components/app-sidebar.svelte";
+	import '../app.css';
+	import AppSidebar from '$lib/components/app-sidebar.svelte';
 	import { ModeWatcher } from 'mode-watcher';
 	import { toggleMode } from 'mode-watcher';
-	import { Button } from "$lib/components/ui/button";
-	import { Separator } from "$lib/components/ui/separator/index.js";
-	import * as Sidebar from "$lib/components/ui/sidebar";
+	import { Button } from '$lib/components/ui/button';
+	import { Separator } from '$lib/components/ui/separator/index.js';
+	import * as Sidebar from '$lib/components/ui/sidebar';
 	import { Moon, Sun } from 'lucide-svelte';
 
 	let { children } = $props();
@@ -17,7 +17,7 @@
 	<Sidebar.Inset>
 		<header class="flex h-16 shrink-0 items-center justify-between gap-2">
 			<div class="flex items-center gap-2 px-4">
-				<Sidebar.Trigger class="-ml-1"/>
+				<Sidebar.Trigger class="-ml-1" />
 				<Separator orientation="vertical" class="mr-2 h-4" />
 			</div>
 			<div class="flex items-center gap-2 px-4">
