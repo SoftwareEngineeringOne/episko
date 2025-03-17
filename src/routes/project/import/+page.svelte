@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { open } from '@tauri-apps/plugin-dialog';
-	import { invoke } from '@tauri-apps/api/core';
-	import type { Metadata } from '$lib/types';
+	import type { Uuid } from '$lib/types';
 	import { goto } from '$app/navigation';
 	import { toast } from 'svelte-sonner';
 
 	import { Button } from '$lib/components/ui/button';
 	import * as Tabs from '$lib/components/ui/tabs';
+	import Commands from '$lib/commands';
 
 	let loadPromise: Promise<void> | null = null;
 
@@ -19,18 +19,24 @@
 
 	function loadFile() {
 		loadPromise = pickFile(false)
-			.then((path): Promise<Metadata> => {
-				return invoke('load_from_file', { path: path });
+			.then((path): Promise<Uuid> => {
+				if (path === null) {
+					throw Error('No path given');
+				}
+				return Commands.load_from_file(path);
 			})
-			.then((metadata: Metadata) => {
-				goto(`/project/${metadata.id}`);
+			.then((id) => {
+				goto(`/project/${id}`);
 			});
 	}
 
 	function loadDirectory() {
 		loadPromise = pickFile(true)
 			.then((path): Promise<number> => {
-				return invoke('load_from_directory', { path: path });
+				if (path === null) {
+					throw Error('No path given');
+				}
+				return Commands.load_from_directory(path);
 			})
 			.then((amount) => {
 				toast(`Loaded ${amount} manifests!`);
@@ -48,7 +54,7 @@
 		{#if loadPromise}
 			{#await loadPromise}
 				Loading file...
-			{:then file}
+			{:then}
 				Redirecting...
 			{:catch error}
 				Failed to load: ${error}
@@ -61,7 +67,7 @@
 		{#if loadPromise}
 			{#await loadPromise}
 				Loading directory...
-			{:then file}
+			{:then}
 				Redirecting...
 			{:catch error}
 				Failed to load: ${error}

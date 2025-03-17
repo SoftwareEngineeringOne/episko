@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-	import ProjectPreview from '$lib/components/project/projectPreview.svelte';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -10,7 +8,7 @@
 {#await promise}
 	<h2>Loading...</h2>
 {:then project}
-	<a href="/project">Back</a>
+	<a href="javascript:history.back()">Back</a>
 	<h1>{project.title}</h1>
 	<p>All details can be displayed here</p>
 {:catch err}

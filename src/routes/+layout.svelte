@@ -8,6 +8,12 @@
 	import * as Sidebar from '$lib/components/ui/sidebar';
 	import { Moon, Sun } from 'lucide-svelte';
 	import { Toaster } from '$lib/components/ui/sonner';
+	import { onMount } from 'svelte';
+	import { loadAllMetadata } from './metadata-state.svelte';
+
+	onMount(async () => {
+		await loadAllMetadata();
+	});
 
 	let { children } = $props();
 </script>

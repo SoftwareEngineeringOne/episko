@@ -9,7 +9,7 @@ use episko_lib::{
 use tauri::Manager;
 
 mod commands;
-use commands::{all, get_with_id, greet, load_from_directory, load_from_file};
+use commands::{get_all, get_with_id, load_from_directory, load_from_file};
 use tokio::sync::Mutex;
 
 struct AppState {
@@ -59,8 +59,7 @@ pub async fn run() -> Result<(), Box<dyn std::error::Error>> {
         })
         .plugin(tauri_plugin_shell::init())
         .invoke_handler(tauri::generate_handler![
-            greet,
-            all,
+            get_all,
             get_with_id,
             load_from_file,
             load_from_directory,

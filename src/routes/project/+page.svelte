@@ -1,19 +1,30 @@
 <script lang="ts">
 	import ProjectPreview from '$lib/components/project/projectPreview.svelte';
-	import { parseMetadataArray, type Metadata } from '$lib/schemas/metadata';
+	import { onDestroy, onMount } from 'svelte';
+	import { metadataState } from '../metadata-state.svelte';
+	import { scrollState } from '../scroll-state.svelte';
 
-	import { invoke } from '@tauri-apps/api/core';
+	let scrollHandler: () => void;
+	onMount(() => {
+		window.scrollTo(0, scrollState.overviewPosition);
 
-	let projectsPromise: Promise<Metadata[]> = invoke('all').then((data) => parseMetadataArray(data));
+		scrollHandler = () => {
+			scrollState.overviewPosition = window.scrollY;
+		};
+
+		window.addEventListener('scroll', scrollHandler);
+	});
+
+	onDestroy(() => {
+		window.removeEventListener('scroll', scrollHandler);
+	});
 </script>
 
 <h1 class="text-2xl font-bold mb-4">All Projects</h1>
-{#await projectsPromise}
-	<h2>Loading</h2>
-{:then projects}
-	{#each projects as project}
+{#if metadataState.loading}
+	<h2>Loading...</h2>
+{:else}
+	{#each metadataState.data.values() as project (project.id)}
 		<ProjectPreview {project} />
 	{/each}
-{:catch err}
-	<p>Error: {err}</p>
-{/await}
+{/if}

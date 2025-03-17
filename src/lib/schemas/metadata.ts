@@ -5,8 +5,10 @@ import { BuildSystemSchema } from './buildSystem';
 import { IdeSchema } from './ide';
 import type { Metadata } from '$lib/types';
 
+export const UuidSchema = z.string().uuid();
+
 export const MetadataBackendSchema = z.object({
-	id: z.string(),
+	id: z.string().uuid(),
 	title: z.string(),
 	description: z.string().optional().nullable(),
 	category: z.array(CategorySchema),
