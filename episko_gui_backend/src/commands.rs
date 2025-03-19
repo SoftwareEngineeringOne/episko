@@ -1,25 +1,67 @@
+use serde::Serialize;
 use std::path::Path;
 use tokio::sync::Mutex;
 use uuid::Uuid;
 
 use episko_lib::{
+    database::retrieve_metadata::Pagination,
     files::File,
-    metadata::{Metadata, metadata_handler::MetadataHandler},
+    metadata::{Metadata, MetadataPreview, metadata_handler::MetadataHandler},
 };
 
 use crate::{AppState, Error, model::MetadataDco, model::MetadataDto};
 
+static PAGE_SIZE: u32 = 10;
+
+#[derive(Serialize, Debug)]
+pub struct PagedData<T> {
+    total_size: u32,
+    page_size: u32,
+    page_number: u32,
+    data: Vec<T>,
+}
+
 #[tauri::command]
-pub async fn get_all(state: tauri::State<'_, Mutex<AppState>>) -> Result<Vec<MetadataDto>, Error> {
+pub async fn init_cache(state: tauri::State<'_, Mutex<AppState>>) -> Result<(), Error> {
     let state = state.lock().await;
 
-    let projects = Metadata::all_from_db(&state.db)
-        .await?
-        .into_iter()
-        .map(Into::into)
-        .collect();
+    let files = state.config_handler.files();
+    for file in files {
+        Metadata::from_file(file)?.write_to_db(&state.db).await?;
+    }
 
-    Ok(projects)
+    let dirs = state.config_handler.dirs();
+    for dir in dirs {
+        let files = MetadataHandler::search_directory(dir)?;
+        for file in &files {
+            Metadata::from_file(file)?.write_to_db(&state.db).await?;
+        }
+    }
+
+    Ok(())
+}
+
+#[tauri::command]
+pub async fn get_all(
+    page_number: u32,
+    query: Option<String>,
+    state: tauri::State<'_, Mutex<AppState>>,
+) -> Result<PagedData<MetadataPreview>, Error> {
+    let state = state.lock().await;
+
+    let projects = Metadata::all_preview_from_db(
+        Some(Pagination::new(page_number, PAGE_SIZE)),
+        query.clone(),
+        &state.db,
+    )
+    .await?;
+
+    Ok(PagedData {
+        total_size: Metadata::amount_cached(query, &state.db).await?,
+        page_size: PAGE_SIZE,
+        page_number,
+        data: projects,
+    })
 }
 
 #[tauri::command]
@@ -44,7 +86,7 @@ pub async fn update_metadata(
 
     let metadata = updated.update(metadata)?;
 
-    metadata.write_to_db(&state.db).await?;
+    metadata.update_in_db(&state.db).await?;
     metadata.write_file(&metadata.directory)?;
 
     Ok(metadata.into())
@@ -52,10 +94,10 @@ pub async fn update_metadata(
 
 #[tauri::command]
 pub async fn create_metadata(
-    new: MetadataDco,
+    created: MetadataDco,
     state: tauri::State<'_, Mutex<AppState>>,
-) -> Result<MetadataDto, Error> {
-    let metadata = new.create()?;
+) -> Result<Uuid, Error> {
+    let metadata = created.create()?;
 
     let mut state = state.lock().await;
 
@@ -66,7 +108,7 @@ pub async fn create_metadata(
     state.config_handler.add_saved_file(&metadata.directory);
     state.config_handler.save_config()?;
 
-    Ok(metadata.into())
+    Ok(metadata.id)
 }
 
 #[tauri::command]

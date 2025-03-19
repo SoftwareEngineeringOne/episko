@@ -156,12 +156,15 @@ impl Metadata {
     }
 }
 
+#[derive(Debug, Serialize, Deserialize)]
 pub struct MetadataPreview {
     pub id: Uuid,
     pub title: String,
     pub description: Option<String>,
     pub categories: Vec<Category>,
     pub languages: Vec<Language>,
+    pub created: DateTime<Utc>,
+    pub updated: DateTime<Utc>,
 }
 
 #[derive(Debug, Error)]

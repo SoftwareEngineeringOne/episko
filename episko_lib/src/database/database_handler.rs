@@ -2,9 +2,9 @@
 use std::time::Duration;
 
 use sqlx::{
+    SqlitePool,
     migrate::{MigrateDatabase, Migrator},
     sqlite::SqlitePoolOptions,
-    SqlitePool,
 };
 
 use crate::config::Config;
@@ -51,6 +51,11 @@ impl DatabaseHandler {
         MIGRATOR.run(&conn).await?;
 
         Ok(Self { conn })
+    }
+
+    #[cfg(test)]
+    pub fn with_conn(conn: SqlitePool) -> Self {
+        Self { conn }
     }
 
     /// Provides a reference to the [`SqlitePool`] which can be used

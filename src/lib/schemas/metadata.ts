@@ -3,11 +3,11 @@ import { CategorySchema } from './category';
 import { LanguageSchema } from './language';
 import { BuildSystemSchema } from './buildSystem';
 import { IdeSchema } from './ide';
-import type { FormMetadata, Metadata, MetadataDco } from '$lib/types';
+import type { FormMetadata, Metadata, MetadataDco, MetadataPreview } from '$lib/types';
 
 export const UuidSchema = z.string().uuid();
 
-export const MetadataBackendSchema = z.object({
+export const MetadataDtoSchema = z.object({
 	id: z.string().uuid(),
 	title: z.string(),
 	directory: z.string(),
@@ -21,7 +21,17 @@ export const MetadataBackendSchema = z.object({
 	updated: z.string()
 });
 
-export const MetadataSchema = MetadataBackendSchema.transform((data) => ({
+export const MetadataPreviewDtoSchema = z.object({
+	id: z.string().uuid(),
+	title: z.string(),
+	description: z.string().optional().nullable(),
+	categories: z.array(CategorySchema),
+	languages: z.array(LanguageSchema),
+	created: z.string(),
+	updated: z.string()
+});
+
+export const MetadataSchema = MetadataDtoSchema.transform((data) => ({
 	id: data.id,
 	title: data.title,
 	directory: data.directory,
@@ -35,13 +45,23 @@ export const MetadataSchema = MetadataBackendSchema.transform((data) => ({
 	updated: new Date(data.updated)
 }));
 
+export const MetadataPreviewSchema = MetadataPreviewDtoSchema.transform((data) => ({
+	id: data.id,
+	title: data.title,
+	description: data.description ?? undefined,
+	categories: data.categories,
+	languages: data.languages,
+	created: new Date(data.created),
+	updated: new Date(data.updated)
+}));
+
 export const MetadataFormSchema = z.object({
 	title: z.string().nonempty(),
 	directory: z.string().nonempty(),
 	description: z.string().optional(),
 	categories: z.array(CategorySchema),
 	languages: z.array(LanguageSchema),
-	buildSystems: z.array(BuildSystemSchema),
+	buildSystems: z.array(BuildSystemSchema).default([]),
 	preferredIde: z.optional(IdeSchema),
 	repositoryUrl: z.string().optional()
 });
@@ -59,6 +79,10 @@ export const MetadataDcoSchema = MetadataFormSchema.transform((data) => ({
 
 export function parseMetadata(data: unknown): Metadata {
 	return MetadataSchema.parse(data);
+}
+
+export function parseMetadataPreview(data: unknown): MetadataPreview {
+	return MetadataPreviewSchema.parse(data);
 }
 
 export function parseFormData(metadata: Metadata): FormMetadata {
@@ -84,4 +108,12 @@ export function parseMetadataArray(data: unknown): Metadata[] {
 	}
 
 	return data.map((item) => parseMetadata(item));
+}
+
+export function parseMetadataPreviewArray(data: unknown): MetadataPreview[] {
+	if (!Array.isArray(data)) {
+		throw new Error('Expected array');
+	}
+
+	return data.map((item) => parseMetadataPreview(item));
 }

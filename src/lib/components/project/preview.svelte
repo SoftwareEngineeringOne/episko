@@ -1,10 +1,10 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card/index';
 	import { Badge } from '$lib/components/ui/badge/index.js';
-	import type { Metadata } from '$lib/types';
+	import type { MetadataPreview } from '$lib/types';
 	import { goto } from '$app/navigation';
 
-	let { project }: { project: Metadata } = $props();
+	let { project }: { project: MetadataPreview } = $props();
 
 	let seeDetails = () => {
 		goto(`/project/${project.id}`);

@@ -12,10 +12,6 @@ export const preventDefault = <T extends Event>(fn: (e: T) => void): ((e: T) => 
 	};
 };
 
-export function sanity_check(a: number, b: number): number {
-	return a + b;
-}
-
 export function flyAndScale(node: HTMLElement, { duration = 300 } = {}) {
 	return {
 		duration,

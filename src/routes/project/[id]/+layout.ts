@@ -13,8 +13,6 @@ export const load: LayoutLoad = async ({ params }) => {
 	let project = await Commands.get_with_id(params.id);
 
 	let parsedProject = parseFormData(project);
-	console.log('Project:', project);
-	console.log('Parsed Project:', parsedProject);
 	return {
 		project,
 		form: await superValidate(parseFormData(project), zod(MetadataFormSchema))

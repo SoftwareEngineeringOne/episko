@@ -3,11 +3,6 @@
 use episko_lib::{
     config::ConfigHandler,
     database::DatabaseHandler,
-    files::File as _,
-    metadata::{
-        Metadata,
-        metadata_handler::MetadataHandler,
-    },
 };
 use state::AppState;
 use tauri::Manager;
@@ -15,7 +10,8 @@ use tokio::sync::Mutex;
 
 mod commands;
 use commands::{
-    create_metadata, get_all, get_with_id, load_from_directory, load_from_file, update_metadata,
+    create_metadata, get_all, get_with_id, init_cache, load_from_directory, load_from_file,
+    update_metadata,
 };
 
 pub mod model;
@@ -35,19 +31,6 @@ pub async fn run() -> Result<(), Box<dyn std::error::Error>> {
 
     let db = DatabaseHandler::with_config(config_handler.config()).await?;
 
-    let files = config_handler.files();
-    for file in files {
-        Metadata::from_file(file)?.write_to_db(&db).await?;
-    }
-
-    let dirs = config_handler.dirs();
-    for dir in dirs {
-        let files = MetadataHandler::search_directory(dir)?;
-        for file in &files {
-            Metadata::from_file(file)?.write_to_db(&db).await?;
-        }
-    }
-
     tauri::async_runtime::set(tokio::runtime::Handle::current());
 
     tauri::Builder::default()
@@ -58,6 +41,7 @@ pub async fn run() -> Result<(), Box<dyn std::error::Error>> {
         })
         .plugin(tauri_plugin_shell::init())
         .invoke_handler(tauri::generate_handler![
+            init_cache,
             get_all,
             get_with_id,
             update_metadata,

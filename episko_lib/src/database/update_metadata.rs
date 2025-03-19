@@ -1,5 +1,5 @@
-use crate::metadata::property::Property;
 use crate::metadata::Metadata;
+use crate::metadata::property::Property;
 
 use super::DatabaseHandler;
 use super::DatabaseObject;
@@ -54,6 +54,7 @@ impl Metadata {
             .bind(self.id)
             .execute(&mut *transaction)
             .await?;
+
         for category in &self.categories {
             // Make sure the related category exists.
             if !category.exists(&mut *transaction).await? {

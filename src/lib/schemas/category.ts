@@ -1,5 +1,5 @@
 import { z } from 'zod';
 
 export const CategorySchema = z.object({
-	name: z.string()
+	name: z.string().nonempty()
 });

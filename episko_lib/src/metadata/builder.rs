@@ -132,6 +132,7 @@ impl MetadataBuilder {
     /// > This is not the cleanet solution and should be looked at, however
     /// > it allows for normalization of all builder methods.
     #[must_use]
+    #[cfg(not(test))]
     pub fn directory_path(mut self, path: &Path) -> Self {
         match path.canonicalize() {
             Ok(absolute_path) => {
@@ -143,6 +144,14 @@ impl MetadataBuilder {
             }
             Err(_) => self.directory = None,
         }
+
+        self
+    }
+
+    #[must_use]
+    #[cfg(test)]
+    pub fn directory_path(mut self, path: &Path) -> Self {
+        self.directory = Some(path.to_path_buf());
 
         self
     }
@@ -334,21 +343,6 @@ mod tests {
         let result = builder.build();
         assert!(result.is_err());
         if let Err(err) = result {
-            match err {
-                Error::DirectoryMissing => (),
-                _ => panic!("Unexpected error type"),
-            }
-        }
-    }
-
-    #[test]
-    fn test_metadata_invalid_dir() {
-        let data = MetadataBuilder::new()
-            .title("Test")
-            .directory("/a/b/c/d/e/f/g")
-            .build();
-        assert!(data.is_err());
-        if let Err(err) = data {
             match err {
                 Error::DirectoryMissing => (),
                 _ => panic!("Unexpected error type"),

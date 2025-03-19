@@ -78,22 +78,89 @@ pub enum Error {
 }
 
 #[cfg(test)]
-pub async fn setup_db() -> DatabaseHandler {
-    use sqlx::migrate::Migrator;
-    static MIGRATOR: Migrator = sqlx::migrate!();
+pub mod db_test {
+    use std::collections::HashSet;
 
-    let db = DatabaseHandler::new("sqlite://").await.unwrap();
-    MIGRATOR.run(db.conn()).await.unwrap();
+    use super::*;
+    use crate::{
+        ApplyIf as _,
+        metadata::{Metadata, property::Property as _, *},
+    };
+    use chrono::{TimeDelta, Utc};
 
-    db
+    pub async fn fill_db(amount: usize, db: &DatabaseHandler) {
+        let test_data = generate_test_metadata(amount);
+
+        for el in test_data {
+            el.write_to_db(db).await.expect("writing test data");
+        }
+    }
+
+    pub fn generate_test_metadata(count: usize) -> Vec<Metadata> {
+        let base_time = Utc::now();
+        let ides = ["VSCode", "IntelliJ", "Sublime", "Vim"];
+        let categories = ["Web", "CLI", "GUI", "Embedded", "AI"];
+        let languages = ["Rust", "Python", "JavaScript", "Go", "C++"];
+        let build_systems = ["Cargo", "Make", "CMake", "NPM", "Bazel"];
+
+        (0..count)
+            .map(|i| {
+                let offset = TimeDelta::try_days(i as i64).unwrap();
+
+                Metadata::builder()
+                    .title(&format!("Test Project {}", i + 1))
+                    .directory(".")
+                    .apply_if(
+                        Some(categories[i % categories.len()]),
+                        MetadataBuilder::add_category,
+                    )
+                    .add_language(Language::with_version(
+                        languages[i % languages.len()],
+                        &format!("1.{}", i),
+                    ))
+                    .apply_if(
+                        (i % 2 == 0).then_some(Ide::new(ides[i % ides.len()])),
+                        MetadataBuilder::preffered_ide,
+                    )
+                    .add_build_system(BuildSystem::with_version(
+                        build_systems[i % build_systems.len()],
+                        &format!("2.{}", i),
+                    ))
+                    .apply_if(
+                        (i % 3 == 0).then_some("Sample description"),
+                        MetadataBuilder::description,
+                    )
+                    .apply_if(
+                        (i % 4 == 0).then_some("https://github.com/example/project"),
+                        MetadataBuilder::repository_url,
+                    )
+                    .created(base_time - offset)
+                    .updated(base_time)
+                    .build()
+                    .expect("Should generate valid metadata")
+            })
+            .collect()
+    }
+
+    #[test]
+    fn test_generated_metadata() {
+        let test_data = generate_test_metadata(5);
+        assert_eq!(test_data.len(), 5);
+
+        let ids: HashSet<Uuid> = test_data.iter().map(|m| m.id).collect();
+        assert_eq!(ids.len(), 5);
+    }
 }
 
 #[cfg(test)]
 mod test {
-    use super::*;
+    use sqlx::SqlitePool;
 
-    #[tokio::test]
-    async fn setup_test_db() {
-        setup_db().await;
+    use crate::database::{DatabaseHandler, db_test::fill_db};
+
+    #[sqlx::test]
+    async fn setup_test_db(conn: SqlitePool) {
+        let db = DatabaseHandler::with_conn(conn);
+        fill_db(25, &db).await;
     }
 }

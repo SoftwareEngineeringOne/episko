@@ -1,6 +1,8 @@
 use episko_lib::{
+    metadata::{
+        property::Property, BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder,
+    },
     ApplyIf as _,
-    metadata::{BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder},
 };
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
@@ -26,7 +28,12 @@ impl MetadataDco {
     ///
     /// # Errors
     /// !TODO!
-    pub fn create(self) -> Result<Metadata, Error> {
+    pub fn create(mut self) -> Result<Metadata, Error> {
+        self.categories.iter_mut().for_each(Property::update_id);
+        self.build_systems.iter_mut().for_each(Property::update_id);
+        self.languages.iter_mut().for_each(Property::update_id);
+        self.preffered_ide.iter_mut().for_each(Property::update_id);
+
         Ok(Metadata::builder()
             .directory_path(&self.directory)
             .title(&self.title)
@@ -46,7 +53,12 @@ impl MetadataDco {
     ///
     /// # Errors
     /// !TODO!
-    pub fn update(self, metadata: Metadata) -> Result<Metadata, Error> {
+    pub fn update(mut self, metadata: Metadata) -> Result<Metadata, Error> {
+        self.categories.iter_mut().for_each(Property::update_id);
+        self.build_systems.iter_mut().for_each(Property::update_id);
+        self.languages.iter_mut().for_each(Property::update_id);
+        self.preffered_ide.iter_mut().for_each(Property::update_id);
+
         Ok(metadata
             .update()
             .directory_path(&self.directory)
@@ -68,7 +80,7 @@ impl MetadataDco {
 mod tests {
     use super::*;
     use episko_lib::metadata::{
-        BuildSystem, Category, Ide, Language, Metadata, property::Property as _,
+        property::Property as _, BuildSystem, Category, Ide, Language, Metadata,
     };
     use std::path::PathBuf;
 

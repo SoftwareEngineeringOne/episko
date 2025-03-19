@@ -1,6 +1,7 @@
 <script lang="ts">
 	import * as Form from '$lib/components/ui/form/index.js';
 	import FormLanguages from './form-languages.svelte';
+	import FormBuildSystems from './form-build-systems.svelte';
 	import { Input } from '$lib/components/ui/input';
 	import type { FormMetadata, Metadata } from '$lib/types';
 	import { type SuperValidated, setError, setMessage, superForm } from 'sveltekit-superforms';
@@ -10,7 +11,11 @@
 	import { Button } from '../ui/button';
 	import { goto } from '$app/navigation';
 	import Commands from '$lib/commands';
-	import { upsertMetadata } from '../../../routes/metadata-state.svelte';
+	import { resetState } from '../../../routes/project/state.svelte';
+	import Textarea from '../ui/textarea/textarea.svelte';
+	import FormCategories from './form-categories.svelte';
+	import FormIde from './form-ide.svelte';
+	import { open } from '@tauri-apps/plugin-dialog';
 
 	interface Props {
 		metadata?: Metadata;
@@ -32,7 +37,7 @@
 					await Commands.update_metadata(metadata.id, form.data)
 						.then((metadata) => {
 							console.log('Promise resolved');
-							upsertMetadata(metadata);
+							resetState();
 							history.back();
 						})
 						.catch((err) => {
@@ -40,7 +45,16 @@
 							setError(form, err);
 						});
 				} else {
-					setMessage(form, 'TODO: Create');
+					await Commands.create_metadata(form.data)
+						.then((id) => {
+							console.log('Promis resolved');
+							resetState();
+							setTimeout(() => goto(`/project`), 0);
+						})
+						.catch((err) => {
+							console.error('Promise failed:', err);
+							setError(form, err);
+						});
 				}
 			} else {
 				console.log('Helloo I am under the water');
@@ -50,17 +64,20 @@
 
 	const { form: formData, enhance } = form;
 
-	function removeCategory(index: number) {
-		return () => {
-			formData.update((data) => {
-				data.categories.splice(index, 1);
-
-				return data;
-			});
-		};
-	}
-
 	const formTitle = metadata === undefined ? 'Create a Project' : 'Edit Project';
+
+	async function pickDirectory() {
+		let dir = await open({
+			multiple: false,
+			directory: true
+		});
+
+		formData.update((data) => {
+			data.directory = dir || '';
+
+			return data;
+		});
+	}
 </script>
 
 <h1>{formTitle}</h1>
@@ -69,11 +86,14 @@
 		<Form.Control>
 			{#snippet children({ props })}
 				<Form.Label>Directory</Form.Label>
-				<Input {...props} bind:value={$formData.directory} />
+				<div class="flex">
+					<Input {...props} bind:value={$formData.directory} />
+					<Button onclick={pickDirectory}>Choose</Button>
+				</div>
 			{/snippet}
 		</Form.Control>
 		<Form.FieldErrors />
-		<Form.Description>Todo: Use tauri file chooser</Form.Description>
+		<Form.Description>TBC: Choose directory</Form.Description>
 	</Form.Field>
 
 	<Form.Field {form} name="title">
@@ -87,17 +107,39 @@
 		<Form.Description>TBC: Title of the Project</Form.Description>
 	</Form.Field>
 
-	<FormLanguages {form} />
+	<Form.Field {form} name="description">
+		<Form.Control>
+			{#snippet children({ props })}
+				<Form.Label>Description</Form.Label>
+				<Textarea {...props} bind:value={$formData.description} />
+			{/snippet}
+		</Form.Control>
+		<Form.FieldErrors />
+		<Form.Description>TBC: Description of the Project</Form.Description>
+	</Form.Field>
 
-	<!-- similiar like languages probably also seperate component-->
-	Categories
-	{#each $formData.categories as _, i}
-		<Badge
-			>{$formData.categories[i].name}
-			<Button variant="ghost" onclick={removeCategory(i)}>X</Button></Badge
-		>&nbsp;
-	{/each}
-	<Input />
+	<FormCategories {form} />
+	<br />
+
+	<FormLanguages {form} />
+	<br />
+
+	<FormBuildSystems {form} />
+	<br />
+
+	<FormIde {form} />
+	<br />
+
+	<Form.Field {form} name="repositoryUrl">
+		<Form.Control>
+			{#snippet children({ props })}
+				<Form.Label>Repository Url</Form.Label>
+				<Input {...props} bind:value={$formData.repositoryUrl} />
+			{/snippet}
+		</Form.Control>
+		<Form.FieldErrors />
+		<Form.Description>TBC: Repo Url of the Project</Form.Description>
+	</Form.Field>
 
 	<Form.Button>Submit</Form.Button>
 </form>

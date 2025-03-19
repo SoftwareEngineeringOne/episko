@@ -2,14 +2,20 @@ import type { z } from 'zod';
 import type {
 	MetadataDcoSchema,
 	MetadataFormSchema,
+	MetadataPreviewSchema,
 	MetadataSchema,
 	UuidSchema
 } from './schemas/metadata';
+import type { PagedMetadataPreviewSchema } from './schemas/pagedData.ts';
 import type { LanguageSchema } from './schemas/language';
 import type { CategorySchema } from './schemas/category';
 import type { BuildSystemSchema } from './schemas/buildSystem';
 
 export type Metadata = z.infer<typeof MetadataSchema>;
+
+export type MetadataPreview = z.infer<typeof MetadataPreviewSchema>;
+
+export type PagedMetadataPreview = z.infer<typeof PagedMetadataPreviewSchema>;
 
 export type FormMetadata = z.infer<typeof MetadataFormSchema>;
 

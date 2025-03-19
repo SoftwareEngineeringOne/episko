@@ -104,13 +104,14 @@ impl Metadata {
 
 #[cfg(test)]
 mod test {
+
+    use sqlx::SqlitePool;
+
     use super::*;
-    use crate::database::setup_db;
 
     #[sqlx::test]
-    async fn insert_metadata() {
-        // let db = DatabaseHandler::new("sqlite://").await.unwrap();
-        let db = setup_db().await;
+    async fn insert_metadata(conn: SqlitePool) {
+        let db = DatabaseHandler::with_conn(conn);
 
         let metadata = Metadata::builder()
             .directory(".")
