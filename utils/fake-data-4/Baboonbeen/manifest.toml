@@ -1,0 +1,23 @@
+id = "0368c0e8-36e8-4680-870e-4f4cba946265"
+title = "Baboonbeen"
+description = "Nevertheless yet late some would what of nobody meanwhile clean."
+created = "2025-03-19T10:57:23.030652316Z"
+updated = "2025-03-19T10:57:23.030654456Z"
+
+[[category]]
+name = "her"
+
+[[category]]
+name = "the"
+
+[[language]]
+name = "JavaScript"
+version = "2.2"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "3.4"

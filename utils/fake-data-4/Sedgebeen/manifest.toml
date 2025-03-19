@@ -1,0 +1,21 @@
+id = "0f097ebb-98b5-4247-af4d-52845d6cce7d"
+title = "Sedgebeen"
+category = []
+build_system = []
+created = "2025-03-19T10:56:41.246778496Z"
+updated = "2025-03-19T10:56:41.246780566Z"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "3.6"
+
+[[language]]
+name = "C#"
+version = "4.5"
+
+[preffered_ide]
+name = "Atom:2.1"

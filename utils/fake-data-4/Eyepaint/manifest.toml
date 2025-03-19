@@ -1,0 +1,34 @@
+id = "f8d3b166-04f3-481b-97d5-93171ced6ba6"
+title = "Eyepaint"
+repository_url = "https://www.corporatefrictionless.biz/models/robust/interfaces"
+created = "2025-03-19T10:56:44.603614833Z"
+updated = "2025-03-19T10:56:44.603617043Z"
+
+[[category]]
+name = "me"
+
+[[category]]
+name = "normally"
+
+[[language]]
+name = "JavaScript"
+version = "5.5"
+
+[[language]]
+name = "JavaScript"
+version = "1.0"
+
+[[language]]
+name = "Rust"
+version = "5.3"
+
+[[build_system]]
+name = "Bazel"
+version = "1.0"
+
+[[build_system]]
+name = "Make"
+version = "3.8"
+
+[preffered_ide]
+name = "Emacs:1.1"

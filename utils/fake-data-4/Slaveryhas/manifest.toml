@@ -1,0 +1,25 @@
+id = "397f1943-c8e0-437a-b4a2-80a39234602e"
+title = "Slaveryhas"
+repository_url = "http://www.globaldeploy.info/incentivize/ubiquitous/content/interfaces"
+created = "2025-03-19T10:56:43.061375547Z"
+updated = "2025-03-19T10:56:43.061377417Z"
+
+[[category]]
+name = "mob"
+
+[[category]]
+name = "well"
+
+[[category]]
+name = "few"
+
+[[language]]
+name = "C#"
+version = "4.9"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:2.0"

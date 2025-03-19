@@ -1,0 +1,21 @@
+id = "5ece2dbf-abd9-4aa2-a48a-8536a78e460d"
+title = "Tripmight"
+build_system = []
+created = "2025-03-19T09:34:37.979994992Z"
+updated = "2025-03-19T09:34:37.979997182Z"
+
+[[category]]
+name = "weekly"
+
+[[category]]
+name = "now"
+
+[[category]]
+name = "alone"
+
+[[language]]
+name = "Rust"
+version = "3.5"
+
+[preffered_ide]
+name = "Atom:2.3"

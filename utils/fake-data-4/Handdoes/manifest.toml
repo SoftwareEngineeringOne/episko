@@ -1,0 +1,26 @@
+id = "db2f10e9-095b-4f3d-9056-1c79b2661ddf"
+title = "Handdoes"
+build_system = []
+created = "2025-03-19T10:57:31.622923597Z"
+updated = "2025-03-19T10:57:31.622925907Z"
+
+[[category]]
+name = "for"
+
+[[category]]
+name = "outside"
+
+[[language]]
+name = "Java"
+version = "3.6"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.1"

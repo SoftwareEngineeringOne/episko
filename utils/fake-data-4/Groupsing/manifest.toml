@@ -1,0 +1,13 @@
+id = "ae356798-ad30-403f-8bcd-27d8b3c0b338"
+title = "Groupsing"
+category = []
+created = "2025-03-19T10:56:57.740113278Z"
+updated = "2025-03-19T10:56:57.740114958Z"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "1.9"

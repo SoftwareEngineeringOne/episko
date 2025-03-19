@@ -1,0 +1,14 @@
+id = "57b9db4d-7b83-47e4-8819-b78cfbbc511a"
+title = "WhiteSmoketalent"
+description = "Many must yourselves alone witty now spit us now furthermore."
+category = []
+created = "2025-03-19T10:56:53.810231160Z"
+updated = "2025-03-19T10:56:53.810232870Z"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"

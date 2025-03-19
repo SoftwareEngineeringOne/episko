@@ -1,0 +1,22 @@
+id = "1785da95-92fc-4f2f-8874-d2e276c7debe"
+title = "MediumSeaGreenhappiness"
+build_system = []
+created = "2025-03-19T10:57:03.235244876Z"
+updated = "2025-03-19T10:57:03.235246816Z"
+
+[[category]]
+name = "everyone"
+
+[[category]]
+name = "that"
+
+[[language]]
+name = "Rust"
+version = "3.0"
+
+[[language]]
+name = "TypeScript"
+version = "2.6"
+
+[preffered_ide]
+name = "IntelliJ:2.7"

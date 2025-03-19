@@ -1,0 +1,34 @@
+id = "a17597fa-c186-4100-9244-db88b73eb973"
+title = "Uncledrink"
+description = "Troop that my though anger woman while do just run."
+created = "2025-03-19T10:56:41.703158379Z"
+updated = "2025-03-19T10:56:41.703159709Z"
+
+[[category]]
+name = "he"
+
+[[category]]
+name = "clumsy"
+
+[[category]]
+name = "off"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.1"
+
+[[build_system]]
+name = "Bazel"
+version = "2.1"

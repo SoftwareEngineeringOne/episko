@@ -1,0 +1,19 @@
+id = "c849a750-2a64-48e7-9c16-7ff55472a780"
+title = "RoyalBluerain"
+build_system = []
+created = "2025-03-19T10:56:51.075474556Z"
+updated = "2025-03-19T10:56:51.075477446Z"
+
+[[category]]
+name = "he"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "3.5"
+
+[preffered_ide]
+name = "Vim:2.6"

@@ -1,0 +1,26 @@
+id = "5a93f4cc-48ea-4ea2-8819-4f1910816202"
+title = "Donkeystack"
+repository_url = "https://www.regionalexperiences.net/productize/cultivate/cutting-edge"
+created = "2025-03-19T10:56:46.885858862Z"
+updated = "2025-03-19T10:56:46.885861142Z"
+
+[[category]]
+name = "ouch"
+
+[[category]]
+name = "tomorrow"
+
+[[category]]
+name = "summation"
+
+[[language]]
+name = "Python"
+version = "5.8"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"

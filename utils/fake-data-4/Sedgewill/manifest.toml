@@ -1,0 +1,29 @@
+id = "3bcbfa8b-e8af-4a3a-a2d9-2e6a3ac995e4"
+title = "Sedgewill"
+build_system = []
+created = "2025-03-19T10:57:40.252814026Z"
+updated = "2025-03-19T10:57:40.252815907Z"
+
+[[category]]
+name = "tonight"
+
+[[category]]
+name = "something"
+
+[[category]]
+name = "our"
+
+[[language]]
+name = "JavaScript"
+version = "4.1"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:2.7"

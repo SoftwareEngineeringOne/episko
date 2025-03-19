@@ -1,0 +1,33 @@
+id = "75be827e-1e73-4139-91ac-1ba0b0d3b2c6"
+title = "LightSalmoncrew"
+created = "2025-03-19T10:57:35.470895563Z"
+updated = "2025-03-19T10:57:35.470899383Z"
+
+[[category]]
+name = "empty"
+
+[[category]]
+name = "the"
+
+[[language]]
+name = "Python"
+version = "4.5"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "4.9"
+
+[[build_system]]
+name = "Webpack"
+version = "3.8"
+
+[[build_system]]
+name = "Bazel"
+version = "2.3"
+
+[preffered_ide]
+name = "Sublime:2.4"

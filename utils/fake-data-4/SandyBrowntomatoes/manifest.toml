@@ -1,0 +1,17 @@
+id = "3026406c-0e29-4e27-96cf-5efe4ce51d10"
+title = "SandyBrowntomatoes"
+description = "Where gee yesterday quality lead even between a her occasionally."
+category = []
+created = "2025-03-19T10:56:43.719470240Z"
+updated = "2025-03-19T10:56:43.719472070Z"
+
+[[language]]
+name = "Java"
+version = "1.9"
+
+[[build_system]]
+name = "Gradle"
+version = "1.1"
+
+[preffered_ide]
+name = "IntelliJ:1.3"

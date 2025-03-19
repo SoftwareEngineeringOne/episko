@@ -11,9 +11,9 @@
 	import { onMount } from 'svelte';
 	import { loadAllMetadata } from './metadata-state.svelte';
 
-	onMount(async () => {
-		await loadAllMetadata();
-	});
+	// onMount(async () => {
+	// 	await loadAllMetadata();
+	// });
 
 	let { children } = $props();
 </script>

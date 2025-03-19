@@ -1,0 +1,27 @@
+id = "553f771c-f198-4b08-8d4f-708eeadccbbe"
+title = "Coddoes"
+repository_url = "https://www.principalorchestrate.net/exploit/plug-and-play"
+created = "2025-03-19T10:56:59.272599309Z"
+updated = "2025-03-19T10:56:59.272601679Z"
+
+[[category]]
+name = "yell"
+
+[[category]]
+name = "abundant"
+
+[[language]]
+name = "Go"
+version = "1.3"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"

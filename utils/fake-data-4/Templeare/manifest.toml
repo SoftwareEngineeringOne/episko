@@ -1,0 +1,24 @@
+id = "22b92126-5e65-4992-8228-01272160d660"
+title = "Templeare"
+repository_url = "http://www.regionale-commerce.net/ubiquitous/turn-key/utilize"
+created = "2025-03-19T10:57:01.935326384Z"
+updated = "2025-03-19T10:57:01.935329034Z"
+
+[[category]]
+name = "where"
+
+[[language]]
+name = "TypeScript"
+version = "5.0"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.5"

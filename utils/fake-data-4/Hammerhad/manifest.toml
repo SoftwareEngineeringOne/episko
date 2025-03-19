@@ -1,0 +1,25 @@
+id = "723a4d78-1344-4c27-93f6-31bf649d6a2d"
+title = "Hammerhad"
+category = []
+repository_url = "http://www.productmission-critical.org/real-time"
+created = "2025-03-19T10:56:46.480698128Z"
+updated = "2025-03-19T10:56:46.480700128Z"
+
+[[language]]
+name = "Rust"
+version = "4.8"
+
+[[language]]
+name = "Python"
+version = "5.3"
+
+[[language]]
+name = "Python"
+version = "4.1"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:1.0"

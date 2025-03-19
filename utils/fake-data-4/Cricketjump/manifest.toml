@@ -1,0 +1,21 @@
+id = "5ac39ae0-6c9b-459f-b3ad-3eca8d656d08"
+title = "Cricketjump"
+category = []
+build_system = []
+created = "2025-03-19T10:57:13.097732282Z"
+updated = "2025-03-19T10:57:13.097734262Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "3.3"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:2.4"

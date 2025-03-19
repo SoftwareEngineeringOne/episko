@@ -1,0 +1,18 @@
+id = "ad2f9484-f159-4331-97e4-7cfe24a29362"
+title = "Cockroachshould"
+description = "As man when you full noisily freeze whoever next yay."
+category = []
+build_system = []
+created = "2025-03-19T10:57:36.554156115Z"
+updated = "2025-03-19T10:57:36.554159005Z"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:1.3"

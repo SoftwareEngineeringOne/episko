@@ -1,0 +1,13 @@
+id = "5e8546c7-b53b-43be-aa1a-4429b63f8007"
+title = "Eggshould"
+description = "Burger throughout being ream consequently e.g. these backwards hmm theirs."
+build_system = []
+created = "2025-03-19T10:56:57.910165055Z"
+updated = "2025-03-19T10:56:57.910167185Z"
+
+[[category]]
+name = "boxers"
+
+[[language]]
+name = "Rust"
+version = "unknown"

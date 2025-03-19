@@ -1,0 +1,28 @@
+id = "d9690c45-7297-46be-8b8e-60f5e619ccfb"
+title = "Greenstore"
+description = "Irritably his their change besides any even yourself oven fleet."
+repository_url = "https://www.globalmarkets.com/e-commerce/envisioneer"
+created = "2025-03-19T10:57:24.281699737Z"
+updated = "2025-03-19T10:57:24.281701877Z"
+
+[[category]]
+name = "wad"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "4.3"
+
+[[build_system]]
+name = "Make"
+version = "1.3"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:2.8"

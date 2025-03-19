@@ -1,0 +1,22 @@
+id = "6e68d331-b229-4b9c-99a9-b561e2976187"
+title = "Tealgroup"
+description = "Kiss yourself in did bowl in wait patrol our yearly."
+category = []
+created = "2025-03-19T10:56:56.452052333Z"
+updated = "2025-03-19T10:56:56.452054323Z"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "1.1"
+
+[[build_system]]
+name = "Make"
+version = "unknown"

@@ -1,0 +1,22 @@
+id = "938c2c39-686d-4b06-abd4-868174b9e141"
+title = "Tanpart"
+build_system = []
+created = "2025-03-19T10:56:43.076265131Z"
+updated = "2025-03-19T10:56:43.076267081Z"
+
+[[category]]
+name = "have"
+
+[[category]]
+name = "which"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "5.2"
+
+[preffered_ide]
+name = "Vim:2.2"

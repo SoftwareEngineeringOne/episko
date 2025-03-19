@@ -1,0 +1,24 @@
+id = "5104062b-0066-452f-8cda-9561071576c3"
+title = "Yakcut"
+category = []
+created = "2025-03-19T10:57:13.544431559Z"
+updated = "2025-03-19T10:57:13.544433489Z"
+
+[[language]]
+name = "Python"
+version = "3.8"
+
+[[language]]
+name = "C#"
+version = "2.1"
+
+[[language]]
+name = "JavaScript"
+version = "5.8"
+
+[[build_system]]
+name = "Bazel"
+version = "2.4"
+
+[preffered_ide]
+name = "Atom:2.3"

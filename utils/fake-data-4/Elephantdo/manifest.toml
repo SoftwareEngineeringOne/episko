@@ -1,0 +1,25 @@
+id = "e98949b1-6ed3-412e-8631-40d9467303f7"
+title = "Elephantdo"
+created = "2025-03-19T10:57:27.982331959Z"
+updated = "2025-03-19T10:57:27.982333829Z"
+
+[[category]]
+name = "rush"
+
+[[category]]
+name = "yourselves"
+
+[[category]]
+name = "already"
+
+[[language]]
+name = "JavaScript"
+version = "1.3"
+
+[[build_system]]
+name = "Bazel"
+version = "2.6"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"

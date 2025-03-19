@@ -1,0 +1,24 @@
+id = "0dc60f95-2267-45ea-9326-d4c017ce3668"
+title = "Raccoonam"
+category = []
+created = "2025-03-19T10:57:00.255982364Z"
+updated = "2025-03-19T10:57:00.255984574Z"
+
+[[language]]
+name = "JavaScript"
+version = "2.4"
+
+[[language]]
+name = "JavaScript"
+version = "1.5"
+
+[[language]]
+name = "JavaScript"
+version = "3.7"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:2.8"

@@ -1,0 +1,17 @@
+id = "6236114a-7700-4ac9-8172-d0d9062d941c"
+title = "Louseshould"
+category = []
+repository_url = "https://www.corporatefacilitate.name/holistic/intuitive/webservices"
+created = "2025-03-19T10:56:48.634512792Z"
+updated = "2025-03-19T10:56:48.634514792Z"
+
+[[language]]
+name = "Java"
+version = "5.7"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:1.2"

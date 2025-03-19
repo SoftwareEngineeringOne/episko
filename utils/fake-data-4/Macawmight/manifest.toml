@@ -1,0 +1,21 @@
+id = "3af0d301-c8eb-49cc-b963-77fed9d67c31"
+title = "Macawmight"
+build_system = []
+created = "2025-03-19T10:56:54.913554835Z"
+updated = "2025-03-19T10:56:54.913556815Z"
+
+[[category]]
+name = "why"
+
+[[category]]
+name = "want"
+
+[[category]]
+name = "you"
+
+[[language]]
+name = "Go"
+version = "3.9"
+
+[preffered_ide]
+name = "VSCode:2.3"

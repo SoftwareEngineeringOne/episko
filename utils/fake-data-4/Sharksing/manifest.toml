@@ -1,0 +1,29 @@
+id = "e4e056d0-9dfa-4f7f-b953-de354047ae79"
+title = "Sharksing"
+description = "Ourselves to exaltation school should decidedly positively yesterday sedge firstly."
+created = "2025-03-19T10:56:45.913971412Z"
+updated = "2025-03-19T10:56:45.913973322Z"
+
+[[category]]
+name = "watch"
+
+[[category]]
+name = "would"
+
+[[category]]
+name = "should"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "3.6"
+
+[preffered_ide]
+name = "Atom:1.7"

@@ -1,0 +1,16 @@
+id = "36cff50c-c8b2-47a3-bbea-116558640ac2"
+title = "DeepSkyBlueweek"
+build_system = []
+repository_url = "http://www.nationale-business.io/action-items"
+created = "2025-03-19T10:57:38.781946459Z"
+updated = "2025-03-19T10:57:38.781948789Z"
+
+[[category]]
+name = "each"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:2.9"

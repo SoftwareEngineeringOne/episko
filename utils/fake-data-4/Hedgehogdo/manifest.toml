@@ -1,0 +1,13 @@
+id = "8622de3e-3d57-4b46-8346-794e4e6d7ecd"
+title = "Hedgehogdo"
+category = []
+build_system = []
+created = "2025-03-19T10:56:56.929109697Z"
+updated = "2025-03-19T10:56:56.929111857Z"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:1.4"

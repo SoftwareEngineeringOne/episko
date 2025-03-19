@@ -1,0 +1,21 @@
+id = "aee617ec-c155-4527-936f-c1de91202d0d"
+title = "Kangaroodrink"
+created = "2025-03-19T10:57:10.231471597Z"
+updated = "2025-03-19T10:57:10.231474777Z"
+
+[[category]]
+name = "his"
+
+[[category]]
+name = "but"
+
+[[category]]
+name = "myself"
+
+[[language]]
+name = "Python"
+version = "4.2"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"

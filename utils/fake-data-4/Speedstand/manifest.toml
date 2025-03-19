@@ -1,0 +1,21 @@
+id = "e5df2554-892f-4815-a554-887f7ec68b97"
+title = "Speedstand"
+build_system = []
+created = "2025-03-19T10:57:09.519347924Z"
+updated = "2025-03-19T10:57:09.519350044Z"
+
+[[category]]
+name = "besides"
+
+[[category]]
+name = "board"
+
+[[category]]
+name = "badly"
+
+[[language]]
+name = "Go"
+version = "3.0"
+
+[preffered_ide]
+name = "Atom:1.0"

@@ -1,0 +1,25 @@
+id = "f92261ba-760c-4649-99c7-d94e30ad759b"
+title = "Oxbe"
+category = []
+repository_url = "https://www.globalconvergence.name/revolutionary"
+created = "2025-03-19T10:56:46.282323369Z"
+updated = "2025-03-19T10:56:46.282325279Z"
+
+[[language]]
+name = "Go"
+version = "5.4"
+
+[[language]]
+name = "Java"
+version = "1.9"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.4"

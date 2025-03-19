@@ -1,0 +1,26 @@
+id = "4dc121b4-f6f3-4122-a604-13d3532449a8"
+title = "Sea Lionam"
+build_system = []
+created = "2025-03-19T10:57:06.851553711Z"
+updated = "2025-03-19T10:57:06.851556011Z"
+
+[[category]]
+name = "his"
+
+[[category]]
+name = "its"
+
+[[language]]
+name = "Rust"
+version = "5.9"
+
+[[language]]
+name = "Rust"
+version = "5.1"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:2.7"

@@ -1,0 +1,15 @@
+id = "f653c7cf-edd9-4307-85bd-1d2e2f71a7e1"
+title = "Disregardsnore"
+build_system = []
+created = "2025-03-19T10:56:42.700532353Z"
+updated = "2025-03-19T10:56:42.700534183Z"
+
+[[category]]
+name = "few"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.9"

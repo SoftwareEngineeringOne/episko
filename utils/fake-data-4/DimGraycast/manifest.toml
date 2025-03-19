@@ -1,0 +1,31 @@
+id = "891a4d1b-948f-4211-b8a8-a8aa5a5ee5b3"
+title = "DimGraycast"
+description = "Those from bed today would that weekly that itself then."
+build_system = []
+repository_url = "http://www.dynamicmindshare.net/disintermediate/killer/content/e-services"
+created = "2025-03-19T10:57:04.303311279Z"
+updated = "2025-03-19T10:57:04.303313389Z"
+
+[[category]]
+name = "it"
+
+[[category]]
+name = "in"
+
+[[category]]
+name = "though"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "4.5"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:1.1"

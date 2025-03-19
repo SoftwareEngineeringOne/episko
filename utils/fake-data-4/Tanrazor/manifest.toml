@@ -1,0 +1,25 @@
+id = "d335b9c7-68fd-467e-a34b-de72cf166f77"
+title = "Tanrazor"
+description = "Hurry suit first ride their host must rarely change murder."
+build_system = []
+repository_url = "http://www.nationalone-to-one.biz/extend"
+created = "2025-03-19T10:56:57.005269200Z"
+updated = "2025-03-19T10:56:57.005271570Z"
+
+[[category]]
+name = "whichever"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.0"

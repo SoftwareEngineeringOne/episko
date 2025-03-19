@@ -1,0 +1,22 @@
+id = "6ea416d1-4406-444a-9cde-62dacbf86b1a"
+title = "Ottersnore"
+created = "2025-03-19T10:56:47.239096385Z"
+updated = "2025-03-19T10:56:47.239098715Z"
+
+[[category]]
+name = "finally"
+
+[[category]]
+name = "as"
+
+[[language]]
+name = "Rust"
+version = "1.3"
+
+[[language]]
+name = "TypeScript"
+version = "1.4"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"

@@ -1,0 +1,24 @@
+id = "5450cfb2-8907-4c83-beb2-f2c5a3d14099"
+title = "Tigerride"
+created = "2025-03-19T10:57:11.600587922Z"
+updated = "2025-03-19T10:57:11.600594722Z"
+
+[[category]]
+name = "how"
+
+[[category]]
+name = "ski"
+
+[[category]]
+name = "myself"
+
+[[language]]
+name = "TypeScript"
+version = "2.8"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:2.4"

@@ -1,0 +1,20 @@
+id = "ba37b075-6f1e-4ae9-8a1d-5554e5e78fd3"
+title = "Otteram"
+category = []
+created = "2025-03-19T10:57:12.020177410Z"
+updated = "2025-03-19T10:57:12.020179520Z"
+
+[[language]]
+name = "Go"
+version = "4.2"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "3.8"
+
+[preffered_ide]
+name = "Atom:2.6"

@@ -1,0 +1,22 @@
+id = "4fcd5b26-f940-47f7-80ba-ff3011860a74"
+title = "Tripdoes"
+created = "2025-03-19T10:56:54.422264639Z"
+updated = "2025-03-19T10:56:54.422267429Z"
+
+[[category]]
+name = "what"
+
+[[language]]
+name = "TypeScript"
+version = "4.2"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "1.7"
+
+[preffered_ide]
+name = "Atom:2.3"

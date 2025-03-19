@@ -1,0 +1,26 @@
+id = "770e5d43-076b-46df-98fb-6b9b0859e75b"
+title = "Footcan"
+build_system = []
+created = "2025-03-19T10:57:20.283162596Z"
+updated = "2025-03-19T10:57:20.283164626Z"
+
+[[category]]
+name = "his"
+
+[[category]]
+name = "them"
+
+[[category]]
+name = "yourself"
+
+[[language]]
+name = "TypeScript"
+version = "5.6"
+
+[[language]]
+name = "Go"
+version = "1.2"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"

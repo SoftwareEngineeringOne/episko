@@ -1,0 +1,27 @@
+id = "d0aa813f-d0cd-4dcf-946d-014b6666b0d7"
+title = "Crowwin"
+description = "Over pharmacist peace peace the last lastly late group several."
+repository_url = "https://www.productplug-and-play.org/sticky/deploy/plug-and-play/impactful"
+created = "2025-03-19T10:56:46.197286650Z"
+updated = "2025-03-19T10:56:46.197288680Z"
+
+[[category]]
+name = "everybody"
+
+[[category]]
+name = "shall"
+
+[[category]]
+name = "incredibly"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "1.0"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"

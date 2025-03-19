@@ -1,0 +1,18 @@
+id = "f396ddc2-a31f-4887-9041-47e45d49522a"
+title = "MediumPurplegossip"
+build_system = []
+created = "2025-03-19T10:56:58.765258265Z"
+updated = "2025-03-19T10:56:58.765260375Z"
+
+[[category]]
+name = "hand"
+
+[[category]]
+name = "adult"
+
+[[category]]
+name = "Tibetan"
+
+[[language]]
+name = "TypeScript"
+version = "2.2"

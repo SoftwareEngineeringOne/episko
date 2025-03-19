@@ -1,0 +1,17 @@
+id = "06d69185-9947-4c22-914e-4886292a5622"
+title = "Llamadoes"
+category = []
+created = "2025-03-19T10:57:17.557557600Z"
+updated = "2025-03-19T10:57:17.557559660Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "3.3"
+
+[[build_system]]
+name = "Webpack"
+version = "3.2"

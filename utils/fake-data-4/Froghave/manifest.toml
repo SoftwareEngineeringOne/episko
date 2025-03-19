@@ -1,0 +1,16 @@
+id = "f9c43b41-8030-4352-9d03-a1c85a65cd5f"
+title = "Froghave"
+description = "Wow slavery is tomorrow die his here badly bookcase many."
+build_system = []
+created = "2025-03-19T10:57:14.364374738Z"
+updated = "2025-03-19T10:57:14.364376948Z"
+
+[[category]]
+name = "very"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.3"

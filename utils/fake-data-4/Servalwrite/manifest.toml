@@ -1,0 +1,15 @@
+id = "0438ca36-7447-437c-b228-1a77a4ab1bf4"
+title = "Servalwrite"
+build_system = []
+created = "2025-03-19T10:56:42.830818734Z"
+updated = "2025-03-19T10:56:42.830820784Z"
+
+[[category]]
+name = "inside"
+
+[[category]]
+name = "whose"
+
+[[language]]
+name = "Java"
+version = "3.7"

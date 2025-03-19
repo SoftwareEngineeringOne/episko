@@ -1,0 +1,30 @@
+id = "65c78a74-90c6-4e9f-89ca-4bebd62fa9c9"
+title = "Carrotshall"
+description = "To case has holiday a curios her though infancy here."
+category = []
+repository_url = "http://www.dynamicextensible.info/niches"
+created = "2025-03-19T10:56:46.498216110Z"
+updated = "2025-03-19T10:56:46.498217370Z"
+
+[[language]]
+name = "Go"
+version = "1.4"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:1.6"

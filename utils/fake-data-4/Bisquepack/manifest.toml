@@ -1,0 +1,29 @@
+id = "e91b7437-3ee4-4257-ba24-98ba55390458"
+title = "Bisquepack"
+repository_url = "https://www.legacyreinvent.biz/target/enable/wireless"
+created = "2025-03-19T10:56:43.200590334Z"
+updated = "2025-03-19T10:56:43.200591704Z"
+
+[[category]]
+name = "room"
+
+[[category]]
+name = "shower"
+
+[[category]]
+name = "these"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "2.0"
+
+[preffered_ide]
+name = "Emacs:1.1"

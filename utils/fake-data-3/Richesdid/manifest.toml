@@ -1,0 +1,15 @@
+id = "6a1bf665-0f61-45d2-8be4-494eb046b8b0"
+title = "Richesdid"
+description = "Himself me that at your I can has nest besides."
+category = []
+build_system = []
+created = "2025-03-19T09:34:38.032435466Z"
+updated = "2025-03-19T09:34:38.032437556Z"
+
+[[language]]
+name = "C#"
+version = "2.8"
+
+[[language]]
+name = "Java"
+version = "4.6"

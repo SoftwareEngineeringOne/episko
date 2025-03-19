@@ -1,0 +1,17 @@
+id = "a2cf2421-f701-4966-9e2d-9bf23d48dc0a"
+title = "Pointhad"
+category = []
+repository_url = "https://www.dynamicseize.info/supply-chains"
+created = "2025-03-19T10:56:57.545776670Z"
+updated = "2025-03-19T10:56:57.545778980Z"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "1.5"
+
+[preffered_ide]
+name = "Atom:1.7"

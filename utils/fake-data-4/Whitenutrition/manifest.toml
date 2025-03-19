@@ -1,0 +1,29 @@
+id = "9175c956-fc91-4aca-a516-d3205a3c3798"
+title = "Whitenutrition"
+repository_url = "http://www.internationalrevolutionary.info/web-enabled/mindshare"
+created = "2025-03-19T10:56:52.072603861Z"
+updated = "2025-03-19T10:56:52.072605791Z"
+
+[[category]]
+name = "sky"
+
+[[category]]
+name = "for"
+
+[[category]]
+name = "key"
+
+[[language]]
+name = "Go"
+version = "5.6"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:2.9"

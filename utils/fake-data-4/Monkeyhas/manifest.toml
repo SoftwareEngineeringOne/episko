@@ -1,0 +1,34 @@
+id = "4fae06ad-6c1f-43d7-8187-b23c22368a13"
+title = "Monkeyhas"
+description = "Annually behind rapidly over we yours instance opposite you few."
+created = "2025-03-19T10:56:49.647746674Z"
+updated = "2025-03-19T10:56:49.647748874Z"
+
+[[category]]
+name = "pack"
+
+[[category]]
+name = "murder"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "2.7"
+
+[[language]]
+name = "Go"
+version = "3.2"
+
+[[build_system]]
+name = "Maven"
+version = "3.1"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:2.3"

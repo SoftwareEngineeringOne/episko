@@ -1,0 +1,23 @@
+id = "aa08cd45-0c6f-4bd4-b130-925307cef59b"
+title = "Classclimb"
+build_system = []
+created = "2025-03-19T10:56:40.935200675Z"
+updated = "2025-03-19T10:56:40.935202535Z"
+
+[[category]]
+name = "Congolese"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "4.6"
+
+[preffered_ide]
+name = "Emacs:1.9"

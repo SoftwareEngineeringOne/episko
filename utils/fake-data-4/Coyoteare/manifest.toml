@@ -1,0 +1,27 @@
+id = "7c6f79e1-6ff1-4b69-a982-aa0085264184"
+title = "Coyoteare"
+description = "Whatever I whose school therefore might theirs avoid hmm guilt."
+created = "2025-03-19T10:56:42.904701270Z"
+updated = "2025-03-19T10:56:42.904703850Z"
+
+[[category]]
+name = "now"
+
+[[language]]
+name = "Python"
+version = "4.6"
+
+[[language]]
+name = "TypeScript"
+version = "1.8"
+
+[[build_system]]
+name = "CMake"
+version = "1.5"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:2.8"

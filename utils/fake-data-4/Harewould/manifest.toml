@@ -1,0 +1,30 @@
+id = "27ffa0df-4fbc-48e7-b07a-52e0ab1fbb57"
+title = "Harewould"
+repository_url = "https://www.productback-end.io/customized/technologies/partnerships/frictionless"
+created = "2025-03-19T10:57:08.958717854Z"
+updated = "2025-03-19T10:57:08.958720154Z"
+
+[[category]]
+name = "hundred"
+
+[[category]]
+name = "you"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "1.1"
+
+[[build_system]]
+name = "Webpack"
+version = "2.0"
+
+[preffered_ide]
+name = "Vim:1.8"

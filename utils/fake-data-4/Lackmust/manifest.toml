@@ -1,0 +1,13 @@
+id = "4dfb29fe-2ab2-496b-b69d-f7c58bf81b57"
+title = "Lackmust"
+category = []
+build_system = []
+created = "2025-03-19T10:57:12.581291261Z"
+updated = "2025-03-19T10:57:12.581293581Z"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.3"

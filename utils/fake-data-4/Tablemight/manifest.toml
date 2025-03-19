@@ -1,0 +1,22 @@
+id = "4461f80e-ec03-457f-af48-ef29323cda0a"
+title = "Tablemight"
+description = "Most it before this Colombian forest then company we galaxy."
+created = "2025-03-19T10:57:20.842590983Z"
+updated = "2025-03-19T10:57:20.842593313Z"
+
+[[category]]
+name = "microscope"
+
+[[category]]
+name = "should"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.0"
+
+[preffered_ide]
+name = "IntelliJ:2.7"

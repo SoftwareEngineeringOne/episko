@@ -1,0 +1,22 @@
+id = "9c76fe07-7312-4031-bf98-f7faf4e53952"
+title = "WhiteSmokeplace"
+created = "2025-03-19T10:57:35.092383865Z"
+updated = "2025-03-19T10:57:35.092386115Z"
+
+[[category]]
+name = "this"
+
+[[category]]
+name = "in"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "2.0"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"

@@ -1,0 +1,30 @@
+id = "a602b5a3-c85c-48f6-8636-0b865a5bb236"
+title = "Crowdid"
+repository_url = "https://www.futurevirtual.io/synergize/eyeballs/synergize/synergies"
+created = "2025-03-19T09:46:54.327680260Z"
+updated = "2025-03-19T09:46:54.327682390Z"
+
+[[category]]
+name = "chase"
+
+[[category]]
+name = "there"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "3.9"
+
+[[build_system]]
+name = "Maven"
+version = "2.3"
+
+[preffered_ide]
+name = "Vim:1.9"

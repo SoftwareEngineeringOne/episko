@@ -1,0 +1,35 @@
+id = "5f0d6d59-d7e9-4c85-8ec7-c52188a6082b"
+title = "Linesit"
+description = "Head them garage cry then cackle shower whichever down generally."
+repository_url = "http://www.globalrepurpose.net/empower/benchmark/metrics/communities"
+created = "2025-03-19T10:57:10.031812933Z"
+updated = "2025-03-19T10:57:10.031815273Z"
+
+[[category]]
+name = "exaltation"
+
+[[category]]
+name = "possess"
+
+[[category]]
+name = "group"
+
+[[language]]
+name = "TypeScript"
+version = "4.4"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "2.8"
+
+[[build_system]]
+name = "CMake"
+version = "2.9"

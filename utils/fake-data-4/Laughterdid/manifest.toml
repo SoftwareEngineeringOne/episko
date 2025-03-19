@@ -1,0 +1,27 @@
+id = "b0fbc207-07f4-46fa-bec9-708fff9bc93a"
+title = "Laughterdid"
+created = "2025-03-19T10:57:27.206752599Z"
+updated = "2025-03-19T10:57:27.206754709Z"
+
+[[category]]
+name = "summation"
+
+[[language]]
+name = "Rust"
+version = "4.8"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "3.4"
+
+[[build_system]]
+name = "Gradle"
+version = "3.9"
+
+[[build_system]]
+name = "Maven"
+version = "3.6"

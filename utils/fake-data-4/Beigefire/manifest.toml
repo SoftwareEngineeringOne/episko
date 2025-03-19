@@ -1,0 +1,26 @@
+id = "ee458b5f-9327-41ea-b364-d263173cba26"
+title = "Beigefire"
+description = "That abroad ouch pig hatred of totally wisp is school."
+category = []
+created = "2025-03-19T10:57:21.386326014Z"
+updated = "2025-03-19T10:57:21.386327844Z"
+
+[[language]]
+name = "Go"
+version = "5.4"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "3.5"
+
+[[build_system]]
+name = "Webpack"
+version = "2.7"
+
+[[build_system]]
+name = "Maven"
+version = "2.4"

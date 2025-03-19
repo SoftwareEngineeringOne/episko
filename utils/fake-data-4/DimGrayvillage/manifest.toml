@@ -1,0 +1,26 @@
+id = "c94a9179-d2b6-4dae-81cc-5e494c345d42"
+title = "DimGrayvillage"
+repository_url = "https://www.corporateengineer.name/whiteboard/cutting-edge/integrate/deliver"
+created = "2025-03-19T10:57:18.994233864Z"
+updated = "2025-03-19T10:57:18.994235734Z"
+
+[[category]]
+name = "mine"
+
+[[category]]
+name = "eek"
+
+[[language]]
+name = "JavaScript"
+version = "3.1"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:1.2"

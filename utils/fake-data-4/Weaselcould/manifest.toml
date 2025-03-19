@@ -1,0 +1,25 @@
+id = "07468d08-efdc-4077-be7b-bb8dffbf2ec5"
+title = "Weaselcould"
+category = []
+created = "2025-03-19T10:56:53.368472539Z"
+updated = "2025-03-19T10:56:53.368474529Z"
+
+[[language]]
+name = "JavaScript"
+version = "2.6"
+
+[[language]]
+name = "JavaScript"
+version = "5.0"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "2.4"

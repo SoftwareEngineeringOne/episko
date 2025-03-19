@@ -1,0 +1,28 @@
+id = "2cf2a894-9c1d-4ca5-b232-556f1a469c90"
+title = "Antbeing"
+created = "2025-03-19T10:57:34.796505239Z"
+updated = "2025-03-19T10:57:34.796507239Z"
+
+[[category]]
+name = "ours"
+
+[[category]]
+name = "eventually"
+
+[[category]]
+name = "Muscovite"
+
+[[language]]
+name = "TypeScript"
+version = "3.5"
+
+[[language]]
+name = "Java"
+version = "4.2"
+
+[[build_system]]
+name = "Maven"
+version = "1.4"
+
+[preffered_ide]
+name = "Emacs:2.6"

@@ -1,0 +1,21 @@
+id = "1d1037b7-f9f8-4ffe-8b5d-148ab823af78"
+title = "Musicsit"
+description = "Part would mine me highly yay still himself ride indeed."
+build_system = []
+created = "2025-03-19T10:57:31.027879045Z"
+updated = "2025-03-19T10:57:31.027881005Z"
+
+[[category]]
+name = "sit"
+
+[[language]]
+name = "Go"
+version = "1.8"
+
+[[language]]
+name = "Rust"
+version = "3.4"
+
+[[language]]
+name = "Rust"
+version = "unknown"

@@ -1,0 +1,16 @@
+id = "36b6b378-8aef-4111-a33f-322df4f1f886"
+title = "OrangeRedturkey"
+build_system = []
+created = "2025-03-19T10:57:16.632076062Z"
+updated = "2025-03-19T10:57:16.632078112Z"
+
+[[category]]
+name = "laugh"
+
+[[language]]
+name = "Java"
+version = "2.6"
+
+[[language]]
+name = "C#"
+version = "1.4"

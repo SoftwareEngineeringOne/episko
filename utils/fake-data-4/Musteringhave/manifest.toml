@@ -1,0 +1,26 @@
+id = "d4a6afee-e47f-465e-a5eb-663c61fd982b"
+title = "Musteringhave"
+build_system = []
+created = "2025-03-19T10:57:31.986779162Z"
+updated = "2025-03-19T10:57:31.986781282Z"
+
+[[category]]
+name = "over"
+
+[[category]]
+name = "what"
+
+[[category]]
+name = "leap"
+
+[[language]]
+name = "Rust"
+version = "1.3"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "4.9"

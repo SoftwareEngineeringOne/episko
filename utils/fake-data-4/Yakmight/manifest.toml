@@ -1,0 +1,21 @@
+id = "fac6aadb-ba32-4795-8c72-b1753085be4c"
+title = "Yakmight"
+category = []
+build_system = []
+created = "2025-03-19T10:56:45.108212928Z"
+updated = "2025-03-19T10:56:45.108214848Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "1.7"
+
+[preffered_ide]
+name = "VSCode:2.6"

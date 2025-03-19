@@ -1,0 +1,29 @@
+id = "62b2b82b-7919-4797-b052-285757f5ac3c"
+title = "Troopcan"
+description = "Also mustering Balinese her everything English company that friendship an."
+created = "2025-03-19T10:56:58.605936010Z"
+updated = "2025-03-19T10:56:58.605937850Z"
+
+[[category]]
+name = "lamp"
+
+[[category]]
+name = "under"
+
+[[category]]
+name = "few"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "1.8"
+
+[[build_system]]
+name = "Make"
+version = "1.4"
+
+[preffered_ide]
+name = "Sublime:1.8"

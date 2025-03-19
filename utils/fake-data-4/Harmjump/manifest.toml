@@ -1,0 +1,20 @@
+id = "8b3c226a-251b-48cf-b974-46b1a0e0ba80"
+title = "Harmjump"
+build_system = []
+created = "2025-03-19T10:57:08.563998410Z"
+updated = "2025-03-19T10:57:08.564000330Z"
+
+[[category]]
+name = "straightaway"
+
+[[language]]
+name = "Java"
+version = "5.2"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "5.6"

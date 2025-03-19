@@ -1,0 +1,29 @@
+id = "553efa5b-78ef-425b-b181-10227e180e88"
+title = "Appmay"
+description = "Which Canadian next really what over you so this these."
+category = []
+created = "2025-03-19T10:56:53.623384724Z"
+updated = "2025-03-19T10:56:53.623387054Z"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "1.4"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.8"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:1.3"

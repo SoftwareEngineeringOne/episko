@@ -1,0 +1,29 @@
+id = "8378bbd2-e2e0-4ad8-9089-889a71f95301"
+title = "Eelwait"
+created = "2025-03-19T10:57:11.879117287Z"
+updated = "2025-03-19T10:57:11.879119397Z"
+
+[[category]]
+name = "generosity"
+
+[[category]]
+name = "so"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "3.2"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.4"

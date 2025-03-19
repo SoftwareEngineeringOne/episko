@@ -1,0 +1,22 @@
+id = "43aa27cf-0cb9-4f42-aafe-c4f9736ca3cd"
+title = "DarkGreenhappiness"
+category = []
+repository_url = "https://www.investormatrix.net/holistic/markets/strategize"
+created = "2025-03-19T10:57:33.348534789Z"
+updated = "2025-03-19T10:57:33.348537219Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "3.0"
+
+[[build_system]]
+name = "Gradle"
+version = "3.3"

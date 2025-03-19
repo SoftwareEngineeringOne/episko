@@ -1,0 +1,19 @@
+id = "c5ae3866-8032-40ab-a472-d7279b3727b9"
+title = "Zebrahad"
+category = []
+build_system = []
+repository_url = "https://www.dynamicenable.org/proactive/transition/mesh/e-tailers"
+created = "2025-03-19T10:57:07.400845408Z"
+updated = "2025-03-19T10:57:07.400847308Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "5.8"
+
+[[language]]
+name = "TypeScript"
+version = "5.7"

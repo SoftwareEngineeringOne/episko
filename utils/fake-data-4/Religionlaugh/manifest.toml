@@ -1,0 +1,19 @@
+id = "94b26bdf-1e68-496b-8e77-649bf48b78dc"
+title = "Religionlaugh"
+created = "2025-03-19T10:57:30.394627001Z"
+updated = "2025-03-19T10:57:30.394629021Z"
+
+[[category]]
+name = "lucky"
+
+[[language]]
+name = "Rust"
+version = "3.7"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "1.2"

@@ -1,0 +1,22 @@
+id = "5c2a3302-f00c-4877-a16d-b2d1719c902b"
+title = "Turtlehas"
+repository_url = "http://www.chiefbenchmark.name/morph/leading-edge/compelling/synergies"
+created = "2025-03-19T10:57:00.732753618Z"
+updated = "2025-03-19T10:57:00.732755178Z"
+
+[[category]]
+name = "selfishly"
+
+[[category]]
+name = "covey"
+
+[[language]]
+name = "Python"
+version = "2.1"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.1"

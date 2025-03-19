@@ -1,0 +1,26 @@
+id = "053373c8-6d57-4ea9-b518-d8900b3ff8b2"
+title = "Beetlebeen"
+description = "This any this yours it sheaf in an many time."
+build_system = []
+created = "2025-03-19T10:57:11.253091236Z"
+updated = "2025-03-19T10:57:11.253093456Z"
+
+[[category]]
+name = "smoke"
+
+[[category]]
+name = "ours"
+
+[[category]]
+name = "a"
+
+[[language]]
+name = "Python"
+version = "5.8"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:1.0"

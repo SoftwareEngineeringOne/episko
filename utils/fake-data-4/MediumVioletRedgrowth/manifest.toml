@@ -1,0 +1,21 @@
+id = "4389312b-9ca0-45cd-a0f9-194a800fa1aa"
+title = "MediumVioletRedgrowth"
+build_system = []
+created = "2025-03-19T10:56:44.860419724Z"
+updated = "2025-03-19T10:56:44.860421884Z"
+
+[[category]]
+name = "outside"
+
+[[category]]
+name = "instance"
+
+[[category]]
+name = "our"
+
+[[language]]
+name = "JavaScript"
+version = "2.5"
+
+[preffered_ide]
+name = "IntelliJ:2.3"

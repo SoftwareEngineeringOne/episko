@@ -1,0 +1,19 @@
+id = "f1fbd37d-60de-4b34-a5b1-ed360402ec2f"
+title = "DarkTurquoisespaghetti"
+build_system = []
+created = "2025-03-19T10:57:21.230327047Z"
+updated = "2025-03-19T10:57:21.230329077Z"
+
+[[category]]
+name = "Cambodian"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:2.0"

@@ -1,0 +1,21 @@
+id = "e882f63a-2efa-4529-8317-6bab3a19feef"
+title = "Companywas"
+category = []
+repository_url = "https://www.humanholistic.net/implement"
+created = "2025-03-19T10:57:39.967417961Z"
+updated = "2025-03-19T10:57:39.967419991Z"
+
+[[language]]
+name = "Go"
+version = "5.7"
+
+[[build_system]]
+name = "Bazel"
+version = "2.6"
+
+[[build_system]]
+name = "Bazel"
+version = "1.3"
+
+[preffered_ide]
+name = "Emacs:2.7"

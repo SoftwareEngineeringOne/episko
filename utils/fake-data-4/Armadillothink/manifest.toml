@@ -1,0 +1,26 @@
+id = "1fdb4b11-9420-40dd-9b9f-fe3dfea32b86"
+title = "Armadillothink"
+description = "Wearily next Norwegian covey that little their yearly you earlier."
+repository_url = "https://www.directplug-and-play.org/eyeballs"
+created = "2025-03-19T10:56:46.605507463Z"
+updated = "2025-03-19T10:56:46.605509413Z"
+
+[[category]]
+name = "whatever"
+
+[[category]]
+name = "everything"
+
+[[category]]
+name = "magnificent"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.5"

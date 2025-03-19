@@ -1,0 +1,14 @@
+id = "7d209d6b-07aa-4129-bd77-6ffa4c3972db"
+title = "Brownseafood"
+category = []
+build_system = []
+repository_url = "https://www.centraldisintermediate.biz/enable"
+created = "2025-03-19T10:56:44.781107872Z"
+updated = "2025-03-19T10:56:44.781109772Z"
+
+[[language]]
+name = "C#"
+version = "2.8"
+
+[preffered_ide]
+name = "VSCode:2.5"

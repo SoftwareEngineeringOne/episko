@@ -1,0 +1,23 @@
+id = "4db8e952-586d-4895-81a3-4525a3aedc21"
+title = "Beigenoodles"
+build_system = []
+created = "2025-03-19T10:57:04.833101618Z"
+updated = "2025-03-19T10:57:04.833103828Z"
+
+[[category]]
+name = "outside"
+
+[[category]]
+name = "before"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"

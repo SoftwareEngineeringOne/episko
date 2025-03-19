@@ -1,0 +1,17 @@
+id = "17d7ca98-f2d1-47b2-9b3b-d20c01bd4288"
+title = "RosyBrownpicture"
+category = []
+created = "2025-03-19T10:56:42.533868406Z"
+updated = "2025-03-19T10:56:42.533870296Z"
+
+[[language]]
+name = "Python"
+version = "4.0"
+
+[[build_system]]
+name = "CMake"
+version = "2.4"
+
+[[build_system]]
+name = "Make"
+version = "2.2"

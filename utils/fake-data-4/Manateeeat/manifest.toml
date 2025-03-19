@@ -1,0 +1,14 @@
+id = "3a6e782d-4987-4dcd-80f2-f44654c34ce4"
+title = "Manateeeat"
+category = []
+repository_url = "https://www.seniorwireless.name/mindshare"
+created = "2025-03-19T10:57:10.735892153Z"
+updated = "2025-03-19T10:57:10.735894543Z"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"

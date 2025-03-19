@@ -1,0 +1,26 @@
+id = "b824d177-cf4b-49f5-833e-bc88e7d7821e"
+title = "Luckbe"
+description = "Without army party deceit regularly this ride then above swiftly."
+created = "2025-03-19T10:57:04.122261519Z"
+updated = "2025-03-19T10:57:04.122263749Z"
+
+[[category]]
+name = "late"
+
+[[category]]
+name = "whoever"
+
+[[language]]
+name = "C#"
+version = "1.8"
+
+[[build_system]]
+name = "Webpack"
+version = "3.1"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.8"

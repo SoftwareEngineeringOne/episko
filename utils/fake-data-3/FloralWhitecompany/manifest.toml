@@ -1,0 +1,26 @@
+id = "0172b70a-30b5-49fe-8e90-1f54cc489f93"
+title = "FloralWhitecompany"
+build_system = []
+created = "2025-03-19T09:32:21.148656995Z"
+updated = "2025-03-19T09:32:21.148658435Z"
+
+[[category]]
+name = "onto"
+
+[[category]]
+name = "first"
+
+[[category]]
+name = "should"
+
+[[language]]
+name = "Python"
+version = "4.5"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"

@@ -1,0 +1,18 @@
+id = "d4e3b3f8-66d0-442b-9eb2-81e5756b7176"
+title = "Eaglebe"
+category = []
+build_system = []
+repository_url = "http://www.dynamicone-to-one.biz/integrate/plug-and-play/integrate"
+created = "2025-03-19T10:57:40.301427779Z"
+updated = "2025-03-19T10:57:40.301429769Z"
+
+[[language]]
+name = "C#"
+version = "5.0"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.7"

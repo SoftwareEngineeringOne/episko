@@ -1,0 +1,24 @@
+id = "4af65bb1-e3be-47ef-8100-bcee08a97f17"
+title = "Dishonestyhave"
+repository_url = "http://www.forwardportals.name/architect/sticky/unleash"
+created = "2025-03-19T10:57:28.379584612Z"
+updated = "2025-03-19T10:57:28.379586802Z"
+
+[[category]]
+name = "float"
+
+[[language]]
+name = "JavaScript"
+version = "5.5"
+
+[[language]]
+name = "JavaScript"
+version = "4.5"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "3.1"

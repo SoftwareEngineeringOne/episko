@@ -1,0 +1,22 @@
+id = "f20417ab-9e7c-4f55-8b5e-829dca312d85"
+title = "DeepSkyBluecontent"
+created = "2025-03-19T10:56:59.715774654Z"
+updated = "2025-03-19T10:56:59.715776624Z"
+
+[[category]]
+name = "acknowledge"
+
+[[language]]
+name = "Java"
+version = "1.1"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:1.7"

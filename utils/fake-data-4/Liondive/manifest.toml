@@ -1,0 +1,19 @@
+id = "d8c94175-dbe2-4984-87f1-4318d2387d87"
+title = "Liondive"
+build_system = []
+repository_url = "https://www.nationale-markets.net/aggregate/incubate/e-services"
+created = "2025-03-19T10:57:06.972579345Z"
+updated = "2025-03-19T10:57:06.972581715Z"
+
+[[category]]
+name = "example"
+
+[[category]]
+name = "hurry"
+
+[[language]]
+name = "JavaScript"
+version = "3.0"
+
+[preffered_ide]
+name = "Atom:2.8"

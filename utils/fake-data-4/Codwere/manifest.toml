@@ -1,0 +1,21 @@
+id = "50789978-95e6-4846-aed0-632b3b28ad36"
+title = "Codwere"
+description = "To shall fear those till anybody hamburger tribe point herself."
+repository_url = "http://www.dynamicschemas.io/mindshare"
+created = "2025-03-19T10:57:25.292876817Z"
+updated = "2025-03-19T10:57:25.292879267Z"
+
+[[category]]
+name = "myself"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "2.3"

@@ -1,0 +1,27 @@
+id = "e4e2928d-ab38-47cd-99bb-78b71537d1dc"
+title = "Harehave"
+repository_url = "https://www.customerb2c.org/paradigms"
+created = "2025-03-19T10:56:43.940056005Z"
+updated = "2025-03-19T10:56:43.940057065Z"
+
+[[category]]
+name = "pretty"
+
+[[category]]
+name = "plant"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "2.9"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"

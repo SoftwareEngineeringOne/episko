@@ -1,0 +1,17 @@
+id = "1eb2dfa1-bb6d-4ed7-bdac-ae723b040d04"
+title = "SteelBluecup"
+category = []
+created = "2025-03-19T10:57:24.857558603Z"
+updated = "2025-03-19T10:57:24.857560763Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "4.2"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"

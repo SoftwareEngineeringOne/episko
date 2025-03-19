@@ -1,0 +1,19 @@
+id = "e38f90e3-cde4-4476-b076-eb2e102834e4"
+title = "Zebrafight"
+description = "Stagger hail grieving cackle move whom first are however hotel."
+created = "2025-03-19T10:56:45.364351506Z"
+updated = "2025-03-19T10:56:45.364353346Z"
+
+[[category]]
+name = "as"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "1.1"
+
+[preffered_ide]
+name = "VSCode:2.2"

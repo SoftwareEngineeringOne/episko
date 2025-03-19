@@ -1,0 +1,21 @@
+id = "7cf2a953-d693-4623-83f0-cb72728d1456"
+title = "Blackband"
+created = "2025-03-19T10:56:44.844400307Z"
+updated = "2025-03-19T10:56:44.844402707Z"
+
+[[category]]
+name = "train"
+
+[[category]]
+name = "why"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:1.2"

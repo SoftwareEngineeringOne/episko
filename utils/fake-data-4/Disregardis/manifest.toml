@@ -1,0 +1,23 @@
+id = "9396dc71-c6d8-4c25-b2d0-9e8f64bad5e4"
+title = "Disregardis"
+build_system = []
+created = "2025-03-19T10:57:15.513967261Z"
+updated = "2025-03-19T10:57:15.513969741Z"
+
+[[category]]
+name = "leap"
+
+[[language]]
+name = "Rust"
+version = "1.8"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "4.1"
+
+[preffered_ide]
+name = "Atom:2.4"

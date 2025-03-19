@@ -1,0 +1,26 @@
+id = "5fd7b47b-989b-44cf-9874-72c97303b9ff"
+title = "Crowdfly"
+repository_url = "https://www.dynamice-services.io/envisioneer/relationships/clicks-and-mortar"
+created = "2025-03-19T10:56:43.168376020Z"
+updated = "2025-03-19T10:56:43.168377860Z"
+
+[[category]]
+name = "tonight"
+
+[[category]]
+name = "his"
+
+[[category]]
+name = "whoa"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "3.9"

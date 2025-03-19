@@ -1,0 +1,26 @@
+id = "0821b020-211f-4e65-b1a7-5ed0aa1991e4"
+title = "Groupshould"
+repository_url = "https://www.dynamicdrive.org/schemas/scale/applications"
+created = "2025-03-19T10:57:14.604543390Z"
+updated = "2025-03-19T10:57:14.604545540Z"
+
+[[category]]
+name = "yourselves"
+
+[[category]]
+name = "next"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "3.3"
+
+[preffered_ide]
+name = "IntelliJ:2.2"

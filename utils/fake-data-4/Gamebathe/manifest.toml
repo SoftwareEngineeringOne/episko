@@ -1,0 +1,19 @@
+id = "818bb4cd-f8ce-47dc-aef0-313c2b041a72"
+title = "Gamebathe"
+category = []
+build_system = []
+repository_url = "http://www.customermission-critical.com/b2c/metrics/target"
+created = "2025-03-19T10:57:18.421303427Z"
+updated = "2025-03-19T10:57:18.421305318Z"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "3.8"
+
+[[language]]
+name = "TypeScript"
+version = "1.8"

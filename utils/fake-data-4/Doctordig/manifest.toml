@@ -1,0 +1,20 @@
+id = "35722289-eec6-4f8c-a482-3a107dbb72c9"
+title = "Doctordig"
+repository_url = "http://www.internationaltarget.info/vortals/collaborative"
+created = "2025-03-19T10:57:08.990363797Z"
+updated = "2025-03-19T10:57:08.990365847Z"
+
+[[category]]
+name = "up"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "3.0"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"

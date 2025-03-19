@@ -1,0 +1,26 @@
+id = "de982e88-e1b9-4b32-a0e4-351aeb6fbfa8"
+title = "Waisthad"
+build_system = []
+created = "2025-03-19T10:56:57.406501583Z"
+updated = "2025-03-19T10:56:57.406503793Z"
+
+[[category]]
+name = "regiment"
+
+[[category]]
+name = "is"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "1.6"
+
+[preffered_ide]
+name = "VSCode:1.7"

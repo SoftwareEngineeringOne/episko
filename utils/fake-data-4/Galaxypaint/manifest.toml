@@ -1,0 +1,16 @@
+id = "53dc7172-aef9-4eba-bed5-5e04ff2c0dd3"
+title = "Galaxypaint"
+build_system = []
+repository_url = "http://www.humansyndicate.info/holistic/enhance/communities/relationships"
+created = "2025-03-19T10:57:18.916999678Z"
+updated = "2025-03-19T10:57:18.917001678Z"
+
+[[category]]
+name = "imagination"
+
+[[language]]
+name = "C#"
+version = "4.7"
+
+[preffered_ide]
+name = "IntelliJ:1.0"

@@ -1,0 +1,25 @@
+id = "57044959-fd27-4829-9fd3-5eb463d85c69"
+title = "Dolphinclap"
+category = []
+repository_url = "https://www.customerconvergence.com/leading-edge/extensible/architectures"
+created = "2025-03-19T10:57:28.785428460Z"
+updated = "2025-03-19T10:57:28.785431520Z"
+
+[[language]]
+name = "Rust"
+version = "5.9"
+
+[[language]]
+name = "JavaScript"
+version = "3.8"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.3"
+
+[preffered_ide]
+name = "Emacs:1.8"

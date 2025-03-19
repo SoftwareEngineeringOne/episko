@@ -1,0 +1,24 @@
+id = "d57aab32-22a7-477a-90db-ef6bc42dd218"
+title = "Donkeybe"
+repository_url = "https://www.principalrevolutionize.net/embrace/applications"
+created = "2025-03-19T10:56:43.339185029Z"
+updated = "2025-03-19T10:56:43.339186869Z"
+
+[[category]]
+name = "discover"
+
+[[language]]
+name = "Rust"
+version = "1.7"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "2.7"

@@ -1,0 +1,26 @@
+id = "47f4b91f-56af-4196-a6d0-be8b4a8eaf45"
+title = "Porpoiseride"
+repository_url = "https://www.seniorproductize.com/intuitive/extensible/extensible/turn-key"
+created = "2025-03-19T10:56:42.890268977Z"
+updated = "2025-03-19T10:56:42.890270587Z"
+
+[[category]]
+name = "i.e."
+
+[[category]]
+name = "these"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "1.1"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.3"

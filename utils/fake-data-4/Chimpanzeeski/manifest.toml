@@ -1,0 +1,27 @@
+id = "d3f01cae-59d6-4905-b12c-b5d9543aad7b"
+title = "Chimpanzeeski"
+description = "Your quarterly perfectly next e.g. wow group already had brother."
+build_system = []
+created = "2025-03-19T10:56:51.260584267Z"
+updated = "2025-03-19T10:56:51.260586417Z"
+
+[[category]]
+name = "of"
+
+[[category]]
+name = "hers"
+
+[[language]]
+name = "Rust"
+version = "3.5"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:1.2"

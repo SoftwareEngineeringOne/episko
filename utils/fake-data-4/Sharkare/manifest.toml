@@ -1,0 +1,30 @@
+id = "dcb1c7dd-c2b0-4358-9d16-2ee26a82ff45"
+title = "Sharkare"
+description = "Previously there it very which quarterly that was firstly those."
+created = "2025-03-19T10:57:34.119757947Z"
+updated = "2025-03-19T10:57:34.119760057Z"
+
+[[category]]
+name = "something"
+
+[[category]]
+name = "weakly"
+
+[[language]]
+name = "Java"
+version = "2.6"
+
+[[language]]
+name = "Go"
+version = "4.4"
+
+[[build_system]]
+name = "Bazel"
+version = "3.1"
+
+[[build_system]]
+name = "Make"
+version = "3.5"
+
+[preffered_ide]
+name = "VSCode:2.4"

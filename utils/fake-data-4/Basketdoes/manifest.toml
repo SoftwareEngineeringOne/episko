@@ -1,0 +1,26 @@
+id = "92fd05b3-afc2-4070-b303-8b09b22f90e6"
+title = "Basketdoes"
+description = "Collection yourself yesterday how where you dazzle mine sometimes as."
+created = "2025-03-19T10:56:51.747642581Z"
+updated = "2025-03-19T10:56:51.747644261Z"
+
+[[category]]
+name = "full"
+
+[[category]]
+name = "arrogant"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "1.0"
+
+[preffered_ide]
+name = "Vim:1.0"

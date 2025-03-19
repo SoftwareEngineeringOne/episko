@@ -1,0 +1,25 @@
+id = "419c71f7-af3b-4c35-80a9-c543d62d8959"
+title = "Paintinghas"
+description = "Murder host the interest it munch daily which a gleaming."
+category = []
+created = "2025-03-19T10:56:48.614347114Z"
+updated = "2025-03-19T10:56:48.614349074Z"
+
+[[language]]
+name = "Rust"
+version = "4.8"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.1"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:1.7"

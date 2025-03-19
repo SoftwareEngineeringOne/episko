@@ -1,0 +1,12 @@
+id = "056b3d26-9dae-4dfa-ae31-346f14d9d4f3"
+title = "Companybe"
+build_system = []
+created = "2025-03-19T10:56:46.588348013Z"
+updated = "2025-03-19T10:56:46.588350543Z"
+
+[[category]]
+name = "infrequently"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"

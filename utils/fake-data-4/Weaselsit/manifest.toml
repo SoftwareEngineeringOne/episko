@@ -1,0 +1,23 @@
+id = "36977072-8465-463d-8ac8-92166e70b6ce"
+title = "Weaselsit"
+created = "2025-03-19T10:56:51.918856611Z"
+updated = "2025-03-19T10:56:51.918859071Z"
+
+[[category]]
+name = "what"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "3.2"

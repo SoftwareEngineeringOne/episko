@@ -1,0 +1,29 @@
+id = "89d6b37c-bb6f-40c9-8e57-8ea30faac79c"
+title = "Kangaroocan"
+created = "2025-03-19T10:57:09.963382653Z"
+updated = "2025-03-19T10:57:09.963384843Z"
+
+[[category]]
+name = "due"
+
+[[category]]
+name = "should"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "2.8"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:1.3"

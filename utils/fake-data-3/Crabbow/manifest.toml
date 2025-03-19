@@ -1,0 +1,23 @@
+id = "c3b9e60e-665b-4b3f-a955-c6e7f938714c"
+title = "Crabbow"
+created = "2025-03-19T09:34:37.945708948Z"
+updated = "2025-03-19T09:34:37.945709688Z"
+
+[[category]]
+name = "daily"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "4.2"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "2.6"

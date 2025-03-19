@@ -1,0 +1,22 @@
+id = "94070aeb-374f-4247-b976-da48af92d3cd"
+title = "IndianRedpicture"
+description = "Those Bismarckian i.e. power Icelandic much hilarious afterwards here contrast."
+category = []
+build_system = []
+created = "2025-03-19T10:57:12.230427055Z"
+updated = "2025-03-19T10:57:12.230429275Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "2.4"
+
+[[language]]
+name = "Java"
+version = "4.3"
+
+[preffered_ide]
+name = "Emacs:1.5"

@@ -1,0 +1,28 @@
+id = "e806176d-f8ca-4133-991f-bb13ada27960"
+title = "Purplecase"
+description = "Hourly finally her one upon of with that next since."
+build_system = []
+repository_url = "http://www.productreinvent.info/schemas"
+created = "2025-03-19T10:56:59.874919900Z"
+updated = "2025-03-19T10:56:59.874921830Z"
+
+[[category]]
+name = "finally"
+
+[[category]]
+name = "congregation"
+
+[[language]]
+name = "JavaScript"
+version = "4.6"
+
+[[language]]
+name = "Rust"
+version = "5.3"
+
+[[language]]
+name = "C#"
+version = "1.5"
+
+[preffered_ide]
+name = "Emacs:2.6"

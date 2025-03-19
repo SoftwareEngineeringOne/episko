@@ -1,0 +1,15 @@
+id = "35d4e3ba-8515-4d5d-b309-1c4e26820a37"
+title = "Computerjump"
+category = []
+build_system = []
+repository_url = "https://www.productnext-generation.org/communities"
+created = "2025-03-19T10:57:27.903534799Z"
+updated = "2025-03-19T10:57:27.903537399Z"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"

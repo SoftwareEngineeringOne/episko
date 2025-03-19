@@ -1,0 +1,29 @@
+id = "9c2a84fa-72a9-4e52-9aa6-94de9754f640"
+title = "Giraffehas"
+repository_url = "https://www.centralrepurpose.biz/seamless/architect/mesh/morph"
+created = "2025-03-19T10:56:58.500588502Z"
+updated = "2025-03-19T10:56:58.500590552Z"
+
+[[category]]
+name = "mercy"
+
+[[category]]
+name = "group"
+
+[[category]]
+name = "any"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "3.1"
+
+[[build_system]]
+name = "CMake"
+version = "1.4"
+
+[preffered_ide]
+name = "IntelliJ:2.7"

@@ -25,3 +25,4 @@ episko_lib.workspace = true
 tokio = { version = "1.43.0", features = ["full"] }
 uuid.workspace = true
 tauri-plugin-dialog = "2"
+thiserror.workspace = true

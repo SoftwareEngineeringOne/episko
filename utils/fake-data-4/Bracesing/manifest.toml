@@ -1,0 +1,27 @@
+id = "53f02dd0-c4e8-49a3-9a50-d29634c47899"
+title = "Bracesing"
+repository_url = "https://www.seniorone-to-one.com/integrated"
+created = "2025-03-19T10:56:48.571781589Z"
+updated = "2025-03-19T10:56:48.571783469Z"
+
+[[category]]
+name = "cut"
+
+[[language]]
+name = "TypeScript"
+version = "4.5"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "1.0"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.4"

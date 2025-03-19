@@ -1,0 +1,15 @@
+id = "3822cfab-9c8a-431f-926b-4611afd8e970"
+title = "DarkGoldenRodtribe"
+category = []
+build_system = []
+repository_url = "http://www.productniches.name/front-end/seamless/webservices/24-365"
+created = "2025-03-19T10:57:13.407556468Z"
+updated = "2025-03-19T10:57:13.407558648Z"
+
+[[language]]
+name = "Rust"
+version = "1.5"
+
+[[language]]
+name = "Java"
+version = "4.4"

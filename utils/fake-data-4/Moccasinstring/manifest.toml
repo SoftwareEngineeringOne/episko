@@ -1,0 +1,23 @@
+id = "b77b078e-f26f-4a6e-9bc9-4b2517c3efc0"
+title = "Moccasinstring"
+created = "2025-03-19T10:56:45.857212817Z"
+updated = "2025-03-19T10:56:45.857214687Z"
+
+[[category]]
+name = "white"
+
+[[language]]
+name = "TypeScript"
+version = "2.2"
+
+[[language]]
+name = "JavaScript"
+version = "1.6"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"

@@ -1,0 +1,18 @@
+id = "e539dfd4-7733-46ac-b617-3e40d486ae58"
+title = "Problemdream"
+build_system = []
+created = "2025-03-19T10:56:56.428531034Z"
+updated = "2025-03-19T10:56:56.428533184Z"
+
+[[category]]
+name = "abroad"
+
+[[category]]
+name = "school"
+
+[[category]]
+name = "we"
+
+[[language]]
+name = "Python"
+version = "2.4"

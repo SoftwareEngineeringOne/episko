@@ -1,0 +1,21 @@
+id = "4a32237b-6aaa-4ca1-ac42-b571e80d46a1"
+title = "Pouchfight"
+description = "To class in another him some clump packet over number."
+category = []
+created = "2025-03-19T10:57:39.204212446Z"
+updated = "2025-03-19T10:57:39.204214346Z"
+
+[[language]]
+name = "Rust"
+version = "1.4"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "3.6"
+
+[preffered_ide]
+name = "Emacs:1.7"

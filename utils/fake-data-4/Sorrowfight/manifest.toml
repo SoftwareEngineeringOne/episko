@@ -1,0 +1,30 @@
+id = "0bcf6eab-6387-4c0d-a1f9-0babc1e7e5b3"
+title = "Sorrowfight"
+description = "Now are luxuty earrings she instead itself luck since wow."
+category = []
+repository_url = "https://www.productopen-source.name/leading-edge"
+created = "2025-03-19T10:57:02.185841697Z"
+updated = "2025-03-19T10:57:02.185843767Z"
+
+[[language]]
+name = "C#"
+version = "5.0"
+
+[[language]]
+name = "Java"
+version = "2.4"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:2.7"

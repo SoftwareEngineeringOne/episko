@@ -1,0 +1,27 @@
+id = "6504801e-f2ad-4786-ac13-c674b9970569"
+title = "Aquamarinegame"
+description = "That am whoever me freeze anyway it somebody mine anyone."
+build_system = []
+created = "2025-03-19T10:57:15.870308583Z"
+updated = "2025-03-19T10:57:15.870310543Z"
+
+[[category]]
+name = "empty"
+
+[[category]]
+name = "yesterday"
+
+[[language]]
+name = "C#"
+version = "1.7"
+
+[[language]]
+name = "Java"
+version = "1.5"
+
+[[language]]
+name = "TypeScript"
+version = "5.1"
+
+[preffered_ide]
+name = "Sublime:2.5"

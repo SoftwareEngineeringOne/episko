@@ -1,0 +1,19 @@
+id = "c12772dc-e1ce-48cf-8182-4149cdfa14eb"
+title = "PapayaWhipold Age"
+build_system = []
+created = "2025-03-19T10:57:24.407935707Z"
+updated = "2025-03-19T10:57:24.407938377Z"
+
+[[category]]
+name = "mysterious"
+
+[[language]]
+name = "JavaScript"
+version = "4.6"
+
+[[language]]
+name = "Rust"
+version = "2.1"
+
+[preffered_ide]
+name = "VSCode:2.4"

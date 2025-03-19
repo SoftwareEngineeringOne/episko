@@ -1,0 +1,27 @@
+id = "b3886772-35b5-40c7-868f-4db500d05222"
+title = "Mobclap"
+description = "Every string words which when herself that any plan everybody."
+repository_url = "http://www.investorbest-of-breed.info/incubate/users"
+created = "2025-03-19T10:57:02.915456820Z"
+updated = "2025-03-19T10:57:02.915458750Z"
+
+[[category]]
+name = "house"
+
+[[category]]
+name = "there"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "1.5"
+
+[preffered_ide]
+name = "Sublime:2.0"

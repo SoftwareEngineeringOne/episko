@@ -1,0 +1,30 @@
+id = "7168ad51-e51e-432d-89b4-dd2235f848c6"
+title = "MintCreamarmy"
+description = "Yours moreover out bravo whoever whichever hourly stemmed unless they."
+created = "2025-03-19T10:56:58.527171429Z"
+updated = "2025-03-19T10:56:58.527173409Z"
+
+[[category]]
+name = "monthly"
+
+[[category]]
+name = "do"
+
+[[language]]
+name = "Go"
+version = "1.5"
+
+[[language]]
+name = "Java"
+version = "3.3"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "3.2"
+
+[preffered_ide]
+name = "IntelliJ:1.0"

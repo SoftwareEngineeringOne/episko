@@ -1,0 +1,19 @@
+id = "f55dfcf9-a86a-45f1-8f57-90434b84d397"
+title = "Citytalk"
+build_system = []
+repository_url = "http://www.futureinfomediaries.name/efficient"
+created = "2025-03-19T10:57:23.339733641Z"
+updated = "2025-03-19T10:57:23.339735951Z"
+
+[[category]]
+name = "fall"
+
+[[category]]
+name = "cloud"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:2.0"

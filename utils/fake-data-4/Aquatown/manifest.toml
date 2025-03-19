@@ -1,0 +1,23 @@
+id = "f1ce6802-aa60-47cf-b4ec-ba7a01d76b26"
+title = "Aquatown"
+repository_url = "https://www.corporatecontent.info/implement/enterprise/killer"
+created = "2025-03-19T10:57:27.410879237Z"
+updated = "2025-03-19T10:57:27.410881207Z"
+
+[[category]]
+name = "someone"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "2.4"
+
+[preffered_ide]
+name = "Emacs:1.0"

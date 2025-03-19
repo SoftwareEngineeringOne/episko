@@ -1,0 +1,20 @@
+id = "c83b124c-3865-4db7-b2b4-6fd1df68f686"
+title = "Packwash"
+description = "Say for car finally quite wipe she including the he."
+repository_url = "https://www.districtrevolutionize.org/experiences/morph"
+created = "2025-03-19T10:57:29.401691924Z"
+updated = "2025-03-19T10:57:29.401694584Z"
+
+[[category]]
+name = "all"
+
+[[language]]
+name = "Python"
+version = "2.1"
+
+[[build_system]]
+name = "Webpack"
+version = "1.1"
+
+[preffered_ide]
+name = "Atom:2.5"

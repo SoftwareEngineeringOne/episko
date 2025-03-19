@@ -1,0 +1,17 @@
+id = "43b035db-0841-47ef-a653-f45db6502ea4"
+title = "Teachermight"
+category = []
+build_system = []
+created = "2025-03-19T10:56:41.221929083Z"
+updated = "2025-03-19T10:56:41.221930303Z"
+
+[[language]]
+name = "Rust"
+version = "3.6"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.2"

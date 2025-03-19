@@ -1,0 +1,26 @@
+id = "59adbc76-0aad-4126-b740-e85915e0e040"
+title = "Teamwere"
+created = "2025-03-19T10:56:56.040619260Z"
+updated = "2025-03-19T10:56:56.040620610Z"
+
+[[category]]
+name = "for"
+
+[[category]]
+name = "him"
+
+[[language]]
+name = "C#"
+version = "2.1"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "5.3"
+
+[[build_system]]
+name = "Make"
+version = "unknown"

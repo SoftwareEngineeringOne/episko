@@ -1,0 +1,22 @@
+id = "88e9a0b7-85e4-4b87-aa83-ad2beb9f7ef8"
+title = "Crowwould"
+build_system = []
+created = "2025-03-19T10:57:08.896436592Z"
+updated = "2025-03-19T10:57:08.896439062Z"
+
+[[category]]
+name = "day"
+
+[[category]]
+name = "blindly"
+
+[[language]]
+name = "Java"
+version = "5.2"
+
+[[language]]
+name = "Python"
+version = "5.1"
+
+[preffered_ide]
+name = "Sublime:2.1"

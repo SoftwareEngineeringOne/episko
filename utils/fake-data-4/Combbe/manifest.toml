@@ -1,0 +1,33 @@
+id = "47bd056c-0059-4311-b83b-4beeb974f188"
+title = "Combbe"
+repository_url = "http://www.regionalenhance.info/user-centric/wireless/unleash/integrate"
+created = "2025-03-19T10:57:14.084896060Z"
+updated = "2025-03-19T10:57:14.084898010Z"
+
+[[category]]
+name = "either"
+
+[[category]]
+name = "embarrassed"
+
+[[category]]
+name = "covey"
+
+[[language]]
+name = "Go"
+version = "2.9"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:2.3"

@@ -1,0 +1,18 @@
+id = "47f36b6d-55cc-4d14-82e6-6648c6872eaf"
+title = "LightSkyBluealbum"
+created = "2025-03-19T10:57:02.498890692Z"
+updated = "2025-03-19T10:57:02.498892402Z"
+
+[[category]]
+name = "late"
+
+[[language]]
+name = "TypeScript"
+version = "4.3"
+
+[[build_system]]
+name = "CMake"
+version = "1.1"
+
+[preffered_ide]
+name = "VSCode:2.5"

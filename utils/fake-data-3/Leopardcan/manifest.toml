@@ -1,0 +1,24 @@
+id = "6bb162e4-364a-49f9-89d7-e8f8e2f9c28f"
+title = "Leopardcan"
+repository_url = "http://www.leadcross-platform.name/proactive/e-tailers/impactful"
+created = "2025-03-19T09:32:21.204417100Z"
+updated = "2025-03-19T09:32:21.204418320Z"
+
+[[category]]
+name = "Marxist"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "1.7"
+
+[[build_system]]
+name = "CMake"
+version = "3.0"
+
+[[build_system]]
+name = "Webpack"
+version = "1.3"

@@ -1,0 +1,26 @@
+id = "a379abc4-f498-4d52-aafd-a4e039db9eec"
+title = "DarkBluetroupe"
+created = "2025-03-19T10:57:06.145620747Z"
+updated = "2025-03-19T10:57:06.145622677Z"
+
+[[category]]
+name = "whom"
+
+[[category]]
+name = "should"
+
+[[language]]
+name = "Rust"
+version = "3.7"
+
+[[language]]
+name = "Python"
+version = "1.7"
+
+[[build_system]]
+name = "Webpack"
+version = "3.8"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"

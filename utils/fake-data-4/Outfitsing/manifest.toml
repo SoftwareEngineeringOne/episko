@@ -1,0 +1,37 @@
+id = "e0318117-f372-4232-8ddf-c45f57daf1a2"
+title = "Outfitsing"
+description = "This musician about over when when of daily us entertainment."
+created = "2025-03-19T10:56:42.423832435Z"
+updated = "2025-03-19T10:56:42.423834805Z"
+
+[[category]]
+name = "wash"
+
+[[category]]
+name = "to"
+
+[[category]]
+name = "flock"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "4.5"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "2.6"
+
+[preffered_ide]
+name = "Vim:1.2"

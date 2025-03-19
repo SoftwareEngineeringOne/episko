@@ -1,0 +1,29 @@
+id = "bc9eaa1b-0936-43df-b791-98769c562278"
+title = "FireBrickshower"
+build_system = []
+created = "2025-03-19T10:57:16.913800696Z"
+updated = "2025-03-19T10:57:16.913802956Z"
+
+[[category]]
+name = "grandfather"
+
+[[category]]
+name = "(space)"
+
+[[category]]
+name = "i.e."
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "4.1"
+
+[preffered_ide]
+name = "Emacs:1.3"

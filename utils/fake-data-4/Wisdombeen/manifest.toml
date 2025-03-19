@@ -1,0 +1,23 @@
+id = "939ffe8f-05d2-460d-841b-4587ea2c874b"
+title = "Wisdombeen"
+description = "Its everything because next Madagascan Canadian what their range what."
+created = "2025-03-19T10:56:54.938556958Z"
+updated = "2025-03-19T10:56:54.938558678Z"
+
+[[category]]
+name = "her"
+
+[[category]]
+name = "some"
+
+[[language]]
+name = "Python"
+version = "2.2"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "1.4"

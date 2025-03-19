@@ -1,0 +1,29 @@
+id = "bdb12e77-5790-4a48-9c2f-38b1b124ba48"
+title = "Navycompany"
+description = "Seldom today occasion whom Peruvian consequently talented about frailty batch."
+repository_url = "http://www.directexpedite.biz/frictionless/convergence"
+created = "2025-03-19T10:57:02.741014750Z"
+updated = "2025-03-19T10:57:02.741016590Z"
+
+[[category]]
+name = "alone"
+
+[[language]]
+name = "Python"
+version = "2.9"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "1.9"

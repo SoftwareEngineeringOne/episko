@@ -1,0 +1,31 @@
+id = "a7e220d6-d9f2-4a82-b791-660b32b8ba84"
+title = "Careshall"
+description = "Those you simply of muster whoever much his you wheat."
+repository_url = "http://www.centralsynergies.name/wireless"
+created = "2025-03-19T10:57:36.643155576Z"
+updated = "2025-03-19T10:57:36.643157476Z"
+
+[[category]]
+name = "to"
+
+[[category]]
+name = "am"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "4.4"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:2.6"

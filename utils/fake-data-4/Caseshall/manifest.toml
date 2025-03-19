@@ -1,0 +1,19 @@
+id = "17719c6b-c861-41ad-b70e-160771a732a9"
+title = "Caseshall"
+repository_url = "http://www.investoruser-centric.net/granular"
+created = "2025-03-19T10:56:45.195596333Z"
+updated = "2025-03-19T10:56:45.195598213Z"
+
+[[category]]
+name = "it"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "2.0"
+
+[preffered_ide]
+name = "IntelliJ:1.8"

@@ -1,0 +1,33 @@
+id = "dd6316e9-755a-42e6-b781-fb11c4e2b3b3"
+title = "SteelBluebevy"
+repository_url = "https://www.dynamicmodels.info/productize/synergize/bricks-and-clicks/evolve"
+created = "2025-03-19T10:56:42.455582167Z"
+updated = "2025-03-19T10:56:42.455584487Z"
+
+[[category]]
+name = "nightly"
+
+[[category]]
+name = "food"
+
+[[category]]
+name = "both"
+
+[[language]]
+name = "Go"
+version = "4.6"
+
+[[language]]
+name = "Rust"
+version = "4.0"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "2.8"
+
+[preffered_ide]
+name = "Sublime:1.3"

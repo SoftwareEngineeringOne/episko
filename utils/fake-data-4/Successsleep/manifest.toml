@@ -1,0 +1,28 @@
+id = "104e6e4a-8398-42a2-bd29-908589701920"
+title = "Successsleep"
+created = "2025-03-19T10:57:11.077097501Z"
+updated = "2025-03-19T10:57:11.077099501Z"
+
+[[category]]
+name = "backwards"
+
+[[category]]
+name = "scheme"
+
+[[category]]
+name = "palm"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.6"

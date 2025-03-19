@@ -1,0 +1,27 @@
+id = "600848b0-ef81-45e6-b3c9-023a43e8890b"
+title = "GreenYellowuncle"
+build_system = []
+repository_url = "http://www.regionalnext-generation.info/leading-edge/proactive"
+created = "2025-03-19T10:56:47.776180314Z"
+updated = "2025-03-19T10:56:47.776182214Z"
+
+[[category]]
+name = "firstly"
+
+[[category]]
+name = "there"
+
+[[language]]
+name = "Python"
+version = "2.7"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:2.7"

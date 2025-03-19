@@ -1,0 +1,29 @@
+id = "d97aabea-545c-4dba-89f8-a5a96fa553a5"
+title = "Apewas"
+created = "2025-03-19T10:57:21.033532122Z"
+updated = "2025-03-19T10:57:21.033534142Z"
+
+[[category]]
+name = "you"
+
+[[category]]
+name = "consequently"
+
+[[language]]
+name = "TypeScript"
+version = "5.3"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.4"

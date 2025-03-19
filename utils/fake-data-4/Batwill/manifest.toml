@@ -1,0 +1,22 @@
+id = "e9a38e36-f422-4a37-a0d6-1b70590644b8"
+title = "Batwill"
+created = "2025-03-19T10:57:22.615657212Z"
+updated = "2025-03-19T10:57:22.615659182Z"
+
+[[category]]
+name = "before"
+
+[[category]]
+name = "was"
+
+[[language]]
+name = "Rust"
+version = "1.1"
+
+[[build_system]]
+name = "Maven"
+version = "3.7"
+
+[[build_system]]
+name = "Gradle"
+version = "1.5"

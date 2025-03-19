@@ -1,0 +1,19 @@
+id = "90d158aa-de50-414b-8c4d-5d33edd8ea59"
+title = "Deeris"
+build_system = []
+repository_url = "https://www.globalmission-critical.com/grow/customized"
+created = "2025-03-19T10:56:46.163340581Z"
+updated = "2025-03-19T10:56:46.163342251Z"
+
+[[category]]
+name = "so"
+
+[[category]]
+name = "i.e."
+
+[[language]]
+name = "TypeScript"
+version = "3.1"
+
+[preffered_ide]
+name = "VSCode:2.5"

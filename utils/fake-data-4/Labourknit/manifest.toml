@@ -1,0 +1,29 @@
+id = "323d733e-8bfb-4f1a-b9c3-59ceaafb6e8b"
+title = "Labourknit"
+category = []
+repository_url = "http://www.investore-business.info/brand"
+created = "2025-03-19T10:57:25.496407363Z"
+updated = "2025-03-19T10:57:25.496409363Z"
+
+[[language]]
+name = "Python"
+version = "1.5"
+
+[[language]]
+name = "JavaScript"
+version = "1.5"
+
+[[language]]
+name = "Rust"
+version = "2.2"
+
+[[build_system]]
+name = "Make"
+version = "3.0"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.0"

@@ -1,0 +1,33 @@
+id = "636f5b13-5c24-40d1-a053-fb4d3dd0040d"
+title = "Galaxyshake"
+repository_url = "http://www.internalb2c.name/robust"
+created = "2025-03-19T10:57:20.723009823Z"
+updated = "2025-03-19T10:57:20.723012353Z"
+
+[[category]]
+name = "little"
+
+[[category]]
+name = "your"
+
+[[category]]
+name = "ours"
+
+[[language]]
+name = "JavaScript"
+version = "4.5"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "2.3"
+
+[[build_system]]
+name = "Gradle"
+version = "3.3"
+
+[preffered_ide]
+name = "Sublime:2.5"

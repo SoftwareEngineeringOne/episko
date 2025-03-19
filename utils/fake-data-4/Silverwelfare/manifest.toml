@@ -1,0 +1,22 @@
+id = "01a40d24-42fe-4d41-849c-930fbf8e5748"
+title = "Silverwelfare"
+build_system = []
+created = "2025-03-19T10:56:44.298739883Z"
+updated = "2025-03-19T10:56:44.298742043Z"
+
+[[category]]
+name = "how"
+
+[[category]]
+name = "group"
+
+[[category]]
+name = "should"
+
+[[language]]
+name = "Java"
+version = "2.8"
+
+[[language]]
+name = "Python"
+version = "1.6"

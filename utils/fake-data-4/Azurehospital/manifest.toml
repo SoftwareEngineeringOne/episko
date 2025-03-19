@@ -1,0 +1,26 @@
+id = "7acd6d99-4ccf-4ce6-8a35-0f085a1674ac"
+title = "Azurehospital"
+category = []
+repository_url = "http://www.leadparadigms.io/brand"
+created = "2025-03-19T10:56:57.242357403Z"
+updated = "2025-03-19T10:56:57.242359333Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "1.2"
+
+[[language]]
+name = "C#"
+version = "4.0"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"

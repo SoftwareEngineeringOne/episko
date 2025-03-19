@@ -1,0 +1,23 @@
+id = "4e83033e-9aca-4601-bc14-7b335a098a17"
+title = "Servalcrawl"
+description = "Work that also that trend garden quiver crew patrol after."
+created = "2025-03-19T10:56:41.174953646Z"
+updated = "2025-03-19T10:56:41.174955736Z"
+
+[[category]]
+name = "innocence"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.8"

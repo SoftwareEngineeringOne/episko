@@ -1,0 +1,20 @@
+id = "427bd8b8-8463-4638-9f25-4794b22e81b2"
+title = "Hyenaread"
+repository_url = "https://www.globalredefine.org/transform/paradigms"
+created = "2025-03-19T10:56:43.540356337Z"
+updated = "2025-03-19T10:56:43.540357757Z"
+
+[[category]]
+name = "wake"
+
+[[language]]
+name = "Rust"
+version = "4.8"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"

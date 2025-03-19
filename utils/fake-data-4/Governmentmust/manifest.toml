@@ -1,0 +1,29 @@
+id = "9f5e3820-ee34-409f-88ac-d362c1d31113"
+title = "Governmentmust"
+repository_url = "https://www.humanincentivize.com/proactive"
+created = "2025-03-19T10:57:09.453895063Z"
+updated = "2025-03-19T10:57:09.453897563Z"
+
+[[category]]
+name = "e.g."
+
+[[category]]
+name = "by"
+
+[[category]]
+name = "product"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "1.4"
+
+[preffered_ide]
+name = "Atom:2.4"

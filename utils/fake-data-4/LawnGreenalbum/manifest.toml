@@ -1,0 +1,29 @@
+id = "8250fefe-04f2-4122-896f-d95369020760"
+title = "LawnGreenalbum"
+description = "Rather hand life after whose might you generally had nobody."
+created = "2025-03-19T10:56:41.797089804Z"
+updated = "2025-03-19T10:56:41.797090794Z"
+
+[[category]]
+name = "in"
+
+[[category]]
+name = "wisp"
+
+[[category]]
+name = "who"
+
+[[language]]
+name = "Python"
+version = "3.6"
+
+[[language]]
+name = "C#"
+version = "5.6"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:1.2"

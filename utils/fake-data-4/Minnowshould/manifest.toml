@@ -1,0 +1,26 @@
+id = "f261e6aa-7270-4cfd-99e2-93a9666d99c2"
+title = "Minnowshould"
+repository_url = "http://www.regionalfrictionless.org/clicks-and-mortar"
+created = "2025-03-19T10:57:16.050458841Z"
+updated = "2025-03-19T10:57:16.050460971Z"
+
+[[category]]
+name = "inside"
+
+[[category]]
+name = "fact"
+
+[[category]]
+name = "that"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "5.2"
+
+[[build_system]]
+name = "Webpack"
+version = "3.5"

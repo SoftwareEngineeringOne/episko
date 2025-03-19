@@ -1,0 +1,14 @@
+id = "546b86a9-f120-4e93-b84a-295e851f6992"
+title = "Gnatwould"
+description = "Why basket line muster our that his had they in."
+category = []
+created = "2025-03-19T10:57:06.634940438Z"
+updated = "2025-03-19T10:57:06.634942258Z"
+
+[[language]]
+name = "Rust"
+version = "3.8"
+
+[[build_system]]
+name = "Maven"
+version = "2.3"

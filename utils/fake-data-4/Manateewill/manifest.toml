@@ -1,0 +1,32 @@
+id = "ad7e9740-ec2c-475b-b1c4-d523330d1d45"
+title = "Manateewill"
+created = "2025-03-19T10:57:28.543356052Z"
+updated = "2025-03-19T10:57:28.543358102Z"
+
+[[category]]
+name = "theirs"
+
+[[category]]
+name = "eventually"
+
+[[category]]
+name = "there"
+
+[[language]]
+name = "Python"
+version = "4.5"
+
+[[language]]
+name = "JavaScript"
+version = "5.9"
+
+[[language]]
+name = "C#"
+version = "3.1"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:2.7"

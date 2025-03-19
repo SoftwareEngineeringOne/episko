@@ -1,0 +1,26 @@
+id = "25a6913d-0cd5-467b-b5d0-989be2422b42"
+title = "Alpacahave"
+repository_url = "https://www.seniorinterfaces.biz/deliverables/interactive/engineer/disintermediate"
+created = "2025-03-19T10:56:45.142624788Z"
+updated = "2025-03-19T10:56:45.142626948Z"
+
+[[category]]
+name = "mob"
+
+[[category]]
+name = "you"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.9"

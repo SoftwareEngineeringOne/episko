@@ -1,0 +1,33 @@
+id = "1b60d041-00be-4834-99a0-c94449a78937"
+title = "Martenare"
+repository_url = "http://www.investorstreamline.io/distributed"
+created = "2025-03-19T10:57:24.543743595Z"
+updated = "2025-03-19T10:57:24.543745435Z"
+
+[[category]]
+name = "scarcely"
+
+[[category]]
+name = "maintain"
+
+[[category]]
+name = "tea"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "5.9"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.6"

@@ -1,0 +1,21 @@
+id = "ff09e330-3d51-43ce-80b6-91dbe255d2ba"
+title = "Unclemight"
+description = "Yourselves down were some under wicked your already pack most."
+category = []
+created = "2025-03-19T10:56:58.659107085Z"
+updated = "2025-03-19T10:56:58.659108925Z"
+
+[[language]]
+name = "JavaScript"
+version = "3.5"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "1.0"
+
+[preffered_ide]
+name = "VSCode:1.0"

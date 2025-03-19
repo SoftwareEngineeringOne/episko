@@ -1,0 +1,25 @@
+id = "f089d0bc-141f-4848-a021-665659f71337"
+title = "Wallabyopen"
+build_system = []
+created = "2025-03-19T10:56:53.767069674Z"
+updated = "2025-03-19T10:56:53.767071674Z"
+
+[[category]]
+name = "this"
+
+[[category]]
+name = "your"
+
+[[category]]
+name = "quarterly"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.2"

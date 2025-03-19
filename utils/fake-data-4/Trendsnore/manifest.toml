@@ -1,0 +1,30 @@
+id = "7cd76daa-e15e-4bde-bf8a-de7bc8dddc13"
+title = "Trendsnore"
+created = "2025-03-19T10:57:29.635948450Z"
+updated = "2025-03-19T10:57:29.635950410Z"
+
+[[category]]
+name = "who"
+
+[[category]]
+name = "lack"
+
+[[language]]
+name = "Rust"
+version = "3.1"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "5.8"
+
+[[build_system]]
+name = "Maven"
+version = "1.7"
+
+[[build_system]]
+name = "Maven"
+version = "1.0"

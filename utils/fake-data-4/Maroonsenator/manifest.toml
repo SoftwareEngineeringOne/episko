@@ -1,0 +1,30 @@
+id = "296be355-da41-4de8-930d-d6b5a709b980"
+title = "Maroonsenator"
+build_system = []
+repository_url = "http://www.customersynergies.com/b2b"
+created = "2025-03-19T10:57:08.302506285Z"
+updated = "2025-03-19T10:57:08.302508345Z"
+
+[[category]]
+name = "then"
+
+[[category]]
+name = "up"
+
+[[category]]
+name = "cat"
+
+[[language]]
+name = "JavaScript"
+version = "4.1"
+
+[[language]]
+name = "JavaScript"
+version = "5.8"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:1.2"

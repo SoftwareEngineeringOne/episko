@@ -1,0 +1,23 @@
+id = "62e18cd6-940e-44d4-accf-acce93ef95f3"
+title = "Goodnesswill"
+created = "2025-03-19T10:56:51.768096751Z"
+updated = "2025-03-19T10:56:51.768098511Z"
+
+[[category]]
+name = "clearly"
+
+[[language]]
+name = "C#"
+version = "3.0"
+
+[[language]]
+name = "C#"
+version = "4.6"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"

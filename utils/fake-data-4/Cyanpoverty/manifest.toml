@@ -1,0 +1,30 @@
+id = "13c8ce1b-f24e-4705-b904-fe55d0ecdfa4"
+title = "Cyanpoverty"
+repository_url = "http://www.internaldisintermediate.info/action-items/partnerships"
+created = "2025-03-19T10:56:55.335548179Z"
+updated = "2025-03-19T10:56:55.335550069Z"
+
+[[category]]
+name = "hers"
+
+[[category]]
+name = "some"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "4.9"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "2.8"
+
+[preffered_ide]
+name = "Vim:1.9"

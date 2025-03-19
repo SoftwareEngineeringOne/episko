@@ -1,0 +1,17 @@
+id = "77e0c15c-e798-49ec-8808-7da5d30a59af"
+title = "Captaindid"
+category = []
+repository_url = "http://www.dynamicglobal.com/paradigms/expedite/strategize"
+created = "2025-03-19T10:57:12.893793125Z"
+updated = "2025-03-19T10:57:12.893795465Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:1.7"

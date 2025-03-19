@@ -1,0 +1,21 @@
+id = "f3b653f1-c260-49a2-b351-7aecb9ce7b3a"
+title = "LightPinkroom"
+created = "2025-03-19T10:56:48.717858296Z"
+updated = "2025-03-19T10:56:48.717860356Z"
+
+[[category]]
+name = "hall"
+
+[[category]]
+name = "i.e."
+
+[[language]]
+name = "C#"
+version = "2.9"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:1.8"

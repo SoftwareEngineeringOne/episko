@@ -1,0 +1,22 @@
+id = "e8ad3fa3-05ac-48e2-a840-4f3e0131e6fb"
+title = "Troupeis"
+created = "2025-03-19T10:57:11.635367254Z"
+updated = "2025-03-19T10:57:11.635368934Z"
+
+[[category]]
+name = "for"
+
+[[category]]
+name = "yours"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"

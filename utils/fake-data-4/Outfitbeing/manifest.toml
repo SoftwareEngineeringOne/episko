@@ -1,0 +1,20 @@
+id = "2d1b1d5a-b00d-450d-bbff-99c7f3e2d283"
+title = "Outfitbeing"
+repository_url = "https://www.futuredeliverables.name/strategize"
+created = "2025-03-19T10:56:49.108772409Z"
+updated = "2025-03-19T10:56:49.108774479Z"
+
+[[category]]
+name = "corner"
+
+[[language]]
+name = "Go"
+version = "4.2"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"

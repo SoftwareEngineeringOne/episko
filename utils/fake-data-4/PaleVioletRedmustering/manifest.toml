@@ -1,0 +1,21 @@
+id = "da43a823-0382-4bf0-a149-6ffe89bde0f0"
+title = "PaleVioletRedmustering"
+created = "2025-03-19T10:56:45.090996408Z"
+updated = "2025-03-19T10:56:45.090998438Z"
+
+[[category]]
+name = "listen"
+
+[[category]]
+name = "everything"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:1.8"

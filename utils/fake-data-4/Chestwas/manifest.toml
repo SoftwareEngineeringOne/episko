@@ -1,0 +1,19 @@
+id = "b437669e-f3d8-44e1-8ce7-8777a132a924"
+title = "Chestwas"
+created = "2025-03-19T10:57:00.063890842Z"
+updated = "2025-03-19T10:57:00.063892272Z"
+
+[[category]]
+name = "off"
+
+[[language]]
+name = "TypeScript"
+version = "2.1"
+
+[[build_system]]
+name = "Bazel"
+version = "3.8"
+
+[[build_system]]
+name = "Bazel"
+version = "3.5"

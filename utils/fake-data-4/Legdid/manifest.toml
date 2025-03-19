@@ -1,0 +1,22 @@
+id = "f764b294-7b52-41b9-a6d0-8a860d66d8a5"
+title = "Legdid"
+repository_url = "http://www.investore-business.biz/leading-edge/b2b"
+created = "2025-03-19T10:57:30.215995198Z"
+updated = "2025-03-19T10:57:30.215997328Z"
+
+[[category]]
+name = "do"
+
+[[category]]
+name = "each"
+
+[[language]]
+name = "Python"
+version = "4.3"
+
+[[build_system]]
+name = "Make"
+version = "1.9"
+
+[preffered_ide]
+name = "Emacs:2.6"

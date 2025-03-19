@@ -1,0 +1,24 @@
+id = "e2e38201-af4e-416a-a7a9-de3715c87f89"
+title = "Minnowplay"
+created = "2025-03-19T10:56:48.326710093Z"
+updated = "2025-03-19T10:56:48.326711983Z"
+
+[[category]]
+name = "over"
+
+[[category]]
+name = "who"
+
+[[category]]
+name = "paralyze"
+
+[[language]]
+name = "Python"
+version = "5.7"
+
+[[build_system]]
+name = "Maven"
+version = "1.0"
+
+[preffered_ide]
+name = "IntelliJ:2.5"

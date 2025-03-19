@@ -1,83 +1,25 @@
 #![deny(clippy::pedantic)]
 #![allow(clippy::used_underscore_binding)]
-use chrono::{DateTime, Utc};
 use episko_lib::{
     config::ConfigHandler,
     database::DatabaseHandler,
     files::File as _,
-    metadata::{metadata_handler::MetadataHandler, BuildSystem, Category, Ide, Language, Metadata},
+    metadata::{
+        Metadata,
+        metadata_handler::MetadataHandler,
+    },
 };
-use serde::{de::DeserializeOwned, Deserialize, Serialize};
+use state::AppState;
 use tauri::Manager;
+use tokio::sync::Mutex;
 
 mod commands;
-use commands::{get_all, get_with_id, load_from_directory, load_from_file, update_metadata};
-use std::path::PathBuf;
-use tokio::sync::Mutex;
-use uuid::Uuid;
+use commands::{
+    create_metadata, get_all, get_with_id, load_from_directory, load_from_file, update_metadata,
+};
 
-struct AppState {
-    pub db: DatabaseHandler,
-    pub config_handler: ConfigHandler,
-}
-impl AppState {
-    pub fn new(db: DatabaseHandler, config_handler: ConfigHandler) -> Self {
-        Self { db, config_handler }
-    }
-}
-
-/// Dto data transfer object
-#[derive(Serialize, Deserialize, Debug)]
-struct MetadataDto {
-    id: Uuid,
-    directory: PathBuf,
-    title: String,
-    description: Option<String>,
-    categories: Vec<Category>,
-    languages: Vec<Language>,
-    build_systems: Vec<BuildSystem>,
-    preffered_ide: Option<Ide>,
-    repository_url: Option<String>,
-    created: DateTime<Utc>,
-    updated: DateTime<Utc>,
-}
-
-/// Dco data creation object
-#[derive(Serialize, Deserialize, Debug)]
-struct MetadataDco {
-    directory: PathBuf,
-    title: String,
-    description: Option<String>,
-    categories: Vec<Category>,
-    languages: Vec<Language>,
-    build_systems: Vec<BuildSystem>,
-    preffered_ide: Option<Ide>,
-    repository_url: Option<String>,
-}
-
-impl MetadataDco {
-    fn create() -> Result<Metadata, String> {
-        todo!()
-    }
-}
-
-impl From<Metadata> for MetadataDto {
-    fn from(metadata: Metadata) -> MetadataDto {
-        MetadataDto {
-            id: metadata.id,
-            directory: metadata.directory,
-            title: metadata.title,
-            description: metadata.description,
-            categories: metadata.categories,
-            languages: metadata.languages,
-            build_systems: metadata.build_systems,
-            preffered_ide: metadata.preffered_ide,
-            repository_url: metadata.repository_url,
-            created: metadata.created,
-            updated: metadata.updated,
-        }
-    }
-}
+pub mod model;
+pub mod state;
 
 /// !TODO!
 ///
@@ -119,6 +61,7 @@ pub async fn run() -> Result<(), Box<dyn std::error::Error>> {
             get_all,
             get_with_id,
             update_metadata,
+            create_metadata,
             load_from_file,
             load_from_directory,
         ])
@@ -126,4 +69,34 @@ pub async fn run() -> Result<(), Box<dyn std::error::Error>> {
         .expect("error while running tauri application");
 
     Ok(())
+}
+
+#[derive(Debug, thiserror::Error)]
+pub enum Error {
+    #[error(transparent)]
+    Database(#[from] episko_lib::database::Error),
+
+    #[error(transparent)]
+    File(#[from] episko_lib::files::Error),
+
+    #[error(transparent)]
+    Builder(#[from] episko_lib::metadata::builder::Error),
+
+    #[error(transparent)]
+    Config(#[from] episko_lib::config::Error),
+
+    #[error(transparent)]
+    Metadata(#[from] episko_lib::metadata::Error),
+
+    #[error("bad request: {0}")]
+    BadRequest(String),
+}
+
+impl serde::Serialize for Error {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        serializer.serialize_str(self.to_string().as_ref())
+    }
 }

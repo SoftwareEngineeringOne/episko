@@ -1,0 +1,26 @@
+id = "fdaba8de-6abd-4e31-8a71-fa2a059e00c2"
+title = "Tribejump"
+description = "Leap tonight my eek dynasty e.g. the because gently massage."
+category = []
+repository_url = "https://www.directleverage.org/revolutionary"
+created = "2025-03-19T10:57:37.707698783Z"
+updated = "2025-03-19T10:57:37.707700783Z"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.3"

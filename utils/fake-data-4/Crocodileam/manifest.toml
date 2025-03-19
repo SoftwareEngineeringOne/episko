@@ -1,0 +1,21 @@
+id = "1b37e41a-d5e5-4601-bcf3-ace9d75b667f"
+title = "Crocodileam"
+category = []
+repository_url = "http://www.legacybandwidth.com/cultivate/aggregate/real-time"
+created = "2025-03-19T10:56:41.163217422Z"
+updated = "2025-03-19T10:56:41.163218332Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "3.3"
+
+[preffered_ide]
+name = "Sublime:2.8"

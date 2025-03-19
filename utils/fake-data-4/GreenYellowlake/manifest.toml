@@ -1,0 +1,25 @@
+id = "74262a80-8fc9-436a-8d1e-edd9fcd00ad5"
+title = "GreenYellowlake"
+description = "Abroad above theirs theirs himself another none me regiment poverty."
+build_system = []
+repository_url = "https://www.internationalcross-platform.info/proactive"
+created = "2025-03-19T10:57:31.072827876Z"
+updated = "2025-03-19T10:57:31.072830416Z"
+
+[[category]]
+name = "welfare"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "3.2"
+
+[[language]]
+name = "TypeScript"
+version = "5.9"
+
+[preffered_ide]
+name = "Atom:2.4"

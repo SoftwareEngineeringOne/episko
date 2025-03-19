@@ -1,0 +1,30 @@
+id = "fa7499c1-c521-4d27-9321-4ed6a33e849f"
+title = "SpringGreenman"
+created = "2025-03-19T10:57:14.257603725Z"
+updated = "2025-03-19T10:57:14.257606125Z"
+
+[[category]]
+name = "write"
+
+[[category]]
+name = "do"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "4.3"
+
+[[language]]
+name = "JavaScript"
+version = "1.2"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "3.6"

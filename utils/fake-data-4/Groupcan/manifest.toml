@@ -1,0 +1,26 @@
+id = "f790c20b-43d1-4ccf-a393-6b3bb9ab5155"
+title = "Groupcan"
+created = "2025-03-19T10:57:39.594022037Z"
+updated = "2025-03-19T10:57:39.594024187Z"
+
+[[category]]
+name = "hand"
+
+[[category]]
+name = "theirs"
+
+[[language]]
+name = "Python"
+version = "2.4"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "1.5"

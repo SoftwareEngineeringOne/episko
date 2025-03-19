@@ -1,0 +1,16 @@
+id = "9a32740f-5132-4f2a-913b-3366bfa5eb9e"
+title = "Voicelisten"
+build_system = []
+repository_url = "https://www.futuremission-critical.org/partnerships/recontextualize/action-items"
+created = "2025-03-19T10:56:48.204945487Z"
+updated = "2025-03-19T10:56:48.204947817Z"
+
+[[category]]
+name = "she"
+
+[[category]]
+name = "indeed"
+
+[[language]]
+name = "Python"
+version = "unknown"

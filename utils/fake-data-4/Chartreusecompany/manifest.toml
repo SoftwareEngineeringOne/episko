@@ -1,0 +1,23 @@
+id = "2309cca0-871d-42b1-9b29-f8c3f9d6acb6"
+title = "Chartreusecompany"
+build_system = []
+created = "2025-03-19T10:57:35.653437848Z"
+updated = "2025-03-19T10:57:35.653440208Z"
+
+[[category]]
+name = "of"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:1.3"

@@ -1,0 +1,26 @@
+id = "b09c62ef-8ec4-49c6-8924-dc08ba06d818"
+title = "Turquoisedisregard"
+build_system = []
+repository_url = "http://www.productvisionary.com/deploy/e-markets"
+created = "2025-03-19T10:56:49.849226822Z"
+updated = "2025-03-19T10:56:49.849229132Z"
+
+[[category]]
+name = "to"
+
+[[category]]
+name = "least"
+
+[[category]]
+name = "myself"
+
+[[language]]
+name = "Rust"
+version = "2.2"
+
+[[language]]
+name = "JavaScript"
+version = "1.4"
+
+[preffered_ide]
+name = "Sublime:2.3"

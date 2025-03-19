@@ -1,0 +1,19 @@
+id = "98d5dd0d-a7d4-4a69-a67d-d4e8aebaac85"
+title = "Forestpaint"
+build_system = []
+created = "2025-03-19T10:57:09.242973706Z"
+updated = "2025-03-19T10:57:09.242975996Z"
+
+[[category]]
+name = "rarely"
+
+[[language]]
+name = "Rust"
+version = "3.5"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.5"

@@ -1,0 +1,11 @@
+id = "6b1dbf14-4656-4e4e-a1b8-78b3a76ec5fe"
+title = "DarkKhakipants"
+category = []
+build_system = []
+repository_url = "http://www.leadutilize.net/frictionless"
+created = "2025-03-19T10:57:38.312816225Z"
+updated = "2025-03-19T10:57:38.312818365Z"
+
+[[language]]
+name = "Go"
+version = "4.2"

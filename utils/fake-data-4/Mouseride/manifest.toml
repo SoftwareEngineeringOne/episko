@@ -1,0 +1,26 @@
+id = "49b7298c-1889-4af2-a6cc-12ed9f207c66"
+title = "Mouseride"
+repository_url = "http://www.corporateconvergence.io/plug-and-play/architect/e-enable/incubate"
+created = "2025-03-19T10:56:48.426746365Z"
+updated = "2025-03-19T10:56:48.426748575Z"
+
+[[category]]
+name = "she"
+
+[[category]]
+name = "myself"
+
+[[language]]
+name = "Go"
+version = "3.3"
+
+[[build_system]]
+name = "Make"
+version = "3.2"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:2.0"

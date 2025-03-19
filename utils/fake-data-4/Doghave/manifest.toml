@@ -1,0 +1,34 @@
+id = "144c91aa-d5c8-45f8-be1c-72c2c6af3e0e"
+title = "Doghave"
+repository_url = "http://www.corporatee-enable.info/optimize/efficient/intuitive"
+created = "2025-03-19T10:57:30.261196060Z"
+updated = "2025-03-19T10:57:30.261197810Z"
+
+[[category]]
+name = "computer"
+
+[[category]]
+name = "persuade"
+
+[[category]]
+name = "huh"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"

@@ -1,0 +1,26 @@
+id = "fdcf999a-494a-447e-a1d1-386e25d25811"
+title = "Kangaroobeing"
+repository_url = "http://www.principalniches.name/expedite/syndicate/embrace"
+created = "2025-03-19T10:57:29.679578068Z"
+updated = "2025-03-19T10:57:29.679580458Z"
+
+[[category]]
+name = "i.e."
+
+[[category]]
+name = "fame"
+
+[[category]]
+name = "thought"
+
+[[language]]
+name = "TypeScript"
+version = "1.7"
+
+[[language]]
+name = "TypeScript"
+version = "1.6"
+
+[[build_system]]
+name = "Make"
+version = "2.0"

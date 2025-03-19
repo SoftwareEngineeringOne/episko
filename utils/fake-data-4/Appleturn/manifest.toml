@@ -1,0 +1,31 @@
+id = "38f5e53c-c1f2-440c-8f12-6478985831d5"
+title = "Appleturn"
+repository_url = "https://www.dynamicgenerate.biz/technologies"
+created = "2025-03-19T10:56:44.765252366Z"
+updated = "2025-03-19T10:56:44.765253406Z"
+
+[[category]]
+name = "whomever"
+
+[[category]]
+name = "besides"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "3.7"
+
+[[language]]
+name = "C#"
+version = "1.4"
+
+[[build_system]]
+name = "CMake"
+version = "1.3"
+
+[[build_system]]
+name = "Webpack"
+version = "3.3"

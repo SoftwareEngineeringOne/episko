@@ -1,0 +1,28 @@
+id = "d4fe4363-33a1-4b44-a7ab-bc1c8a252e88"
+title = "Pugbeen"
+description = "Seldom those necklace pain reassure oxygen most all when empty."
+build_system = []
+repository_url = "https://www.legacyrevolutionize.biz/one-to-one/ubiquitous"
+created = "2025-03-19T10:56:41.076776719Z"
+updated = "2025-03-19T10:56:41.076778059Z"
+
+[[category]]
+name = "monthly"
+
+[[category]]
+name = "lie"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "3.0"
+
+[preffered_ide]
+name = "IntelliJ:1.7"

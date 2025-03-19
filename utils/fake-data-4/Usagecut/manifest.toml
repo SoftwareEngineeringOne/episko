@@ -1,0 +1,27 @@
+id = "b29fd77c-7e03-49ed-bf2b-ec9bbc7b5085"
+title = "Usagecut"
+repository_url = "https://www.dynamiccontent.name/functionalities/sexy"
+created = "2025-03-19T10:57:12.470038346Z"
+updated = "2025-03-19T10:57:12.470040536Z"
+
+[[category]]
+name = "forest"
+
+[[language]]
+name = "Python"
+version = "4.3"
+
+[[language]]
+name = "JavaScript"
+version = "2.3"
+
+[[language]]
+name = "TypeScript"
+version = "1.9"
+
+[[build_system]]
+name = "CMake"
+version = "1.3"
+
+[preffered_ide]
+name = "VSCode:2.5"

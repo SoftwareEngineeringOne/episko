@@ -1,0 +1,32 @@
+id = "4e920328-25bc-430f-a91b-2bef36126d70"
+title = "Beewill"
+created = "2025-03-19T10:56:54.478162892Z"
+updated = "2025-03-19T10:56:54.478164862Z"
+
+[[category]]
+name = "crowd"
+
+[[category]]
+name = "which"
+
+[[category]]
+name = "now"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "1.4"
+
+[[language]]
+name = "Python"
+version = "5.7"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:1.9"

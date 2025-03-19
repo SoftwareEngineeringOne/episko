@@ -1,0 +1,26 @@
+id = "3da5d885-6281-4db7-bd5f-f4c6deacddc0"
+title = "Chimpanzeehad"
+description = "To obesity peace what meanwhile sing bale fact kindly straw."
+created = "2025-03-19T10:57:34.027311226Z"
+updated = "2025-03-19T10:57:34.027313326Z"
+
+[[category]]
+name = "day"
+
+[[category]]
+name = "throughout"
+
+[[language]]
+name = "Java"
+version = "1.8"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:2.4"

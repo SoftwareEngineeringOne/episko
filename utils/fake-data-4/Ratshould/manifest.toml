@@ -1,0 +1,19 @@
+id = "eb28cb55-0d03-450d-99a6-8f85a2ea973e"
+title = "Ratshould"
+created = "2025-03-19T10:57:25.455987295Z"
+updated = "2025-03-19T10:57:25.455989725Z"
+
+[[category]]
+name = "desk"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "2.8"
+
+[[build_system]]
+name = "Bazel"
+version = "1.0"

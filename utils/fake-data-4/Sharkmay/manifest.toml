@@ -1,0 +1,29 @@
+id = "6538f088-1829-4a23-b28d-a35a40f18e52"
+title = "Sharkmay"
+description = "It than year on lion tomorrow quarterly clap aha whom."
+created = "2025-03-19T10:56:48.223990553Z"
+updated = "2025-03-19T10:56:48.223992853Z"
+
+[[category]]
+name = "life"
+
+[[category]]
+name = "weekly"
+
+[[category]]
+name = "scold"
+
+[[language]]
+name = "Java"
+version = "3.3"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.7"
+
+[preffered_ide]
+name = "Vim:2.2"

@@ -1,0 +1,26 @@
+id = "72d0e967-e0f5-4eb0-be0f-d82f98efcf93"
+title = "Mousedoes"
+description = "You been what snore for realistic hatred hundred annoying constantly."
+category = []
+created = "2025-03-19T10:56:41.507314947Z"
+updated = "2025-03-19T10:56:41.507316397Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "2.5"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "1.6"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"

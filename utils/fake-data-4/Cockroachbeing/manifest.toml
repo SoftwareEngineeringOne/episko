@@ -1,0 +1,30 @@
+id = "29aa4810-7e9c-4cc1-b953-bb41660ccd00"
+title = "Cockroachbeing"
+description = "Cut such bravo yesterday either lots hers this clap until."
+category = []
+repository_url = "https://www.directdeliver.net/action-items"
+created = "2025-03-19T10:57:04.521468197Z"
+updated = "2025-03-19T10:57:04.521470177Z"
+
+[[language]]
+name = "Python"
+version = "3.8"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "3.3"
+
+[[build_system]]
+name = "Webpack"
+version = "1.4"
+
+[preffered_ide]
+name = "Sublime:1.1"

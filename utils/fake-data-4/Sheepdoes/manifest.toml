@@ -1,0 +1,28 @@
+id = "bbb9d611-1018-467c-8417-2931065d5737"
+title = "Sheepdoes"
+description = "Lately whoever whose silently mustering to some politely whoever eagerly."
+created = "2025-03-19T10:56:53.676060718Z"
+updated = "2025-03-19T10:56:53.676062548Z"
+
+[[category]]
+name = "offend"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "5.4"
+
+[[build_system]]
+name = "CMake"
+version = "2.1"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"

@@ -1,0 +1,26 @@
+id = "2b92ab6c-7af4-4787-bb6f-21e7e6d9deae"
+title = "Bevysing"
+description = "What failure this within awfully back mortally that politely those."
+created = "2025-03-19T10:56:44.161995583Z"
+updated = "2025-03-19T10:56:44.161997733Z"
+
+[[category]]
+name = "down"
+
+[[category]]
+name = "these"
+
+[[language]]
+name = "Rust"
+version = "1.5"
+
+[[build_system]]
+name = "Maven"
+version = "1.7"
+
+[[build_system]]
+name = "Maven"
+version = "2.7"
+
+[preffered_ide]
+name = "Emacs:2.7"

@@ -1,0 +1,27 @@
+id = "e4e9e964-915d-4fa6-a400-7e8620e8a101"
+title = "Professormay"
+description = "But deliberately his grumpy lead our instance collection aside he."
+build_system = []
+created = "2025-03-19T10:57:12.543065719Z"
+updated = "2025-03-19T10:57:12.543067799Z"
+
+[[category]]
+name = "about"
+
+[[category]]
+name = "e.g."
+
+[[language]]
+name = "TypeScript"
+version = "2.2"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.2"

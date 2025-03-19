@@ -1,0 +1,31 @@
+id = "d7f10099-3a22-4de7-b6df-2bc72f53f312"
+title = "Hareplay"
+repository_url = "https://www.internaltarget.net/architect/content"
+created = "2025-03-19T10:57:05.708541269Z"
+updated = "2025-03-19T10:57:05.708543209Z"
+
+[[category]]
+name = "for"
+
+[[category]]
+name = "wings"
+
+[[language]]
+name = "Java"
+version = "1.1"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "3.7"

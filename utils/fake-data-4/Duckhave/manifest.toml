@@ -1,0 +1,19 @@
+id = "3450b600-51a2-4ba6-bcf5-4386a7f68836"
+title = "Duckhave"
+created = "2025-03-19T10:56:52.346081920Z"
+updated = "2025-03-19T10:56:52.346083730Z"
+
+[[category]]
+name = "my"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"

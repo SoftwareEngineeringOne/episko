@@ -1,0 +1,27 @@
+id = "e058fa5c-2a47-4dff-b1c7-62ed0a5965e1"
+title = "CadetBlueinformation"
+created = "2025-03-19T10:57:10.197059857Z"
+updated = "2025-03-19T10:57:10.197061817Z"
+
+[[category]]
+name = "include"
+
+[[language]]
+name = "Rust"
+version = "1.3"
+
+[[language]]
+name = "Go"
+version = "2.6"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "2.5"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"

@@ -1,0 +1,29 @@
+id = "dd1bea6e-1f4a-4ce3-a02b-4d051058e41b"
+title = "Daydid"
+build_system = []
+created = "2025-03-19T10:57:06.176564607Z"
+updated = "2025-03-19T10:57:06.176566547Z"
+
+[[category]]
+name = "tent"
+
+[[category]]
+name = "it"
+
+[[category]]
+name = "somewhat"
+
+[[language]]
+name = "Go"
+version = "5.2"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "2.0"
+
+[preffered_ide]
+name = "Sublime:2.3"

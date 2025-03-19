@@ -1,0 +1,29 @@
+id = "3d5e0a65-65a3-4d84-bbf5-ff6378a2b2cc"
+title = "LightGrayunion"
+created = "2025-03-19T10:56:50.619560714Z"
+updated = "2025-03-19T10:56:50.619563054Z"
+
+[[category]]
+name = "lie"
+
+[[category]]
+name = "regularly"
+
+[[language]]
+name = "C#"
+version = "2.9"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:2.8"

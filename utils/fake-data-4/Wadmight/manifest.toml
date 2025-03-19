@@ -1,0 +1,26 @@
+id = "7e03a72a-047a-44b0-8de8-eb375c0689e9"
+title = "Wadmight"
+build_system = []
+created = "2025-03-19T10:57:28.746029855Z"
+updated = "2025-03-19T10:57:28.746031855Z"
+
+[[category]]
+name = "they"
+
+[[category]]
+name = "dress"
+
+[[category]]
+name = "us"
+
+[[language]]
+name = "Python"
+version = "1.3"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"

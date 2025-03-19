@@ -1,0 +1,18 @@
+id = "969be1b2-ec01-4485-bb42-40450a4ce9d0"
+title = "Goaldrink"
+build_system = []
+created = "2025-03-19T10:56:49.547600421Z"
+updated = "2025-03-19T10:56:49.547602721Z"
+
+[[category]]
+name = "this"
+
+[[category]]
+name = "rapidly"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:2.5"

@@ -1,0 +1,23 @@
+id = "6c1bde68-e0cd-49c6-ba72-13875718ccc8"
+title = "DarkSalmonwoman"
+description = "Him company potato even religion leap over when band from."
+created = "2025-03-19T10:56:47.624476251Z"
+updated = "2025-03-19T10:56:47.624478381Z"
+
+[[category]]
+name = "respect"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:2.0"

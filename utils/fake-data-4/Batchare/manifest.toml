@@ -1,0 +1,18 @@
+id = "b8b4b666-56ed-46b9-8ed7-518236ceae5c"
+title = "Batchare"
+category = []
+repository_url = "http://www.chiefaction-items.com/visualize/seize/convergence/visualize"
+created = "2025-03-19T10:56:45.346265863Z"
+updated = "2025-03-19T10:56:45.346268423Z"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "2.3"

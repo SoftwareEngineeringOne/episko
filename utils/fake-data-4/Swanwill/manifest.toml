@@ -1,0 +1,16 @@
+id = "3ffacd46-28dd-4556-bda6-c258ca9751ca"
+title = "Swanwill"
+category = []
+created = "2025-03-19T10:56:47.991954115Z"
+updated = "2025-03-19T10:56:47.991956435Z"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:1.7"

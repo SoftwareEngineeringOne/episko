@@ -1,0 +1,23 @@
+id = "8972d686-2816-478d-8dbb-9458bd8f976f"
+title = "Bowlmay"
+created = "2025-03-19T10:57:07.257657779Z"
+updated = "2025-03-19T10:57:07.257660059Z"
+
+[[category]]
+name = "those"
+
+[[language]]
+name = "Rust"
+version = "1.7"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "1.3"
+
+[[build_system]]
+name = "Webpack"
+version = "3.1"

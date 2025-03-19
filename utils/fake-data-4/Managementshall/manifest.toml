@@ -1,0 +1,22 @@
+id = "bc89d649-b05f-4765-ab62-14739074ac7b"
+title = "Managementshall"
+created = "2025-03-19T10:56:49.930894351Z"
+updated = "2025-03-19T10:56:49.930896431Z"
+
+[[category]]
+name = "however"
+
+[[category]]
+name = "on"
+
+[[language]]
+name = "Go"
+version = "1.2"
+
+[[language]]
+name = "Go"
+version = "2.1"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"

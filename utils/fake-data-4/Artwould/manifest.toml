@@ -1,0 +1,26 @@
+id = "20afae5b-db8f-4f9b-bd76-4a4fe68ea57e"
+title = "Artwould"
+category = []
+repository_url = "https://www.regionalrevolutionize.org/brand/vortals/magnetic/brand"
+created = "2025-03-19T10:57:27.742553917Z"
+updated = "2025-03-19T10:57:27.742557377Z"
+
+[[language]]
+name = "Java"
+version = "4.5"
+
+[[language]]
+name = "Rust"
+version = "5.2"
+
+[[language]]
+name = "C#"
+version = "3.1"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"

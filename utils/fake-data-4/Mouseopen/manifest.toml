@@ -1,0 +1,28 @@
+id = "0cf441c0-645f-4d95-b101-04f3da12757c"
+title = "Mouseopen"
+created = "2025-03-19T10:56:49.427580650Z"
+updated = "2025-03-19T10:56:49.427583510Z"
+
+[[category]]
+name = "move"
+
+[[category]]
+name = "on"
+
+[[category]]
+name = "regularly"
+
+[[language]]
+name = "TypeScript"
+version = "5.5"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "2.3"
+
+[preffered_ide]
+name = "VSCode:2.8"

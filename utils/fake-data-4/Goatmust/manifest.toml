@@ -1,0 +1,27 @@
+id = "2d7593db-aa86-4dfd-b7fe-d2e06692703b"
+title = "Goatmust"
+created = "2025-03-19T10:57:28.258589758Z"
+updated = "2025-03-19T10:57:28.258591978Z"
+
+[[category]]
+name = "simply"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "2.6"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "3.9"
+
+[[build_system]]
+name = "Make"
+version = "3.8"

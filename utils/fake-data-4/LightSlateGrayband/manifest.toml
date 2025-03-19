@@ -1,0 +1,25 @@
+id = "cd455e50-7608-4f90-bdcf-0c7a370b7649"
+title = "LightSlateGrayband"
+created = "2025-03-19T10:56:53.579877656Z"
+updated = "2025-03-19T10:56:53.579879286Z"
+
+[[category]]
+name = "in"
+
+[[category]]
+name = "yours"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "4.2"
+
+[[build_system]]
+name = "Gradle"
+version = "1.7"
+
+[preffered_ide]
+name = "Atom:1.1"

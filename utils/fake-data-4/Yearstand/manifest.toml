@@ -1,0 +1,23 @@
+id = "5daf4864-18b4-4046-8b4f-cf300355152d"
+title = "Yearstand"
+created = "2025-03-19T10:57:08.269935550Z"
+updated = "2025-03-19T10:57:08.269937840Z"
+
+[[category]]
+name = "Turkmen"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "1.5"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"

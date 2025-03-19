@@ -1,0 +1,16 @@
+id = "9e3acd2f-2453-4fcc-bbe7-a62cc11fab4a"
+title = "Hornetmight"
+description = "Whoever ourselves nearly she I upon that Cormoran of apart."
+build_system = []
+created = "2025-03-19T10:57:31.485208184Z"
+updated = "2025-03-19T10:57:31.485210464Z"
+
+[[category]]
+name = "finally"
+
+[[language]]
+name = "Python"
+version = "4.9"
+
+[preffered_ide]
+name = "IntelliJ:2.7"

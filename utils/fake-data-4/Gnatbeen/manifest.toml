@@ -1,0 +1,26 @@
+id = "88f7abd3-044b-411b-9847-c13a7a01f39e"
+title = "Gnatbeen"
+description = "Never that Thai help number either management discover blazer posse."
+build_system = []
+created = "2025-03-19T10:56:46.716930679Z"
+updated = "2025-03-19T10:56:46.716932609Z"
+
+[[category]]
+name = "tonight"
+
+[[category]]
+name = "still"
+
+[[category]]
+name = "always"
+
+[[language]]
+name = "TypeScript"
+version = "4.5"
+
+[[language]]
+name = "C#"
+version = "3.7"
+
+[preffered_ide]
+name = "Sublime:1.7"

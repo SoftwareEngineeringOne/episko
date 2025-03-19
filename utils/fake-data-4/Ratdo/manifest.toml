@@ -1,0 +1,32 @@
+id = "fd08b1c9-59ce-4636-a351-303409fc1206"
+title = "Ratdo"
+created = "2025-03-19T10:57:10.603615196Z"
+updated = "2025-03-19T10:57:10.603617156Z"
+
+[[category]]
+name = "could"
+
+[[category]]
+name = "board"
+
+[[category]]
+name = "another"
+
+[[language]]
+name = "TypeScript"
+version = "4.1"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "2.9"
+
+[[build_system]]
+name = "Maven"
+version = "1.6"
+
+[preffered_ide]
+name = "VSCode:1.5"

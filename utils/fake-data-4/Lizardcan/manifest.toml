@@ -1,0 +1,29 @@
+id = "d0222308-81b3-48aa-b150-06a2b1894005"
+title = "Lizardcan"
+description = "Here eek slavery one shower then there fortnightly for weakly."
+created = "2025-03-19T10:57:13.336674311Z"
+updated = "2025-03-19T10:57:13.336676901Z"
+
+[[category]]
+name = "that"
+
+[[category]]
+name = "whichever"
+
+[[category]]
+name = "whoa"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "2.3"
+
+[preffered_ide]
+name = "Vim:2.1"

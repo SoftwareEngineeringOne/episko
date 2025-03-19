@@ -1,0 +1,29 @@
+id = "4f8c3cea-26bf-4ca2-824f-fa718ef13905"
+title = "Crocodileshould"
+description = "One include repelling its then smoothly most whom trip sprint."
+category = []
+created = "2025-03-19T10:56:46.406750522Z"
+updated = "2025-03-19T10:56:46.406752462Z"
+
+[[language]]
+name = "Go"
+version = "2.9"
+
+[[language]]
+name = "JavaScript"
+version = "4.1"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.3"
+
+[preffered_ide]
+name = "Atom:2.7"

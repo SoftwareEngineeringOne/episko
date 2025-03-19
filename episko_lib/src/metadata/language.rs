@@ -11,9 +11,9 @@ pub struct Language {
     #[db(col = "id")]
     id: Vec<u8>,
     #[db(col = "name")]
-    pub(crate) name: String,
+    pub name: String,
     #[db(col = "version")]
-    pub(crate) version: Option<String>,
+    pub version: Option<String>,
 }
 
 impl Language {

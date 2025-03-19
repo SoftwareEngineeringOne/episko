@@ -1,0 +1,29 @@
+id = "15f4f4ca-bd54-43cd-94db-7182e7114adc"
+title = "Muskrathad"
+category = []
+repository_url = "http://www.principalcross-media.com/markets/customized"
+created = "2025-03-19T10:57:19.901791710Z"
+updated = "2025-03-19T10:57:19.901793540Z"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "2.5"
+
+[[language]]
+name = "Java"
+version = "5.4"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.2"

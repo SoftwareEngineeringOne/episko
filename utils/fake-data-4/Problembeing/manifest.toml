@@ -1,0 +1,26 @@
+id = "6c3a52d3-6285-4737-9eb6-2ca9e758db64"
+title = "Problembeing"
+description = "Yourselves shall weekly busy album moreover wade even anyway gun."
+created = "2025-03-19T10:56:53.942188846Z"
+updated = "2025-03-19T10:56:53.942191326Z"
+
+[[category]]
+name = "unload"
+
+[[category]]
+name = "that"
+
+[[language]]
+name = "JavaScript"
+version = "2.2"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "2.2"
+
+[preffered_ide]
+name = "Emacs:1.0"

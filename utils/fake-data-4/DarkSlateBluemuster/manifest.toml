@@ -1,0 +1,27 @@
+id = "783ca32b-0536-4dff-944f-e8b8b8bd5320"
+title = "DarkSlateBluemuster"
+build_system = []
+repository_url = "http://www.internationalvisionary.org/networks"
+created = "2025-03-19T10:57:00.790640797Z"
+updated = "2025-03-19T10:57:00.790642387Z"
+
+[[category]]
+name = "her"
+
+[[category]]
+name = "according"
+
+[[language]]
+name = "Python"
+version = "2.4"
+
+[[language]]
+name = "C#"
+version = "2.7"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:2.3"

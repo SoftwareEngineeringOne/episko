@@ -1,0 +1,22 @@
+id = "ca827352-fbb6-47df-9f52-4f547b40fd4b"
+title = "Farmwrite"
+description = "Ship from yourselves on uncle define (space) myself insufficient whose."
+category = []
+created = "2025-03-19T10:57:01.753011721Z"
+updated = "2025-03-19T10:57:01.753014061Z"
+
+[[language]]
+name = "Rust"
+version = "1.6"
+
+[[language]]
+name = "C#"
+version = "5.0"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.2"

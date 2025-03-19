@@ -1,0 +1,23 @@
+id = "047eac87-03b3-47d3-bfc5-19ae71e5ef47"
+title = "Thoughtam"
+created = "2025-03-19T10:57:18.684464678Z"
+updated = "2025-03-19T10:57:18.684466888Z"
+
+[[category]]
+name = "lie"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "4.5"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "2.5"

@@ -1,0 +1,31 @@
+id = "8c7bdef2-1da6-4631-89df-c8d53d4c7df9"
+title = "Armadillocook"
+description = "Each religion embarrassed huh while American these rarely consequently team."
+created = "2025-03-19T10:57:25.173603838Z"
+updated = "2025-03-19T10:57:25.173606408Z"
+
+[[category]]
+name = "utterly"
+
+[[language]]
+name = "Go"
+version = "2.6"
+
+[[language]]
+name = "JavaScript"
+version = "3.6"
+
+[[language]]
+name = "Go"
+version = "5.8"
+
+[[build_system]]
+name = "Maven"
+version = "1.7"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:2.5"

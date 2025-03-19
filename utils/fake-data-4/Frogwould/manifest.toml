@@ -1,0 +1,29 @@
+id = "5d562596-2131-4989-8004-e5d75a695f29"
+title = "Frogwould"
+description = "Stand along elsewhere his marriage some she stairs throughout daily."
+category = []
+created = "2025-03-19T10:57:31.388660901Z"
+updated = "2025-03-19T10:57:31.388663491Z"
+
+[[language]]
+name = "C#"
+version = "5.1"
+
+[[language]]
+name = "C#"
+version = "4.1"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "3.2"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.6"

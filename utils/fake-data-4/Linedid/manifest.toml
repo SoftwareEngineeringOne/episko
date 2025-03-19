@@ -1,0 +1,33 @@
+id = "2d186a06-8fe3-416c-8683-3cc9d229f9a9"
+title = "Linedid"
+created = "2025-03-19T10:57:07.431634958Z"
+updated = "2025-03-19T10:57:07.431636838Z"
+
+[[category]]
+name = "vase"
+
+[[category]]
+name = "usually"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "1.1"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "3.9"
+
+[preffered_ide]
+name = "Sublime:1.5"

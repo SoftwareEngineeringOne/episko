@@ -1,0 +1,17 @@
+id = "2542e5f4-63ec-4ecd-850a-05a7d5893201"
+title = "Reindeermight"
+description = "Life yikes could lips mob to it e.g. honesty him."
+category = []
+created = "2025-03-19T10:56:55.969810973Z"
+updated = "2025-03-19T10:56:55.969813073Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:1.9"

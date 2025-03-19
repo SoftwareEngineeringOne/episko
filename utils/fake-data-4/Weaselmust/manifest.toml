@@ -1,0 +1,23 @@
+id = "99f250a4-7a7e-4a7e-96fe-1500357a0dc6"
+title = "Weaselmust"
+repository_url = "https://www.directmission-critical.info/viral/synergies/synthesize"
+created = "2025-03-19T10:56:58.422615964Z"
+updated = "2025-03-19T10:56:58.422618224Z"
+
+[[category]]
+name = "sugar"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:2.8"

@@ -1,0 +1,17 @@
+id = "35844344-9fc0-406d-b1c0-2eaf56456bb1"
+title = "Termitedoes"
+category = []
+created = "2025-03-19T10:57:02.278308927Z"
+updated = "2025-03-19T10:57:02.278310847Z"
+
+[[language]]
+name = "Python"
+version = "1.4"
+
+[[language]]
+name = "C#"
+version = "4.1"
+
+[[build_system]]
+name = "Webpack"
+version = "2.6"

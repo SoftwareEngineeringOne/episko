@@ -1,0 +1,27 @@
+id = "3a803c6e-fd39-4193-83b5-1eb01f7bd370"
+title = "Goldfishdo"
+repository_url = "https://www.regionalleading-edge.name/reinvent/innovative/cross-media"
+created = "2025-03-19T10:57:32.377773787Z"
+updated = "2025-03-19T10:57:32.377775877Z"
+
+[[category]]
+name = "outside"
+
+[[category]]
+name = "how"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "4.3"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "2.6"

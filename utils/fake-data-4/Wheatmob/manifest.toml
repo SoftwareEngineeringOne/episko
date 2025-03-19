@@ -1,0 +1,19 @@
+id = "416d5e88-cf54-4362-bc66-72293f8eb00e"
+title = "Wheatmob"
+build_system = []
+created = "2025-03-19T10:56:48.126692298Z"
+updated = "2025-03-19T10:56:48.126694338Z"
+
+[[category]]
+name = "revolt"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.4"

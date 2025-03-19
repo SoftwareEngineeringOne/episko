@@ -1,0 +1,13 @@
+id = "9af4a010-35e9-42dd-8140-dfdfce1e9eda"
+title = "Sheepbeing"
+category = []
+created = "2025-03-19T10:56:50.234249428Z"
+updated = "2025-03-19T10:56:50.234251238Z"
+
+[[language]]
+name = "TypeScript"
+version = "1.7"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"

@@ -1,0 +1,21 @@
+id = "1defc41b-b0e0-432c-84e2-60d3667e56ff"
+title = "LawnGreenwheat"
+build_system = []
+created = "2025-03-19T10:57:18.531262029Z"
+updated = "2025-03-19T10:57:18.531263899Z"
+
+[[category]]
+name = "creepy"
+
+[[category]]
+name = "up"
+
+[[category]]
+name = "elsewhere"
+
+[[language]]
+name = "Python"
+version = "3.4"
+
+[preffered_ide]
+name = "IntelliJ:1.0"

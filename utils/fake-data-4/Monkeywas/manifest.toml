@@ -1,0 +1,23 @@
+id = "08157df7-811c-4054-984c-f3136d4a8c89"
+title = "Monkeywas"
+description = "Consequence tomorrow lastly whose how much besides onto may nevertheless."
+repository_url = "http://www.futuremorph.biz/magnetic/drive/back-end/productize"
+created = "2025-03-19T10:56:42.098909315Z"
+updated = "2025-03-19T10:56:42.098910785Z"
+
+[[category]]
+name = "away"
+
+[[category]]
+name = "float"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "3.0"
+
+[preffered_ide]
+name = "Vim:2.9"

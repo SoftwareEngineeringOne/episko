@@ -1,0 +1,23 @@
+id = "9cc24845-d43a-42d3-a0bb-1dc340e5624d"
+title = "Rhinoceroswin"
+description = "Cat over nightly here still he ours all pack sedge."
+category = []
+build_system = []
+repository_url = "http://www.internationalharness.biz/next-generation/scale/24-7/e-services"
+created = "2025-03-19T10:57:00.846530591Z"
+updated = "2025-03-19T10:57:00.846532581Z"
+
+[[language]]
+name = "Java"
+version = "4.1"
+
+[[language]]
+name = "Rust"
+version = "2.8"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.9"

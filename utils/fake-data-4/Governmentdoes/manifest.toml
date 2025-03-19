@@ -1,0 +1,22 @@
+id = "0b4e452e-ce1d-40bc-a697-db546a0f37df"
+title = "Governmentdoes"
+description = "Previously he that yesterday wash most why those slide tonight."
+created = "2025-03-19T10:56:59.957779392Z"
+updated = "2025-03-19T10:56:59.957781472Z"
+
+[[category]]
+name = "for"
+
+[[category]]
+name = "that"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:1.3"

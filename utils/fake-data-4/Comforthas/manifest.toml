@@ -1,0 +1,29 @@
+id = "e5d986cf-8142-43a7-85e8-b82be2d83930"
+title = "Comforthas"
+build_system = []
+created = "2025-03-19T10:56:45.692780006Z"
+updated = "2025-03-19T10:56:45.692782036Z"
+
+[[category]]
+name = "must"
+
+[[category]]
+name = "backwards"
+
+[[category]]
+name = "perfectly"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "2.4"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:1.5"

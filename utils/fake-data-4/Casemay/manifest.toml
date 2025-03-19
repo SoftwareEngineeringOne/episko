@@ -1,0 +1,26 @@
+id = "ad5e26bb-4687-437c-922a-8ac8193f2f9f"
+title = "Casemay"
+created = "2025-03-19T10:57:28.338212531Z"
+updated = "2025-03-19T10:57:28.338214521Z"
+
+[[category]]
+name = "for"
+
+[[language]]
+name = "Java"
+version = "3.6"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "1.4"
+
+[preffered_ide]
+name = "Sublime:1.5"

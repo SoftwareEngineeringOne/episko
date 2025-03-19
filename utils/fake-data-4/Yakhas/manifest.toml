@@ -1,0 +1,34 @@
+id = "f097858b-e2b9-4b37-a775-3a0a73533a61"
+title = "Yakhas"
+description = "Weekly little person before where aha yet which between whom."
+repository_url = "https://www.customermission-critical.com/engineer/supply-chains/b2b/vertical"
+created = "2025-03-19T10:57:05.378837514Z"
+updated = "2025-03-19T10:57:05.378839784Z"
+
+[[category]]
+name = "somebody"
+
+[[category]]
+name = "muster"
+
+[[category]]
+name = "down"
+
+[[language]]
+name = "Rust"
+version = "5.7"
+
+[[language]]
+name = "C#"
+version = "5.5"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:1.5"

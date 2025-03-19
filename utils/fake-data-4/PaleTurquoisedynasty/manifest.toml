@@ -1,0 +1,27 @@
+id = "27099f25-fc73-435c-892a-b4ca63483a24"
+title = "PaleTurquoisedynasty"
+description = "Hmm in wood those band equipment justice under my yesterday."
+build_system = []
+created = "2025-03-19T10:57:05.966374353Z"
+updated = "2025-03-19T10:57:05.966376523Z"
+
+[[category]]
+name = "nobody"
+
+[[category]]
+name = "murder"
+
+[[language]]
+name = "Rust"
+version = "3.4"
+
+[[language]]
+name = "Go"
+version = "1.1"
+
+[[language]]
+name = "Go"
+version = "1.6"
+
+[preffered_ide]
+name = "VSCode:1.2"

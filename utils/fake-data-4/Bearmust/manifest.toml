@@ -1,0 +1,21 @@
+id = "472fae42-90b1-4120-8567-6c7b1da2d65d"
+title = "Bearmust"
+description = "Constantly troop there away your whichever as by one whose."
+category = []
+created = "2025-03-19T10:56:51.332588998Z"
+updated = "2025-03-19T10:56:51.332590898Z"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "2.8"
+
+[preffered_ide]
+name = "Atom:1.0"

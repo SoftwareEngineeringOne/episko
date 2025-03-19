@@ -1,0 +1,22 @@
+id = "4a179e1f-0884-409e-bb77-21b5fd7fc6cf"
+title = "Elkbeen"
+build_system = []
+created = "2025-03-19T10:57:19.448930375Z"
+updated = "2025-03-19T10:57:19.448934785Z"
+
+[[category]]
+name = "by"
+
+[[category]]
+name = "whoever"
+
+[[category]]
+name = "indeed"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "5.6"

@@ -1,0 +1,28 @@
+id = "39989dc9-1376-4761-8e30-3af949691b75"
+title = "Minnowcould"
+description = "Many regiment them thing few what still Tibetan describe finally."
+created = "2025-03-19T10:56:51.463763141Z"
+updated = "2025-03-19T10:56:51.463765361Z"
+
+[[category]]
+name = "who"
+
+[[language]]
+name = "Java"
+version = "5.6"
+
+[[language]]
+name = "Go"
+version = "4.4"
+
+[[language]]
+name = "JavaScript"
+version = "1.5"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"

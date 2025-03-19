@@ -1,0 +1,30 @@
+id = "f4b656ca-1b72-4130-b98a-c9541f5c9067"
+title = "PaleVioletRedworld"
+created = "2025-03-19T10:57:08.773031891Z"
+updated = "2025-03-19T10:57:08.773033911Z"
+
+[[category]]
+name = "as"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "1.4"
+
+[[build_system]]
+name = "Bazel"
+version = "3.8"
+
+[preffered_ide]
+name = "Emacs:1.8"

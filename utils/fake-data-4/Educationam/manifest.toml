@@ -1,0 +1,26 @@
+id = "f4708074-65ef-47f0-aa7b-b07041f3183d"
+title = "Educationam"
+description = "Group has tonight whose for any delay that well include."
+category = []
+repository_url = "https://www.principalmission-critical.net/optimize/cultivate"
+created = "2025-03-19T10:57:23.103359809Z"
+updated = "2025-03-19T10:57:23.103361939Z"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "2.0"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.6"

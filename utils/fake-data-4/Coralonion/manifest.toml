@@ -1,0 +1,33 @@
+id = "10958140-e736-4d38-ba51-133e5d59c30b"
+title = "Coralonion"
+repository_url = "http://www.chiefone-to-one.com/monetize/one-to-one/web-readiness/enterprise"
+created = "2025-03-19T10:56:42.154268987Z"
+updated = "2025-03-19T10:56:42.154271067Z"
+
+[[category]]
+name = "to"
+
+[[category]]
+name = "no"
+
+[[category]]
+name = "journey"
+
+[[language]]
+name = "TypeScript"
+version = "5.6"
+
+[[language]]
+name = "TypeScript"
+version = "3.2"
+
+[[language]]
+name = "C#"
+version = "4.5"
+
+[[build_system]]
+name = "Bazel"
+version = "3.3"
+
+[preffered_ide]
+name = "Vim:1.7"

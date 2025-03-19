@@ -1,0 +1,27 @@
+id = "6dbcc442-9e38-4f44-8bc0-3f9858cca522"
+title = "Collectionshall"
+build_system = []
+repository_url = "http://www.seniorbleeding-edge.com/world-class/front-end/seize"
+created = "2025-03-19T10:57:24.738497304Z"
+updated = "2025-03-19T10:57:24.738499224Z"
+
+[[category]]
+name = "unless"
+
+[[category]]
+name = "curios"
+
+[[language]]
+name = "Go"
+version = "1.0"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "1.6"
+
+[preffered_ide]
+name = "Emacs:1.1"

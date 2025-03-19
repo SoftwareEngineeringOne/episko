@@ -1,0 +1,32 @@
+id = "59ba5572-2b03-4ac7-a4a9-5ebb19f0c14d"
+title = "Minnowmight"
+description = "Where under frantic those onto luck for to greatly Viennese."
+repository_url = "http://www.principalharness.biz/wireless"
+created = "2025-03-19T10:57:16.232994005Z"
+updated = "2025-03-19T10:57:16.232997575Z"
+
+[[category]]
+name = "all"
+
+[[language]]
+name = "Go"
+version = "5.6"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "1.7"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:2.3"

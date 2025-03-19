@@ -1,0 +1,24 @@
+id = "2f72beb5-ad4f-453b-b4fb-873756aad9ae"
+title = "DarkSalmonpack"
+description = "Cry openly away calm several year soon Muscovite that you."
+repository_url = "http://www.customerseize.net/applications/magnetic"
+created = "2025-03-19T10:57:27.864654715Z"
+updated = "2025-03-19T10:57:27.864656585Z"
+
+[[category]]
+name = "dive"
+
+[[language]]
+name = "C#"
+version = "2.1"
+
+[[language]]
+name = "C#"
+version = "1.5"
+
+[[build_system]]
+name = "Make"
+version = "1.4"
+
+[preffered_ide]
+name = "Atom:1.5"

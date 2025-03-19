@@ -1,0 +1,16 @@
+id = "13f678c1-df3c-481a-af4e-f057f0b2b3d7"
+title = "Numberwould"
+category = []
+created = "2025-03-19T10:57:01.693862868Z"
+updated = "2025-03-19T10:57:01.693865048Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.3"

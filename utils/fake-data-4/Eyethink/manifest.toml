@@ -1,0 +1,20 @@
+id = "533fd32f-0d9c-40a0-96a2-717dd2805c3d"
+title = "Eyethink"
+category = []
+created = "2025-03-19T10:57:38.736368065Z"
+updated = "2025-03-19T10:57:38.736371065Z"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "1.2"
+
+[preffered_ide]
+name = "IntelliJ:2.0"

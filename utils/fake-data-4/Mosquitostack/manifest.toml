@@ -1,0 +1,22 @@
+id = "7adfe4c1-4ccf-4672-88cf-eed04057c82f"
+title = "Mosquitostack"
+category = []
+repository_url = "http://www.leadvertical.org/syndicate/proactive/proactive"
+created = "2025-03-19T10:56:55.311672049Z"
+updated = "2025-03-19T10:56:55.311674319Z"
+
+[[language]]
+name = "C#"
+version = "3.6"
+
+[[language]]
+name = "JavaScript"
+version = "2.4"
+
+[[language]]
+name = "C#"
+version = "4.5"
+
+[[build_system]]
+name = "CMake"
+version = "2.4"

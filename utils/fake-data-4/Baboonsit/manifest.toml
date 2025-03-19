@@ -1,0 +1,22 @@
+id = "bc8a1ca9-f431-482c-bbc7-ef67584f3979"
+title = "Baboonsit"
+category = []
+repository_url = "https://www.corporateefficient.biz/methodologies/recontextualize"
+created = "2025-03-19T10:57:05.828721930Z"
+updated = "2025-03-19T10:57:05.828723820Z"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "1.3"
+
+[[language]]
+name = "TypeScript"
+version = "3.5"
+
+[[build_system]]
+name = "Bazel"
+version = "3.2"

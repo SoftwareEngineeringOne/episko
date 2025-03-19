@@ -1,0 +1,28 @@
+id = "5ea97942-6744-4a7f-8531-fb3b149e41df"
+title = "Dogdrink"
+description = "Rhythm a has hang several the candle tonight Putinist chastise."
+build_system = []
+repository_url = "https://www.directe-commerce.name/deploy/bandwidth/extensible"
+created = "2025-03-19T10:56:42.671355278Z"
+updated = "2025-03-19T10:56:42.671356748Z"
+
+[[category]]
+name = "some"
+
+[[category]]
+name = "their"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "4.0"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.9"

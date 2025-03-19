@@ -1,0 +1,17 @@
+id = "71ea53fa-3652-494e-a5e3-0bed66c95053"
+title = "Bouquethad"
+category = []
+created = "2025-03-19T10:56:42.746729028Z"
+updated = "2025-03-19T10:56:42.746731078Z"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "3.3"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"

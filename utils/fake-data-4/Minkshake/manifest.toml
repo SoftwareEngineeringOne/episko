@@ -1,0 +1,26 @@
+id = "57857165-17d7-42a2-a09b-86f086696e54"
+title = "Minkshake"
+description = "Backwards next sprint currency twist Kazakh limp watch koala some."
+created = "2025-03-19T10:57:30.619967421Z"
+updated = "2025-03-19T10:57:30.619969341Z"
+
+[[category]]
+name = "away"
+
+[[category]]
+name = "all"
+
+[[category]]
+name = "monthly"
+
+[[language]]
+name = "C#"
+version = "2.5"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"

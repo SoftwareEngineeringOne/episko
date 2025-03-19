@@ -1,0 +1,26 @@
+id = "dda8d440-3e16-4416-997e-680230123000"
+title = "GhostWhitehealth"
+created = "2025-03-19T10:56:50.070324719Z"
+updated = "2025-03-19T10:56:50.070327059Z"
+
+[[category]]
+name = "close"
+
+[[language]]
+name = "Java"
+version = "1.4"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "2.2"
+
+[preffered_ide]
+name = "Atom:1.8"

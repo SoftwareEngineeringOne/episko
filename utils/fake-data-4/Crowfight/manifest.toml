@@ -1,0 +1,27 @@
+id = "ca99ccf2-c1d9-4352-933c-3bba3b22a77c"
+title = "Crowfight"
+description = "Poor of had however weekly disgusting microscope each since that."
+repository_url = "https://www.districtempower.com/deliver/leverage"
+created = "2025-03-19T10:57:03.001334782Z"
+updated = "2025-03-19T10:57:03.001336902Z"
+
+[[category]]
+name = "themselves"
+
+[[category]]
+name = "on"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "3.5"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.4"

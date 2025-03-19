@@ -1,0 +1,27 @@
+id = "b4e2e7ff-fc3b-439c-9601-5f15fec0a4ba"
+title = "Antmay"
+repository_url = "http://www.dynamicconvergence.net/proactive/infrastructures"
+created = "2025-03-19T10:57:03.326688013Z"
+updated = "2025-03-19T10:57:03.326690173Z"
+
+[[category]]
+name = "last"
+
+[[language]]
+name = "Python"
+version = "1.5"
+
+[[language]]
+name = "C#"
+version = "5.1"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "3.7"
+
+[preffered_ide]
+name = "Emacs:1.6"

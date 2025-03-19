@@ -1,0 +1,23 @@
+id = "9ef78fe2-30f4-4b4f-bd05-1f17399c9874"
+title = "Horrordid"
+repository_url = "http://www.globaltransform.org/optimize/action-items/user-centric/deliver"
+created = "2025-03-19T10:57:06.057287708Z"
+updated = "2025-03-19T10:57:06.057289698Z"
+
+[[category]]
+name = "back"
+
+[[language]]
+name = "Go"
+version = "1.8"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "1.8"
+
+[preffered_ide]
+name = "Emacs:2.4"

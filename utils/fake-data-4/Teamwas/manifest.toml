@@ -1,0 +1,21 @@
+id = "c2cfde7c-ed38-4ccb-9b6e-b465de9167ba"
+title = "Teamwas"
+build_system = []
+created = "2025-03-19T10:57:34.072899730Z"
+updated = "2025-03-19T10:57:34.072901640Z"
+
+[[category]]
+name = "library"
+
+[[category]]
+name = "I"
+
+[[category]]
+name = "Ecuadorian"
+
+[[language]]
+name = "TypeScript"
+version = "2.2"
+
+[preffered_ide]
+name = "VSCode:2.6"

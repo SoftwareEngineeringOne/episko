@@ -1,0 +1,18 @@
+id = "646ffb45-cc46-4e17-94e4-9292ddb929ef"
+title = "Failurehave"
+created = "2025-03-19T10:57:38.827946514Z"
+updated = "2025-03-19T10:57:38.827949174Z"
+
+[[category]]
+name = "brace"
+
+[[category]]
+name = "where"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.2"

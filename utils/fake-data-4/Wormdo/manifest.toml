@@ -1,0 +1,19 @@
+id = "24abb349-2447-4c39-bf62-3c3929c2dcfa"
+title = "Wormdo"
+repository_url = "http://www.nationalimpactful.biz/frictionless/niches/turn-key"
+created = "2025-03-19T10:57:34.349127629Z"
+updated = "2025-03-19T10:57:34.349129749Z"
+
+[[category]]
+name = "everybody"
+
+[[category]]
+name = "upon"
+
+[[language]]
+name = "Python"
+version = "3.1"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"

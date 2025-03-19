@@ -1,0 +1,22 @@
+id = "5e92df33-fb4b-4bba-8c96-751c1f7cf946"
+title = "MediumSlateBluetrend"
+description = "Last first terribly cackle indoors bowl case eek tonight what."
+created = "2025-03-19T09:34:37.928773021Z"
+updated = "2025-03-19T09:34:37.928774621Z"
+
+[[category]]
+name = "others"
+
+[[category]]
+name = "how"
+
+[[language]]
+name = "Rust"
+version = "3.2"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:2.3"

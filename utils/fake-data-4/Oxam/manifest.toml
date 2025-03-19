@@ -1,0 +1,20 @@
+id = "1b3201ff-7dbe-4d63-9ae2-2e425b424f63"
+title = "Oxam"
+repository_url = "http://www.legacychannels.com/real-time/virtual"
+created = "2025-03-19T10:56:42.846669590Z"
+updated = "2025-03-19T10:56:42.846671190Z"
+
+[[category]]
+name = "her"
+
+[[language]]
+name = "Python"
+version = "1.4"
+
+[[language]]
+name = "Rust"
+version = "3.3"
+
+[[build_system]]
+name = "Maven"
+version = "3.8"

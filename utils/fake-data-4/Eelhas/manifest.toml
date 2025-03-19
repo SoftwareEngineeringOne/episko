@@ -1,0 +1,18 @@
+id = "2e60c22b-49e0-41c1-bc53-fc96018c4962"
+title = "Eelhas"
+build_system = []
+created = "2025-03-19T10:56:52.505249535Z"
+updated = "2025-03-19T10:56:52.505251595Z"
+
+[[category]]
+name = "leisure"
+
+[[category]]
+name = "it"
+
+[[category]]
+name = "generally"
+
+[[language]]
+name = "Rust"
+version = "1.4"

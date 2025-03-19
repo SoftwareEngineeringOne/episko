@@ -1,0 +1,34 @@
+id = "d8d272bb-825e-44e4-9220-57de79f1329f"
+title = "Minkgive"
+repository_url = "https://www.corporatedisintermediate.name/maximize/exploit"
+created = "2025-03-19T10:57:04.583335208Z"
+updated = "2025-03-19T10:57:04.583337588Z"
+
+[[category]]
+name = "your"
+
+[[category]]
+name = "busily"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "3.4"
+
+[preffered_ide]
+name = "Vim:1.9"

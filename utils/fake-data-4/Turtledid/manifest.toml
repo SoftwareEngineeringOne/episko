@@ -1,0 +1,23 @@
+id = "975fa848-e0ba-446e-b3f8-e4c3e63af924"
+title = "Turtledid"
+description = "Well herself few for in hurriedly practically after us a."
+repository_url = "https://www.regionalcontent.info/front-end/partnerships/niches"
+created = "2025-03-19T10:57:17.591864301Z"
+updated = "2025-03-19T10:57:17.591866291Z"
+
+[[category]]
+name = "hour"
+
+[[category]]
+name = "where"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:2.4"

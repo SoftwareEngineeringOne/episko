@@ -1,0 +1,26 @@
+id = "eb0849b9-76df-41d6-8a07-ecbd97818ac0"
+title = "Violetsedge"
+created = "2025-03-19T10:57:23.260282438Z"
+updated = "2025-03-19T10:57:23.260284568Z"
+
+[[category]]
+name = "which"
+
+[[category]]
+name = "that"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "3.6"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"

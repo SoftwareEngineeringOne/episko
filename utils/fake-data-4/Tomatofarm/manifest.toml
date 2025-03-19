@@ -1,0 +1,26 @@
+id = "f5bc82de-3b1c-41fb-b71c-54903727cfd3"
+title = "Tomatofarm"
+created = "2025-03-19T10:57:00.902962556Z"
+updated = "2025-03-19T10:57:00.902964326Z"
+
+[[category]]
+name = "her"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "3.4"
+
+[preffered_ide]
+name = "Emacs:1.8"

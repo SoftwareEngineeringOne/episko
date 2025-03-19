@@ -1,0 +1,17 @@
+id = "80c07bb5-8a13-46f1-b42a-6f4275b9653d"
+title = "Herringdo"
+category = []
+created = "2025-03-19T10:56:45.488689020Z"
+updated = "2025-03-19T10:56:45.488691470Z"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "3.4"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"

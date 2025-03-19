@@ -1,0 +1,23 @@
+id = "f08279bd-250d-43ac-a5ef-3ff3986a125f"
+title = "Clusterdid"
+build_system = []
+repository_url = "http://www.directnetworks.com/brand/virtual"
+created = "2025-03-19T10:56:47.082962868Z"
+updated = "2025-03-19T10:56:47.082965138Z"
+
+[[category]]
+name = "hourly"
+
+[[category]]
+name = "mob"
+
+[[category]]
+name = "here"
+
+[[language]]
+name = "Python"
+version = "1.4"
+
+[[language]]
+name = "Rust"
+version = "1.4"

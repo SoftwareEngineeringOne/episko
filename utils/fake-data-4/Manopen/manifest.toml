@@ -1,0 +1,25 @@
+id = "34d4b247-c82c-4488-9121-10f17341cec3"
+title = "Manopen"
+created = "2025-03-19T10:56:41.544193485Z"
+updated = "2025-03-19T10:56:41.544195715Z"
+
+[[category]]
+name = "far"
+
+[[category]]
+name = "generally"
+
+[[category]]
+name = "cave"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "4.9"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"

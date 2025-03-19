@@ -1,0 +1,34 @@
+id = "b7c3291a-b4f1-4ee4-90d6-b5ee4ec3b611"
+title = "Boatdo"
+repository_url = "http://www.districtgenerate.info/turn-key/real-time"
+created = "2025-03-19T10:57:09.710078672Z"
+updated = "2025-03-19T10:57:09.710080552Z"
+
+[[category]]
+name = "of"
+
+[[category]]
+name = "his"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "4.5"
+
+[[build_system]]
+name = "CMake"
+version = "3.4"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:2.9"

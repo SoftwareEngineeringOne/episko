@@ -1,0 +1,34 @@
+id = "69b4f515-fd02-45f5-9be0-a5954a8ccce9"
+title = "Fishare"
+description = "Turn of purple must raise then French Swazi yours anger."
+created = "2025-03-19T10:56:54.314751435Z"
+updated = "2025-03-19T10:56:54.314753355Z"
+
+[[category]]
+name = "fact"
+
+[[category]]
+name = "energy"
+
+[[language]]
+name = "Rust"
+version = "2.0"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "1.6"
+
+[preffered_ide]
+name = "VSCode:2.3"

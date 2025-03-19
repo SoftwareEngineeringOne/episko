@@ -1,0 +1,25 @@
+id = "25e1d56e-e349-44df-a60b-9436be4bf283"
+title = "Llamaam"
+created = "2025-03-19T10:57:33.259902330Z"
+updated = "2025-03-19T10:57:33.259904310Z"
+
+[[category]]
+name = "funny"
+
+[[category]]
+name = "next"
+
+[[category]]
+name = "stress"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"

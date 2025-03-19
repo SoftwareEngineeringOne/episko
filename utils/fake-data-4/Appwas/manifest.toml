@@ -1,0 +1,26 @@
+id = "3412a957-6289-480c-b42f-acf89bbd793d"
+title = "Appwas"
+build_system = []
+created = "2025-03-19T10:56:41.103691648Z"
+updated = "2025-03-19T10:56:41.103693428Z"
+
+[[category]]
+name = "moreover"
+
+[[category]]
+name = "every"
+
+[[category]]
+name = "us"
+
+[[language]]
+name = "JavaScript"
+version = "5.8"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "5.1"

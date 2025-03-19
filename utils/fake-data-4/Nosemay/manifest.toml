@@ -1,0 +1,33 @@
+id = "dd2d90fa-d421-40ea-bc43-5fbe6f754b9f"
+title = "Nosemay"
+created = "2025-03-19T10:57:33.085192378Z"
+updated = "2025-03-19T10:57:33.085194568Z"
+
+[[category]]
+name = "her"
+
+[[category]]
+name = "what"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "3.1"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:1.9"

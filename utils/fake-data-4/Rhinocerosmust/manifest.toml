@@ -1,0 +1,17 @@
+id = "fdffd3bb-ec9c-4e40-9ebc-50d6588ebd51"
+title = "Rhinocerosmust"
+category = []
+build_system = []
+created = "2025-03-19T10:56:51.706979122Z"
+updated = "2025-03-19T10:56:51.706980622Z"
+
+[[language]]
+name = "JavaScript"
+version = "3.5"
+
+[[language]]
+name = "Rust"
+version = "4.2"
+
+[preffered_ide]
+name = "IntelliJ:1.4"

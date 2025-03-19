@@ -1,0 +1,31 @@
+id = "1a977a43-2be3-4bf3-920d-ae3648bd9074"
+title = "Lizardmust"
+repository_url = "https://www.regionalmagnetic.com/eyeballs/visionary"
+created = "2025-03-19T10:56:41.126775195Z"
+updated = "2025-03-19T10:56:41.126777195Z"
+
+[[category]]
+name = "from"
+
+[[language]]
+name = "Python"
+version = "1.5"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "1.2"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "3.7"
+
+[preffered_ide]
+name = "Sublime:2.7"

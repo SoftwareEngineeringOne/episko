@@ -1,0 +1,23 @@
+id = "5679c68e-73ec-4c11-915c-0424a668f104"
+title = "Schoolcut"
+repository_url = "http://www.legacyb2b.biz/holistic"
+created = "2025-03-19T10:57:03.911613533Z"
+updated = "2025-03-19T10:57:03.911615843Z"
+
+[[category]]
+name = "that"
+
+[[category]]
+name = "its"
+
+[[language]]
+name = "Python"
+version = "1.5"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "2.6"

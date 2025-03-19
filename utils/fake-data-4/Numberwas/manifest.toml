@@ -1,0 +1,27 @@
+id = "b977725d-6f78-4926-8dcf-92fb88ffd343"
+title = "Numberwas"
+description = "Mob nobody sand anyone to one I this between when."
+created = "2025-03-19T10:57:21.620170898Z"
+updated = "2025-03-19T10:57:21.620174028Z"
+
+[[category]]
+name = "how"
+
+[[language]]
+name = "JavaScript"
+version = "4.1"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "4.9"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.3"

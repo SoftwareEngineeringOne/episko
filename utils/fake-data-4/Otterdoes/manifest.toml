@@ -1,0 +1,37 @@
+id = "bfd6ab8f-3070-40f4-ba68-65d37a239698"
+title = "Otterdoes"
+description = "Company first stress other this i.e. how Turkishish why link."
+created = "2025-03-19T10:56:41.569082237Z"
+updated = "2025-03-19T10:56:41.569083657Z"
+
+[[category]]
+name = "beneath"
+
+[[category]]
+name = "outside"
+
+[[category]]
+name = "where"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "5.1"
+
+[[language]]
+name = "JavaScript"
+version = "3.3"
+
+[[build_system]]
+name = "Make"
+version = "2.3"
+
+[[build_system]]
+name = "Gradle"
+version = "3.5"
+
+[preffered_ide]
+name = "Emacs:2.0"

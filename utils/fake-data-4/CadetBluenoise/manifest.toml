@@ -1,0 +1,25 @@
+id = "6fb7c914-38a2-4cc0-9c11-c3f18df6f9b3"
+title = "CadetBluenoise"
+description = "Above these those an had still anger have crowded yikes."
+category = []
+created = "2025-03-19T10:56:48.975835230Z"
+updated = "2025-03-19T10:56:48.975836970Z"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "3.4"
+
+[preffered_ide]
+name = "Sublime:1.5"

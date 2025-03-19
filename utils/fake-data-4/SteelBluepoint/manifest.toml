@@ -1,0 +1,25 @@
+id = "d7fbccd0-40f4-49da-9b28-949f5df0d66b"
+title = "SteelBluepoint"
+category = []
+created = "2025-03-19T10:57:31.668304830Z"
+updated = "2025-03-19T10:57:31.668306750Z"
+
+[[language]]
+name = "Java"
+version = "4.7"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"

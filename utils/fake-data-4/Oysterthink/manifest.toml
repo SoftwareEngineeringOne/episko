@@ -1,0 +1,31 @@
+id = "f523e5af-fa39-43fa-864f-07158c027635"
+title = "Oysterthink"
+description = "Why anything then on what computer rabbit that of problem."
+created = "2025-03-19T10:56:51.121312130Z"
+updated = "2025-03-19T10:56:51.121314470Z"
+
+[[category]]
+name = "skip"
+
+[[language]]
+name = "Java"
+version = "5.2"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:2.2"

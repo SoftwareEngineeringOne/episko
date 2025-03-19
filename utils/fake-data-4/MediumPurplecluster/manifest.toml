@@ -1,0 +1,25 @@
+id = "fdeed628-56d4-4d17-b1af-df8dad342966"
+title = "MediumPurplecluster"
+created = "2025-03-19T10:57:13.064715415Z"
+updated = "2025-03-19T10:57:13.064717235Z"
+
+[[category]]
+name = "sparkly"
+
+[[category]]
+name = "break"
+
+[[category]]
+name = "exemplified"
+
+[[language]]
+name = "Java"
+version = "2.9"
+
+[[language]]
+name = "Go"
+version = "3.2"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"

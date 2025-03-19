@@ -1,0 +1,26 @@
+id = "c94e93f9-b17c-4be9-826a-743e4f292794"
+title = "Choircould"
+description = "Being Cormoran next motherhood light unload besides who fairly lighten."
+build_system = []
+created = "2025-03-19T10:56:51.590074210Z"
+updated = "2025-03-19T10:56:51.590076190Z"
+
+[[category]]
+name = "his"
+
+[[category]]
+name = "would"
+
+[[category]]
+name = "words"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "3.8"
+
+[preffered_ide]
+name = "Sublime:1.9"

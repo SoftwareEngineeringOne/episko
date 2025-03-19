@@ -156,6 +156,14 @@ impl Metadata {
     }
 }
 
+pub struct MetadataPreview {
+    pub id: Uuid,
+    pub title: String,
+    pub description: Option<String>,
+    pub categories: Vec<Category>,
+    pub languages: Vec<Language>,
+}
+
 #[derive(Debug, Error)]
 pub enum Error {
     #[error("failed to build Metadata")]

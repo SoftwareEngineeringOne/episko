@@ -1,0 +1,19 @@
+id = "31229f97-3d70-49ef-9c44-ace8bc2d9e1b"
+title = "Weekare"
+build_system = []
+repository_url = "http://www.internalcross-media.com/integrated/global"
+created = "2025-03-19T10:57:04.365742541Z"
+updated = "2025-03-19T10:57:04.365745391Z"
+
+[[category]]
+name = "thing"
+
+[[category]]
+name = "tender"
+
+[[language]]
+name = "TypeScript"
+version = "5.2"
+
+[preffered_ide]
+name = "Sublime:2.6"

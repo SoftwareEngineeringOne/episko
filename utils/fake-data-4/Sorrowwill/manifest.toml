@@ -1,0 +1,29 @@
+id = "73492913-762b-4d3b-9567-ef97b78e5cd1"
+title = "Sorrowwill"
+created = "2025-03-19T10:57:22.496147472Z"
+updated = "2025-03-19T10:57:22.496149542Z"
+
+[[category]]
+name = "next"
+
+[[category]]
+name = "them"
+
+[[language]]
+name = "Python"
+version = "3.6"
+
+[[language]]
+name = "Java"
+version = "4.2"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.0"

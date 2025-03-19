@@ -1,0 +1,22 @@
+id = "9fb36f3c-21e6-4eaf-83b7-e49380dbd053"
+title = "Violetpolice"
+build_system = []
+created = "2025-03-19T10:57:13.614146603Z"
+updated = "2025-03-19T10:57:13.614148753Z"
+
+[[category]]
+name = "it"
+
+[[category]]
+name = "whom"
+
+[[category]]
+name = "housework"
+
+[[language]]
+name = "Python"
+version = "2.4"
+
+[[language]]
+name = "Go"
+version = "1.2"

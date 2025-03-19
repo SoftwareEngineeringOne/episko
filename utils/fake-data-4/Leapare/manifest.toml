@@ -1,0 +1,23 @@
+id = "b241dc70-c013-4038-b808-40468472846c"
+title = "Leapare"
+description = "That respect today eek aha sadly to those wild theirs."
+build_system = []
+created = "2025-03-19T10:56:46.334435761Z"
+updated = "2025-03-19T10:56:46.334437851Z"
+
+[[category]]
+name = "table"
+
+[[category]]
+name = "frequently"
+
+[[language]]
+name = "Java"
+version = "5.9"
+
+[[language]]
+name = "Go"
+version = "4.7"
+
+[preffered_ide]
+name = "Atom:2.3"

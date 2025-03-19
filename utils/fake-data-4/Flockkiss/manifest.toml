@@ -1,0 +1,13 @@
+id = "e99895fc-bd7c-44a9-9b75-603400edce93"
+title = "Flockkiss"
+build_system = []
+repository_url = "https://www.internationalmonetize.biz/e-business/bricks-and-clicks"
+created = "2025-03-19T10:56:54.270288425Z"
+updated = "2025-03-19T10:56:54.270290455Z"
+
+[[category]]
+name = "these"
+
+[[language]]
+name = "Python"
+version = "unknown"

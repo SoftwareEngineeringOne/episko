@@ -1,0 +1,20 @@
+id = "6ca833d7-1f02-45e7-9ff1-e6a38e1a6609"
+title = "Hippopotamusplay"
+build_system = []
+repository_url = "http://www.investortransparent.net/brand/e-business/streamline/deliverables"
+created = "2025-03-19T10:57:01.604615287Z"
+updated = "2025-03-19T10:57:01.604617247Z"
+
+[[category]]
+name = "our"
+
+[[language]]
+name = "C#"
+version = "5.1"
+
+[[language]]
+name = "C#"
+version = "4.5"
+
+[preffered_ide]
+name = "Sublime:1.1"

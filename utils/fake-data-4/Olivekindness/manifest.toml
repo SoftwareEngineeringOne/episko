@@ -1,0 +1,19 @@
+id = "165015ce-9ea3-421a-b23c-abdaf783a87f"
+title = "Olivekindness"
+build_system = []
+created = "2025-03-19T10:57:22.535961868Z"
+updated = "2025-03-19T10:57:22.535963698Z"
+
+[[category]]
+name = "according"
+
+[[language]]
+name = "TypeScript"
+version = "4.0"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:2.6"

@@ -1,0 +1,13 @@
+id = "847bf787-d556-46cf-b48b-8a1f9a0ca630"
+title = "Martenski"
+category = []
+created = "2025-03-19T10:57:08.637371425Z"
+updated = "2025-03-19T10:57:08.637373305Z"
+
+[[language]]
+name = "JavaScript"
+version = "4.7"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"

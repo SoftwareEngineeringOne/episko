@@ -1,0 +1,26 @@
+id = "62c3d92c-fb5d-4b60-9d79-ffe035894424"
+title = "Childthink"
+repository_url = "https://www.legacymorph.name/evolve/enhance/action-items"
+created = "2025-03-19T10:56:59.353316605Z"
+updated = "2025-03-19T10:56:59.353318555Z"
+
+[[category]]
+name = "contrast"
+
+[[category]]
+name = "theirs"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "3.6"
+
+[[build_system]]
+name = "Gradle"
+version = "2.8"
+
+[preffered_ide]
+name = "IntelliJ:1.3"

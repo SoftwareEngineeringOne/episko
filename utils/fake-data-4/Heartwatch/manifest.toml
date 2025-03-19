@@ -1,0 +1,19 @@
+id = "ebccdc0b-5333-4ef9-ba9e-2d93aa2fb31b"
+title = "Heartwatch"
+repository_url = "https://www.dynamicaggregate.com/killer/repurpose"
+created = "2025-03-19T10:57:34.892645520Z"
+updated = "2025-03-19T10:57:34.892647720Z"
+
+[[category]]
+name = "woman"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "2.9"
+
+[preffered_ide]
+name = "Vim:2.1"

@@ -1,0 +1,24 @@
+id = "c0a751de-26a2-4e54-9a60-05560228734d"
+title = "Moccasinchild"
+category = []
+created = "2025-03-19T10:57:33.887315387Z"
+updated = "2025-03-19T10:57:33.887317317Z"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "5.6"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:1.4"

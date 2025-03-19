@@ -1,0 +1,13 @@
+id = "e092b4ba-4b1d-42cf-a7e8-c2a134d041b8"
+title = "Chairhave"
+category = []
+build_system = []
+created = "2025-03-19T10:57:33.174075828Z"
+updated = "2025-03-19T10:57:33.174077918Z"
+
+[[language]]
+name = "Java"
+version = "2.5"
+
+[preffered_ide]
+name = "Atom:2.7"

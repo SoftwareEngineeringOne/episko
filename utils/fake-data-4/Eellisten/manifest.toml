@@ -1,0 +1,30 @@
+id = "2f5024b5-4a34-4945-93c4-4ab3571ef5e0"
+title = "Eellisten"
+repository_url = "https://www.legacyengage.name/infrastructures/end-to-end/mindshare/expedite"
+created = "2025-03-19T10:56:41.926599082Z"
+updated = "2025-03-19T10:56:41.926601222Z"
+
+[[category]]
+name = "this"
+
+[[category]]
+name = "in"
+
+[[category]]
+name = "grip"
+
+[[language]]
+name = "C#"
+version = "2.0"
+
+[[language]]
+name = "JavaScript"
+version = "5.9"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "1.9"

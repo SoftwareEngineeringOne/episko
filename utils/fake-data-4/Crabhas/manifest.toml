@@ -1,0 +1,30 @@
+id = "955c374c-fcfa-4f19-b0b4-4e2a5a784367"
+title = "Crabhas"
+description = "The talented Cambodian lately why what graceful whichever back wolf."
+created = "2025-03-19T10:57:26.823619398Z"
+updated = "2025-03-19T10:57:26.823621818Z"
+
+[[category]]
+name = "back"
+
+[[category]]
+name = "where"
+
+[[language]]
+name = "C#"
+version = "5.0"
+
+[[language]]
+name = "Rust"
+version = "4.0"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.8"

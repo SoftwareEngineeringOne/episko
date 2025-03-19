@@ -1,0 +1,23 @@
+id = "ab752dfd-265e-42b1-a7bc-f5ca2d5010e6"
+title = "Rabbitdrink"
+repository_url = "http://www.investorseamless.biz/cross-media"
+created = "2025-03-19T10:57:16.302459888Z"
+updated = "2025-03-19T10:57:16.302461798Z"
+
+[[category]]
+name = "yourselves"
+
+[[language]]
+name = "C#"
+version = "4.4"
+
+[[language]]
+name = "TypeScript"
+version = "3.0"
+
+[[build_system]]
+name = "Make"
+version = "1.6"
+
+[preffered_ide]
+name = "Sublime:1.3"

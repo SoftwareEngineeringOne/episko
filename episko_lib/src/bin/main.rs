@@ -1,8 +1,25 @@
 use std::error::Error;
 
+
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
     todo!()
+    // let config_handler = ConfigHandler::load()?;
+    // let db = DatabaseHandler::with_config(config_handler.config()).await?;
+    //
+    // println!("Loading dao...");
+    // let dao =
+    //     Metadata::from_db_dao(&db, Uuid::from_str("eb443171-a046-440e-b17e-55689e7bf6bf")?).await?;
+    //
+    // let default =
+    //     Metadata::from_db(&db, Uuid::from_str("eb443171-a046-440e-b17e-55689e7bf6bf")?).await?;
+    //
+    // println!("Got norm: {:#?}", default);
+    // println!("Got dao : {:#?}", dao);
+    //
+    // println!("Equal: {}", default.get_hash()? == dao.get_hash()?);
+    //
+    // Ok(())
     // let connection_str = String::from_str("sqlite://episko.db")?;
     //
     // let ch = ConfigHandler::new()?;

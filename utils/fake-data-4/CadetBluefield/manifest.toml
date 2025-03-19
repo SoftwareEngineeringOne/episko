@@ -1,0 +1,14 @@
+id = "16a592a5-2920-4b15-8fda-573233398dd2"
+title = "CadetBluefield"
+category = []
+build_system = []
+repository_url = "https://www.customerinnovate.org/architectures"
+created = "2025-03-19T10:57:16.984803664Z"
+updated = "2025-03-19T10:57:16.984806124Z"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:1.1"

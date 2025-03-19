@@ -1,0 +1,25 @@
+id = "d7e7b8bb-3801-4a8b-9aa7-9baf58126593"
+title = "Koalajump"
+category = []
+repository_url = "https://www.principaltechnologies.info/proactive"
+created = "2025-03-19T10:57:20.089567949Z"
+updated = "2025-03-19T10:57:20.089570139Z"
+
+[[language]]
+name = "Go"
+version = "4.5"
+
+[[language]]
+name = "Rust"
+version = "3.9"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "1.5"
+
+[preffered_ide]
+name = "Sublime:1.7"

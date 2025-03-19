@@ -1,0 +1,30 @@
+id = "15f23ad2-d047-4d6e-a318-88f76928e09e"
+title = "Herringsew"
+repository_url = "https://www.directrepurpose.io/incubate"
+created = "2025-03-19T10:57:25.784211415Z"
+updated = "2025-03-19T10:57:25.784214905Z"
+
+[[category]]
+name = "week"
+
+[[category]]
+name = "about"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.2"
+
+[[build_system]]
+name = "Maven"
+version = "3.1"
+
+[preffered_ide]
+name = "IntelliJ:2.1"

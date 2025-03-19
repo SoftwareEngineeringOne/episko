@@ -1,0 +1,14 @@
+id = "6d1f36ea-0291-49d9-86ea-07d8f9fb2c65"
+title = "Mobbe"
+description = "That smell listen in outcome however idea into where would."
+category = []
+created = "2025-03-19T10:57:05.219383708Z"
+updated = "2025-03-19T10:57:05.219386308Z"
+
+[[language]]
+name = "TypeScript"
+version = "3.7"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"

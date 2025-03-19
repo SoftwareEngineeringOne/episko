@@ -1,0 +1,30 @@
+id = "10c4ddb6-b321-45d6-bbb0-8f03e04e4ecc"
+title = "Poddoes"
+repository_url = "https://www.internalseize.org/deliver/enable"
+created = "2025-03-19T10:57:21.698817309Z"
+updated = "2025-03-19T10:57:21.698819719Z"
+
+[[category]]
+name = "instance"
+
+[[category]]
+name = "solemnly"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "1.7"
+
+[preffered_ide]
+name = "Emacs:2.4"

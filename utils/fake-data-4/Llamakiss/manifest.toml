@@ -1,0 +1,29 @@
+id = "915e565a-8360-48cb-a810-91755612057a"
+title = "Llamakiss"
+created = "2025-03-19T10:57:11.738655776Z"
+updated = "2025-03-19T10:57:11.738657726Z"
+
+[[category]]
+name = "kindly"
+
+[[category]]
+name = "already"
+
+[[language]]
+name = "C#"
+version = "4.6"
+
+[[language]]
+name = "Go"
+version = "5.0"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:1.7"

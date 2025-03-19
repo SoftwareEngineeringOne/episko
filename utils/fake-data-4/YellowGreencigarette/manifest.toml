@@ -1,0 +1,25 @@
+id = "512b9290-00bf-41be-beb8-f4b1425e6bc1"
+title = "YellowGreencigarette"
+build_system = []
+created = "2025-03-19T10:57:01.576083644Z"
+updated = "2025-03-19T10:57:01.576085854Z"
+
+[[category]]
+name = "many"
+
+[[category]]
+name = "later"
+
+[[category]]
+name = "tonight"
+
+[[language]]
+name = "TypeScript"
+version = "5.3"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:2.6"

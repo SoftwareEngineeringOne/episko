@@ -1,0 +1,25 @@
+id = "d184ff90-3b88-4d9f-8226-0a408b1f775c"
+title = "Spiderhas"
+description = "Without others any whose less owing either article therefore recklessly."
+created = "2025-03-19T10:57:30.439341202Z"
+updated = "2025-03-19T10:57:30.439343142Z"
+
+[[category]]
+name = "city"
+
+[[category]]
+name = "hourly"
+
+[[category]]
+name = "corner"
+
+[[language]]
+name = "Go"
+version = "5.2"
+
+[[build_system]]
+name = "CMake"
+version = "3.1"
+
+[preffered_ide]
+name = "IntelliJ:1.6"

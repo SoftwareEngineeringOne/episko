@@ -1,0 +1,22 @@
+id = "30bbbb5d-dd7f-414b-bd7c-5c0347a3a479"
+title = "Chartreusecrew"
+description = "Could at full afterwards as yearly bravo wad as time."
+category = []
+created = "2025-03-19T10:56:47.529486703Z"
+updated = "2025-03-19T10:56:47.529489583Z"
+
+[[language]]
+name = "Rust"
+version = "5.7"
+
+[[language]]
+name = "Java"
+version = "2.9"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"

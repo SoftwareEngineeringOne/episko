@@ -1,0 +1,27 @@
+id = "61b4e80d-f3d6-4dad-9c75-7650f75420fc"
+title = "Redbevy"
+build_system = []
+repository_url = "http://www.dynamicwireless.net/cross-platform"
+created = "2025-03-19T10:57:19.566209288Z"
+updated = "2025-03-19T10:57:19.566211508Z"
+
+[[category]]
+name = "crowd"
+
+[[category]]
+name = "doubtfully"
+
+[[language]]
+name = "Python"
+version = "3.1"
+
+[[language]]
+name = "JavaScript"
+version = "1.1"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:1.1"

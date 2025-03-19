@@ -1,0 +1,21 @@
+id = "ac32a13e-99f3-4064-bba4-90e5eb379cc0"
+title = "Economicsturn"
+build_system = []
+repository_url = "https://www.corporatemission-critical.name/wireless"
+created = "2025-03-19T10:57:23.654614112Z"
+updated = "2025-03-19T10:57:23.654616182Z"
+
+[[category]]
+name = "why"
+
+[[language]]
+name = "Java"
+version = "5.6"
+
+[[language]]
+name = "C#"
+version = "4.3"
+
+[[language]]
+name = "C#"
+version = "unknown"

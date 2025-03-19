@@ -1,0 +1,24 @@
+id = "483052e6-8af4-4fe0-b244-b40d558fc178"
+title = "Cigarettedid"
+description = "Place which whatever nearly week downstairs way him sometimes fortnightly."
+created = "2025-03-19T10:57:00.476335278Z"
+updated = "2025-03-19T10:57:00.476337218Z"
+
+[[category]]
+name = "behind"
+
+[[language]]
+name = "Go"
+version = "4.5"
+
+[[language]]
+name = "TypeScript"
+version = "2.4"
+
+[[build_system]]
+name = "Make"
+version = "3.4"
+
+[[build_system]]
+name = "Maven"
+version = "2.7"

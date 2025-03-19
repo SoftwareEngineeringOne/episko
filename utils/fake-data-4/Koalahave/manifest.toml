@@ -1,0 +1,27 @@
+id = "82588b54-ca5f-4435-87d9-05679d823d6f"
+title = "Koalahave"
+description = "Occasionally ourselves of these this what bevy pause another carefully."
+build_system = []
+repository_url = "https://www.centralinnovate.net/incentivize"
+created = "2025-03-19T10:57:39.064245166Z"
+updated = "2025-03-19T10:57:39.064247076Z"
+
+[[category]]
+name = "knit"
+
+[[category]]
+name = "anyway"
+
+[[category]]
+name = "here"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "1.1"
+
+[preffered_ide]
+name = "Emacs:2.1"

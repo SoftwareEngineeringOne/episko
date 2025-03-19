@@ -1,0 +1,28 @@
+id = "b6716d3b-cf4b-47fc-8278-a742ee6c764b"
+title = "Pugsnore"
+category = []
+created = "2025-03-19T10:57:00.201723325Z"
+updated = "2025-03-19T10:57:00.201725245Z"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "4.7"
+
+[[build_system]]
+name = "Make"
+version = "3.9"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.6"

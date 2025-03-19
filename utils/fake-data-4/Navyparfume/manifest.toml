@@ -1,0 +1,29 @@
+id = "12fc42a0-ee35-4e78-8d0e-af125f2aa563"
+title = "Navyparfume"
+description = "Nothing account set hey whom always them because herself from."
+category = []
+created = "2025-03-19T10:57:00.504904052Z"
+updated = "2025-03-19T10:57:00.504906112Z"
+
+[[language]]
+name = "JavaScript"
+version = "5.8"
+
+[[language]]
+name = "Rust"
+version = "5.5"
+
+[[language]]
+name = "Go"
+version = "1.7"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "3.5"
+
+[preffered_ide]
+name = "Vim:2.0"

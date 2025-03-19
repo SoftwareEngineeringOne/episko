@@ -1,0 +1,22 @@
+id = "e1a71228-6cf7-4c76-819c-605d52128f03"
+title = "Cattlemight"
+category = []
+repository_url = "http://www.dynamicinitiatives.info/infomediaries/partnerships/relationships/best-of-breed"
+created = "2025-03-19T10:56:50.489118633Z"
+updated = "2025-03-19T10:56:50.489120503Z"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "5.7"
+
+[[build_system]]
+name = "Maven"
+version = "1.2"
+
+[[build_system]]
+name = "Maven"
+version = "1.6"

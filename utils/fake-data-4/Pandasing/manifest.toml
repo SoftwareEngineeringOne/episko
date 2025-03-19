@@ -1,0 +1,24 @@
+id = "8d3e70a3-d357-44ba-9335-548338e7fb29"
+title = "Pandasing"
+build_system = []
+repository_url = "https://www.customermodels.io/sexy/redefine/scale/repurpose"
+created = "2025-03-19T10:57:33.217464275Z"
+updated = "2025-03-19T10:57:33.217467655Z"
+
+[[category]]
+name = "in"
+
+[[category]]
+name = "into"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "1.9"

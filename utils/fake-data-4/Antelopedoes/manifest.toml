@@ -1,0 +1,14 @@
+id = "02114dc4-5044-419a-ac6c-634be353f9f0"
+title = "Antelopedoes"
+category = []
+build_system = []
+created = "2025-03-19T10:56:56.253255201Z"
+updated = "2025-03-19T10:56:56.253257201Z"
+
+[[language]]
+name = "JavaScript"
+version = "2.5"
+
+[[language]]
+name = "C#"
+version = "unknown"

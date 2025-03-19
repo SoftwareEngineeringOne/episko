@@ -1,0 +1,26 @@
+id = "46b25c63-eb28-4039-8122-9c69583b41d9"
+title = "Lawyerhad"
+repository_url = "https://www.dynamictransform.net/communities/implement"
+created = "2025-03-19T10:57:01.844460829Z"
+updated = "2025-03-19T10:57:01.844462759Z"
+
+[[category]]
+name = "why"
+
+[[category]]
+name = "that"
+
+[[language]]
+name = "Rust"
+version = "2.6"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:2.3"

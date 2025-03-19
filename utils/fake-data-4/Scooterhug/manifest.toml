@@ -1,0 +1,25 @@
+id = "7d7bfb43-d4af-402d-bd45-950e31a771eb"
+title = "Scooterhug"
+description = "Of ours frankly phew poised eye has annually protect deceive."
+build_system = []
+repository_url = "https://www.internalmindshare.info/unleash/portals/front-end"
+created = "2025-03-19T10:56:41.842162745Z"
+updated = "2025-03-19T10:56:41.842164765Z"
+
+[[category]]
+name = "arrow"
+
+[[category]]
+name = "team"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "5.0"
+
+[[language]]
+name = "JavaScript"
+version = "5.5"

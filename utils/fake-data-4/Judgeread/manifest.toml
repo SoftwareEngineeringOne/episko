@@ -1,0 +1,26 @@
+id = "2a9d1296-cd5c-47f0-9f3e-cfb3c17b85d7"
+title = "Judgeread"
+repository_url = "http://www.leadinfomediaries.name/sexy/b2c"
+created = "2025-03-19T10:57:13.965833242Z"
+updated = "2025-03-19T10:57:13.965835142Z"
+
+[[category]]
+name = "bill"
+
+[[category]]
+name = "above"
+
+[[category]]
+name = "is"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "3.7"
+
+[[build_system]]
+name = "Make"
+version = "unknown"

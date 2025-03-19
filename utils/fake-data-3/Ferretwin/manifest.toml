@@ -1,0 +1,29 @@
+id = "5e09643e-e1a1-43e6-b57c-69089c5d5135"
+title = "Ferretwin"
+created = "2025-03-19T09:34:38.071900244Z"
+updated = "2025-03-19T09:34:38.071901964Z"
+
+[[category]]
+name = "for"
+
+[[category]]
+name = "ourselves"
+
+[[category]]
+name = "generally"
+
+[[language]]
+name = "Python"
+version = "3.6"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "3.1"

@@ -1,0 +1,37 @@
+id = "1572e0f0-9c91-4934-9e7a-0068c23a8d7a"
+title = "Leisurehas"
+repository_url = "https://www.globalconvergence.org/recontextualize/user-centric"
+created = "2025-03-19T10:56:45.160472691Z"
+updated = "2025-03-19T10:56:45.160474581Z"
+
+[[category]]
+name = "it"
+
+[[category]]
+name = "loosely"
+
+[[category]]
+name = "neatly"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "3.3"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.6"
+
+[preffered_ide]
+name = "VSCode:1.1"

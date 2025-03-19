@@ -1,0 +1,15 @@
+id = "a8642fcb-fba7-49ed-86b6-3582e56ba769"
+title = "Blazermust"
+build_system = []
+created = "2025-03-19T10:56:48.047733128Z"
+updated = "2025-03-19T10:56:48.047735118Z"
+
+[[category]]
+name = "clap"
+
+[[language]]
+name = "C#"
+version = "5.7"
+
+[preffered_ide]
+name = "Vim:2.1"

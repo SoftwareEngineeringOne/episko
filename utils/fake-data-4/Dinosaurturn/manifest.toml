@@ -1,0 +1,23 @@
+id = "99cded85-f08b-4adf-ac40-ff9b142e8ac6"
+title = "Dinosaurturn"
+description = "Late rather yourself factory of catalog that someone has lastly."
+category = []
+repository_url = "http://www.legacyempower.net/deploy/b2b/e-services/dynamic"
+created = "2025-03-19T10:56:57.160066632Z"
+updated = "2025-03-19T10:56:57.160068812Z"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "5.7"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.8"

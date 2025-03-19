@@ -1,0 +1,17 @@
+id = "20ba7691-799f-4851-9057-7d267f39f345"
+title = "Patrolcan"
+build_system = []
+repository_url = "https://www.directplatforms.io/robust/brand/bleeding-edge/dynamic"
+created = "2025-03-19T10:57:12.096657903Z"
+updated = "2025-03-19T10:57:12.096659843Z"
+
+[[category]]
+name = "panic"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"

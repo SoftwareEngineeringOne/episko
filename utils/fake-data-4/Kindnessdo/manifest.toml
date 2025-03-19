@@ -1,0 +1,26 @@
+id = "58d90fc1-6a77-4c04-a9c9-406a158c534f"
+title = "Kindnessdo"
+created = "2025-03-19T10:57:02.943793873Z"
+updated = "2025-03-19T10:57:02.943796183Z"
+
+[[category]]
+name = "were"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "3.2"
+
+[preffered_ide]
+name = "Sublime:2.5"

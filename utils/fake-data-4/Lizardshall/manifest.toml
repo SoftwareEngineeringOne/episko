@@ -1,0 +1,23 @@
+id = "1395002c-842e-4443-a2ef-4f0aa423d23d"
+title = "Lizardshall"
+build_system = []
+repository_url = "http://www.corporatevertical.name/front-end"
+created = "2025-03-19T10:56:47.814553946Z"
+updated = "2025-03-19T10:56:47.814556126Z"
+
+[[category]]
+name = "tomorrow"
+
+[[category]]
+name = "I"
+
+[[language]]
+name = "C#"
+version = "2.9"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:1.0"

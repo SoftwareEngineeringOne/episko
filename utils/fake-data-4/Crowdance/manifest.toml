@@ -1,0 +1,21 @@
+id = "9b78fb3f-54de-45c5-bb1e-69db2fb8738d"
+title = "Crowdance"
+category = []
+created = "2025-03-19T10:56:59.543542361Z"
+updated = "2025-03-19T10:56:59.543544241Z"
+
+[[language]]
+name = "Rust"
+version = "4.1"
+
+[[language]]
+name = "Java"
+version = "2.6"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "1.9"

@@ -1,0 +1,20 @@
+id = "b7852409-e20f-4162-8c7e-a3b91eaf5bdc"
+title = "Heapbeing"
+build_system = []
+repository_url = "https://www.chiefb2b.io/viral/embrace/sexy"
+created = "2025-03-19T10:57:40.158032399Z"
+updated = "2025-03-19T10:57:40.158034849Z"
+
+[[category]]
+name = "usually"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:1.4"

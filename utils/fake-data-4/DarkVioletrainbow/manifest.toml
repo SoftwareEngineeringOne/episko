@@ -1,0 +1,26 @@
+id = "a30f8a9c-33da-4158-b6ec-b2f49e793b5e"
+title = "DarkVioletrainbow"
+repository_url = "http://www.directmesh.io/implement/networks"
+created = "2025-03-19T10:56:57.057338242Z"
+updated = "2025-03-19T10:56:57.057340732Z"
+
+[[category]]
+name = "us"
+
+[[category]]
+name = "so"
+
+[[language]]
+name = "Go"
+version = "5.6"
+
+[[language]]
+name = "Rust"
+version = "5.8"
+
+[[build_system]]
+name = "Webpack"
+version = "2.1"
+
+[preffered_ide]
+name = "VSCode:2.9"

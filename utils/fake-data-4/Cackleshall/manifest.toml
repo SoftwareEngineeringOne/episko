@@ -1,0 +1,33 @@
+id = "b8a8144b-9ba9-487b-a3a5-7ab42158d013"
+title = "Cackleshall"
+repository_url = "https://www.leadinfrastructures.biz/virtual/channels/global"
+created = "2025-03-19T10:56:49.991097867Z"
+updated = "2025-03-19T10:56:49.991099807Z"
+
+[[category]]
+name = "bunch"
+
+[[category]]
+name = "corruption"
+
+[[category]]
+name = "is"
+
+[[language]]
+name = "TypeScript"
+version = "3.9"
+
+[[language]]
+name = "Java"
+version = "5.9"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.0"
+
+[preffered_ide]
+name = "Vim:2.5"

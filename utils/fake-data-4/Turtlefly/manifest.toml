@@ -1,0 +1,27 @@
+id = "3e01ec0d-52b1-4938-9949-628c317b583f"
+title = "Turtlefly"
+description = "She in enough how jump one decidedly covey early pretty."
+created = "2025-03-19T10:57:20.684913091Z"
+updated = "2025-03-19T10:57:20.684914991Z"
+
+[[category]]
+name = "hundreds"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "2.2"
+
+[preffered_ide]
+name = "VSCode:1.2"

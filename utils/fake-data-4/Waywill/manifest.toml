@@ -1,0 +1,27 @@
+id = "3bdf37fe-9ea6-41ab-aa1b-50250b10d541"
+title = "Waywill"
+repository_url = "http://www.principalplug-and-play.biz/visionary/utilize/morph"
+created = "2025-03-19T10:57:39.874815960Z"
+updated = "2025-03-19T10:57:39.874817760Z"
+
+[[category]]
+name = "rhythm"
+
+[[category]]
+name = "summation"
+
+[[language]]
+name = "JavaScript"
+version = "2.5"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "2.4"

@@ -1,0 +1,32 @@
+id = "4f89976c-90c4-4263-a4ac-c11e4135b4f6"
+title = "Foxhad"
+created = "2025-03-19T10:56:55.943618346Z"
+updated = "2025-03-19T10:56:55.943620676Z"
+
+[[category]]
+name = "with"
+
+[[category]]
+name = "Darwinian"
+
+[[category]]
+name = "might"
+
+[[language]]
+name = "Python"
+version = "3.9"
+
+[[language]]
+name = "C#"
+version = "4.9"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "3.5"
+
+[preffered_ide]
+name = "Emacs:1.6"

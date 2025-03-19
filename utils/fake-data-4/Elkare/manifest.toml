@@ -1,0 +1,22 @@
+id = "a5cd164e-ed47-432e-9258-fbd861fdd67e"
+title = "Elkare"
+created = "2025-03-19T10:57:29.353984365Z"
+updated = "2025-03-19T10:57:29.353986465Z"
+
+[[category]]
+name = "this"
+
+[[category]]
+name = "sit"
+
+[[language]]
+name = "C#"
+version = "1.9"
+
+[[build_system]]
+name = "Make"
+version = "2.4"
+
+[[build_system]]
+name = "Make"
+version = "2.1"

@@ -1,0 +1,17 @@
+id = "518b4b23-cc77-455d-aff0-d9923f67fdfb"
+title = "Mousebe"
+category = []
+build_system = []
+created = "2025-03-19T10:57:07.817156815Z"
+updated = "2025-03-19T10:57:07.817159135Z"
+
+[[language]]
+name = "TypeScript"
+version = "4.0"
+
+[[language]]
+name = "Java"
+version = "3.8"
+
+[preffered_ide]
+name = "Emacs:2.7"

@@ -1,0 +1,12 @@
+id = "2fb72149-eabe-4fe6-af70-70b98b3f2012"
+title = "Silverparty"
+build_system = []
+created = "2025-03-19T10:57:15.762736209Z"
+updated = "2025-03-19T10:57:15.762738189Z"
+
+[[category]]
+name = "yourself"
+
+[[language]]
+name = "Java"
+version = "5.6"

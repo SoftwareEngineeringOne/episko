@@ -1,22 +1,20 @@
-use std::{ops::Deref, path::Path};
+use std::path::Path;
 use tokio::sync::Mutex;
 use uuid::Uuid;
 
 use episko_lib::{
     files::File,
-    metadata::{metadata_handler::MetadataHandler, Metadata, MetadataBuilder},
-    ApplyIf,
+    metadata::{Metadata, metadata_handler::MetadataHandler},
 };
 
-use crate::{AppState, MetadataDco, MetadataDto};
+use crate::{AppState, Error, model::MetadataDco, model::MetadataDto};
 
 #[tauri::command]
-pub async fn get_all(state: tauri::State<'_, Mutex<AppState>>) -> Result<Vec<MetadataDto>, String> {
+pub async fn get_all(state: tauri::State<'_, Mutex<AppState>>) -> Result<Vec<MetadataDto>, Error> {
     let state = state.lock().await;
 
     let projects = Metadata::all_from_db(&state.db)
-        .await
-        .map_err(|err| err.to_string())?
+        .await?
         .into_iter()
         .map(Into::into)
         .collect();
@@ -28,13 +26,10 @@ pub async fn get_all(state: tauri::State<'_, Mutex<AppState>>) -> Result<Vec<Met
 pub async fn get_with_id(
     id: Uuid,
     state: tauri::State<'_, Mutex<AppState>>,
-) -> Result<MetadataDto, String> {
+) -> Result<MetadataDto, Error> {
     let state = state.lock().await;
 
-    Metadata::from_db(&state.db, id)
-        .await
-        .map_err(|err| err.to_string())
-        .map(Into::into)
+    Ok(Metadata::from_db(&state.db, id).await.map(Into::into)?)
 }
 
 #[tauri::command]
@@ -42,36 +37,34 @@ pub async fn update_metadata(
     id: Uuid,
     updated: MetadataDco,
     state: tauri::State<'_, Mutex<AppState>>,
-) -> Result<MetadataDto, String> {
+) -> Result<MetadataDto, Error> {
     let state = state.lock().await;
 
-    let metadata = Metadata::from_db(&state.db, id)
-        .await
-        .map_err(|err| err.to_string())?;
+    let metadata = Metadata::from_db(&state.db, id).await?;
 
-    let metadata = metadata
-        .update()
-        .directory_path(&updated.directory)
-        .title(&updated.title)
-        .categories(updated.categories)
-        .languages(updated.languages)
-        .build_systems(updated.build_systems)
-        .apply_if(updated.preffered_ide, MetadataBuilder::preffered_ide)
-        .apply_if(updated.description.as_deref(), MetadataBuilder::description)
-        .apply_if(
-            updated.repository_url.as_deref(),
-            MetadataBuilder::repository_url,
-        )
-        .build()
-        .map_err(|err| err.to_string())?;
+    let metadata = updated.update(metadata)?;
 
-    metadata
-        .write_to_db(&state.db)
-        .await
-        .map_err(|err| err.to_string())?;
-    metadata
-        .write_file(&metadata.directory)
-        .map_err(|err| err.to_string())?;
+    metadata.write_to_db(&state.db).await?;
+    metadata.write_file(&metadata.directory)?;
+
+    Ok(metadata.into())
+}
+
+#[tauri::command]
+pub async fn create_metadata(
+    new: MetadataDco,
+    state: tauri::State<'_, Mutex<AppState>>,
+) -> Result<MetadataDto, Error> {
+    let metadata = new.create()?;
+
+    let mut state = state.lock().await;
+
+    metadata.write_to_db(&state.db).await?;
+
+    metadata.write_file(&metadata.directory)?;
+
+    state.config_handler.add_saved_file(&metadata.directory);
+    state.config_handler.save_config()?;
 
     Ok(metadata.into())
 }
@@ -80,10 +73,14 @@ pub async fn update_metadata(
 pub async fn load_from_file(
     path: &Path,
     state: tauri::State<'_, Mutex<AppState>>,
-) -> Result<Uuid, String> {
-    if !path.exists() || !path.is_file() {
-        return Err(String::from("Invalid path"));
+) -> Result<Uuid, Error> {
+    if !path.exists() {
+        return Err(Error::BadRequest("given path does not exist".to_string()));
     }
+    if !path.is_file() {
+        return Err(Error::BadRequest("given path is not a file".to_string()));
+    }
+
     let mut state = state.lock().await;
     load_file(path, &mut state, true).await.map(|el| el.id())
 }
@@ -92,13 +89,19 @@ pub async fn load_from_file(
 pub async fn load_from_directory(
     path: &Path,
     state: tauri::State<'_, Mutex<AppState>>,
-) -> Result<usize, String> {
-    if !path.exists() || !path.is_dir() {
-        return Err(String::from("Invalid path"));
+) -> Result<usize, Error> {
+    if !path.exists() {
+        return Err(Error::BadRequest("given path does not exist".to_string()));
     }
+    if !path.is_dir() {
+        return Err(Error::BadRequest(
+            "given path is not a directory".to_string(),
+        ));
+    }
+
     let mut state = state.lock().await;
 
-    let files = MetadataHandler::search_directory(path).map_err(|err| err.to_string())?;
+    let files = MetadataHandler::search_directory(path)?;
 
     let mut projects: Vec<Metadata> = Vec::with_capacity(files.len());
     for file in files {
@@ -108,7 +111,7 @@ pub async fn load_from_directory(
     let ch = &mut state.config_handler;
 
     ch.add_saved_directory(path);
-    ch.save_config().map_err(|err| err.to_string())?;
+    ch.save_config()?;
 
     Ok(projects.len())
 }
@@ -117,18 +120,15 @@ async fn load_file(
     path: &Path,
     state: &mut AppState,
     save_to_config: bool,
-) -> Result<Metadata, String> {
-    let metadata = Metadata::from_file(path).map_err(|err| err.to_string())?;
+) -> Result<Metadata, Error> {
+    let metadata = Metadata::from_file(path)?;
 
-    metadata
-        .write_to_db(&state.db)
-        .await
-        .map_err(|err| err.to_string())?;
+    metadata.write_to_db(&state.db).await?;
 
     if save_to_config {
         let ch = &mut state.config_handler;
         ch.add_saved_file(path);
-        ch.save_config().map_err(|err| err.to_string())?;
+        ch.save_config()?;
     }
 
     Ok(metadata)

@@ -1,0 +1,27 @@
+id = "84b2b84a-2ddf-4e6b-9f58-17bd169fc17f"
+title = "Tortoiseam"
+description = "Herself which jaw who yourself I her e.g. anyway black."
+created = "2025-03-19T10:56:41.811706666Z"
+updated = "2025-03-19T10:56:41.811708766Z"
+
+[[category]]
+name = "woman"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:1.4"

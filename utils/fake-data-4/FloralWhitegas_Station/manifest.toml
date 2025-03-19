@@ -1,0 +1,29 @@
+id = "fb003715-7f47-4895-b426-3fd84469c538"
+title = "FloralWhitegas Station"
+repository_url = "https://www.directarchitectures.info/synergistic/mindshare/incentivize/bricks-and-clicks"
+created = "2025-03-19T10:57:26.499006437Z"
+updated = "2025-03-19T10:57:26.499008417Z"
+
+[[category]]
+name = "away"
+
+[[category]]
+name = "that"
+
+[[category]]
+name = "occasion"
+
+[[language]]
+name = "C#"
+version = "4.3"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:2.1"

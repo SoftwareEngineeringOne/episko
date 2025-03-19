@@ -1,0 +1,31 @@
+id = "96e5cfb8-d77d-4710-adde-45dae6729a30"
+title = "Poddo"
+repository_url = "http://www.leadportals.info/implement/content/bandwidth"
+created = "2025-03-19T10:56:58.121104182Z"
+updated = "2025-03-19T10:56:58.121106082Z"
+
+[[category]]
+name = "you"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "4.4"
+
+[[language]]
+name = "C#"
+version = "5.7"
+
+[[build_system]]
+name = "Maven"
+version = "2.7"
+
+[[build_system]]
+name = "Maven"
+version = "2.6"
+
+[preffered_ide]
+name = "Emacs:1.7"

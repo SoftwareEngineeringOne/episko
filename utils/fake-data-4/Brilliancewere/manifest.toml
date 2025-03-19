@@ -1,0 +1,21 @@
+id = "51fddf47-0a4a-4322-b764-ff3d5290ca06"
+title = "Brilliancewere"
+created = "2025-03-19T10:57:24.240566687Z"
+updated = "2025-03-19T10:57:24.240568647Z"
+
+[[category]]
+name = "her"
+
+[[category]]
+name = "nevertheless"
+
+[[category]]
+name = "as"
+
+[[language]]
+name = "Rust"
+version = "4.1"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"

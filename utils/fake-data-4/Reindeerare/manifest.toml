@@ -1,0 +1,18 @@
+id = "85c16053-ec30-493c-9c93-3342959a41b1"
+title = "Reindeerare"
+created = "2025-03-19T10:57:09.368702384Z"
+updated = "2025-03-19T10:57:09.368704324Z"
+
+[[category]]
+name = "remote"
+
+[[category]]
+name = "huh"
+
+[[language]]
+name = "Java"
+version = "2.0"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"

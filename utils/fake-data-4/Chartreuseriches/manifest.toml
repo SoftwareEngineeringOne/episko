@@ -1,0 +1,30 @@
+id = "d314afe0-e2fb-40e0-8460-30875f27a635"
+title = "Chartreuseriches"
+created = "2025-03-19T10:57:05.122169974Z"
+updated = "2025-03-19T10:57:05.122171954Z"
+
+[[category]]
+name = "be"
+
+[[language]]
+name = "Python"
+version = "1.0"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:2.7"

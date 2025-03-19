@@ -1,0 +1,27 @@
+id = "f56f4bbf-c333-47f4-9851-984b8c0e67a9"
+title = "LawnGreenslavery"
+created = "2025-03-19T10:57:01.815265823Z"
+updated = "2025-03-19T10:57:01.815267623Z"
+
+[[category]]
+name = "outside"
+
+[[language]]
+name = "Python"
+version = "1.2"
+
+[[language]]
+name = "JavaScript"
+version = "4.4"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "1.7"

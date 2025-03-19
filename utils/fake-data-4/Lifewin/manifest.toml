@@ -1,0 +1,20 @@
+id = "ec0cc763-1656-4b6d-924c-a692a87eb424"
+title = "Lifewin"
+category = []
+created = "2025-03-19T10:56:41.115507142Z"
+updated = "2025-03-19T10:56:41.115508692Z"
+
+[[language]]
+name = "Go"
+version = "5.2"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:1.3"

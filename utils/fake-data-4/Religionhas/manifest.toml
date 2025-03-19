@@ -1,0 +1,26 @@
+id = "241ef85c-d59c-4517-aa24-b46041f1bf66"
+title = "Religionhas"
+created = "2025-03-19T10:57:12.789506440Z"
+updated = "2025-03-19T10:57:12.789508660Z"
+
+[[category]]
+name = "monthly"
+
+[[category]]
+name = "I"
+
+[[language]]
+name = "C#"
+version = "5.1"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "3.8"
+
+[[build_system]]
+name = "Gradle"
+version = "2.3"

@@ -1,0 +1,28 @@
+id = "32198ee6-c493-4e62-b580-1ecc5670bb66"
+title = "Herringmight"
+repository_url = "http://www.legacyimplement.name/b2c/cross-media"
+created = "2025-03-19T10:57:05.996035879Z"
+updated = "2025-03-19T10:57:05.996037729Z"
+
+[[category]]
+name = "year"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "5.1"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"

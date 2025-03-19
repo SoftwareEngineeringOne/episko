@@ -1,0 +1,23 @@
+id = "f61a37cf-7c28-42de-95b9-c95e6a3630c1"
+title = "LightSlateGraycompany"
+repository_url = "https://www.regionalinnovative.biz/partnerships/infrastructures"
+created = "2025-03-19T10:56:49.589338073Z"
+updated = "2025-03-19T10:56:49.589340223Z"
+
+[[category]]
+name = "us"
+
+[[category]]
+name = "e.g."
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"

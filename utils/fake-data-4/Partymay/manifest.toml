@@ -1,0 +1,23 @@
+id = "c5957d45-0a7f-49b8-b52e-bea578a5128b"
+title = "Partymay"
+description = "Kind Gaussian cut irritably hence so it already it reel."
+created = "2025-03-19T10:56:43.834374996Z"
+updated = "2025-03-19T10:56:43.834377076Z"
+
+[[category]]
+name = "exaltation"
+
+[[language]]
+name = "JavaScript"
+version = "3.1"
+
+[[build_system]]
+name = "Maven"
+version = "1.6"
+
+[[build_system]]
+name = "Bazel"
+version = "2.6"
+
+[preffered_ide]
+name = "VSCode:2.6"

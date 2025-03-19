@@ -1,0 +1,22 @@
+id = "14570e05-936a-4f8a-8d6e-2b462e89abc3"
+title = "Caselisten"
+description = "Indeed company outside to ours thoroughly so yesterday that can."
+created = "2025-03-19T10:57:33.707450180Z"
+updated = "2025-03-19T10:57:33.707452970Z"
+
+[[category]]
+name = "therefore"
+
+[[category]]
+name = "them"
+
+[[language]]
+name = "Java"
+version = "2.1"
+
+[[build_system]]
+name = "Webpack"
+version = "2.3"
+
+[preffered_ide]
+name = "Sublime:2.9"

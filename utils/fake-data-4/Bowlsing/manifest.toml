@@ -1,0 +1,26 @@
+id = "0d22fe06-8cd1-4512-955e-e8bf2c541d5e"
+title = "Bowlsing"
+description = "That he colorful they does whoa who I catch us."
+category = []
+repository_url = "http://www.dynamicsexy.name/one-to-one/deliverables"
+created = "2025-03-19T10:56:51.098541184Z"
+updated = "2025-03-19T10:56:51.098543914Z"
+
+[[language]]
+name = "Go"
+version = "1.1"
+
+[[language]]
+name = "Rust"
+version = "2.3"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.0"

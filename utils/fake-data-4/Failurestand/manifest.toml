@@ -1,0 +1,18 @@
+id = "a9030f4a-d0a3-4268-948d-74a29afa4b80"
+title = "Failurestand"
+category = []
+repository_url = "https://www.productvisualize.org/impactful/users/wireless/harness"
+created = "2025-03-19T10:56:45.214348188Z"
+updated = "2025-03-19T10:56:45.214349958Z"
+
+[[language]]
+name = "Rust"
+version = "5.8"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"

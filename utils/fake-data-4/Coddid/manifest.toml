@@ -1,0 +1,24 @@
+id = "762b3fd4-ab6e-4af4-8193-2ba245a52b58"
+title = "Coddid"
+build_system = []
+repository_url = "https://www.principaldynamic.info/seamless/whiteboard"
+created = "2025-03-19T10:57:00.961211166Z"
+updated = "2025-03-19T10:57:00.961213076Z"
+
+[[category]]
+name = "first"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:1.4"

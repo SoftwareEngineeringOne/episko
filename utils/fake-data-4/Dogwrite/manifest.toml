@@ -1,0 +1,22 @@
+id = "f7d0b7d5-616b-4ed0-98b1-7e585307591e"
+title = "Dogwrite"
+build_system = []
+repository_url = "http://www.productcollaborative.net/e-enable/expedite/back-end/innovative"
+created = "2025-03-19T10:57:04.868091011Z"
+updated = "2025-03-19T10:57:04.868092871Z"
+
+[[category]]
+name = "then"
+
+[[category]]
+name = "theirs"
+
+[[category]]
+name = "despite"
+
+[[language]]
+name = "JavaScript"
+version = "5.3"
+
+[preffered_ide]
+name = "Sublime:2.0"

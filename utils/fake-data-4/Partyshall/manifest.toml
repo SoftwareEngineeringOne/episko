@@ -1,0 +1,26 @@
+id = "7454c6c2-6f83-4fd2-93c0-e5a86fa5cd66"
+title = "Partyshall"
+repository_url = "https://www.legacyleverage.org/one-to-one/synthesize/transparent/webservices"
+created = "2025-03-19T10:56:53.341537460Z"
+updated = "2025-03-19T10:56:53.341539310Z"
+
+[[category]]
+name = "instead"
+
+[[category]]
+name = "some"
+
+[[category]]
+name = "i.e."
+
+[[language]]
+name = "Rust"
+version = "3.2"
+
+[[build_system]]
+name = "Make"
+version = "1.8"
+
+[[build_system]]
+name = "Webpack"
+version = "2.8"

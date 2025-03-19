@@ -1,0 +1,13 @@
+id = "c7895b6e-8167-475e-b2ba-ef2e95c22609"
+title = "Numberbe"
+category = []
+created = "2025-03-19T09:34:38.061164435Z"
+updated = "2025-03-19T09:34:38.061166565Z"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "3.7"

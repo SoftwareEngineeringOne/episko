@@ -1,0 +1,24 @@
+id = "f5aaf100-56f0-4e6c-8c1b-bd3f7d4f8e9d"
+title = "LightSeaGreensuit"
+created = "2025-03-19T10:57:07.720346352Z"
+updated = "2025-03-19T10:57:07.720348362Z"
+
+[[category]]
+name = "of"
+
+[[category]]
+name = "Balinese"
+
+[[category]]
+name = "next"
+
+[[language]]
+name = "TypeScript"
+version = "3.8"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:1.8"

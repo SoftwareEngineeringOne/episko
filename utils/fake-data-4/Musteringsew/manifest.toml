@@ -1,0 +1,25 @@
+id = "0e85e7cf-cfce-4bdf-93eb-d7de68289f8e"
+title = "Musteringsew"
+category = []
+created = "2025-03-19T10:57:32.682359359Z"
+updated = "2025-03-19T10:57:32.682361669Z"
+
+[[language]]
+name = "Java"
+version = "5.8"
+
+[[language]]
+name = "Rust"
+version = "4.3"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "3.8"

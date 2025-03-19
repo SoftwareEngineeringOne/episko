@@ -1,0 +1,30 @@
+id = "4e538f96-f843-469e-a572-de569b03a81e"
+title = "Duckhug"
+repository_url = "https://www.dynamicweb-enabled.biz/optimize"
+created = "2025-03-19T10:56:41.413698153Z"
+updated = "2025-03-19T10:56:41.413700333Z"
+
+[[category]]
+name = "viplate"
+
+[[category]]
+name = "does"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "1.7"
+
+[[build_system]]
+name = "Gradle"
+version = "1.5"
+
+[preffered_ide]
+name = "Emacs:1.6"

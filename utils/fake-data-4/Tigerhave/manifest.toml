@@ -1,0 +1,24 @@
+id = "393f5f7d-ac71-45fc-9613-ef035134d53e"
+title = "Tigerhave"
+category = []
+created = "2025-03-19T10:57:23.179372941Z"
+updated = "2025-03-19T10:57:23.179375001Z"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "3.1"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:2.0"

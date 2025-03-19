@@ -1,0 +1,28 @@
+id = "43d0258c-49f2-47bc-bef4-27bc1be61e98"
+title = "Freezerwill"
+category = []
+created = "2025-03-19T10:57:14.043879500Z"
+updated = "2025-03-19T10:57:14.043882660Z"
+
+[[language]]
+name = "C#"
+version = "3.6"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "1.0"
+
+[[build_system]]
+name = "CMake"
+version = "1.3"
+
+[[build_system]]
+name = "Webpack"
+version = "1.0"
+
+[preffered_ide]
+name = "VSCode:2.8"

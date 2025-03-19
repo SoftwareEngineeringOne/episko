@@ -1,0 +1,24 @@
+id = "bc1f7945-8e45-497e-bfe8-13107d0cf80d"
+title = "OrangeRedflock"
+repository_url = "http://www.humaninnovative.info/strategize/leverage"
+created = "2025-03-19T10:56:45.399816850Z"
+updated = "2025-03-19T10:56:45.399819060Z"
+
+[[category]]
+name = "throw"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "5.9"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "2.4"

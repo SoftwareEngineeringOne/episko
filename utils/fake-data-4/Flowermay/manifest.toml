@@ -1,0 +1,26 @@
+id = "5d143826-79fa-4a02-9273-11d5abc32969"
+title = "Flowermay"
+created = "2025-03-19T10:56:59.742376202Z"
+updated = "2025-03-19T10:56:59.742378692Z"
+
+[[category]]
+name = "imagination"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "1.9"
+
+[preffered_ide]
+name = "VSCode:2.5"

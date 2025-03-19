@@ -1,0 +1,25 @@
+id = "de05cd3a-53eb-4c24-8998-5104678dafa6"
+title = "LawnGreenharm"
+created = "2025-03-19T10:56:52.879104798Z"
+updated = "2025-03-19T10:56:52.879106748Z"
+
+[[category]]
+name = "nightly"
+
+[[category]]
+name = "whoa"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "3.3"
+
+[[build_system]]
+name = "Gradle"
+version = "1.9"
+
+[preffered_ide]
+name = "Vim:2.8"

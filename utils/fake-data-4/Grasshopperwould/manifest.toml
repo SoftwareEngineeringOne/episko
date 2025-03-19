@@ -1,0 +1,36 @@
+id = "98c1384e-f191-42cb-9fdc-26d17a2d0f3a"
+title = "Grasshopperwould"
+created = "2025-03-19T10:57:20.955733534Z"
+updated = "2025-03-19T10:57:20.955735514Z"
+
+[[category]]
+name = "instance"
+
+[[category]]
+name = "Parisian"
+
+[[category]]
+name = "patrol"
+
+[[language]]
+name = "Python"
+version = "5.5"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "1.6"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:2.2"

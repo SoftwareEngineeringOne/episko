@@ -1,0 +1,24 @@
+id = "d5fdb690-2803-42e2-a289-432598201733"
+title = "Partytalk"
+build_system = []
+repository_url = "http://www.corporateexpedite.io/seize/monetize"
+created = "2025-03-19T10:57:09.054220554Z"
+updated = "2025-03-19T10:57:09.054222934Z"
+
+[[category]]
+name = "that"
+
+[[category]]
+name = "on"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"

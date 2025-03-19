@@ -1,0 +1,21 @@
+id = "f0a72852-2647-428b-8803-2c064920f6a5"
+title = "Rabbithas"
+category = []
+repository_url = "http://www.directuser-centric.info/productize/integrated"
+created = "2025-03-19T10:57:17.483318253Z"
+updated = "2025-03-19T10:57:17.483320183Z"
+
+[[language]]
+name = "Python"
+version = "4.4"
+
+[[build_system]]
+name = "CMake"
+version = "3.8"
+
+[[build_system]]
+name = "CMake"
+version = "2.9"
+
+[preffered_ide]
+name = "Vim:1.6"

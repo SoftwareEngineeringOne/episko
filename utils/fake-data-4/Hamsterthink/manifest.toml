@@ -1,0 +1,23 @@
+id = "fa8f7054-fb66-410a-96b8-9182f6a6819f"
+title = "Hamsterthink"
+repository_url = "https://www.legacydot-com.com/implement/web-enabled"
+created = "2025-03-19T10:56:40.994900700Z"
+updated = "2025-03-19T10:56:40.994902820Z"
+
+[[category]]
+name = "emerge"
+
+[[language]]
+name = "JavaScript"
+version = "2.3"
+
+[[build_system]]
+name = "Maven"
+version = "2.1"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:1.8"

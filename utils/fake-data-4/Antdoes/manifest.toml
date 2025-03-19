@@ -1,0 +1,25 @@
+id = "8d88e7a2-0c0a-4690-8f0b-5bec7bac29eb"
+title = "Antdoes"
+description = "Fact now into now bowl super how your her me."
+category = []
+created = "2025-03-19T10:57:07.097658241Z"
+updated = "2025-03-19T10:57:07.097660041Z"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "3.9"
+
+[[language]]
+name = "JavaScript"
+version = "3.4"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.1"

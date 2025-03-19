@@ -1,0 +1,28 @@
+id = "bf090fc2-cac7-4b07-9ae6-779b54100b6d"
+title = "Boxare"
+created = "2025-03-19T10:57:14.293566710Z"
+updated = "2025-03-19T10:57:14.293568590Z"
+
+[[category]]
+name = "sit"
+
+[[category]]
+name = "team"
+
+[[category]]
+name = "their"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.9"

@@ -1,0 +1,13 @@
+id = "6ff06cf2-3f86-4fc0-b23a-4c0277d73f9a"
+title = "LightCoralmurder"
+category = []
+build_system = []
+created = "2025-03-19T10:57:32.331888833Z"
+updated = "2025-03-19T10:57:32.331890933Z"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:1.6"

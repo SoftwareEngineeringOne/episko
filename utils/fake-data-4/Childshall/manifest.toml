@@ -1,0 +1,22 @@
+id = "2bf0ee6b-ea52-4126-8e8a-95e26aa02de8"
+title = "Childshall"
+build_system = []
+created = "2025-03-19T10:56:48.264588301Z"
+updated = "2025-03-19T10:56:48.264590581Z"
+
+[[category]]
+name = "her"
+
+[[category]]
+name = "now"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.9"

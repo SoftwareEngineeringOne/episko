@@ -1,0 +1,25 @@
+id = "028d408b-eaab-40c6-8a2d-8fd83a8dd9b1"
+title = "Pinkcrowd"
+description = "Onto school hurry daily whom accommodation team their cruelly then."
+created = "2025-03-19T10:57:39.688003442Z"
+updated = "2025-03-19T10:57:39.688005362Z"
+
+[[category]]
+name = "cancel"
+
+[[category]]
+name = "in"
+
+[[category]]
+name = "might"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "2.1"
+
+[preffered_ide]
+name = "IntelliJ:1.8"

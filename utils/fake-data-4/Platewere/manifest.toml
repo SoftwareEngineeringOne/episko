@@ -1,0 +1,23 @@
+id = "220c698d-96c1-4f57-9688-45dad3103f9a"
+title = "Platewere"
+repository_url = "https://www.futureweb-enabled.name/schemas/niches/revolutionary/architect"
+created = "2025-03-19T10:57:15.798409793Z"
+updated = "2025-03-19T10:57:15.798411653Z"
+
+[[category]]
+name = "for"
+
+[[category]]
+name = "here"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "2.3"
+
+[[build_system]]
+name = "Make"
+version = "unknown"

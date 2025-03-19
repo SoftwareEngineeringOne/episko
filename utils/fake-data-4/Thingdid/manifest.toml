@@ -1,0 +1,23 @@
+id = "5b13856d-1a76-4e8e-97f9-488a9d584047"
+title = "Thingdid"
+build_system = []
+created = "2025-03-19T10:57:05.058437927Z"
+updated = "2025-03-19T10:57:05.058439757Z"
+
+[[category]]
+name = "decidedly"
+
+[[category]]
+name = "in"
+
+[[language]]
+name = "C#"
+version = "2.1"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"

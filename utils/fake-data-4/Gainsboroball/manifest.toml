@@ -1,0 +1,26 @@
+id = "e33c3283-1946-4404-9866-84ca6ed5bb70"
+title = "Gainsboroball"
+build_system = []
+created = "2025-03-19T10:56:44.908362244Z"
+updated = "2025-03-19T10:56:44.908363864Z"
+
+[[category]]
+name = "it"
+
+[[category]]
+name = "barely"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "1.2"
+
+[[language]]
+name = "JavaScript"
+version = "3.4"
+
+[preffered_ide]
+name = "VSCode:1.3"

@@ -1,0 +1,20 @@
+id = "a23cd9c7-70b3-4f1a-92a9-0a027b30b88b"
+title = "Baboonwas"
+description = "Scold besides a unless fight our Icelandic unemployment in in."
+created = "2025-03-19T10:57:18.299608011Z"
+updated = "2025-03-19T10:57:18.299610091Z"
+
+[[category]]
+name = "anybody"
+
+[[language]]
+name = "Java"
+version = "2.4"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"

@@ -1,0 +1,30 @@
+id = "abb3ff72-5f2c-4ff5-b260-42819a8a18a5"
+title = "Flyfight"
+created = "2025-03-19T10:57:03.776041587Z"
+updated = "2025-03-19T10:57:03.776044467Z"
+
+[[category]]
+name = "eek"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "2.5"
+
+[[build_system]]
+name = "CMake"
+version = "3.3"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:2.3"

@@ -1,0 +1,22 @@
+id = "9437ce60-5cc2-4849-b7e9-967badc1eb54"
+title = "Yogawere"
+description = "Horde few regularly as how my equally up bunch here."
+build_system = []
+created = "2025-03-19T10:57:37.473958869Z"
+updated = "2025-03-19T10:57:37.473960799Z"
+
+[[category]]
+name = "judge"
+
+[[category]]
+name = "that"
+
+[[category]]
+name = "group"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:1.2"

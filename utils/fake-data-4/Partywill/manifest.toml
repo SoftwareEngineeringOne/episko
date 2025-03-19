@@ -1,0 +1,16 @@
+id = "6362414c-c22b-4199-ab07-3bb88665fdde"
+title = "Partywill"
+repository_url = "http://www.districtchannels.biz/wireless/models"
+created = "2025-03-19T10:56:59.084233328Z"
+updated = "2025-03-19T10:56:59.084235248Z"
+
+[[category]]
+name = "sometimes"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "3.7"

@@ -1,0 +1,21 @@
+id = "914266b1-7cf1-4fe0-9a85-a06a85a81ae1"
+title = "Weekis"
+category = []
+repository_url = "http://www.forwardsynergize.name/e-commerce"
+created = "2025-03-19T10:56:58.946174774Z"
+updated = "2025-03-19T10:56:58.946176704Z"
+
+[[language]]
+name = "Java"
+version = "2.2"
+
+[[build_system]]
+name = "CMake"
+version = "1.7"
+
+[[build_system]]
+name = "Gradle"
+version = "1.7"
+
+[preffered_ide]
+name = "VSCode:2.5"

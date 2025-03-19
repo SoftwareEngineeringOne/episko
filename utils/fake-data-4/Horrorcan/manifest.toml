@@ -1,0 +1,28 @@
+id = "7f254c4e-8550-4d1f-aa1a-723da708c9a0"
+title = "Horrorcan"
+created = "2025-03-19T10:57:01.783533211Z"
+updated = "2025-03-19T10:57:01.783535771Z"
+
+[[category]]
+name = "himself"
+
+[[category]]
+name = "often"
+
+[[category]]
+name = "hang"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "1.3"
+
+[preffered_ide]
+name = "Vim:1.4"

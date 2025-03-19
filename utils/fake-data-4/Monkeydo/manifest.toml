@@ -1,0 +1,20 @@
+id = "d2f5ed16-b4ed-42ef-9487-2e75bd9f5aca"
+title = "Monkeydo"
+category = []
+created = "2025-03-19T10:57:22.830319420Z"
+updated = "2025-03-19T10:57:22.830321420Z"
+
+[[language]]
+name = "Go"
+version = "5.3"
+
+[[build_system]]
+name = "Gradle"
+version = "2.4"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:2.9"

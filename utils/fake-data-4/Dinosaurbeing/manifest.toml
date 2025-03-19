@@ -1,0 +1,30 @@
+id = "102479a2-ec57-4010-9a77-fae2e9ab8af5"
+title = "Dinosaurbeing"
+created = "2025-03-19T10:56:44.714833178Z"
+updated = "2025-03-19T10:56:44.714835108Z"
+
+[[category]]
+name = "kindness"
+
+[[category]]
+name = "still"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "5.8"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "1.3"
+
+[[build_system]]
+name = "CMake"
+version = "2.9"

@@ -1,0 +1,26 @@
+id = "e77ba82d-1a29-49b6-a0df-0301786049e3"
+title = "Tigerwin"
+created = "2025-03-19T10:57:36.506366885Z"
+updated = "2025-03-19T10:57:36.506368955Z"
+
+[[category]]
+name = "to"
+
+[[language]]
+name = "Rust"
+version = "3.5"
+
+[[language]]
+name = "C#"
+version = "2.2"
+
+[[build_system]]
+name = "Bazel"
+version = "1.1"
+
+[[build_system]]
+name = "Make"
+version = "3.6"
+
+[preffered_ide]
+name = "VSCode:1.4"

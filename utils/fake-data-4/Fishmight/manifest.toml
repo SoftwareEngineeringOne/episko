@@ -1,0 +1,33 @@
+id = "af24487a-3e82-4e05-9967-7766523042c1"
+title = "Fishmight"
+created = "2025-03-19T10:57:12.405971468Z"
+updated = "2025-03-19T10:57:12.405974798Z"
+
+[[category]]
+name = "girl"
+
+[[category]]
+name = "intelligence"
+
+[[category]]
+name = "first"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "3.7"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "1.2"
+
+[[build_system]]
+name = "Gradle"
+version = "3.9"

@@ -1,0 +1,23 @@
+id = "5cec6102-c41b-43d5-b8b3-e2c2a7bc304c"
+title = "Elephantmust"
+build_system = []
+repository_url = "http://www.directback-end.net/channels/markets/models/benchmark"
+created = "2025-03-19T10:56:55.213510672Z"
+updated = "2025-03-19T10:56:55.213512752Z"
+
+[[category]]
+name = "management"
+
+[[category]]
+name = "full"
+
+[[category]]
+name = "abroad"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"

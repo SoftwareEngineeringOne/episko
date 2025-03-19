@@ -1,0 +1,27 @@
+id = "85c4fdbc-d496-4550-9e8d-e04941212135"
+title = "Magentacoffee"
+repository_url = "https://www.investorclicks-and-mortar.io/users/deploy/interfaces/visionary"
+created = "2025-03-19T10:57:17.520006690Z"
+updated = "2025-03-19T10:57:17.520009030Z"
+
+[[category]]
+name = "muster"
+
+[[language]]
+name = "Rust"
+version = "4.1"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.3"
+
+[preffered_ide]
+name = "Atom:2.0"

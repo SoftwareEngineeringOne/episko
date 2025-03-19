@@ -1,0 +1,22 @@
+id = "5e4074f7-af35-4596-a949-290ae8bd3a39"
+title = "Spooncook"
+description = "That here data itself these month problem throughout caused many."
+category = []
+repository_url = "https://www.humanend-to-end.name/embrace/efficient/24-365/compelling"
+created = "2025-03-19T10:57:17.737932328Z"
+updated = "2025-03-19T10:57:17.737934358Z"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:1.9"

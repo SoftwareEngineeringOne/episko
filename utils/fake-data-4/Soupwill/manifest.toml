@@ -1,0 +1,21 @@
+id = "2a1688d6-778c-4b91-a0e3-941c7396461d"
+title = "Soupwill"
+description = "Sorrow was where shall between badly now our quiver a."
+category = []
+created = "2025-03-19T10:57:01.284676602Z"
+updated = "2025-03-19T10:57:01.284678512Z"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "2.6"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:2.0"

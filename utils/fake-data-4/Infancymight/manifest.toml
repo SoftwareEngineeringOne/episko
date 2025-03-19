@@ -1,0 +1,19 @@
+id = "ebd4d007-2782-4228-a8d8-e5634f88305a"
+title = "Infancymight"
+build_system = []
+created = "2025-03-19T10:57:02.408857009Z"
+updated = "2025-03-19T10:57:02.408859339Z"
+
+[[category]]
+name = "world"
+
+[[language]]
+name = "JavaScript"
+version = "4.8"
+
+[[language]]
+name = "C#"
+version = "2.5"
+
+[preffered_ide]
+name = "Atom:2.9"

@@ -1,0 +1,24 @@
+id = "a90aeabe-e17a-4bda-a42b-de759d08641a"
+title = "Oxhad"
+description = "What on this yourself sometimes relent harvest effect fly sensibly."
+build_system = []
+repository_url = "http://www.leade-markets.com/transform/ubiquitous"
+created = "2025-03-19T10:57:06.664929906Z"
+updated = "2025-03-19T10:57:06.664932086Z"
+
+[[category]]
+name = "all"
+
+[[category]]
+name = "define"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "2.1"
+
+[preffered_ide]
+name = "Vim:2.1"

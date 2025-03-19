@@ -1,0 +1,36 @@
+id = "668b743e-3cd4-49ad-bcbd-926b798ef181"
+title = "Ferretdoes"
+created = "2025-03-19T10:57:37.097903607Z"
+updated = "2025-03-19T10:57:37.097905597Z"
+
+[[category]]
+name = "they"
+
+[[category]]
+name = "drink"
+
+[[category]]
+name = "of"
+
+[[language]]
+name = "Python"
+version = "5.5"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "1.9"
+
+[preffered_ide]
+name = "Vim:1.2"

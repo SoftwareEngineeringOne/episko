@@ -1,0 +1,22 @@
+id = "d7fe3591-a3fd-44e6-a985-6553f1be59ac"
+title = "Governmentam"
+created = "2025-03-19T10:56:47.644195108Z"
+updated = "2025-03-19T10:56:47.644197058Z"
+
+[[category]]
+name = "that"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "2.0"
+
+[[build_system]]
+name = "Webpack"
+version = "1.7"
+
+[preffered_ide]
+name = "IntelliJ:2.7"

@@ -1,0 +1,21 @@
+id = "9a5924d6-3617-4dea-8445-90a943acfa83"
+title = "Medicineshould"
+category = []
+created = "2025-03-19T10:57:06.817946453Z"
+updated = "2025-03-19T10:57:06.817948713Z"
+
+[[language]]
+name = "Java"
+version = "5.5"
+
+[[language]]
+name = "Java"
+version = "5.8"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "2.9"

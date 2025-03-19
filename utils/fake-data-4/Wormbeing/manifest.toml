@@ -1,0 +1,17 @@
+id = "256e1f6f-cb53-478a-84b7-b8b6c7c21d5a"
+title = "Wormbeing"
+category = []
+created = "2025-03-19T10:56:45.732289461Z"
+updated = "2025-03-19T10:56:45.732291421Z"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "2.0"

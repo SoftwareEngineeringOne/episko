@@ -1,0 +1,26 @@
+id = "abd4bd9b-5d53-47d9-ba3d-00b9c947c24d"
+title = "LightGrayregiment"
+created = "2025-03-19T10:56:41.285083188Z"
+updated = "2025-03-19T10:56:41.285084728Z"
+
+[[category]]
+name = "pack"
+
+[[category]]
+name = "how"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "3.0"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "2.5"

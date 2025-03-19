@@ -1,0 +1,14 @@
+id = "1a55d327-3e1e-4a93-be3b-77c55be7a35f"
+title = "Hyenasing"
+category = []
+build_system = []
+repository_url = "http://www.leadclicks-and-mortar.info/reintermediate"
+created = "2025-03-19T10:57:06.453711848Z"
+updated = "2025-03-19T10:57:06.453738538Z"
+
+[[language]]
+name = "Java"
+version = "2.8"
+
+[preffered_ide]
+name = "Atom:2.6"

@@ -1,0 +1,21 @@
+id = "2d2e8df1-b836-4792-98ab-e447bed6d65f"
+title = "Yearwill"
+category = []
+repository_url = "http://www.customermarkets.io/integrate/proactive"
+created = "2025-03-19T10:57:11.530932878Z"
+updated = "2025-03-19T10:57:11.530934798Z"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "3.5"
+
+[[build_system]]
+name = "Bazel"
+version = "1.7"
+
+[preffered_ide]
+name = "Sublime:1.1"

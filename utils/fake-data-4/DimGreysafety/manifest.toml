@@ -1,0 +1,17 @@
+id = "90084d4c-698a-41b0-a9da-a77684c93337"
+title = "DimGreysafety"
+category = []
+created = "2025-03-19T10:56:52.550585658Z"
+updated = "2025-03-19T10:56:52.550588178Z"
+
+[[language]]
+name = "Java"
+version = "5.2"
+
+[[build_system]]
+name = "Gradle"
+version = "3.6"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"

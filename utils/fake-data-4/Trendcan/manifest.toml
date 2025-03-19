@@ -1,0 +1,27 @@
+id = "462f20aa-7e74-45bd-a581-c54c62f5a1d4"
+title = "Trendcan"
+description = "Do Antarctic your whenever highlight software off Cormoran you oops."
+created = "2025-03-19T10:56:51.484490882Z"
+updated = "2025-03-19T10:56:51.484492602Z"
+
+[[category]]
+name = "below"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "TypeScript"
+version = "1.8"
+
+[[build_system]]
+name = "Bazel"
+version = "2.1"
+
+[[build_system]]
+name = "CMake"
+version = "2.0"
+
+[preffered_ide]
+name = "Emacs:1.2"

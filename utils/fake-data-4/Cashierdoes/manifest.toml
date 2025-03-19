@@ -1,0 +1,13 @@
+id = "d04c6ef5-dfe6-421e-9a77-1784d57ad585"
+title = "Cashierdoes"
+build_system = []
+repository_url = "https://www.legacyefficient.io/open-source"
+created = "2025-03-19T10:57:19.791691347Z"
+updated = "2025-03-19T10:57:19.791693437Z"
+
+[[category]]
+name = "next"
+
+[[language]]
+name = "C#"
+version = "2.2"

@@ -1,0 +1,22 @@
+id = "0ba01aba-2f4c-4c02-a173-da42768a0a05"
+title = "Murderdoes"
+category = []
+repository_url = "https://www.nationalsolutions.org/drive/web-readiness/revolutionize"
+created = "2025-03-19T10:57:32.771062958Z"
+updated = "2025-03-19T10:57:32.771064918Z"
+
+[[language]]
+name = "Go"
+version = "4.8"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"

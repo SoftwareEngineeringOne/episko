@@ -1,0 +1,25 @@
+id = "055e07ca-20bf-49d6-8d3c-b6fe4e1a2195"
+title = "Herringam"
+created = "2025-03-19T10:56:44.143908670Z"
+updated = "2025-03-19T10:56:44.143910540Z"
+
+[[category]]
+name = "belong"
+
+[[category]]
+name = "regiment"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "4.2"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:1.4"

@@ -1,0 +1,18 @@
+id = "f861a058-1f50-4321-a80b-53409cdc085a"
+title = "Stackdo"
+created = "2025-03-19T10:57:00.990764043Z"
+updated = "2025-03-19T10:57:00.990766313Z"
+
+[[category]]
+name = "entirely"
+
+[[language]]
+name = "TypeScript"
+version = "3.8"
+
+[[build_system]]
+name = "Webpack"
+version = "3.6"
+
+[preffered_ide]
+name = "VSCode:2.4"

@@ -1,0 +1,23 @@
+id = "838fb161-ad51-4809-8c6e-664df6823a82"
+title = "Hostjump"
+repository_url = "https://www.corporateutilize.name/synthesize/architect/compelling/holistic"
+created = "2025-03-19T10:56:52.576251363Z"
+updated = "2025-03-19T10:56:52.576253843Z"
+
+[[category]]
+name = "outside"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "1.5"
+
+[preffered_ide]
+name = "VSCode:1.0"

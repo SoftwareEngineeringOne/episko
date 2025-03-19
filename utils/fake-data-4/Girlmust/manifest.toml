@@ -1,0 +1,23 @@
+id = "bcabe5a4-bdac-4a91-b56b-679c6d795b6a"
+title = "Girlmust"
+created = "2025-03-19T10:56:45.982224852Z"
+updated = "2025-03-19T10:56:45.982226842Z"
+
+[[category]]
+name = "though"
+
+[[language]]
+name = "TypeScript"
+version = "3.9"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "2.3"

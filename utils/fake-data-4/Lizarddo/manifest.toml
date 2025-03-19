@@ -1,0 +1,24 @@
+id = "e3c39f82-a618-45c6-b501-e01bf32f42c5"
+title = "Lizarddo"
+description = "Formerly Burkinese she so our their fly why everybody there."
+build_system = []
+repository_url = "http://www.internationalbenchmark.info/engage"
+created = "2025-03-19T10:56:42.323432251Z"
+updated = "2025-03-19T10:56:42.323434331Z"
+
+[[category]]
+name = "someone"
+
+[[category]]
+name = "shall"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "5.8"
+
+[preffered_ide]
+name = "Sublime:2.0"

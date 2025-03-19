@@ -1,0 +1,26 @@
+id = "6f036c8c-691b-4934-9ce1-657f04a9a36f"
+title = "Hornetwas"
+created = "2025-03-19T10:57:10.770700345Z"
+updated = "2025-03-19T10:57:10.770702735Z"
+
+[[category]]
+name = "conclude"
+
+[[language]]
+name = "Python"
+version = "2.5"
+
+[[language]]
+name = "Rust"
+version = "5.5"
+
+[[build_system]]
+name = "Maven"
+version = "1.7"
+
+[[build_system]]
+name = "Bazel"
+version = "1.3"
+
+[preffered_ide]
+name = "Sublime:1.5"

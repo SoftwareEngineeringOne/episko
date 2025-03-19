@@ -1,0 +1,23 @@
+id = "43f0c8c4-86a2-4d0a-885b-8874356dd69d"
+title = "Chinchillaplay"
+repository_url = "http://www.internationalreal-time.info/infrastructures"
+created = "2025-03-19T10:57:39.829250916Z"
+updated = "2025-03-19T10:57:39.829253216Z"
+
+[[category]]
+name = "accordingly"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:1.6"

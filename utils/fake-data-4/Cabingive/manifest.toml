@@ -1,0 +1,31 @@
+id = "8602cb1b-4fc0-4eef-883f-0142b7bfd71d"
+title = "Cabingive"
+description = "Indonesian which aloof fortnightly where whatever wait both then should."
+created = "2025-03-19T10:57:05.187611835Z"
+updated = "2025-03-19T10:57:05.187614285Z"
+
+[[category]]
+name = "upstairs"
+
+[[language]]
+name = "TypeScript"
+version = "3.1"
+
+[[language]]
+name = "Java"
+version = "5.6"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:2.0"

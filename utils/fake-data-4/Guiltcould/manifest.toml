@@ -1,0 +1,19 @@
+id = "1e55f503-33c9-4aed-8e26-e409488f66ce"
+title = "Guiltcould"
+build_system = []
+repository_url = "https://www.dynamicinfrastructures.com/integrate"
+created = "2025-03-19T10:56:50.050260300Z"
+updated = "2025-03-19T10:56:50.050262100Z"
+
+[[category]]
+name = "plan"
+
+[[category]]
+name = "previously"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:2.8"

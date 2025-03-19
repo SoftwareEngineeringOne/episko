@@ -1,0 +1,25 @@
+id = "84c6a453-8954-401a-b45e-c3f31433300c"
+title = "Personmight"
+category = []
+repository_url = "https://www.investorbleeding-edge.info/envisioneer/e-enable/integrated"
+created = "2025-03-19T10:56:47.355189824Z"
+updated = "2025-03-19T10:56:47.355191874Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:1.3"

@@ -1,0 +1,21 @@
+id = "ea574f43-90ae-41dc-a4eb-f308b8f1ffa6"
+title = "Martencould"
+category = []
+repository_url = "https://www.nationalscalable.biz/revolutionize/synergistic/24-365/experiences"
+created = "2025-03-19T10:56:46.315636586Z"
+updated = "2025-03-19T10:56:46.315639036Z"
+
+[[language]]
+name = "Python"
+version = "1.3"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "2.2"
+
+[preffered_ide]
+name = "VSCode:1.4"

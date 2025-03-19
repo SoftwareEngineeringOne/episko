@@ -1,0 +1,32 @@
+id = "301aa85b-b6fd-41e3-b130-d8f1f2dee571"
+title = "Scorpionmust"
+created = "2025-03-19T10:57:25.741765391Z"
+updated = "2025-03-19T10:57:25.741768231Z"
+
+[[category]]
+name = "of"
+
+[[category]]
+name = "whose"
+
+[[category]]
+name = "always"
+
+[[language]]
+name = "JavaScript"
+version = "4.8"
+
+[[language]]
+name = "C#"
+version = "3.2"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "1.7"
+
+[preffered_ide]
+name = "IntelliJ:1.2"

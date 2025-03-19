@@ -1,0 +1,30 @@
+id = "16946ee4-5dd3-483b-bdc8-292a8d9af3b4"
+title = "Exaltationis"
+description = "Laugh without yourself were could Lilliputian camp dress have then."
+created = "2025-03-19T10:57:32.726375217Z"
+updated = "2025-03-19T10:57:32.726377247Z"
+
+[[category]]
+name = "box"
+
+[[category]]
+name = "everything"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "1.6"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:2.1"

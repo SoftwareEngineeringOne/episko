@@ -1,0 +1,31 @@
+id = "f719eb1e-76ef-4a76-ac22-46f813378b47"
+title = "Blackpod"
+description = "Positively can kind chicken what next most luck badly at."
+build_system = []
+repository_url = "https://www.nationalnext-generation.name/brand/deploy/facilitate/webservices"
+created = "2025-03-19T10:57:08.529910070Z"
+updated = "2025-03-19T10:57:08.529911820Z"
+
+[[category]]
+name = "sore"
+
+[[category]]
+name = "part"
+
+[[category]]
+name = "that"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "5.8"
+
+[preffered_ide]
+name = "IntelliJ:2.8"

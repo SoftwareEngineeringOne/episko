@@ -1,0 +1,23 @@
+id = "1f629ed9-427e-4f72-b664-e160dd2b3cf0"
+title = "BlueVioletdetermination"
+build_system = []
+repository_url = "http://www.leadrevolutionize.info/integrated/drive"
+created = "2025-03-19T10:56:44.206530823Z"
+updated = "2025-03-19T10:56:44.206532733Z"
+
+[[category]]
+name = "itself"
+
+[[category]]
+name = "imagination"
+
+[[language]]
+name = "Rust"
+version = "2.0"
+
+[[language]]
+name = "TypeScript"
+version = "1.3"
+
+[preffered_ide]
+name = "IntelliJ:2.3"

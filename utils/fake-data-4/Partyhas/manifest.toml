@@ -1,0 +1,25 @@
+id = "0dd9970f-c6aa-412d-b9f0-a54bce9ebb06"
+title = "Partyhas"
+created = "2025-03-19T10:56:52.186903655Z"
+updated = "2025-03-19T10:56:52.186905905Z"
+
+[[category]]
+name = "place"
+
+[[category]]
+name = "do"
+
+[[language]]
+name = "TypeScript"
+version = "3.4"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "2.7"
+
+[preffered_ide]
+name = "Atom:1.7"

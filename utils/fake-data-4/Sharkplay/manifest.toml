@@ -1,0 +1,22 @@
+id = "f991cb9f-bb96-420f-9edc-328dc0bd9813"
+title = "Sharkplay"
+created = "2025-03-19T10:56:56.573571098Z"
+updated = "2025-03-19T10:56:56.573572928Z"
+
+[[category]]
+name = "sing"
+
+[[language]]
+name = "Go"
+version = "3.9"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Bazel"
+version = "2.5"
+
+[preffered_ide]
+name = "Sublime:1.5"

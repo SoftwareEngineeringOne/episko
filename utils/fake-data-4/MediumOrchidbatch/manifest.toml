@@ -1,0 +1,16 @@
+id = "1f30c151-6bd5-4536-807d-43b8cbfd2500"
+title = "MediumOrchidbatch"
+category = []
+created = "2025-03-19T10:56:49.089056331Z"
+updated = "2025-03-19T10:56:49.089058391Z"
+
+[[language]]
+name = "Go"
+version = "5.2"
+
+[[build_system]]
+name = "Webpack"
+version = "1.6"
+
+[preffered_ide]
+name = "Atom:2.1"

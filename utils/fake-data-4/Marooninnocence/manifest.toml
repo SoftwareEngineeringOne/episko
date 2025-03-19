@@ -1,0 +1,26 @@
+id = "2be8b6b6-c2f9-42bc-92c9-21b8b4669b67"
+title = "Marooninnocence"
+created = "2025-03-19T10:56:44.635150366Z"
+updated = "2025-03-19T10:56:44.635152626Z"
+
+[[category]]
+name = "read"
+
+[[category]]
+name = "cry"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "2.5"
+
+[[build_system]]
+name = "Make"
+version = "unknown"

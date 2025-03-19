@@ -1,0 +1,24 @@
+id = "b025ca0e-f0fa-4578-907d-727729155d40"
+title = "Progressdance"
+build_system = []
+repository_url = "https://www.districtweb-readiness.com/redefine/convergence/grow"
+created = "2025-03-19T10:56:45.558261023Z"
+updated = "2025-03-19T10:56:45.558263173Z"
+
+[[category]]
+name = "behind"
+
+[[category]]
+name = "yourselves"
+
+[[language]]
+name = "Java"
+version = "3.2"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "2.3"

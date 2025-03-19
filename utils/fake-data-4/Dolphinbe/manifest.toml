@@ -1,0 +1,27 @@
+id = "c4f71594-e8ef-4906-a386-c9c431598470"
+title = "Dolphinbe"
+description = "Asian yearly each in spit finally firstly plant pause does."
+repository_url = "http://www.corporateempower.name/best-of-breed/content/e-markets/engage"
+created = "2025-03-19T10:56:54.453289760Z"
+updated = "2025-03-19T10:56:54.453292480Z"
+
+[[category]]
+name = "furthermore"
+
+[[category]]
+name = "leap"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "2.7"
+
+[[build_system]]
+name = "Gradle"
+version = "1.8"
+
+[preffered_ide]
+name = "VSCode:2.8"

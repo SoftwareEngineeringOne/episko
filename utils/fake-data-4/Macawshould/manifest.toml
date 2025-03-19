@@ -1,0 +1,25 @@
+id = "33da5222-e123-4dc0-ab36-9e50447395ad"
+title = "Macawshould"
+created = "2025-03-19T10:56:41.138901451Z"
+updated = "2025-03-19T10:56:41.138903631Z"
+
+[[category]]
+name = "she"
+
+[[category]]
+name = "last"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "JavaScript"
+version = "4.3"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preffered_ide]
+name = "Sublime:2.8"

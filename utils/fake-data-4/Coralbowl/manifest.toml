@@ -1,0 +1,21 @@
+id = "ac7bb7ca-e2f7-47f3-bff1-0d296a5e00a5"
+title = "Coralbowl"
+category = []
+repository_url = "https://www.forwardrecontextualize.biz/bricks-and-clicks/robust"
+created = "2025-03-19T10:57:32.421668465Z"
+updated = "2025-03-19T10:57:32.421670315Z"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "VSCode:2.5"

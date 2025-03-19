@@ -1,0 +1,26 @@
+id = "9df5c299-49c9-4308-9127-0d0f93b5efd2"
+title = "Eagleam"
+repository_url = "https://www.centralstrategize.org/iterate/enable"
+created = "2025-03-19T10:57:30.350276521Z"
+updated = "2025-03-19T10:57:30.350278411Z"
+
+[[category]]
+name = "shall"
+
+[[category]]
+name = "his"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.8"

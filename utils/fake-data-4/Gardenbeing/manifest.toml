@@ -1,0 +1,22 @@
+id = "2263e7ca-51a2-481a-aa95-25939919f5ff"
+title = "Gardenbeing"
+description = "Everything strongly last horde had bank mine does another us."
+category = []
+created = "2025-03-19T10:57:04.181139612Z"
+updated = "2025-03-19T10:57:04.181141672Z"
+
+[[language]]
+name = "Rust"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "2.2"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "3.5"

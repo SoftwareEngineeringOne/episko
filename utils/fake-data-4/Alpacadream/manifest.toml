@@ -1,0 +1,31 @@
+id = "c3cac2e1-44d8-4066-8bbc-a4e722e3af93"
+title = "Alpacadream"
+repository_url = "http://www.chiefintegrate.org/24-7/enhance/transform"
+created = "2025-03-19T10:56:42.999947218Z"
+updated = "2025-03-19T10:56:42.999949578Z"
+
+[[category]]
+name = "dream"
+
+[[language]]
+name = "Rust"
+version = "5.7"
+
+[[language]]
+name = "JavaScript"
+version = "4.4"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "3.7"
+
+[[build_system]]
+name = "CMake"
+version = "2.4"
+
+[preffered_ide]
+name = "Sublime:2.9"

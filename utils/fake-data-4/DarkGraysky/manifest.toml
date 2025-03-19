@@ -1,0 +1,17 @@
+id = "5db8a824-0797-4141-80f9-8ff3e51d380c"
+title = "DarkGraysky"
+category = []
+created = "2025-03-19T10:56:52.974051316Z"
+updated = "2025-03-19T10:56:52.974053476Z"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "1.0"
+
+[[build_system]]
+name = "Make"
+version = "2.9"

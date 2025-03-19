@@ -1,0 +1,25 @@
+id = "5bacffe9-8ad5-47c3-a1a7-fb0277bc4426"
+title = "Scorpionbeen"
+repository_url = "https://www.forwardefficient.info/granular/bricks-and-clicks"
+created = "2025-03-19T10:57:06.756379973Z"
+updated = "2025-03-19T10:57:06.756381953Z"
+
+[[category]]
+name = "since"
+
+[[category]]
+name = "so"
+
+[[category]]
+name = "words"
+
+[[language]]
+name = "C#"
+version = "2.9"
+
+[[build_system]]
+name = "Gradle"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.3"

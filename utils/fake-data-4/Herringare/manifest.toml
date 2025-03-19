@@ -1,0 +1,20 @@
+id = "e7a1b954-51b5-4fdf-b0af-9e16722a63ca"
+title = "Herringare"
+description = "Before gee strongly lot example these twist relaxation though upon."
+created = "2025-03-19T10:57:18.608490195Z"
+updated = "2025-03-19T10:57:18.608492445Z"
+
+[[category]]
+name = "as"
+
+[[language]]
+name = "Java"
+version = "2.5"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[build_system]]
+name = "CMake"
+version = "1.5"

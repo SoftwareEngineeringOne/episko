@@ -1,0 +1,18 @@
+id = "b0a364e5-443f-4ef2-9665-3a7b4dd39a82"
+title = "Llamaread"
+build_system = []
+created = "2025-03-19T10:57:23.534815742Z"
+updated = "2025-03-19T10:57:23.534817742Z"
+
+[[category]]
+name = "pack"
+
+[[category]]
+name = "yours"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[preffered_ide]
+name = "Atom:1.1"

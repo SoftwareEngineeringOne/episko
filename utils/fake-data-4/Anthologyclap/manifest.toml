@@ -1,0 +1,26 @@
+id = "ddb1f475-422f-475c-830a-5ccd2b6db7e2"
+title = "Anthologyclap"
+build_system = []
+repository_url = "https://www.futureaction-items.biz/interfaces"
+created = "2025-03-19T10:57:24.125190899Z"
+updated = "2025-03-19T10:57:24.125193029Z"
+
+[[category]]
+name = "he"
+
+[[category]]
+name = "example"
+
+[[category]]
+name = "bunch"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[preffered_ide]
+name = "Vim:2.8"

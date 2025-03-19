@@ -1,0 +1,28 @@
+id = "83d53f8f-238a-4c74-b4d3-0780eb70e0db"
+title = "Packsit"
+description = "Abundant ahead gather indeed whose where therefore kindness another club."
+repository_url = "http://www.internalbrand.name/supply-chains"
+created = "2025-03-19T10:56:45.417790002Z"
+updated = "2025-03-19T10:56:45.417792002Z"
+
+[[category]]
+name = "at"
+
+[[language]]
+name = "TypeScript"
+version = "3.9"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "unknown"
+
+[[build_system]]
+name = "Make"
+version = "2.8"
+
+[preffered_ide]
+name = "Emacs:2.9"

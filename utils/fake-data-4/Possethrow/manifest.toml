@@ -1,0 +1,19 @@
+id = "d9f04dfd-79aa-4f38-a89a-3f5802b3802a"
+title = "Possethrow"
+repository_url = "https://www.centralnext-generation.net/generate"
+created = "2025-03-19T10:56:58.474418145Z"
+updated = "2025-03-19T10:56:58.474421105Z"
+
+[[category]]
+name = "talk"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[build_system]]
+name = "Webpack"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.0"

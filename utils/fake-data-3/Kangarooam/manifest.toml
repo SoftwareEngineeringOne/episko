@@ -1,0 +1,16 @@
+id = "6dcda43a-91c7-47d3-b61e-be8ca9622025"
+title = "Kangarooam"
+build_system = []
+repository_url = "https://www.forwardmorph.info/global"
+created = "2025-03-19T09:46:54.189006355Z"
+updated = "2025-03-19T09:46:54.189008425Z"
+
+[[category]]
+name = "Himalayan"
+
+[[category]]
+name = "furthermore"
+
+[[language]]
+name = "Go"
+version = "1.8"

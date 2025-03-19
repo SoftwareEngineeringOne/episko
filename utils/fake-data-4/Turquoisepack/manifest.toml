@@ -1,0 +1,36 @@
+id = "2013ec86-8a0e-447e-a8e0-9217b53eda5d"
+title = "Turquoisepack"
+created = "2025-03-19T10:57:31.160813644Z"
+updated = "2025-03-19T10:57:31.160815724Z"
+
+[[category]]
+name = "nothing"
+
+[[category]]
+name = "out"
+
+[[category]]
+name = "begin"
+
+[[language]]
+name = "Rust"
+version = "1.6"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Java"
+version = "unknown"
+
+[[build_system]]
+name = "Maven"
+version = "unknown"
+
+[[build_system]]
+name = "Gradle"
+version = "3.7"
+
+[preffered_ide]
+name = "Emacs:2.4"

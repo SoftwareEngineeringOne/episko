@@ -1,0 +1,27 @@
+id = "12c1c2c4-b0bb-4dca-84be-27b7c98e2ff9"
+title = "Bankam"
+description = "Therefore I delightful nearby that tenderly be packet to anyone."
+build_system = []
+created = "2025-03-19T10:56:41.857464810Z"
+updated = "2025-03-19T10:56:41.857467530Z"
+
+[[category]]
+name = "inside"
+
+[[category]]
+name = "education"
+
+[[language]]
+name = "JavaScript"
+version = "unknown"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "C#"
+version = "unknown"
+
+[preffered_ide]
+name = "Emacs:2.9"

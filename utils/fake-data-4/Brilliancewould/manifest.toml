@@ -1,0 +1,28 @@
+id = "212d2aec-551b-4b6f-ab81-45a5c78ca5f2"
+title = "Brilliancewould"
+category = []
+created = "2025-03-19T10:56:47.102089804Z"
+updated = "2025-03-19T10:56:47.102091744Z"
+
+[[language]]
+name = "Python"
+version = "1.5"
+
+[[language]]
+name = "Rust"
+version = "1.9"
+
+[[language]]
+name = "Python"
+version = "2.8"
+
+[[build_system]]
+name = "Gradle"
+version = "1.2"
+
+[[build_system]]
+name = "CMake"
+version = "unknown"
+
+[preffered_ide]
+name = "IntelliJ:2.6"

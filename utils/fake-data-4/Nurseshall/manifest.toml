@@ -1,0 +1,28 @@
+id = "fbaba1ff-94ba-4753-8a7e-32fe50602841"
+title = "Nurseshall"
+category = []
+created = "2025-03-19T10:56:56.300223989Z"
+updated = "2025-03-19T10:56:56.300227029Z"
+
+[[language]]
+name = "Python"
+version = "5.1"
+
+[[language]]
+name = "Go"
+version = "unknown"
+
+[[language]]
+name = "Rust"
+version = "2.2"
+
+[[build_system]]
+name = "Bazel"
+version = "2.6"
+
+[[build_system]]
+name = "Maven"
+version = "2.2"
+
+[preffered_ide]
+name = "Sublime:2.0"
