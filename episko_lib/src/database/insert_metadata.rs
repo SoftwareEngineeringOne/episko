@@ -1,5 +1,5 @@
 use super::{DatabaseHandler, DatabaseObject, Error, Result};
-use crate::metadata::{property::Property, Metadata};
+use crate::metadata::{Metadata, property::Property};
 use sqlx::SqliteConnection;
 
 impl Metadata {
@@ -104,14 +104,10 @@ impl Metadata {
 
 #[cfg(test)]
 mod test {
-    use sqlx::migrate::Migrator;
-
     use super::*;
     use crate::database::setup_db;
 
-    static MIGRATOR: Migrator = sqlx::migrate!();
-
-    #[tokio::test]
+    #[sqlx::test]
     async fn insert_metadata() {
         // let db = DatabaseHandler::new("sqlite://").await.unwrap();
         let db = setup_db().await;

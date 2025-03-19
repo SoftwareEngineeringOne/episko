@@ -35,6 +35,8 @@ pub mod retrieve_metadata;
 pub mod update_metadata;
 pub mod validate_stored_metadata;
 
+mod dao;
+
 pub use database_handler::DatabaseHandler;
 pub use database_object::DatabaseObject;
 use uuid::Uuid;
@@ -70,6 +72,9 @@ pub enum Error {
 
     #[error("async: {0}")]
     Async(String),
+
+    #[error("failed to create metadata instance: {0}")]
+    Conversion(#[from] dao::ConversionError),
 }
 
 #[cfg(test)]
