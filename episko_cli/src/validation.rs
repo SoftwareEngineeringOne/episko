@@ -35,7 +35,12 @@ pub async fn cache_manifest(file: &Utf8PathBuf, config_handler: &mut ConfigHandl
     let db = connect_to_db(config_handler.config()).await?;
 
     let metadata = Metadata::from_file(file.as_std_path())?;
-    Metadata::update_in_db(&metadata, &db).await?;
+
+    if metadata.is_cached(&db).await? {
+        metadata.update_in_db(&db).await?;
+    } else {
+        metadata.write_to_db(&db).await?;
+    }
 
     // Reloading the config_handler / config isn't very pretty,
     // however I think it still that it's the simplest way to do this.

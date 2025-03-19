@@ -1,5 +1,5 @@
-use sqlx::query;
 use sqlx::Row;
+use sqlx::query;
 
 use crate::metadata::Metadata;
 
@@ -27,5 +27,20 @@ impl Metadata {
         let checksum_db: Vec<u8> = row.try_get("checksum")?;
 
         Ok(checksum == checksum_db)
+    }
+
+    /// !TODO!
+    ///
+    /// # Errors
+    /// !TODO!
+    pub async fn is_cached(&self, db: &DatabaseHandler) -> Result<bool> {
+        let row = query("SELECT count(id) as count FROM metadata WHERE id = ?")
+            .bind(self.id)
+            .fetch_one(db.conn())
+            .await?;
+
+        let count: u8 = row.try_get("count")?;
+
+        Ok(count == 1)
     }
 }
