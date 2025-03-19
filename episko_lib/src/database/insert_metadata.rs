@@ -1,5 +1,5 @@
 use super::{DatabaseHandler, DatabaseObject, Error, Result};
-use crate::metadata::{Metadata, property::Property};
+use crate::metadata::{property::Property, Metadata};
 use sqlx::SqliteConnection;
 
 impl Metadata {

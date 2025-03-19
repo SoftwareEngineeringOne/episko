@@ -6,10 +6,10 @@ use uuid::Uuid;
 use episko_lib::{
     database::retrieve_metadata::Pagination,
     files::File,
-    metadata::{Metadata, MetadataPreview, metadata_handler::MetadataHandler},
+    metadata::{metadata_handler::MetadataHandler, Metadata, MetadataPreview},
 };
 
-use crate::{AppState, Error, model::MetadataDco, model::MetadataDto};
+use crate::{model::MetadataDco, model::MetadataDto, AppState, Error};
 
 static PAGE_SIZE: u32 = 10;
 

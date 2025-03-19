@@ -1,9 +1,6 @@
 #![deny(clippy::pedantic)]
 #![allow(clippy::used_underscore_binding)]
-use episko_lib::{
-    config::ConfigHandler,
-    database::DatabaseHandler,
-};
+use episko_lib::{config::ConfigHandler, database::DatabaseHandler};
 use state::AppState;
 use tauri::Manager;
 use tokio::sync::Mutex;

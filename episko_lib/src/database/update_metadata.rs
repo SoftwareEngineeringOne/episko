@@ -1,5 +1,5 @@
-use crate::metadata::Metadata;
 use crate::metadata::property::Property;
+use crate::metadata::Metadata;
 
 use super::DatabaseHandler;
 use super::DatabaseObject;

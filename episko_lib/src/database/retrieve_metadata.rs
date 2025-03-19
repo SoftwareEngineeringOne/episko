@@ -1,6 +1,6 @@
 use super::{
-    DatabaseHandler, Result,
     dao::{ConversionError, MetadataDao, MetadataPreviewDao},
+    DatabaseHandler, Result,
 };
 use crate::metadata::{Metadata, MetadataPreview};
 use sqlx::{QueryBuilder, Row};
