@@ -75,7 +75,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     //     .languages(languages)
     //     .categories(categories)
     //     .build_systems(build_systems)
-    //     .preffered_ide(ide)
+    //     .preferred_ide(ide)
     //     .description("SoftwareEngineering Project")
     //     .build()?;
     //

@@ -31,7 +31,7 @@ pub struct MetadataBuilder {
     title: Option<String>,
     categories: Vec<Category>,
     languages: Vec<Language>,
-    preffered_ide: Option<Ide>,
+    preferred_ide: Option<Ide>,
     build_systems: Vec<BuildSystem>,
     description: Option<String>,
     repository_url: Option<String>,
@@ -51,7 +51,7 @@ impl MetadataBuilder {
             title: None,
             categories: vec![],
             languages: vec![],
-            preffered_ide: None,
+            preferred_ide: None,
             build_systems: vec![],
             description: None,
             repository_url: None,
@@ -71,7 +71,7 @@ impl MetadataBuilder {
             title: Some(metadata.title),
             categories: metadata.categories,
             languages: metadata.languages,
-            preffered_ide: metadata.preffered_ide,
+            preferred_ide: metadata.preferred_ide,
             build_systems: metadata.build_systems,
             description: metadata.description,
             repository_url: metadata.repository_url,
@@ -101,7 +101,7 @@ impl MetadataBuilder {
             title: self.title.ok_or(Error::TitleMissing)?,
             categories: self.categories,
             languages: self.languages,
-            preffered_ide: self.preffered_ide,
+            preferred_ide: self.preferred_ide,
             build_systems: self.build_systems,
             description: self.description,
             repository_url: self.repository_url,
@@ -211,8 +211,8 @@ impl MetadataBuilder {
 
     /// Set the preferred [`Ide`]
     #[must_use]
-    pub fn preffered_ide(mut self, ide: Ide) -> Self {
-        self.preffered_ide = Some(ide);
+    pub fn preferred_ide(mut self, ide: Ide) -> Self {
+        self.preferred_ide = Some(ide);
         self
     }
 
@@ -304,7 +304,7 @@ mod tests {
             .directory(".")
             .add_category("Category1")
             .add_language(Language::with_version("Rust", "1.84.0"))
-            .preffered_ide(Ide::new("VSCode"))
+            .preferred_ide(Ide::new("VSCode"))
             .add_build_system(BuildSystem::with_version("Cargo", "1.84.0"))
             .description("A test project")
             .repository_url("https://github.com/test/project");
@@ -315,7 +315,7 @@ mod tests {
         assert_eq!(metadata.categories[0].name, "Category1");
         assert_eq!(metadata.languages.len(), 1);
         assert_eq!(metadata.languages[0].name, "Rust");
-        assert!(metadata.preffered_ide.is_some());
+        assert!(metadata.preferred_ide.is_some());
         assert_eq!(metadata.build_systems.len(), 1);
         assert_eq!(metadata.description, Some("A test project".to_string()));
         assert_eq!(

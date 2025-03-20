@@ -57,7 +57,7 @@ impl TryInto<Metadata> for MetadataDao {
             .build_systems(build_systems)
             .created(created)
             .updated(updated)
-            .apply_if(preferred_ide, MetadataBuilder::preffered_ide)
+            .apply_if(preferred_ide, MetadataBuilder::preferred_ide)
             .apply_if(self.description.as_deref(), MetadataBuilder::description)
             .apply_if(
                 self.repository_url.as_deref(),
@@ -149,7 +149,7 @@ mod tests {
             dao.repository_url.as_deref()
         );
         assert_eq!(
-            metadata.preffered_ide.as_ref().map(|ide| ide.name()),
+            metadata.preferred_ide.as_ref().map(|ide| ide.name()),
             dao.preferred_ide_name.as_deref()
         );
         assert_eq!(metadata.categories.len(), 1);

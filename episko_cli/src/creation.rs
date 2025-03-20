@@ -80,7 +80,7 @@ fn run_interactive_creation(args: CreateArgs, builder: MetadataBuilder) -> Resul
         .languages(languages)
         .build_systems(build_systems)
         .apply_if(description.as_deref(), MetadataBuilder::description)
-        .apply_if(preferred_ide, MetadataBuilder::preffered_ide)
+        .apply_if(preferred_ide, MetadataBuilder::preferred_ide)
         .apply_if(repository_url.as_deref(), MetadataBuilder::repository_url))
 }
 
@@ -108,7 +108,7 @@ fn run_non_interactive_creation(
             MetadataBuilder::directory_path,
         )
         .apply_if(args.title.as_deref(), MetadataBuilder::title)
-        .apply_if(preferred_ide, MetadataBuilder::preffered_ide)
+        .apply_if(preferred_ide, MetadataBuilder::preferred_ide)
         .apply_if(args.description.as_deref(), MetadataBuilder::description)
         .apply_if(
             args.repository_url.as_deref(),

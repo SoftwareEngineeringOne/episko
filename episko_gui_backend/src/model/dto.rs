@@ -17,7 +17,7 @@ pub struct MetadataDto {
     categories: Vec<Category>,
     languages: Vec<Language>,
     build_systems: Vec<BuildSystem>,
-    preffered_ide: Option<Ide>,
+    preferred_ide: Option<Ide>,
     repository_url: Option<String>,
     created: DateTime<Utc>,
     updated: DateTime<Utc>,
@@ -34,7 +34,7 @@ impl From<Metadata> for MetadataDto {
             categories: metadata.categories,
             languages: metadata.languages,
             build_systems: metadata.build_systems,
-            preffered_ide: metadata.preffered_ide,
+            preferred_ide: metadata.preferred_ide,
             repository_url: metadata.repository_url,
             created: metadata.created,
             updated: metadata.updated,
@@ -69,7 +69,7 @@ mod tests {
             categories: vec![category],
             languages: vec![language],
             build_systems: vec![build_system],
-            preffered_ide: Some(ide),
+            preferred_ide: Some(ide),
             repository_url: Some(String::from("https://github.com/test/project")),
             created: created.clone(),
             updated: updated.clone(),
@@ -89,7 +89,7 @@ mod tests {
             categories: vec![category],
             languages: vec![language],
             build_systems: vec![build_system],
-            preffered_ide: Some(ide),
+            preferred_ide: Some(ide),
             repository_url: Some(String::from("https://github.com/test/project")),
             created,
             updated,
@@ -102,7 +102,7 @@ mod tests {
         assert_eq!(metadata.categories, metadata_dto.categories);
         assert_eq!(metadata.languages, metadata_dto.languages);
         assert_eq!(metadata.build_systems, metadata_dto.build_systems);
-        assert_eq!(metadata.preffered_ide, metadata_dto.preffered_ide);
+        assert_eq!(metadata.preferred_ide, metadata_dto.preferred_ide);
         assert_eq!(metadata.repository_url, metadata_dto.repository_url);
         assert_eq!(metadata.created, metadata_dto.created);
         assert_eq!(metadata.updated, metadata_dto.updated);

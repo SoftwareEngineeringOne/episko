@@ -18,7 +18,7 @@ impl Metadata {
         let mut transaction = db.conn().begin().await?;
 
         let ide_id = self
-            .preffered_ide
+            .preferred_ide
             .as_ref()
             .map(|ide| ide.generate_id().to_vec());
 

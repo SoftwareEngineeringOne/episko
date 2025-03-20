@@ -91,7 +91,7 @@ pub struct Metadata {
     pub languages: Vec<Language>,
     #[serde(rename = "build_system")]
     pub build_systems: Vec<BuildSystem>,
-    pub preffered_ide: Option<Ide>,
+    pub preferred_ide: Option<Ide>,
     pub repository_url: Option<String>,
     pub created: DateTime<Utc>,
     pub updated: DateTime<Utc>,
@@ -138,7 +138,7 @@ impl Metadata {
         self.categories.iter_mut().for_each(Property::update_id);
         self.languages.iter_mut().for_each(Property::update_id);
         self.build_systems.iter_mut().for_each(Property::update_id);
-        self.preffered_ide.iter_mut().for_each(Property::update_id);
+        self.preferred_ide.iter_mut().for_each(Property::update_id);
     }
 
     /// Generate a Sha256 hash based on the instance for

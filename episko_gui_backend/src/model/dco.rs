@@ -19,7 +19,7 @@ pub struct MetadataDco {
     categories: Vec<Category>,
     languages: Vec<Language>,
     build_systems: Vec<BuildSystem>,
-    preffered_ide: Option<Ide>,
+    preferred_ide: Option<Ide>,
     repository_url: Option<String>,
 }
 
@@ -32,7 +32,7 @@ impl MetadataDco {
         self.categories.iter_mut().for_each(Property::update_id);
         self.build_systems.iter_mut().for_each(Property::update_id);
         self.languages.iter_mut().for_each(Property::update_id);
-        self.preffered_ide.iter_mut().for_each(Property::update_id);
+        self.preferred_ide.iter_mut().for_each(Property::update_id);
 
         Ok(Metadata::builder()
             .directory_path(&self.directory)
@@ -40,7 +40,7 @@ impl MetadataDco {
             .categories(self.categories)
             .languages(self.languages)
             .build_systems(self.build_systems)
-            .apply_if(self.preffered_ide, MetadataBuilder::preffered_ide)
+            .apply_if(self.preferred_ide, MetadataBuilder::preferred_ide)
             .apply_if(self.description.as_deref(), MetadataBuilder::description)
             .apply_if(
                 self.repository_url.as_deref(),
@@ -57,7 +57,7 @@ impl MetadataDco {
         self.categories.iter_mut().for_each(Property::update_id);
         self.build_systems.iter_mut().for_each(Property::update_id);
         self.languages.iter_mut().for_each(Property::update_id);
-        self.preffered_ide.iter_mut().for_each(Property::update_id);
+        self.preferred_ide.iter_mut().for_each(Property::update_id);
 
         Ok(metadata
             .update()
@@ -66,7 +66,7 @@ impl MetadataDco {
             .categories(self.categories)
             .languages(self.languages)
             .build_systems(self.build_systems)
-            .apply_if(self.preffered_ide, MetadataBuilder::preffered_ide)
+            .apply_if(self.preferred_ide, MetadataBuilder::preferred_ide)
             .apply_if(self.description.as_deref(), MetadataBuilder::description)
             .apply_if(
                 self.repository_url.as_deref(),
@@ -99,7 +99,7 @@ mod tests {
             categories: vec![category],
             languages: vec![language],
             build_systems: vec![build_system],
-            preffered_ide: Some(ide),
+            preferred_ide: Some(ide),
             repository_url: Some(String::from("https://github.com/test/project")),
         };
 
@@ -117,7 +117,7 @@ mod tests {
         assert_eq!(metadata.categories[0].name, "Application");
         assert_eq!(metadata.languages[0].name, "Rust");
         assert_eq!(metadata.build_systems[0].name, "Cargo");
-        assert_eq!(metadata.preffered_ide.unwrap().name, "Neovim");
+        assert_eq!(metadata.preferred_ide.unwrap().name, "Neovim");
         assert_eq!(
             metadata.repository_url,
             Some("https://github.com/test/project".to_string())
@@ -147,7 +147,7 @@ mod tests {
             categories: vec![category],
             languages: vec![language],
             build_systems: vec![build_system],
-            preffered_ide: Some(ide),
+            preferred_ide: Some(ide),
             repository_url: Some(String::from("https://github.com/updated/project")),
         };
 
@@ -164,7 +164,7 @@ mod tests {
         assert_eq!(updated_metadata.languages[0].name, "Rust");
         assert_eq!(updated_metadata.languages[0].version, None);
         assert_eq!(updated_metadata.build_systems[0].name, "Cargo");
-        assert_eq!(updated_metadata.preffered_ide.unwrap().name, "Neovim");
+        assert_eq!(updated_metadata.preferred_ide.unwrap().name, "Neovim");
         assert_eq!(
             updated_metadata.repository_url,
             Some("https://github.com/updated/project".to_string())

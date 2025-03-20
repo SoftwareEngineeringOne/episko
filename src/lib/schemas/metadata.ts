@@ -15,7 +15,7 @@ export const MetadataDtoSchema = z.object({
 	categories: z.array(CategorySchema),
 	languages: z.array(LanguageSchema),
 	build_systems: z.array(BuildSystemSchema),
-	preffered_ide: z.optional(IdeSchema).nullable(),
+	preferred_ide: z.optional(IdeSchema).nullable(),
 	repository_url: z.string().optional().nullable(),
 	created: z.string(),
 	updated: z.string()
@@ -39,7 +39,7 @@ export const MetadataSchema = MetadataDtoSchema.transform((data) => ({
 	categories: data.categories,
 	languages: data.languages,
 	buildSystems: data.build_systems,
-	preferredIde: data.preffered_ide ?? undefined,
+	preferredIde: data.preferred_ide ?? undefined,
 	repositoryUrl: data.repository_url ?? undefined,
 	created: new Date(data.created),
 	updated: new Date(data.updated)

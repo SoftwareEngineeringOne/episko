@@ -21,7 +21,7 @@ impl Metadata {
         let mut transaction = db.conn().begin().await?;
 
         // Handle preferred IDE relationship
-        self.handle_relation(&mut transaction, self.preffered_ide.as_ref())
+        self.handle_relation(&mut transaction, self.preferred_ide.as_ref())
             .await?;
 
         // Insert main metadata
@@ -77,7 +77,7 @@ impl Metadata {
     async fn insert_metadata(&self, executor: &mut SqliteConnection) -> Result<()> {
         let directory_str = self.directory.to_str();
         let ide_id = self
-            .preffered_ide
+            .preferred_ide
             .as_ref()
             .map(|ide| ide.generate_id().to_vec());
 

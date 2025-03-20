@@ -120,7 +120,7 @@ pub mod db_test {
                     ))
                     .apply_if(
                         (i % 2 == 0).then_some(Ide::new(ides[i % ides.len()])),
-                        MetadataBuilder::preffered_ide,
+                        MetadataBuilder::preferred_ide,
                     )
                     .add_build_system(BuildSystem::with_version(
                         build_systems[i % build_systems.len()],

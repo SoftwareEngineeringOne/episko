@@ -12,7 +12,7 @@ describe('Metadata Functions', () => {
 				categories: [{ name: 'Category 1' }], // Example category
 				languages: [{ name: 'Language 1' }], // Example language
 				build_systems: [{ name: 'Build System 1' }], // Example build system
-				preffered_ide: null,
+				preferred_ide: null,
 				repository_url: null,
 				created: '2023-01-01T00:00:00.000Z',
 				updated: '2023-01-02T00:00:00.000Z'
