@@ -131,7 +131,7 @@ impl DbObjectMeta {
         let id_type = &self.id_type;
 
         let insert_sql = format!(
-            "INSERT INTO {} ({}) VALUES ({})",
+            "INSERT OR IGNORE INTO {} ({}) VALUES ({})",
             self.table,
             columns
                 .clone()

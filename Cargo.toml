@@ -1,12 +1,12 @@
 [workspace]
 members = ["episko_gui_backend", "episko_lib", "episko_cli", "episko_derive"]
-resolver = "2"
+resolver = "3"
 
 [workspace.package]
 version = "1.2.1"
 license = "GPL-3.0-or-later"
 authors = ["Simon Blum", "Ben Oeckl", "Paul Stöckle", "Maximilian Rodler"]
-edition = "2021"
+edition = "2024"
 description = "TBC: Project for University"
 repository = "https://github.com/SoftwareEngineeringOne/episko"
 

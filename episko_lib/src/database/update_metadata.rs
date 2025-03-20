@@ -18,7 +18,7 @@ impl Metadata {
         let mut transaction = db.conn().begin().await?;
 
         let ide_id = self
-            .preffered_ide
+            .preferred_ide
             .as_ref()
             .map(|ide| ide.generate_id().to_vec());
 
@@ -54,6 +54,7 @@ impl Metadata {
             .bind(self.id)
             .execute(&mut *transaction)
             .await?;
+
         for category in &self.categories {
             // Make sure the related category exists.
             if !category.exists(&mut *transaction).await? {

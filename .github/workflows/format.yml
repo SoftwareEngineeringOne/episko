@@ -25,7 +25,7 @@ jobs:
       - name: Install frontend dependencies
         run: bun i
 
-      - name: Format frontend 
+      - name: Format frontend
         run: bun format:ci
 
       - name: Format backend

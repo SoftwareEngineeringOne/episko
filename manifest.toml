@@ -1,0 +1,21 @@
+id = "eb443171-a046-440e-b17e-55689e7bf6bf"
+title = "episko workspace"
+description = "this is fun"
+created = "2025-03-05T15:23:33.316978041Z"
+updated = "2025-03-05T15:23:33.316986573Z"
+
+[[category]]
+name = "uni"
+
+[[language]]
+name = "TS"
+
+[[language]]
+name = "Rust"
+version = "1.84"
+
+[[build_system]]
+name = "Bun"
+
+[[build_system]]
+name = "Cargo"

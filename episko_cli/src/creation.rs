@@ -17,8 +17,7 @@ use super::ComplexArg;
 use camino::Utf8Path;
 use color_eyre::Result;
 use episko_lib::{
-    config::{Config, ConfigHandler},
-    files::File,
+    config::ConfigHandler,
     metadata::{
         builder::ApplyIf, metadata_handler::MetadataHandler, BuildSystem, Category, Ide, Language,
         Metadata, MetadataBuilder,
@@ -34,7 +33,7 @@ use episko_lib::{
 /// - [`color_eyre::Report`] if [`MetadataBuilder::build`] fails
 /// - [`color_eyre::Report`] if [`Metadata::write_to_db`] fails
 /// - [`color_eyre::Report`] if [`Metadata::write_file`] fails
-pub async fn create_manifest(args: CreateArgs, config_handler: &ConfigHandler) -> Result<()> {
+pub async fn create_manifest(args: CreateArgs, config_handler: &mut ConfigHandler) -> Result<()> {
     let builder = Metadata::builder();
 
     let builder = if args.non_interactive {
@@ -45,10 +44,8 @@ pub async fn create_manifest(args: CreateArgs, config_handler: &ConfigHandler) -
 
     let metadata = builder.build()?;
 
-    let config = config_handler.load_config()?;
-
-    let db = connect_to_db(&config).await?;
-    MetadataHandler::save_metadata_static(&metadata, &db, config_handler).await?;
+    let db = connect_to_db(config_handler.config()).await?;
+    MetadataHandler::save_metadata(&metadata, &db, config_handler).await?;
 
     Ok(())
 }
@@ -83,7 +80,7 @@ fn run_interactive_creation(args: CreateArgs, builder: MetadataBuilder) -> Resul
         .languages(languages)
         .build_systems(build_systems)
         .apply_if(description.as_deref(), MetadataBuilder::description)
-        .apply_if(preferred_ide, MetadataBuilder::preffered_ide)
+        .apply_if(preferred_ide, MetadataBuilder::preferred_ide)
         .apply_if(repository_url.as_deref(), MetadataBuilder::repository_url))
 }
 
@@ -111,7 +108,7 @@ fn run_non_interactive_creation(
             MetadataBuilder::directory_path,
         )
         .apply_if(args.title.as_deref(), MetadataBuilder::title)
-        .apply_if(preferred_ide, MetadataBuilder::preffered_ide)
+        .apply_if(preferred_ide, MetadataBuilder::preferred_ide)
         .apply_if(args.description.as_deref(), MetadataBuilder::description)
         .apply_if(
             args.repository_url.as_deref(),

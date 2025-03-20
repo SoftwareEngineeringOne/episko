@@ -11,7 +11,7 @@ pub struct Category {
     #[db(col = "id")]
     id: Vec<u8>,
     #[db(col = "name")]
-    pub(crate) name: String,
+    pub name: String,
 }
 
 impl Property for Category {

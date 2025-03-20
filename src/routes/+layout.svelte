@@ -7,10 +7,15 @@
 	import { Separator } from '$lib/components/ui/separator/index.js';
 	import * as Sidebar from '$lib/components/ui/sidebar';
 	import { Moon, Sun } from 'lucide-svelte';
+	import { Toaster } from '$lib/components/ui/sonner';
+	import Commands from '$lib/commands';
 
 	let { children } = $props();
+
+	let initPromise = Commands.init_cache();
 </script>
 
+<Toaster />
 <ModeWatcher />
 <Sidebar.Provider>
 	<AppSidebar />
@@ -33,7 +38,19 @@
 			</div>
 		</header>
 		<div class="flex flex-1 flex-col gap-4 p-4 pt-0">
-			{@render children()}
+			{#await initPromise}
+				<div class="w-full h-full flex justify-center items-center flex-col">
+					<h1>Loading application</h1>
+					<p>This will be improved in the future, so that loading happens in the background</p>
+				</div>
+			{:then}
+				{@render children()}
+			{:catch error}
+				<div class="w-full h-full flex justify-center items-center flex-col">
+					<h1>Something went very wrong</h1>
+					<p>{error}</p>
+				</div>
+			{/await}
 		</div>
 	</Sidebar.Inset>
 </Sidebar.Provider>

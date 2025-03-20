@@ -1,18 +1,24 @@
 <script lang="ts">
-	import { GlobalState, preventDefault } from '$lib';
-	import { Button } from '$lib/components/ui/button/index.js';
-	import { Input } from '$lib/components/ui/input/index.js';
-	import * as Card from '$lib/components/ui/card/index.js';
-
-	const gs = new GlobalState();
-
-	$inspect(gs.greet, gs.name);
-
-	const onsubmit = preventDefault(() => gs.nlen && gs.submit());
-	const onclick = () => gs.reset();
+	// import { GlobalState, preventDefault } from '$lib';
+	// import { Button } from '$lib/components/ui/button/index.js';
+	// import { Input } from '$lib/components/ui/input/index.js';
+	// import * as Card from '$lib/components/ui/card/index.js';
+	// import { invoke } from '@tauri-apps/api/core';
+	// import type { Metadata } from '$lib/types';
+	//
+	// const gs = new GlobalState();
+	//
+	// $inspect(gs.greet, gs.name);
+	//
+	// const onsubmit = preventDefault(() => gs.nlen && gs.submit());
+	// const onclick = () => gs.reset();
+	//
+	// //!TODO
 </script>
 
-<div
+<h1>🚧 Under construction! 🚧</h1>
+
+<!--<div
 	class="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 transition-all duration-500"
 >
 	<Card.Root
@@ -57,4 +63,4 @@
 			</form>
 		</Card.Content>
 	</Card.Root>
-</div>
+</div>-->

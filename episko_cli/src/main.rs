@@ -22,20 +22,20 @@ async fn main() -> Result<()> {
     color_eyre::install()?;
 
     let args = cli::Cli::parse();
-    let config_handler = ConfigHandler::new()?;
+    let mut config_handler = ConfigHandler::load()?;
 
     match args.command {
         cli::Commands::Create(create_args) => {
-            episko_cli::create_manifest(create_args, &config_handler).await?;
+            episko_cli::create_manifest(create_args, &mut config_handler).await?;
         }
         cli::Commands::Remove { file } => {
-            episko_cli::remove_manifest(&file, &config_handler).await?;
+            episko_cli::remove_manifest(&file, &mut config_handler).await?;
         }
         cli::Commands::Cache { file } => {
-            episko_cli::cache_manifest(&file, &config_handler).await?;
+            episko_cli::cache_manifest(&file, &mut config_handler).await?;
         }
         cli::Commands::Validate { file } => {
-            episko_cli::validate_manifest(&file, &config_handler).await?;
+            episko_cli::validate_manifest(&file, &mut config_handler).await?;
         }
     }
     Ok(())

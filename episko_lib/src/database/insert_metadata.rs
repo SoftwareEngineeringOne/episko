@@ -5,7 +5,7 @@ use sqlx::SqliteConnection;
 impl Metadata {
     const REL_INSERT_QUERY: &str = "INSERT INTO rel_metadata_{}(metadata_id, {}_id) VALUES(?, ?)";
     const METADATA_INSERT_QUERY: &str = "
-        INSERT INTO metadata(
+        INSERT OR REPLACE INTO metadata(
             id, directory, title, description, 
             preferred_ide, repository_url, created, updated, checksum
         ) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -21,7 +21,7 @@ impl Metadata {
         let mut transaction = db.conn().begin().await?;
 
         // Handle preferred IDE relationship
-        self.handle_relation(&mut transaction, &self.preffered_ide)
+        self.handle_relation(&mut transaction, self.preferred_ide.as_ref())
             .await?;
 
         // Insert main metadata
@@ -42,7 +42,7 @@ impl Metadata {
     async fn handle_relation<T: DatabaseObject>(
         &self,
         executor: &mut SqliteConnection,
-        relation: &Option<T>,
+        relation: Option<&T>,
     ) -> Result<()> {
         if let Some(item) = relation {
             if !item.exists(&mut *executor).await? {
@@ -77,7 +77,7 @@ impl Metadata {
     async fn insert_metadata(&self, executor: &mut SqliteConnection) -> Result<()> {
         let directory_str = self.directory.to_str();
         let ide_id = self
-            .preffered_ide
+            .preferred_ide
             .as_ref()
             .map(|ide| ide.generate_id().to_vec());
 
@@ -99,5 +99,26 @@ impl Metadata {
             .await?;
 
         Ok(())
+    }
+}
+
+#[cfg(test)]
+mod test {
+
+    use sqlx::SqlitePool;
+
+    use super::*;
+
+    #[sqlx::test]
+    async fn insert_metadata(conn: SqlitePool) {
+        let db = DatabaseHandler::with_conn(conn);
+
+        let metadata = Metadata::builder()
+            .directory(".")
+            .title("Test")
+            .build()
+            .unwrap();
+
+        metadata.write_to_db(&db).await.unwrap();
     }
 }
