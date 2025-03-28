@@ -16,6 +16,8 @@
 	import FormCategories from './form-categories.svelte';
 	import FormIde from './form-ide.svelte';
 	import { open } from '@tauri-apps/plugin-dialog';
+	import { ArrowLeft } from 'lucide-svelte';
+	import Separator from '../ui/separator/separator.svelte';
 
 	interface Props {
 		metadata?: Metadata;
@@ -78,71 +80,92 @@
 			return data;
 		});
 	}
+
+	function goBack() {
+		history.back();
+	}
 </script>
 
-<h1>{formTitle}</h1>
-<form method="POST" use:enhance>
-	<Form.Field {form} name="directory">
-		<Form.Control>
-			{#snippet children({ props })}
-				<Form.Label>Directory</Form.Label>
-				<div class="flex">
-					<Input {...props} bind:value={$formData.directory} />
-					<Button onclick={pickDirectory}>Choose</Button>
-				</div>
-			{/snippet}
-		</Form.Control>
-		<Form.FieldErrors />
-		<Form.Description>TBC: Choose directory</Form.Description>
-	</Form.Field>
+<div class="flex w-full justify-between">
+	<Button onclick={goBack} variant="link">
+		<ArrowLeft />
+		Back
+	</Button>
+	<h1 class="text-3xl font-bold">{formTitle}</h1>
+	<p></p>
+</div>
+<div class="w-full flex justify-center">
+	<form class="w-[80%]" method="POST" use:enhance>
+		<Form.Field {form} name="directory">
+			<Form.Control>
+				{#snippet children({ props })}
+					<Form.Label>Location</Form.Label>
+					<div class="flex gap-5">
+						<Input {...props} bind:value={$formData.directory} />
+						<Button onclick={pickDirectory} variant="secondary">Pick</Button>
+					</div>
+				{/snippet}
+			</Form.Control>
+			<Form.FieldErrors />
+			<Form.Description>Where the manifest file will be placed</Form.Description>
+		</Form.Field>
+		<div class="divider"></div>
 
-	<Form.Field {form} name="title">
-		<Form.Control>
-			{#snippet children({ props })}
-				<Form.Label>Title</Form.Label>
-				<Input {...props} bind:value={$formData.title} />
-			{/snippet}
-		</Form.Control>
-		<Form.FieldErrors />
-		<Form.Description>TBC: Title of the Project</Form.Description>
-	</Form.Field>
+		<Form.Field {form} name="title">
+			<Form.Control>
+				{#snippet children({ props })}
+					<Form.Label>Title</Form.Label>
+					<Input {...props} bind:value={$formData.title} />
+				{/snippet}
+			</Form.Control>
+			<Form.FieldErrors />
+			<Form.Description></Form.Description>
+		</Form.Field>
+		<Separator class="m-2" />
 
-	<Form.Field {form} name="description">
-		<Form.Control>
-			{#snippet children({ props })}
-				<Form.Label>Description</Form.Label>
-				<Textarea {...props} bind:value={$formData.description} />
-			{/snippet}
-		</Form.Control>
-		<Form.FieldErrors />
-		<Form.Description>TBC: Description of the Project</Form.Description>
-	</Form.Field>
+		<Form.Field {form} name="description">
+			<Form.Control>
+				{#snippet children({ props })}
+					<Form.Label class="flex flex-row"
+						><p>Description&nbsp;</p>
+						<p class="opacity-60">(Optional)</p></Form.Label
+					>
+					<Textarea {...props} bind:value={$formData.description} />
+				{/snippet}
+			</Form.Control>
+			<Form.FieldErrors />
+			<Form.Description></Form.Description>
+		</Form.Field>
 
-	<FormCategories {form} />
-	<br />
+		<div class="divider"></div>
+		<FormCategories {form} />
 
-	<FormLanguages {form} />
-	<br />
+		<div class="divider"></div>
+		<FormLanguages {form} />
+		<br />
 
-	<FormBuildSystems {form} />
-	<br />
+		<FormBuildSystems {form} />
+		<br />
 
-	<FormIde {form} />
-	<br />
+		<div class="divider"></div>
+		<FormIde {form} />
+		<br />
 
-	<Form.Field {form} name="repositoryUrl">
-		<Form.Control>
-			{#snippet children({ props })}
-				<Form.Label>Repository Url</Form.Label>
-				<Input {...props} bind:value={$formData.repositoryUrl} />
-			{/snippet}
-		</Form.Control>
-		<Form.FieldErrors />
-		<Form.Description>TBC: Repo Url of the Project</Form.Description>
-	</Form.Field>
+		<Form.Field {form} name="repositoryUrl">
+			<Form.Control>
+				{#snippet children({ props })}
+					<Form.Label>Repository Url</Form.Label>
+					<Input {...props} bind:value={$formData.repositoryUrl} />
+				{/snippet}
+			</Form.Control>
+			<Form.FieldErrors />
+			<Form.Description>TBC: Repo Url of the Project</Form.Description>
+		</Form.Field>
 
-	<Form.Button>Submit</Form.Button>
-</form>
+		<div class="divider"></div>
+		<Form.Button class="w-full">Submit</Form.Button>
+	</form>
+</div>
 
 <!--
 <div class="container mx-auto p-4">

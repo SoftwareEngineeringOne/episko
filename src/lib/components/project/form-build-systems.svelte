@@ -4,6 +4,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import type { FormMetadata, BuildSystem } from '$lib/types';
 	import type { SuperForm } from 'sveltekit-superforms/client';
+	import { CirclePlus, Trash2 } from 'lucide-svelte';
 
 	interface Props {
 		form: SuperForm<FormMetadata>;
@@ -35,15 +36,15 @@
 	}
 </script>
 
-Build Systems
+<h2 class="text-sm mb-1">Build Systems</h2>
 {#each $formData.buildSystems as _, i}
 	<Form.Field {form} name="buildSystems">
 		<Form.Control>
 			{#snippet children({ props })}
-				<div class="flex">
+				<div class="flex gap-4">
 					<Input {...props} bind:value={$formData.buildSystems[i].name} />
 					<Input {...props} bind:value={$formData.buildSystems[i].version} />
-					<Button variant="destructive" onclick={removeBuildSystem(i)}>Remove</Button>
+					<Button variant="destructive" onclick={removeBuildSystem(i)}><Trash2 /></Button>
 				</div>
 			{/snippet}
 		</Form.Control>
@@ -53,10 +54,10 @@ Build Systems
 <Form.Field {form} name="buildSystems">
 	<Form.Control>
 		{#snippet children({ props })}
-			<div class="flex">
+			<div class="flex gap-4">
 				<Input {...props} bind:value={newBuildSystem.name} />
 				<Input {...props} bind:value={newBuildSystem.version} />
-				<Button variant="default" onclick={addBuildSystem}>Add</Button>
+				<Button variant="secondary" onclick={addBuildSystem}><CirclePlus /></Button>
 			</div>
 		{/snippet}
 	</Form.Control>

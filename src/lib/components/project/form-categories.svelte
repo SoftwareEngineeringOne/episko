@@ -4,6 +4,8 @@
 	import { Badge } from '../ui/badge';
 	import Button from '../ui/button/button.svelte';
 	import { Input } from '../ui/input';
+	import X from '@lucide/svelte/icons/x';
+	import { Delete, Trash } from 'lucide-svelte';
 
 	interface Props {
 		form: SuperForm<FormMetadata>;
@@ -35,12 +37,16 @@
 	}
 </script>
 
-Categories
-{#each $formData.categories as _, i}
-	<Badge
-		>{$formData.categories[i].name}
-		<Button variant="ghost" onclick={removeCategory(i)}>X</Button></Badge
-	>&nbsp;
-{/each}
-<Input bind:value={newCategory} />
-<Button variant="default" onclick={addCategory}>Add</Button>
+<h2 class="text-sm mb-1">Categories</h2>
+<div class="flex gap-2 mb-2">
+	{#each $formData.categories as _, i}
+		<Badge class="hover:cursor-pointer hover:bg-destructive hover:text-destructive-foreground">
+			<p>{$formData.categories[i].name}&nbsp;</p>
+			<button onclick={removeCategory(i)}><Delete size={12} /></button>
+		</Badge>
+	{/each}
+</div>
+<div class="flex gap-5">
+	<Input bind:value={newCategory} />
+	<Button variant="secondary" onclick={addCategory}>Add</Button>
+</div>

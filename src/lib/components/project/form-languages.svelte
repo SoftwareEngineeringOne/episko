@@ -4,6 +4,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import type { FormMetadata, Language } from '$lib/types';
 	import type { SuperForm } from 'sveltekit-superforms/client';
+	import { CirclePlus, Trash2 } from 'lucide-svelte';
 
 	interface Props {
 		form: SuperForm<FormMetadata>;
@@ -36,15 +37,15 @@
 	}
 </script>
 
-Languages
+<h2 class="text-sm mb-1">Languages</h2>
 {#each $formData.languages as _, i}
 	<Form.Field {form} name="languages">
 		<Form.Control>
 			{#snippet children({ props })}
-				<div class="flex">
+				<div class="flex gap-4">
 					<Input {...props} bind:value={$formData.languages[i].name} />
 					<Input {...props} bind:value={$formData.languages[i].version} />
-					<Button variant="destructive" onclick={removeLanguage(i)}>Remove</Button>
+					<Button variant="destructive" onclick={removeLanguage(i)}><Trash2 /></Button>
 				</div>
 			{/snippet}
 		</Form.Control>
@@ -54,10 +55,10 @@ Languages
 <Form.Field {form} name="languages">
 	<Form.Control>
 		{#snippet children({ props })}
-			<div class="flex">
+			<div class="flex gap-4">
 				<Input {...props} bind:value={newLanguage.name} />
 				<Input {...props} bind:value={newLanguage.version} />
-				<Button variant="default" onclick={addLanguage}>Add</Button>
+				<Button variant="secondary" onclick={addLanguage}><CirclePlus /></Button>
 			</div>
 		{/snippet}
 	</Form.Control>
