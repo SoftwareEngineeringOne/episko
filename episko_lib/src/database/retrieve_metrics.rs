@@ -100,3 +100,63 @@ impl Statistic {
         return Ok(counted_projects);
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::{
+        database::{
+            database_handler,
+            db_test::{build_systems, fill_db, ides},
+        },
+        metadata::build_system,
+    };
+
+    use super::*;
+    use sqlx::SqlitePool;
+
+    async fn test_projects_by(
+        conn: SqlitePool,
+        projects_by: &dyn Fn(&DatabaseHandler) -> Result<HashMap<String, u32>, Error>,
+        values: Vec<&str>,
+    ) {
+        let db = DatabaseHandler::with_conn(conn);
+
+        let mut result = projects_by(&db).unwrap();
+
+        assert!(result.is_empty());
+
+        let mut expected: HashMap<String, u32> = Default::default();
+
+        let size: usize = values.len();
+
+        for i in 0..12 {
+            fill_db(size, &db).await;
+            result = projects_by(&db).unwrap();
+            for n in 0..size {
+                expected.insert(values[n % size].to_string(), (i + 1).try_into().unwrap());
+            }
+            assert_eq!(result, expected);
+        }
+    }
+
+    #[sqlx::test]
+    async fn test_projects_by_build_system(conn: SqlitePool) {
+        //TODO: Parse correct function + do it for all categories
+
+        todo!();
+        //test_projects_by(conn, &Statistic::projects_by_build_system, build_systems.to_vec());
+    }
+
+    #[sqlx::test]
+    async fn test_number_of_projects(conn: SqlitePool) {
+        let db = DatabaseHandler::with_conn(conn);
+
+        for i in 0..7 {
+            let result = Statistic::number_of_projects(&db).await.unwrap();
+
+            assert_eq!(result, i);
+
+            fill_db(1, &db).await;
+        }
+    }
+}

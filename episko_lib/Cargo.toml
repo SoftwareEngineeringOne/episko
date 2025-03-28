@@ -25,6 +25,7 @@ dotenvy = "0.15.7"
 tokio = {version = "1.43.0", features = ["full"]}
 async-trait = "0.1.86"
 glob = "0.3.2"
+serde_json = "1.0.140"
 
 [[bin]]
 name = "lib_debug"

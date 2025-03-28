@@ -5,9 +5,12 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
-export function sanity_check(a: number, b: number): number {
-	return a + b;
-}
+export const preventDefault = <T extends Event>(fn: (e: T) => void): ((e: T) => void) => {
+	return (e: T) => {
+		e.preventDefault();
+		fn(e);
+	};
+};
 
 export function flyAndScale(node: HTMLElement, { duration = 300 } = {}) {
 	return {

@@ -1,0 +1,98 @@
+name: Lint front- and backend
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint-frontend:
+    permissions:
+      contents: write
+    runs-on: 'ubuntu-24.04'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install bun dependencies
+        run: |
+          bun i
+
+      - name: Run frontend linting for badge
+        if: ${{ github.ref_name == 'main' }}
+        run: |
+          PROBLEMS=$(bun --silent check:ci | tail -n 1 | awk '{print $5 + $7}')
+          echo "frontend_problems=${PROBLEMS}" >> $GITHUB_ENV
+
+      - name: Create frontend lints badge
+        if: ${{ github.ref_name == 'main' }}
+        uses: schneegans/dynamic-badges-action@v1.7.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 6576287f91ca84ec0583a5ca2d5ec495
+          filename: lints_frontend.json
+          label: Problems Frontend
+          labelColor: '#1e1e2e'
+          namedLogo: svelte
+          style: flat
+          message: ${{ env.frontend_problems }}
+          valColorRange: ${{ env.frontend_problems }}
+          minColorRange: 0
+          maxColorRange: 3
+          invertColorRange: true
+
+      - name: Validate frontend linting
+        run: bun check
+
+  lint-backend:
+    permissions:
+      contents: write
+    runs-on: 'ubuntu-24.04'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf jq
+
+      - name: Run backend linting for badge
+        if: ${{ github.ref_name == 'main' }}
+        continue-on-error: true
+        run: |
+          cargo clippy --workspace --all-features --keep-going --message-format json > out.json
+          PROBLEMS=$(cat out.json |  \
+            jq -r 'select((.message.level=="warning") or (.message.level == "error")) | .message.level' | \
+            wc -l)
+
+          echo "backend_problems=${PROBLEMS}" >> $GITHUB_ENV
+
+      - name: Create frontend lints badge
+        if: ${{ github.ref_name == 'main' }}
+        uses: schneegans/dynamic-badges-action@v1.7.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 6576287f91ca84ec0583a5ca2d5ec495
+          filename: lints_backend.json
+          label: Problems Backend
+          labelColor: '#1e1e2e'
+          namedLogo: rust
+          style: flat
+          message: ${{ env.backend_problems }}
+          valColorRange: ${{ env.backend_problems }}
+          minColorRange: 0
+          maxColorRange: 3
+          invertColorRange: true
+
+      - name: Validate backend lints
+        run: cargo clippy --workspace --all-features -- --deny warnings

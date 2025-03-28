@@ -1,0 +1,88 @@
+name: Generate Test Coverage
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  coverage-frontend:
+    runs-on: 'ubuntu-24.04'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get install -y jq
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install bun dependencies
+        run: |
+          bun i
+
+      - name: Analyse code coverage
+        run: |
+          bunx vitest run --coverage
+          COVERAGE_PERCENT=$(printf "%.0f\n" $(cat coverage/coverage-summary.json| jq '.total.functions.pct'))
+          echo "coverage_frontend=${COVERAGE_PERCENT}" >> $GITHUB_ENV
+
+      - name: Create frontend coverage badge
+        if: ${{ github.ref_name == 'main' }}
+        uses: schneegans/dynamic-badges-action@v1.7.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 6576287f91ca84ec0583a5ca2d5ec495
+          filename: coverage_frontend.json
+          label: Coverage Frontend
+          labelColor: '#1e1e2e'
+          namedLogo: vitest
+          style: flat
+          message: ${{ env.coverage_frontend }}%
+          valColorRange: ${{ env.coverage_frontend }}%
+          minColorRange: 50
+          maxColorRange: 90
+
+  coverage-backend:
+    runs-on: 'ubuntu-24.04'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf jq
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install cargo-llvm-cov
+        uses: taiki-e/install-action@cargo-llvm-cov
+
+      - name: Analyse code coverage
+        run: |
+          cargo llvm-cov --all-features --workspace --json --output-path cov.json
+          COVERAGE_PERCENT=$(printf "%.0f\n" $(cat cov.json | jq '.data[].totals.regions.percent'))
+          echo "coverage_backend=${COVERAGE_PERCENT}" >> $GITHUB_ENV
+
+      - name: Create backend coverage badge
+        if: ${{ github.ref_name == 'main' }}
+        uses: schneegans/dynamic-badges-action@v1.7.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 6576287f91ca84ec0583a5ca2d5ec495
+          filename: coverage_backend.json
+          label: Coverage Backend
+          labelColor: '#1e1e2e'
+          namedLogo: rust
+          style: flat
+          message: ${{ env.coverage_backend }}%
+          valColorRange: ${{ env.coverage_backend }}%
+          minColorRange: 50
+          maxColorRange: 90

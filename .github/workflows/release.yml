@@ -1,11 +1,5 @@
 name: Release front and backend
 on:
-  push:
-    branches:
-      - main
-      - alpha
-      - beta
-      - next
   workflow_dispatch:
 
 jobs:
@@ -33,16 +27,40 @@ jobs:
     runs-on: ubuntu-24.04
     permissions:
       contents: write
-    steps: 
+    steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-      
-      - run: bun i
-      
+
+      - name: Install Bun dependencies
+        run: bun i
+
+      - name: Get next version
+        id: get_next_version
+        uses: thenativeweb/get-next-version@main
+
+      - name: Update backend version
+        run: |
+          NEXT_VERSION=${{ steps.get_next_version.outputs.version }}
+
+          sed -i 's/^\(version = "\).*\("\)/\1'$NEXT_VERSION'\2/' Cargo.toml
+          sed -i 's/\("version": "\).*\("\)/\1'$NEXT_VERSION'\2/' episko_gui_backend/tauri.conf.json
+
+      - name: Commit and push changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: '.'
+          message: '[Actions] chore: update backend version [skip ci]'
+          author_name: github-actions[bot]
+          committer_name: github-actions[bot]
+          author_email: github-actions[bot]@github.com
+          committer_email: github-actions[bot]@github.com
+
       - name: install dependencies
         run: |
           sudo apt-get update
@@ -57,9 +75,3 @@ jobs:
           no-verify: true
           registry-token: ${{ secrets.CRATES_TOKEN }}
           ignore-unpublished-changes: true
-
-
-
-
-
-

@@ -1,8 +1,5 @@
 use glob::glob;
-use std::{
-    collections::{HashMap, HashSet},
-    path::{Path, PathBuf},
-};
+use std::path::{Path, PathBuf};
 
 use crate::{
     config::{Config, ConfigHandler},
@@ -11,48 +8,38 @@ use crate::{
 };
 
 use super::{Error, Metadata, Result};
-use uuid::Uuid;
 
 #[derive(Default, Debug)]
-pub struct MetadataHandler {
-    pub loaded_metadata: HashMap<Uuid, Metadata>,
-}
+pub struct MetadataHandler;
 
 impl MetadataHandler {
+    /// !TODO!
+    #[must_use]
     pub fn new() -> Self {
-        Self {
-            loaded_metadata: HashMap::new(),
-        }
+        Self
     }
 
     /// Loading should be done using tauri and events and stuff
     /// This function will probably be removed?
-    pub fn load_from_config(&mut self, config: &Config) -> Result<()> {
-        config
+    ///
+    /// # Errors
+    /// !TODO!
+    pub fn load_from_config(&self, config: &Config) -> Result<Vec<Metadata>> {
+        Ok(config
             .files_to_load
             .iter()
-            .filter_map(|el| Metadata::from_file(&el).ok())
-            .for_each(|metadata| {
-                self.loaded_metadata.insert(metadata.id(), metadata);
-            });
-        Ok(())
+            .filter_map(|el| Metadata::from_file(el).ok())
+            .collect())
     }
 
+    /// !TODO!
+    ///
+    /// # Errors
+    /// !TODO!
     pub async fn save_metadata(
-        &mut self,
-        metadata: Metadata,
-        db: &DatabaseHandler,
-        config_handler: &ConfigHandler,
-    ) -> Result<()> {
-        Self::save_metadata_static(&metadata, db, config_handler).await?;
-        self.loaded_metadata.insert(metadata.id(), metadata);
-        Ok(())
-    }
-
-    pub async fn save_metadata_static(
         metadata: &Metadata,
         db: &DatabaseHandler,
-        config_handler: &ConfigHandler,
+        config_handler: &mut ConfigHandler,
     ) -> Result<()> {
         metadata
             .write_to_db(db)
@@ -62,12 +49,10 @@ impl MetadataHandler {
             .write_file(metadata.directory())
             .map_err(|err| Error::Save(err.to_string()))?;
 
-        let mut config = config_handler
-            .load_config()
-            .map_err(|err| Error::Save(err.to_string()))?;
-        config.add_saved_file(metadata.directory());
+        config_handler.add_saved_file(metadata.directory());
+
         config_handler
-            .save_config(&config)
+            .save_config()
             .map_err(|err| Error::Save(err.to_string()))?;
 
         Ok(())
@@ -76,18 +61,25 @@ impl MetadataHandler {
     /// Get paths to locations of manifests
     ///
     /// Loading should be done using tauri and events and stuff
+    ///
+    /// # Errors
+    /// !TODO!
     pub fn search_directory(dir: &Path) -> Result<Vec<PathBuf>> {
-        Ok(glob(
+        glob(
             dir.join("**/manifest.toml")
                 .to_str()
                 .ok_or(Error::Directory("unable to locate dir".to_string()))?,
         )
         .map_err(|err| Error::Directory(err.to_string()))?
         .map(|manifest| manifest.map_err(|err| Error::File(err.to_string())))
-        .collect::<Result<Vec<_>>>()?)
+        .collect::<Result<Vec<_>>>()
     }
 
-    pub fn search_metadata(query: &str) -> Result<Vec<Metadata>> {
+    /// !TODO!
+    ///
+    /// # Errors
+    /// !TODO!
+    pub fn search_metadata(_query: &str) -> Result<Vec<Metadata>> {
         todo!()
     }
 }

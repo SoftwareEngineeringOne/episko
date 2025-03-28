@@ -1,107 +1,312 @@
-use super::{DatabaseHandler, DatabaseObject, Result};
-use crate::metadata::{BuildSystem, Category, Ide, Language, Metadata};
-use chrono::DateTime;
-use sqlx::Row;
-use std::str::FromStr;
+use super::{
+    dao::{ConversionError, MetadataDao, MetadataPreviewDao},
+    DatabaseHandler, Result,
+};
+use crate::metadata::{Metadata, MetadataPreview};
+use sqlx::{QueryBuilder, Row};
+
 use uuid::Uuid;
 
 impl Metadata {
-    /// Retrieve a metadata object based on it's id.
+    /// Retrieves a single [`Metadata`] entry by ID from the database
+    ///
+    /// !TODO!
+    /// # Errors
+    /// Returns `Err` if database query fails or data conversion fails
     pub async fn from_db(db: &DatabaseHandler, id: Uuid) -> Result<Self> {
-        let row = sqlx::query(
-            "SELECT id, directory, title, description, preferred_ide, repository_url, created, updated 
-             FROM metadata 
-             WHERE id = ?",
-        )
-        .bind(id)
-        .fetch_one(db.conn())
-        .await?;
+        let query = build_query(Some(&QueryFilter::Id), None);
+        let dao: MetadataDao = sqlx::query_as(&query).bind(id).fetch_one(db.conn()).await?;
 
-        let id: Vec<u8> = row.try_get("id")?;
-        let directory: String = row.try_get("directory")?;
-        let title: String = row.try_get("title")?;
-        let description: Option<String> = row.try_get("description")?;
-        let preferred_ide_id: Option<Vec<u8>> = row.try_get("preferred_ide")?;
-        let repository_url: Option<String> = row.try_get("repository_url")?;
-        let created: String = row.try_get("created")?;
-        let updated: String = row.try_get("updated")?;
+        Ok(dao.try_into()?)
+    }
 
-        // Load many-to-many relationships.
-        let categories = {
-            let rows =
-                sqlx::query("SELECT category_id FROM rel_metadata_category WHERE metadata_id = ?")
-                    .bind(&id)
-                    .fetch_all(db.conn())
-                    .await?;
-            let mut cats = Vec::new();
-            for row in rows {
-                let cat_id: Vec<u8> = row.try_get("category_id")?;
-                let cat = Category::from_db(cat_id, db.conn()).await?;
-                cats.push(cat);
-            }
-            cats
-        };
+    /// Retrieves paginated [`Metadata`] entries from database
+    ///
+    /// !TODO!
+    /// # Errors
+    /// Returns `Err` if database query fails or data conversion fails
+    pub async fn all_from_db(
+        pagination: Option<Pagination>,
+        db: &DatabaseHandler,
+    ) -> Result<Vec<Self>> {
+        let query = build_query(Some(&QueryFilter::None), pagination.as_ref());
+        let mut query = sqlx::query_as::<_, MetadataDao>(&query);
 
-        let languages = {
-            let rows =
-                sqlx::query("SELECT language_id FROM rel_metadata_language WHERE metadata_id = ?")
-                    .bind(&id)
-                    .fetch_all(db.conn())
-                    .await?;
-            let mut langs = Vec::new();
-            for row in rows {
-                let lang_id: Vec<u8> = row.try_get("language_id")?;
-                let lang = Language::from_db(lang_id, db.conn()).await?;
-                langs.push(lang);
-            }
-            langs
-        };
-
-        let build_systems = {
-            let rows = sqlx::query(
-                "SELECT build_system_id FROM rel_metadata_build_system WHERE metadata_id = ?",
-            )
-            .bind(&id)
-            .fetch_all(db.conn())
-            .await?;
-            let mut bss = Vec::new();
-            for row in rows {
-                let bs_id: Vec<u8> = row.try_get("build_system_id")?;
-                let bs = BuildSystem::from_db(bs_id, db.conn()).await?;
-                bss.push(bs);
-            }
-            bss
-        };
-
-        // Retrieve the preferred IDE (if any).
-        let preffered_ide = if let Some(ide_id) = preferred_ide_id {
-            Some(Ide::from_db(ide_id, db.conn()).await?)
-        } else {
-            None
-        };
-
-        let mut builder = Metadata::builder()
-            .id(Uuid::from_slice(&id)?)
-            .directory(&directory)
-            .title(&title)
-            .created(DateTime::from_str(&created)?)
-            .updated(DateTime::from_str(&updated)?)
-            .categories(categories)
-            .languages(languages)
-            .build_systems(build_systems);
-
-        if let Some(description) = description {
-            builder = builder.description(&description);
-        };
-
-        if let Some(url) = repository_url {
-            builder = builder.repository_url(&url);
-        };
-
-        if let Some(ide) = preffered_ide {
-            builder = builder.preffered_ide(ide);
+        if let Some(p) = &pagination {
+            let offset = p.offset();
+            query = query.bind(p.page_size).bind(offset);
         }
 
-        Ok(builder.build()?)
+        let daos = query.fetch_all(db.conn()).await?;
+        convert_daos(daos)
+    }
+
+    /// Retrieves paginated [`MetadataPreview`] entries with optional search
+    ///
+    /// # Errors
+    /// !TODO!
+    /// Returns `Err` if database query fails or data conversion fails
+    pub async fn all_preview_from_db(
+        pagination: Option<Pagination>,
+        query: Option<String>,
+        db: &DatabaseHandler,
+    ) -> Result<Vec<MetadataPreview>> {
+        let filter = query
+            .as_ref()
+            .map(|q| QueryFilter::TitleLike(format!("%{q}%")));
+
+        let sql = build_query(filter.as_ref(), pagination.as_ref());
+        let mut query = sqlx::query_as::<_, MetadataPreviewDao>(&sql);
+
+        if let Some(QueryFilter::TitleLike(search)) = filter {
+            query = query.bind(search);
+        }
+
+        if let Some(p) = &pagination {
+            query = query.bind(p.page_size).bind(p.offset());
+        }
+
+        let daos = query.fetch_all(db.conn()).await?;
+        convert_daos(daos)
+    }
+
+    /// Counts total [`Metadata`] entries with optional search filter
+    ///
+    /// # Errors
+    /// !TODO!
+    /// Returns `Err` if database query fails
+    pub async fn amount_cached(query: Option<String>, db: &DatabaseHandler) -> Result<u32> {
+        let mut builder = QueryBuilder::new("SELECT COUNT(id) as count FROM metadata");
+
+        if let Some(search) = &query {
+            builder
+                .push(" WHERE title LIKE ")
+                .push_bind(format!("%{search}%"));
+        }
+
+        let row = builder.build().fetch_one(db.conn()).await?;
+        Ok(row.try_get("count")?)
+    }
+}
+
+#[derive(Debug)]
+pub struct Pagination {
+    page_number: u32,
+    page_size: u32,
+}
+
+impl Pagination {
+    #[must_use]
+    pub const fn new(page_number: u32, page_size: u32) -> Self {
+        Self {
+            page_number,
+            page_size,
+        }
+    }
+
+    #[must_use]
+    pub const fn offset(&self) -> u32 {
+        self.page_number.saturating_sub(1) * self.page_size
+    }
+}
+
+enum QueryFilter {
+    Id,
+    TitleLike(String),
+    None,
+}
+
+fn build_query(filter: Option<&QueryFilter>, pagination: Option<&Pagination>) -> String {
+    let mut query = String::from(
+        r"
+        SELECT
+            metadata.id,
+            metadata.directory,
+            metadata.title,
+            metadata.description,
+            metadata.repository_url,
+            metadata.created,
+            metadata.updated,
+            metadata.checksum,
+            ide.name AS preferred_ide_name,
+            COALESCE(
+                json_group_array(
+                    DISTINCT json_object('name', category.name)
+                ) FILTER(WHERE category.name IS NOT NULL),
+                '[]'
+            ) AS categories,
+            COALESCE(
+                json_group_array(
+                    DISTINCT json_object('name', language.name, 'version', language.version)
+                ) FILTER(WHERE language.name IS NOT NULL),
+                '[]'
+            ) AS languages,
+            COALESCE(
+                json_group_array(
+                    DISTINCT json_object('name', build_system.name, 'version', build_system.version)
+                ) FILTER(WHERE build_system.name IS NOT NULL),
+                '[]'
+            ) AS build_systems
+        FROM metadata
+        LEFT JOIN ide ON metadata.preferred_ide = ide.id
+        LEFT JOIN rel_metadata_category rmc ON metadata.id = rmc.metadata_id
+        LEFT JOIN category ON rmc.category_id = category.id
+        LEFT JOIN rel_metadata_language rml ON metadata.id = rml.metadata_id
+        LEFT JOIN language ON rml.language_id = language.id
+        LEFT JOIN rel_metadata_build_system rmbs ON metadata.id = rmbs.metadata_id
+        LEFT JOIN build_system ON rmbs.build_system_id = build_system.id
+        ",
+    );
+
+    if let Some(filter) = filter {
+        match filter {
+            QueryFilter::Id => query.push_str("WHERE metadata.id = ?"),
+            QueryFilter::TitleLike(_) => query.push_str("WHERE metadata.title LIKE ?"),
+            QueryFilter::None => {}
+        }
+    }
+
+    query.push_str(" GROUP BY metadata.id ORDER BY metadata.updated DESC");
+
+    if pagination.is_some() {
+        query.push_str(" LIMIT ? OFFSET ?");
+    }
+
+    query
+}
+
+fn convert_daos<T, U>(daos: Vec<T>) -> Result<Vec<U>>
+where
+    T: TryInto<U, Error = ConversionError>,
+{
+    daos.into_iter()
+        .map(|el| Ok(el.try_into()?))
+        .collect::<Result<Vec<_>>>()
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::database::db_test::fill_db;
+
+    use super::*;
+    use sqlx::SqlitePool;
+    use uuid::Uuid;
+
+    #[sqlx::test]
+    async fn test_from_db_valid_id(conn: SqlitePool) {
+        let db = DatabaseHandler::with_conn(conn);
+
+        let expected = Metadata::builder()
+            .title("test")
+            .directory(".")
+            .build()
+            .unwrap();
+
+        expected.write_to_db(&db).await.unwrap();
+
+        // Act
+        let result = Metadata::from_db(&db, expected.id).await;
+
+        // Assert
+        // assert!(result.is_ok());
+        let metadata = result.unwrap();
+        assert_eq!(metadata.get_hash().unwrap(), expected.get_hash().unwrap());
+    }
+
+    #[sqlx::test]
+    async fn test_from_db_invalid_id(conn: SqlitePool) {
+        let db = DatabaseHandler::with_conn(conn);
+        fill_db(25, &db).await;
+        let invalid_id = Uuid::new_v4();
+
+        let result = Metadata::from_db(&db, invalid_id).await;
+
+        assert!(result.is_err());
+    }
+
+    #[sqlx::test]
+    async fn test_db_pagination(conn: SqlitePool) {
+        let db = DatabaseHandler::with_conn(conn);
+        fill_db(50, &db).await;
+        let pagination_10 = Pagination::new(1, 10);
+        let pagination_20 = Pagination::new(1, 20);
+
+        let result_10 = Metadata::all_preview_from_db(Some(pagination_10), None, &db).await;
+        let result_20 = Metadata::all_preview_from_db(Some(pagination_20), None, &db).await;
+        let result_all = Metadata::all_preview_from_db(None, None, &db).await;
+
+        assert!(result_10.is_ok());
+        assert!(result_20.is_ok());
+        assert!(result_all.is_ok());
+        let metadata_10 = result_10.unwrap();
+        let metadata_20 = result_20.unwrap();
+        let metadata_all = result_all.unwrap();
+
+        assert!(metadata_10.len() == 10);
+        assert!(metadata_20.len() == 20);
+        assert!(metadata_all.len() == 50);
+    }
+
+    #[sqlx::test]
+    async fn test_db_search(conn: SqlitePool) {
+        let db = DatabaseHandler::with_conn(conn);
+        fill_db(25, &db).await;
+
+        let test_metadata = Metadata::builder()
+            .title("test")
+            .directory(".")
+            .build()
+            .unwrap();
+
+        test_metadata
+            .write_to_db(&db)
+            .await
+            .expect("write test data with title to db");
+
+        let search_query = Some("test".to_string());
+        let pagination = Pagination::new(1, 10);
+
+        let result = Metadata::all_preview_from_db(Some(pagination), search_query, &db).await;
+
+        assert!(result.is_ok());
+        let previews = result.unwrap();
+
+        assert!(!previews.is_empty());
+        assert!(previews.len() <= 10);
+    }
+
+    #[sqlx::test]
+    async fn test_amount_cached(conn: SqlitePool) {
+        let db = DatabaseHandler::with_conn(conn);
+        fill_db(37, &db).await;
+
+        let result = Metadata::amount_cached(None, &db).await;
+
+        assert!(result.is_ok());
+        let amount = result.unwrap();
+        assert_eq!(amount, 37);
+    }
+
+    #[sqlx::test]
+    async fn test_pagination_offset() {
+        let pagination = Pagination::new(2, 10);
+
+        let offset = pagination.offset();
+
+        assert_eq!(offset, 10);
+    }
+
+    #[sqlx::test]
+    async fn test_page_number_zero(conn: SqlitePool) {
+        let db = DatabaseHandler::with_conn(conn);
+        fill_db(41, &db).await;
+        let pagination = Pagination::new(0, 10);
+
+        let result = Metadata::all_preview_from_db(Some(pagination), None, &db).await;
+
+        assert!(result.is_ok());
+        let previews = result.unwrap();
+
+        assert_eq!(previews.len(), 10)
     }
 }
