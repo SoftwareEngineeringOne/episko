@@ -14,7 +14,7 @@ export const pageState = $state<{
 	filter: {
 		query: '',
 		category: null,
-		language: null,
+		language: null
 	}
 });
 

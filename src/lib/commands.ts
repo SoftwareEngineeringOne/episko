@@ -1,5 +1,14 @@
 import { invoke } from '@tauri-apps/api/core';
-import type { Category, Filter, FormMetadata, Language, Metadata, MetadataPreview, PagedMetadataPreview, Uuid } from './types';
+import type {
+	Category,
+	Filter,
+	FormMetadata,
+	Language,
+	Metadata,
+	MetadataPreview,
+	PagedMetadataPreview,
+	Uuid
+} from './types';
 import { parseMetadata, parseMetadataDco, parseMetadataPreviewArray } from './schemas/metadata';
 import { PagedMetadataPreviewSchema } from './schemas/pagedData';
 import { parseCategoryArray } from './schemas/category';
@@ -14,8 +23,8 @@ export default {
 		let sanitizedFilter: Filter = {
 			query: filter.query === '' ? null : filter.query,
 			category: filter.category === '' ? null : filter.category,
-			language: filter.language === '' ? null : filter.language,
-		}
+			language: filter.language === '' ? null : filter.language
+		};
 
 		return invoke('get_all', { pageNumber: pageNumber, filter: sanitizedFilter }).then((data) =>
 			PagedMetadataPreviewSchema.parse(data)

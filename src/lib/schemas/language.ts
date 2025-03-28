@@ -7,7 +7,7 @@ export const LanguageSchema = z.object({
 });
 
 export function parseLanguage(data: unknown): Language {
-	return LanguageSchema.parse(data)
+	return LanguageSchema.parse(data);
 }
 
 export function parseLanguageArray(data: unknown): Language[] {

@@ -2,9 +2,9 @@
 use std::time::Duration;
 
 use sqlx::{
-    SqlitePool,
     migrate::{MigrateDatabase, Migrator},
     sqlite::{SqliteConnectOptions, SqlitePoolOptions},
+    SqlitePool,
 };
 
 use sqlx::ConnectOptions;

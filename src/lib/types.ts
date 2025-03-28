@@ -12,9 +12,9 @@ import type { CategorySchema } from './schemas/category';
 import type { BuildSystemSchema } from './schemas/buildSystem';
 
 export interface Filter {
-	query: string | null,
-	category: string | null,
-	language: string | null,
+	query: string | null;
+	category: string | null;
+	language: string | null;
 }
 
 export type Metadata = z.infer<typeof MetadataSchema>;
