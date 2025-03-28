@@ -6,7 +6,7 @@ export const CategorySchema = z.object({
 });
 
 export function parseCategory(data: unknown): Category {
-	return CategorySchema.parse(data)
+	return CategorySchema.parse(data);
 }
 
 export function parseCategoryArray(data: unknown): Category[] {

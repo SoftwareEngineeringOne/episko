@@ -91,8 +91,8 @@ pub mod db_test {
 
     use super::*;
     use crate::{
+        metadata::{property::Property as _, Metadata, *},
         ApplyIf as _,
-        metadata::{Metadata, property::Property as _, *},
     };
     use chrono::{TimeDelta, Utc};
 
@@ -164,7 +164,7 @@ pub mod db_test {
 mod test {
     use sqlx::SqlitePool;
 
-    use crate::database::{DatabaseHandler, db_test::fill_db};
+    use crate::database::{db_test::fill_db, DatabaseHandler};
 
     #[sqlx::test]
     async fn setup_test_db(conn: SqlitePool) {
