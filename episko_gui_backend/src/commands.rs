@@ -4,12 +4,12 @@ use tokio::sync::Mutex;
 use uuid::Uuid;
 
 use episko_lib::{
-    database::retrieve_metadata::Pagination,
+    database::{DatabaseObject, Filter, retrieve_metadata::Pagination},
     files::File,
-    metadata::{metadata_handler::MetadataHandler, Metadata, MetadataPreview},
+    metadata::{Category, Language, Metadata, MetadataPreview, metadata_handler::MetadataHandler},
 };
 
-use crate::{model::MetadataDco, model::MetadataDto, AppState, Error};
+use crate::{AppState, Error, model::MetadataDco, model::MetadataDto};
 
 static PAGE_SIZE: u32 = 10;
 
@@ -44,20 +44,20 @@ pub async fn init_cache(state: tauri::State<'_, Mutex<AppState>>) -> Result<(), 
 #[tauri::command]
 pub async fn get_all(
     page_number: u32,
-    query: Option<String>,
+    filter: Filter,
     state: tauri::State<'_, Mutex<AppState>>,
 ) -> Result<PagedData<MetadataPreview>, Error> {
     let state = state.lock().await;
 
     let projects = Metadata::all_preview_from_db(
         Some(Pagination::new(page_number, PAGE_SIZE)),
-        query.clone(),
+        filter.clone(),
         &state.db,
     )
     .await?;
 
     Ok(PagedData {
-        total_size: Metadata::amount_cached(query, &state.db).await?,
+        total_size: Metadata::amount_cached(filter.query, &state.db).await?,
         page_size: PAGE_SIZE,
         page_number,
         data: projects,
@@ -72,6 +72,24 @@ pub async fn get_with_id(
     let state = state.lock().await;
 
     Ok(Metadata::from_db(&state.db, id).await.map(Into::into)?)
+}
+
+#[tauri::command]
+pub async fn get_all_categories(
+    state: tauri::State<'_, Mutex<AppState>>,
+) -> Result<Vec<Category>, Error> {
+    let state = state.lock().await;
+
+    Ok(Category::all_names(state.db.conn()).await?)
+}
+
+#[tauri::command]
+pub async fn get_all_languages(
+    state: tauri::State<'_, Mutex<AppState>>,
+) -> Result<Vec<Language>, Error> {
+    let state = state.lock().await;
+
+    Ok(Language::all_names(state.db.conn()).await?)
 }
 
 #[tauri::command]

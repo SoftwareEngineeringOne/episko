@@ -1,6 +1,6 @@
 use super::{
+    DatabaseHandler, Filter, Result,
     dao::{ConversionError, MetadataDao, MetadataPreviewDao},
-    DatabaseHandler, Result,
 };
 use crate::metadata::{Metadata, MetadataPreview};
 use sqlx::{QueryBuilder, Row};
@@ -14,7 +14,7 @@ impl Metadata {
     /// # Errors
     /// Returns `Err` if database query fails or data conversion fails
     pub async fn from_db(db: &DatabaseHandler, id: Uuid) -> Result<Self> {
-        let query = build_query(Some(&QueryFilter::Id), None);
+        let query = build_query(QueryFilter::Id, None);
         let dao: MetadataDao = sqlx::query_as(&query).bind(id).fetch_one(db.conn()).await?;
 
         Ok(dao.try_into()?)
@@ -29,7 +29,7 @@ impl Metadata {
         pagination: Option<Pagination>,
         db: &DatabaseHandler,
     ) -> Result<Vec<Self>> {
-        let query = build_query(Some(&QueryFilter::None), pagination.as_ref());
+        let query = build_query(QueryFilter::None, pagination.as_ref());
         let mut query = sqlx::query_as::<_, MetadataDao>(&query);
 
         if let Some(p) = &pagination {
@@ -48,18 +48,22 @@ impl Metadata {
     /// Returns `Err` if database query fails or data conversion fails
     pub async fn all_preview_from_db(
         pagination: Option<Pagination>,
-        query: Option<String>,
+        filter: Filter,
         db: &DatabaseHandler,
     ) -> Result<Vec<MetadataPreview>> {
-        let filter = query
-            .as_ref()
-            .map(|q| QueryFilter::TitleLike(format!("%{q}%")));
-
-        let sql = build_query(filter.as_ref(), pagination.as_ref());
+        let sql = build_query(QueryFilter::Complex(filter.clone()), pagination.as_ref());
         let mut query = sqlx::query_as::<_, MetadataPreviewDao>(&sql);
 
-        if let Some(QueryFilter::TitleLike(search)) = filter {
-            query = query.bind(search);
+        if let Some(search) = filter.query {
+            query = query.bind(format!("%{search}%"));
+        }
+
+        if let Some(category) = filter.category {
+            query = query.bind(category);
+        }
+
+        if let Some(language) = filter.language {
+            query = query.bind(language);
         }
 
         if let Some(p) = &pagination {
@@ -112,11 +116,11 @@ impl Pagination {
 
 enum QueryFilter {
     Id,
-    TitleLike(String),
+    Complex(Filter),
     None,
 }
 
-fn build_query(filter: Option<&QueryFilter>, pagination: Option<&Pagination>) -> String {
+fn build_query(filter: QueryFilter, pagination: Option<&Pagination>) -> String {
     let mut query = String::from(
         r"
         SELECT
@@ -158,12 +162,24 @@ fn build_query(filter: Option<&QueryFilter>, pagination: Option<&Pagination>) ->
         ",
     );
 
-    if let Some(filter) = filter {
-        match filter {
-            QueryFilter::Id => query.push_str("WHERE metadata.id = ?"),
-            QueryFilter::TitleLike(_) => query.push_str("WHERE metadata.title LIKE ?"),
-            QueryFilter::None => {}
+    match filter {
+        QueryFilter::Id => query.push_str("WHERE metadata.id = ?"),
+        QueryFilter::Complex(filter) => {
+            let mut sep = " WHERE";
+            if filter.query.is_some() {
+                query.push_str(&format!("{} metadata.title LIKE ?", sep));
+                sep = " AND";
+            }
+
+            if filter.category.is_some() {
+                query.push_str(&format!("{} category.name LIKE ?", sep));
+                sep = " AND";
+            }
+            if filter.language.is_some() {
+                query.push_str(&format!("{} language.name LIKE ?", sep));
+            }
         }
+        QueryFilter::None => {}
     }
 
     query.push_str(" GROUP BY metadata.id ORDER BY metadata.updated DESC");

@@ -7,10 +7,11 @@
 	import { pageState } from './state.svelte';
 	import { Input } from '$lib/components/ui/input';
 	import Search from '@lucide/svelte/icons/search';
+	import * as Accordion from '$lib/components/ui/accordion';
 
 	async function fetchPage(page: number) {
 		try {
-			const pagedData: PagedMetadataPreview = await Commands.get_all(page, pageState.query);
+			const pagedData: PagedMetadataPreview = await Commands.get_all(page, pageState.filter);
 			pageState.loadedPreviews = pagedData.data;
 			pageState.currentPage = pagedData.pageNumber;
 			pageState.totalPages = pagedData.totalPages;
@@ -20,13 +21,30 @@
 		}
 	}
 
+	async function getCategories() {
+		return await Commands.get_all_categories();
+	}
+	let categoriesPromise = getCategories();
+
+	async function getLanguages() {
+		return await Commands.get_all_languages();
+	}
+	let languagesPromise = getLanguages();
+
 	$effect(() => {
-		const query = pageState.query;
+		pageState.filter.query;
 		const timeoutId = setTimeout(() => {
 			fetchPage(1);
 		}, 300);
 
 		return () => clearTimeout(timeoutId);
+	});
+
+	$effect(() => {
+		pageState.filter.language;
+		pageState.filter.category;
+
+		fetchPage(1);
 	});
 
 	onMount(() => {
@@ -36,10 +54,61 @@
 	});
 </script>
 
-<h1 class="text-2xl font-bold mb-4">All Projects</h1>
-<Input id="search" placeholder="Search the docs..." class="pl-8" bind:value={pageState.query} />
-<!-- Should be in search bar??? -->
-<Search />
+<label class="input rounded-md w-full">
+	<span class="label">
+		<Search />
+	</span>
+	<input placeholder="Search..." type="text" bind:value={pageState.filter.query} />
+</label>
+<div class="divider">Filters</div>
+<Accordion.Root type="multiple">
+	<Accordion.Item value="categories">
+		<Accordion.Trigger>Categories</Accordion.Trigger>
+		<Accordion.Content>
+			{#await categoriesPromise}
+				loading
+			{:then categories}
+				<form class="filter">
+					<input class="btn btn-square" type="reset" value="x" />
+					{#each categories as category}
+						<input
+							class="btn"
+							type="radio"
+							name="categories"
+							value={category.name}
+							bind:group={pageState.filter.category}
+							aria-label={category.name}
+						/>
+					{/each}
+				</form>
+			{/await}
+		</Accordion.Content>
+	</Accordion.Item>
+	<Accordion.Item value="languages">
+		<Accordion.Trigger>Languages</Accordion.Trigger>
+		<Accordion.Content>
+			{#await languagesPromise}
+				loading
+			{:then languages}
+				<form class="filter">
+					<input class="btn btn-square" type="reset" value="x" />
+					{#each languages as language}
+						<input
+							class="btn"
+							type="radio"
+							name="categories"
+							value={language.name}
+							bind:group={pageState.filter.language}
+							aria-label={language.name}
+						/>
+					{/each}
+				</form>
+			{/await}
+		</Accordion.Content>
+	</Accordion.Item>
+</Accordion.Root>
+
+<div class="divider"></div>
 {#each pageState.loadedPreviews as project (project.id)}
 	<ProjectPreview {project} />
 {/each}

@@ -2,10 +2,12 @@
 use std::time::Duration;
 
 use sqlx::{
-    migrate::{MigrateDatabase, Migrator},
-    sqlite::SqlitePoolOptions,
     SqlitePool,
+    migrate::{MigrateDatabase, Migrator},
+    sqlite::{SqliteConnectOptions, SqlitePoolOptions},
 };
+
+use sqlx::ConnectOptions;
 
 use crate::config::Config;
 
@@ -42,10 +44,13 @@ impl DatabaseHandler {
             sqlx::Sqlite::create_database(url).await?;
         }
 
+        let mut opts: SqliteConnectOptions = url.parse()?;
+        opts = opts.log_statements(log::LevelFilter::Trace);
+
         let conn = SqlitePoolOptions::new()
             .max_connections(12)
             .acquire_timeout(Duration::from_secs(5))
-            .connect(url)
+            .connect_with(opts)
             .await?;
 
         MIGRATOR.run(&conn).await?;

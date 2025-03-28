@@ -2,7 +2,7 @@
 use std::{future::Future, pin::Pin};
 
 use super::Result;
-use sqlx::{sqlite::SqliteRow, FromRow, SqliteExecutor};
+use sqlx::{FromRow, SqliteExecutor, sqlite::SqliteRow};
 
 pub type BoxedFuture<'r, T> = Pin<Box<dyn Future<Output = T> + Send + 'r>>;
 pub use episko_derive::DatabaseObject;
@@ -54,6 +54,9 @@ pub trait DatabaseObject: Sized + for<'r> FromRow<'r, SqliteRow> {
         &'e self,
         executor: impl SqliteExecutor<'e> + 'e,
     ) -> BoxedFuture<'e, Result<bool>>;
+
+    /// Retrieve all unique names
+    fn all_names<'e>(executor: impl SqliteExecutor<'e> + 'e) -> BoxedFuture<'e, Result<Vec<Self>>>;
 
     /// Remove the given object from the database
     fn remove_from_db<'e>(

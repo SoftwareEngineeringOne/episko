@@ -24,6 +24,7 @@
 //! - [`update_metadata`]
 //! - [`remove_metadata`]
 //! - [`validate_stored_metadata`]
+use serde::Deserialize;
 use thiserror::Error;
 
 pub mod database_handler;
@@ -43,6 +44,13 @@ use uuid::Uuid;
 
 /// Result type for this module using [`enum@Error`]
 pub type Result<T> = std::result::Result<T, Error>;
+
+#[derive(Debug, Deserialize, Clone)]
+pub struct Filter {
+    pub query: Option<String>,
+    pub language: Option<String>,
+    pub category: Option<String>,
+}
 
 #[derive(Debug, Error)]
 pub enum Error {
@@ -83,8 +91,8 @@ pub mod db_test {
 
     use super::*;
     use crate::{
-        metadata::{property::Property as _, Metadata, *},
         ApplyIf as _,
+        metadata::{Metadata, property::Property as _, *},
     };
     use chrono::{TimeDelta, Utc};
 
@@ -156,7 +164,7 @@ pub mod db_test {
 mod test {
     use sqlx::SqlitePool;
 
-    use crate::database::{db_test::fill_db, DatabaseHandler};
+    use crate::database::{DatabaseHandler, db_test::fill_db};
 
     #[sqlx::test]
     async fn setup_test_db(conn: SqlitePool) {
