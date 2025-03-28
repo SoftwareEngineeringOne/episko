@@ -19,4 +19,4 @@
 	}
 </script>
 
-<ProjectForm formTitle="Create New Project" projectData={projectData} onSubmit={handleCreate} />
+<ProjectForm formTitle="Create New Project" {projectData} onSubmit={handleCreate} />

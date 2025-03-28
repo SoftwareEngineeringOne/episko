@@ -104,7 +104,6 @@ pub mod db_test {
     pub fn generate_test_metadata(count: usize) -> Vec<Metadata> {
         let base_time = Utc::now();
 
-
         (0..count)
             .map(|i| {
                 let offset = TimeDelta::try_days(i as i64).unwrap();
