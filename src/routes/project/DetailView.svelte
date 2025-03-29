@@ -3,12 +3,11 @@
 	import Badge from '$lib/components/ui/badge/badge.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { Separator } from '$lib/components/ui/separator';
-	import type { Uuid } from '$lib/types';
+	import type { Metadata, Uuid } from '$lib/types';
 	import { ArrowLeft, GitGraph, Pencil } from 'lucide-svelte';
 	import type { PageProps } from './$types';
 
-	let { data }: PageProps = $props();
-	let project = data.project;
+	let { project }: { project: Metadata } = $props();
 
 	console.log('Project: ', project);
 
@@ -18,7 +17,7 @@
 
 	function edit(id: Uuid) {
 		return () => {
-			goto(`/project/${id}/edit`);
+			goto(`/project/edit?id=${id}`);
 		};
 	}
 </script>
@@ -89,7 +88,11 @@
 			{/if}
 		</div>
 	</div>
-	<Button class="absolute right-4 bottom-4" onclick={edit(project.id)} variant="secondary">
+	<Button
+		class="absolute right-4 bottom-4 hover:cursor-pointer"
+		onclick={edit(project.id)}
+		variant="secondary"
+	>
 		<Pencil />
 		<p class="text-xl opacity-60">Edit</p>
 	</Button>

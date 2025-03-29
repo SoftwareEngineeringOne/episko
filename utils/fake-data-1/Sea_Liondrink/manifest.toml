@@ -1,0 +1,22 @@
+id = "ff651a2c-def1-4437-8ca7-f7e4f1faedff"
+title = "Sea Liondrink"
+build_system = []
+created = "2025-03-29T10:28:39.779878541Z"
+updated = "2025-03-29T10:28:39.779880981Z"
+
+[[category]]
+name = "Personal"
+
+[[language]]
+name = "Go"
+
+[[language]]
+name = "Java"
+version = "3.1"
+
+[[language]]
+name = "C#"
+version = "1.5"
+
+[preferred_ide]
+name = "Vim"

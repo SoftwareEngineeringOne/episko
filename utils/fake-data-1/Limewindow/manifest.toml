@@ -1,0 +1,22 @@
+id = "c5fdb85f-f963-4da1-8233-a47cb1d3d439"
+title = "Limewindow"
+description = "Those a onto shall everything mine rarely why moreover of."
+repository_url = "http://www.seniorexpedite.info/transition"
+created = "2025-03-29T10:27:08.779772230Z"
+updated = "2025-03-29T10:27:08.779774100Z"
+
+[[category]]
+name = "Work"
+
+[[language]]
+name = "Java"
+version = "4.9"
+
+[[language]]
+name = "TypeScript"
+
+[[build_system]]
+name = "Gradle"
+
+[preferred_ide]
+name = "Sublime"

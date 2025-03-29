@@ -1,0 +1,25 @@
+id = "1a23a077-b6f5-4e3c-8766-4333fe2285b4"
+title = "Bluegrowth"
+created = "2025-03-29T10:28:39.736057394Z"
+updated = "2025-03-29T10:28:39.736059224Z"
+
+[[category]]
+name = "Abandoned"
+
+[[language]]
+name = "Java"
+version = "2.5"
+
+[[language]]
+name = "Go"
+version = "2.5"
+
+[[language]]
+name = "JavaScript"
+
+[[build_system]]
+name = "Make"
+version = "3.2"
+
+[preferred_ide]
+name = "VSCode"

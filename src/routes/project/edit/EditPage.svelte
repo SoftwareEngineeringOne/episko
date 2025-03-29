@@ -1,20 +1,24 @@
 <script lang="ts">
 	import ProjectForm from '$lib/components/project/form.svelte';
-	import type { Metadata } from '$lib/types';
+	import type { FormMetadata, Metadata } from '$lib/types';
 	import { Button } from '$lib/components/ui/button';
 	import * as Dialog from '$lib/components/ui/dialog';
 	import type { PageProps } from './$types';
 	import Commands from '$lib/commands';
 	import { toast } from 'svelte-sonner';
 	import { goto } from '$app/navigation';
+	import { page } from '$app/state';
+	import { error } from '@sveltejs/kit';
+	import type { SuperForm } from 'sveltekit-superforms';
 
-	let { data }: PageProps = $props();
-	let metadata = data.project;
+	interface Props {
+		metadata: Metadata;
+		form: SuperForm<FormMetadata>;
+	}
 
-	console.log('Data:', data);
+	let { metadata, form } = $props();
 
 	let dialogOpen = $state(false);
-
 	async function deleteProject() {
 		Commands.delete_metadata(metadata)
 			.then(() => {
@@ -29,7 +33,7 @@
 </script>
 
 <div class="flex flex-col justify-center">
-	<ProjectForm {metadata} form={data.form} />
+	<ProjectForm {metadata} {form} />
 	<Dialog.Root bind:open={dialogOpen}>
 		<Dialog.Trigger>
 			<button class="btn btn-link text-destructive">Delete this Project</button>

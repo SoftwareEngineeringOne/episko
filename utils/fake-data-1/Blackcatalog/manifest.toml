@@ -1,0 +1,21 @@
+id = "960b3eab-9366-48f0-8642-83fdfba6336c"
+title = "Blackcatalog"
+category = []
+repository_url = "http://www.chiefreinvent.biz/exploit/collaborative/communities/end-to-end"
+created = "2025-03-28T07:55:51.975745266Z"
+updated = "2025-03-28T07:55:51.975747226Z"
+
+[[language]]
+name = "Rust"
+version = "2.1"
+
+[[build_system]]
+name = "Make"
+version = "3.9"
+
+[[build_system]]
+name = "Bazel"
+version = "unknown"
+
+[preferred_ide]
+name = "Vim:1.7"

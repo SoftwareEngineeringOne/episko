@@ -7,7 +7,7 @@
 	let { project }: { project: MetadataPreview } = $props();
 
 	let seeDetails = () => {
-		goto(`/project/${project.id}`);
+		goto(`/project?id=${project.id}`);
 	};
 </script>
 

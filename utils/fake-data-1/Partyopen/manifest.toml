@@ -1,0 +1,19 @@
+id = "7ea06bdf-1886-43c5-b797-558bbb37cfbe"
+title = "Partyopen"
+created = "2025-03-29T10:27:08.768324227Z"
+updated = "2025-03-29T10:27:08.768326377Z"
+
+[[category]]
+name = "Personal"
+
+[[category]]
+name = "Networking"
+
+[[language]]
+name = "Rust"
+
+[[language]]
+name = "TypeScript"
+
+[[build_system]]
+name = "Webpack"

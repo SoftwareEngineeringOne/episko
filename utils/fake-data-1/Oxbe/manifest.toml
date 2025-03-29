@@ -1,0 +1,23 @@
+id = "de5219e4-b769-4441-bea7-e4d5f9100729"
+title = "Oxbe"
+build_system = []
+repository_url = "http://www.dynamicproactive.net/dot-com"
+created = "2025-03-28T07:55:52.039153650Z"
+updated = "2025-03-28T11:08:54.020206705Z"
+
+[[category]]
+name = "despite"
+
+[[category]]
+name = "test"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[[language]]
+name = "Python"
+version = "1.1"
+
+[preferred_ide]
+name = "Atom:2.5"

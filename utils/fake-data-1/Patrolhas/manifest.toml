@@ -1,0 +1,19 @@
+id = "a009b352-4fba-4f9b-80bf-ef6616c17a97"
+title = "Patrolhas"
+repository_url = "https://www.chiefimpactful.biz/incentivize"
+created = "2025-03-29T10:28:39.768905202Z"
+updated = "2025-03-29T10:28:39.768907142Z"
+
+[[category]]
+name = "Work"
+
+[[language]]
+name = "C#"
+version = "2.8"
+
+[[language]]
+name = "Rust"
+version = "2.4"
+
+[[build_system]]
+name = "Gradle"

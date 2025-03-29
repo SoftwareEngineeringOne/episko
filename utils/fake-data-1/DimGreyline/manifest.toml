@@ -1,0 +1,17 @@
+id = "1fe81d23-1383-4203-8960-eaf582305b95"
+title = "DimGreyline"
+description = "Promptly same sleep yourself myself obesity next whose those do."
+repository_url = "http://www.chiefbenchmark.org/transform/streamline/bleeding-edge/transform"
+created = "2025-03-29T10:27:08.724031838Z"
+updated = "2025-03-29T10:27:08.724034588Z"
+
+[[category]]
+name = "University"
+
+[[language]]
+name = "Rust"
+version = "2.5"
+
+[[build_system]]
+name = "CMake"
+version = "3.6"

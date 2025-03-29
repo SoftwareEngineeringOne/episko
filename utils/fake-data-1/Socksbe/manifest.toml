@@ -1,0 +1,31 @@
+id = "170b3b8e-2481-4886-ae27-ce91b4b1e62c"
+title = "Socksbe"
+description = "Over substantial firstly of everything have slide their have monthly."
+repository_url = "http://www.centralfront-end.org/monetize/clicks-and-mortar/e-services/efficient"
+created = "2025-03-29T10:28:39.645064181Z"
+updated = "2025-03-29T10:28:39.645065961Z"
+
+[[category]]
+name = "Personal"
+
+[[category]]
+name = "University"
+
+[[language]]
+name = "Go"
+version = "5.2"
+
+[[language]]
+name = "Rust"
+version = "2.8"
+
+[[build_system]]
+name = "Webpack"
+version = "3.5"
+
+[[build_system]]
+name = "Maven"
+version = "1.9"
+
+[preferred_ide]
+name = "Emacs"

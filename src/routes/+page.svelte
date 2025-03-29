@@ -5,12 +5,6 @@
 	import { FolderGit } from 'lucide-svelte';
 
 	const previewsPromise = Commands.get_all(1, {} as Filter).then((page) => page.data.slice(0, 4));
-
-	function gotoProject(id: Uuid) {
-		return () => {
-			goto(`/project/${id}`);
-		};
-	}
 </script>
 
 <div class="flex flex-col align-center h-full justify-start gap-4">
@@ -33,7 +27,7 @@
 			<ul class="list bg-base-100 w-[50%] rounded-box shadow-md">
 				<li class="p-4 pb-2 text-xs opacity-60 tracking-wide">Check these out!</li>
 				{#each projects as project}
-					<a class=" hover:cursor-pointer" href={`/project/${project.id}`}>
+					<a class=" hover:cursor-pointer" href={`/project?id=${project.id}`}>
 						<li class="list-row">
 							<div><FolderGit /></div>
 							<div>

@@ -27,7 +27,7 @@
 		toast.promise(promise, {
 			loading: `Loading ${file}`,
 			success: (id) => {
-				goto(`/project/${id}`);
+				goto(`/project?id=${id}`);
 				return 'Successfully loaded project!';
 			},
 			error: 'Failed to load project'

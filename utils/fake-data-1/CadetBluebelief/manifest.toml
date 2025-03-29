@@ -1,0 +1,27 @@
+id = "6d82631b-8f05-4278-837e-657b19db943b"
+title = "CadetBluebelief"
+category = []
+repository_url = "https://www.centralubiquitous.net/drive/incentivize"
+created = "2025-03-29T10:28:39.685869908Z"
+updated = "2025-03-29T10:28:39.685871568Z"
+
+[[language]]
+name = "Python"
+
+[[language]]
+name = "Python"
+version = "4.6"
+
+[[language]]
+name = "TypeScript"
+version = "5.1"
+
+[[build_system]]
+name = "Maven"
+
+[[build_system]]
+name = "Webpack"
+version = "2.2"
+
+[preferred_ide]
+name = "VSCode"

@@ -1,0 +1,22 @@
+id = "75ee7a26-28c7-4e05-84c5-dbcdab0a404d"
+title = "Goldshould"
+description = "An it such apartment since battery generally but frequently group."
+build_system = []
+created = "2025-03-29T10:27:08.935492593Z"
+updated = "2025-03-29T10:27:08.935495063Z"
+
+[[category]]
+name = "Work"
+
+[[category]]
+name = "Abandoned"
+
+[[category]]
+name = "University"
+
+[[language]]
+name = "TypeScript"
+version = "2.5"
+
+[[language]]
+name = "JavaScript"

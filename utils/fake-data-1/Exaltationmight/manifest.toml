@@ -1,0 +1,18 @@
+id = "a0eeb7d6-1d11-4fb1-a761-bdf501c28ce3"
+title = "Exaltationmight"
+build_system = []
+created = "2025-03-28T07:55:51.895025363Z"
+updated = "2025-03-28T07:55:51.895027444Z"
+
+[[category]]
+name = "your"
+
+[[category]]
+name = "these"
+
+[[language]]
+name = "TypeScript"
+version = "unknown"
+
+[preferred_ide]
+name = "IntelliJ:1.4"
