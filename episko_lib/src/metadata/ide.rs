@@ -4,7 +4,7 @@ use sqlx::FromRow;
 
 use super::property::{self, Property};
 
-#[derive(Debug, Serialize, Deserialize, DatabaseObject, FromRow, PartialOrd, Ord)]
+#[derive(Debug, Serialize, Deserialize, DatabaseObject, FromRow, PartialOrd, Ord, Clone)]
 #[db(table = "ide")]
 pub struct Ide {
     #[serde(skip)]

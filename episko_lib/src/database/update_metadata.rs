@@ -1,5 +1,4 @@
 use log::info;
-use log::trace;
 
 use crate::metadata::property::Property;
 use crate::metadata::Metadata;
@@ -22,11 +21,8 @@ impl Metadata {
 
         info!("Updating: {self:#?}");
 
-        match &self.preferred_ide {
-            Some(ide) => {
-                ide.write_to_db(&mut *transaction).await?;
-            }
-            None => (),
+        if let Some(ide) = &self.preferred_ide {
+            ide.write_to_db(&mut *transaction).await?;
         }
 
         let ide_id = self

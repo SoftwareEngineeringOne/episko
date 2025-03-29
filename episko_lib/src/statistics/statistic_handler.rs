@@ -8,6 +8,9 @@ pub struct StatisticHandler;
 
 impl StatisticHandler {
     /// Generate the newest statistics
+    ///
+    /// # Errors
+    /// !TODO!
     pub async fn generate_statistics(db: &DatabaseHandler) -> Result<Statistic, Error> {
         Ok(Statistic {
             projects_by_language: Statistic::projects_by_language(db).await?,

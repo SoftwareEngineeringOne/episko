@@ -42,20 +42,20 @@ impl From<Metadata> for MetadataDto {
     }
 }
 
-impl Into<Metadata> for MetadataDto {
-    fn into(self) -> Metadata {
+impl From<MetadataDto> for Metadata {
+    fn from(val: MetadataDto) -> Self {
         Metadata {
-            id: self.id,
-            directory: self.directory,
-            title: self.title,
-            description: self.description,
-            categories: self.categories,
-            languages: self.languages,
-            build_systems: self.build_systems,
-            preferred_ide: self.preferred_ide,
-            repository_url: self.repository_url,
-            created: self.created,
-            updated: self.updated,
+            id: val.id,
+            directory: val.directory,
+            title: val.title,
+            description: val.description,
+            categories: val.categories,
+            languages: val.languages,
+            build_systems: val.build_systems,
+            preferred_ide: val.preferred_ide,
+            repository_url: val.repository_url,
+            created: val.created,
+            updated: val.updated,
         }
     }
 }

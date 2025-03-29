@@ -122,6 +122,7 @@ impl DbObjectMeta {
     }
 
     /// Generates the necessary `impl` block for the target struct.
+    #[allow(clippy::too_many_lines)]
     fn generate_impl(&self) -> TokenStream {
         let (impl_generics, type_generics, where_clause) = self.generics.split_for_impl();
         let ident = &self.ident;

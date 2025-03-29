@@ -1,25 +1,10 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Commands from '$lib/commands';
-	import type { Uuid } from '$lib/types';
+	import type { Filter, Uuid } from '$lib/types';
 	import { FolderGit } from 'lucide-svelte';
 
-	// import { GlobalState, preventDefault } from '$lib';
-	// import { Button } from '$lib/components/ui/button/index.js';
-	// import { Input } from '$lib/components/ui/input/index.js';
-	// import * as Card from '$lib/components/ui/card/index.js';
-	// import { invoke } from '@tauri-apps/api/core';
-	// import type { Metadata } from '$lib/types';
-	//
-	// const gs = new GlobalState();
-	//
-	// $inspect(gs.greet, gs.name);
-	//
-	// const onsubmit = preventDefault(() => gs.nlen && gs.submit());
-	// const onclick = () => gs.reset();
-	//
-	// //!TODO
-	const previewsPromise = Commands.get_all(1, '').then((page) => page.data.slice(0, 4));
+	const previewsPromise = Commands.get_all(1, {} as Filter).then((page) => page.data.slice(0, 4));
 
 	function gotoProject(id: Uuid) {
 		return () => {

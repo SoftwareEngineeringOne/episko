@@ -1,6 +1,6 @@
 use super::{
-    dao::{ConversionError, MetadataDao, MetadataPreviewDao},
     DatabaseHandler, Filter, Result,
+    dao::{ConversionError, MetadataDao, MetadataPreviewDao},
 };
 use crate::metadata::{Metadata, MetadataPreview};
 use sqlx::{QueryBuilder, Row};
@@ -167,16 +167,16 @@ fn build_query(filter: QueryFilter, pagination: Option<&Pagination>) -> String {
         QueryFilter::Complex(filter) => {
             let mut sep = " WHERE";
             if filter.query.is_some() {
-                query.push_str(&format!("{} metadata.title LIKE ?", sep));
+                query.push_str(&format!("{sep} metadata.title LIKE ?"));
                 sep = " AND";
             }
 
             if filter.category.is_some() {
-                query.push_str(&format!("{} category.name LIKE ?", sep));
+                query.push_str(&format!("{sep} category.name LIKE ?"));
                 sep = " AND";
             }
             if filter.language.is_some() {
-                query.push_str(&format!("{} language.name LIKE ?", sep));
+                query.push_str(&format!("{sep} language.name LIKE ?"));
             }
         }
         QueryFilter::None => {}
