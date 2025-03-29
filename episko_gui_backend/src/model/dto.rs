@@ -42,12 +42,30 @@ impl From<Metadata> for MetadataDto {
     }
 }
 
+impl Into<Metadata> for MetadataDto {
+    fn into(self) -> Metadata {
+        Metadata {
+            id: self.id,
+            directory: self.directory,
+            title: self.title,
+            description: self.description,
+            categories: self.categories,
+            languages: self.languages,
+            build_systems: self.build_systems,
+            preferred_ide: self.preferred_ide,
+            repository_url: self.repository_url,
+            created: self.created,
+            updated: self.updated,
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
     use chrono::Utc;
     use episko_lib::metadata::{
-        property::Property as _, BuildSystem, Category, Ide, Language, Metadata,
+        BuildSystem, Category, Ide, Language, Metadata, property::Property as _,
     };
     use uuid::Uuid;
 

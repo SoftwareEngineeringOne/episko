@@ -187,6 +187,9 @@ pub enum Error {
     #[error("unable to save metadata: {0}")]
     Save(String),
 
+    #[error("unable to delete metadata: {0}")]
+    Delete(String),
+
     #[error("unable to find manifests in directory: {0}")]
     Directory(String),
 }

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
 	import type { ComponentProps } from 'svelte';
+	import { toast } from 'svelte-sonner';
 
 	let {
 		ref = $bindable(null),
@@ -15,6 +16,10 @@
 			icon: any;
 		}[];
 	} & ComponentProps<typeof Sidebar.Group> = $props();
+
+	function disabledClick() {
+		toast.warning('This function is not implemented yet!');
+	}
 </script>
 
 <Sidebar.Group bind:ref {...restProps}>
@@ -24,10 +29,10 @@
 				<Sidebar.MenuItem>
 					<Sidebar.MenuButton size="sm">
 						{#snippet child({ props })}
-							<a href={item.url} {...props}>
+							<button onclick={disabledClick} {...props}>
 								<item.icon />
 								<span>{item.title}</span>
-							</a>
+							</button>
 						{/snippet}
 					</Sidebar.MenuButton>
 				</Sidebar.MenuItem>

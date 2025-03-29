@@ -1,5 +1,8 @@
-use crate::metadata::property::Property;
+use log::info;
+use log::trace;
+
 use crate::metadata::Metadata;
+use crate::metadata::property::Property;
 
 use super::DatabaseHandler;
 use super::DatabaseObject;
@@ -16,6 +19,15 @@ impl Metadata {
     /// Returns [Ok] when the item was updated.
     pub async fn update_in_db(&self, db: &DatabaseHandler) -> Result<()> {
         let mut transaction = db.conn().begin().await?;
+
+        info!("Updating: {self:#?}");
+
+        match &self.preferred_ide {
+            Some(ide) => {
+                ide.write_to_db(&mut *transaction).await?;
+            }
+            None => (),
+        }
 
         let ide_id = self
             .preferred_ide

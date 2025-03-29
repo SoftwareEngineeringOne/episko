@@ -19,25 +19,26 @@
 	function addLanguage() {
 		// $formData.languages.push(newLanguage);
 		if (newLanguage.name !== '') {
-			formData.update((data) => {
-				data.languages.push(newLanguage);
-				return data;
-			});
+			let data = $formData;
+			data.languages.push(newLanguage);
 			newLanguage = { name: '', version: null };
+			formData.set(data);
 		}
 	}
 
 	function removeLanguage(index: number) {
 		return () => {
-			formData.update((data) => {
-				data.languages.splice(index, 1);
-				return data;
-			});
+			let data = $formData;
+			data.languages.splice(index, 1);
+			formData.set(data);
 		};
 	}
 </script>
 
-<h2 class="text-sm mb-1">Languages</h2>
+<div class="flex flex-row mb-1">
+	<h2 class="text-sm">Languages&nbsp;</h2>
+	<p class="text-sm opacity-60">(Optional)</p>
+</div>
 {#each $formData.languages as _, i}
 	<Form.Field {form} name="languages">
 		<Form.Control>

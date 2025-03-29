@@ -28,50 +28,52 @@
 	}
 </script>
 
-<div class="hero bg-base-100 mx-4 w-[90%] rounded-box shadow-md">
-	<div class="hero-content text-center">
-		<div class="max-w-md">
-			<h1 class="text-5xl font-bold">Welcome back!</h1>
-			<p class="py-6">Your advertisement could be here</p>
-			<a href="/project" class="btn btn-primary">Your projects!</a>
-		</div>
-	</div>
-</div>
-
-<div class="flex mx-4 w-[90%] items-between gap-4">
-	{#await previewsPromise}
-		<div class="size-full flex justify-center items-center">
-			<span class="loading loading-spinner loading-xl"></span>
-		</div>
-	{:then projects}
-		<ul class="list bg-base-100 w-[50%] rounded-box shadow-md">
-			<li class="p-4 pb-2 text-xs opacity-60 tracking-wide">Check these out!</li>
-			{#each projects as project}
-				<a class=" hover:cursor-pointer" href={`/project/${project.id}`}>
-					<li class="list-row">
-						<div><FolderGit /></div>
-						<div>
-							<div>{project.title}</div>
-							<div class="text-xs opacity-60">{project.description}</div>
-						</div>
-					</li>
-				</a>
-			{/each}
-		</ul>
-	{/await}
-	<div class="bg-base-100 w-[50%] rounded-box shadow-md">
-		<div class="stats">
-			<div class="stat">
-				<div class="stat-title">Total Projects</div>
-				<div class="stat-value">12</div>
-				<div class="stat-desc">That's quite impressive!</div>
+<div class="flex flex-col align-center h-full justify-start gap-4">
+	<div class="hero bg-base-100 mx-4 w-[90%] rounded-box shadow-md">
+		<div class="hero-content text-center">
+			<div class="max-w-md">
+				<h1 class="text-5xl font-bold">Welcome back!</h1>
+				<p class="py-6">Your advertisement could be here</p>
+				<a href="/project" class="btn btn-primary">Your projects!</a>
 			</div>
 		</div>
-		<div class="stats">
-			<div class="stat">
-				<div class="stat-title">Different Languages</div>
-				<div class="stat-value">4</div>
-				<div class="stat-desc">You appear to be quite the polyglot</div>
+	</div>
+
+	<div class="flex mx-4 w-[90%] items-between gap-4">
+		{#await previewsPromise}
+			<div class="size-full flex justify-center items-center">
+				<span class="loading loading-spinner loading-xl"></span>
+			</div>
+		{:then projects}
+			<ul class="list bg-base-100 w-[50%] rounded-box shadow-md">
+				<li class="p-4 pb-2 text-xs opacity-60 tracking-wide">Check these out!</li>
+				{#each projects as project}
+					<a class=" hover:cursor-pointer" href={`/project/${project.id}`}>
+						<li class="list-row">
+							<div><FolderGit /></div>
+							<div>
+								<div>{project.title}</div>
+								<div class="text-xs opacity-60">{project.description}</div>
+							</div>
+						</li>
+					</a>
+				{/each}
+			</ul>
+		{/await}
+		<div class="bg-base-100 w-[50%] rounded-box shadow-md">
+			<div class="stats">
+				<div class="stat">
+					<div class="stat-title">Total Projects</div>
+					<div class="stat-value">12</div>
+					<div class="stat-desc">That's quite impressive!</div>
+				</div>
+			</div>
+			<div class="stats">
+				<div class="stat">
+					<div class="stat-title">Different Languages</div>
+					<div class="stat-value">4</div>
+					<div class="stat-desc">You appear to be quite the polyglot</div>
+				</div>
 			</div>
 		</div>
 	</div>

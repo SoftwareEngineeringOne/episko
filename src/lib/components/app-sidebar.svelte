@@ -8,6 +8,7 @@
 		SettingsIcon,
 		SquarePen
 	} from 'lucide-svelte';
+	import logo from '$lib/assets/logo.png';
 
 	const data = {
 		user: {
@@ -70,12 +71,12 @@
 					{#snippet child({ props })}
 						<a {...props}>
 							<div
-								class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg"
+								class="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg"
 							>
-								<Command class="size-4" />
+								<img alt="episko logo" class="size-8 dark:invert dark:grayscale" src={logo} />
 							</div>
 							<div class="grid flex-1 text-left text-sm leading-tight">
-								<span class="truncate font-semibold">Episko</span>
+								<span class="truncate font-semibold">episko</span>
 							</div>
 						</a>
 					{/snippet}

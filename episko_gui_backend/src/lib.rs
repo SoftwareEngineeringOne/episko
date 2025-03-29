@@ -7,8 +7,8 @@ use tokio::sync::Mutex;
 
 mod commands;
 use commands::{
-    create_metadata, get_all, get_all_categories, get_all_languages, get_statistics, get_with_id,
-    init_cache, load_from_directory, load_from_file, update_metadata,
+    create_metadata, delete_metadata, get_all, get_all_categories, get_all_languages,
+    get_statistics, get_with_id, init_cache, load_from_directory, load_from_file, update_metadata,
 };
 
 pub mod model;
@@ -46,6 +46,7 @@ pub async fn run() -> Result<(), Box<dyn std::error::Error>> {
             get_statistics,
             update_metadata,
             create_metadata,
+            delete_metadata,
             load_from_file,
             load_from_directory,
         ])

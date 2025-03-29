@@ -2,51 +2,49 @@
 	import ProjectForm from '$lib/components/project/form.svelte';
 	import type { Metadata } from '$lib/types';
 	import { Button } from '$lib/components/ui/button';
-	import {
-		Dialog,
-		DialogTrigger,
-		DialogContent,
-		DialogTitle,
-		DialogDescription,
-		DialogFooter,
-		DialogClose
-	} from '$lib/components/ui/dialog';
+	import * as Dialog from '$lib/components/ui/dialog';
 	import type { PageProps } from './$types';
+	import Commands from '$lib/commands';
+	import { toast } from 'svelte-sonner';
+	import { goto } from '$app/navigation';
 
 	let { data }: PageProps = $props();
 	let metadata = data.project;
 
 	console.log('Data:', data);
 
-	function handleEdit(submittedData: Metadata): void {
-		console.log('Saving project data:', submittedData);
-		//TODO: Update logic
-	}
+	let dialogOpen = $state(false);
 
-	function handleDelete(): void {
-		console.log('Deleting project');
-		//TODO: Deletion logic
+	async function deleteProject() {
+		Commands.delete_metadata(metadata)
+			.then(() => {
+				toast.success('Project deleted successfully');
+				goto('/project');
+			})
+			.catch((err) => {
+				toast.error(`Failed to delete Project: ${err}`);
+				dialogOpen = false;
+			});
 	}
 </script>
 
-<ProjectForm {metadata} form={data.form} />
-
-<div class="flex justify-end mt-4">
-	<Dialog>
-		<DialogTrigger>
-			<Button class="bg-red-500">Delete Project</Button>
-		</DialogTrigger>
-		<DialogContent class="max-w-md">
-			<DialogTitle>Confirm Deletion</DialogTitle>
-			<DialogDescription>
-				Are you sure you want to delete this project? This action cannot be undone.
-			</DialogDescription>
-			<DialogFooter class="flex justify-end gap-2">
-				<Button onclick={handleDelete} class="bg-red-500">Confirm</Button>
-				<DialogClose>
-					<Button class="bg-gray-500">Cancel</Button>
-				</DialogClose>
-			</DialogFooter>
-		</DialogContent>
-	</Dialog>
+<div class="flex flex-col justify-center">
+	<ProjectForm {metadata} form={data.form} />
+	<Dialog.Root bind:open={dialogOpen}>
+		<Dialog.Trigger>
+			<button class="btn btn-link text-destructive">Delete this Project</button>
+		</Dialog.Trigger>
+		<Dialog.Content class="max-w-md">
+			<Dialog.Title>Confirm Deletion</Dialog.Title>
+			<Dialog.Description>
+				Are you sure you want to delete this project? <br />This action cannot be undone.
+			</Dialog.Description>
+			<Dialog.Footer class="flex justify-end gap-2">
+				<Button onclick={deleteProject} variant="destructive">Confirm</Button>
+				<Dialog.Close>
+					<Button variant="secondary">Cancel</Button>
+				</Dialog.Close>
+			</Dialog.Footer>
+		</Dialog.Content>
+	</Dialog.Root>
 </div>

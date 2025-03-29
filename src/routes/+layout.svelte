@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import AppSidebar from '$lib/components/app-sidebar.svelte';
-	import { ModeWatcher } from 'mode-watcher';
+	import { ModeWatcher, mode } from 'mode-watcher';
 	import { toggleMode } from 'mode-watcher';
 	import { Button } from '$lib/components/ui/button';
 	import { Separator } from '$lib/components/ui/separator/index.js';
@@ -10,8 +10,8 @@
 	import Commands from '$lib/commands';
 	import { loadStatistics } from './statistics/state.svelte';
 	import { onMount } from 'svelte';
-	import Toast from '$lib/components/toasts/Toast.svelte';
 	import { preloadFirstPage } from './project/state.svelte';
+	import { Toaster } from '$lib/components/ui/sonner';
 
 	let { children } = $props();
 
@@ -22,6 +22,8 @@
 		await loadStatistics();
 		await preloadFirstPage();
 	});
+
+	let lightMode = $derived($mode === 'light');
 </script>
 
 <ModeWatcher />
@@ -44,6 +46,12 @@
 					<span class="sr-only">Toggle theme</span>
 				</Button>
 			</div>
+			<input
+				type="checkbox"
+				value="lofi"
+				class="toggle theme-controller hidden"
+				bind:checked={lightMode}
+			/>
 		</header>
 		<div class="flex flex-1 flex-col gap-4 p-4 pt-0">
 			{#await initPromise}
@@ -60,6 +68,6 @@
 				</div>
 			{/await}
 		</div>
-		<!--<Toast />-->
 	</Sidebar.Inset>
 </Sidebar.Provider>
+<Toaster richColors />

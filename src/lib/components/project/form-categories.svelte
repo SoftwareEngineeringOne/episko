@@ -19,31 +19,34 @@
 
 	function removeCategory(index: number) {
 		return () => {
-			formData.update((data) => {
-				data.categories.splice(index, 1);
+			let data = $formData;
+			data.categories.splice(index, 1);
 
-				return data;
-			});
+			formData.set(data);
 		};
 	}
 
 	function addCategory() {
-		formData.update((data) => {
-			data.categories.push({ name: newCategory });
-			newCategory = '';
+		let data = $formData;
+		data.categories.push({ name: newCategory });
+		newCategory = '';
 
-			return data;
-		});
+		formData.set(data);
 	}
 </script>
 
-<h2 class="text-sm mb-1">Categories</h2>
+<div class="flex flex-row mb-1">
+	<h2 class="text-sm">Categories&nbsp;</h2>
+	<p class="text-sm opacity-60">(Optional)</p>
+</div>
 <div class="flex gap-2 mb-2">
 	{#each $formData.categories as _, i}
-		<Badge class="hover:cursor-pointer hover:bg-destructive hover:text-destructive-foreground">
-			<p>{$formData.categories[i].name}&nbsp;</p>
-			<button onclick={removeCategory(i)}><Delete size={12} /></button>
-		</Badge>
+		<button onclick={removeCategory(i)}>
+			<Badge class="hover:cursor-pointer hover:bg-destructive hover:text-destructive-foreground">
+				<p>{$formData.categories[i].name}&nbsp;</p>
+				<Delete size={12} />
+			</Badge>
+		</button>
 	{/each}
 </div>
 <div class="flex gap-5">

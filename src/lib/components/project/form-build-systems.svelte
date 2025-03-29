@@ -18,25 +18,26 @@
 
 	function addBuildSystem() {
 		if (newBuildSystem.name !== '') {
-			formData.update((data) => {
-				data.buildSystems.push(newBuildSystem);
-				return data;
-			});
+			let data = $formData;
+			data.buildSystems.push(newBuildSystem);
 			newBuildSystem = { name: '', version: null };
+			formData.set(data);
 		}
 	}
 
 	function removeBuildSystem(index: number) {
 		return () => {
-			formData.update((data) => {
-				data.buildSystems.splice(index, 1);
-				return data;
-			});
+			let data = $formData;
+			data.buildSystems.splice(index, 1);
+			formData.set(data);
 		};
 	}
 </script>
 
-<h2 class="text-sm mb-1">Build Systems</h2>
+<div class="flex flex-row mb-1">
+	<h2 class="text-sm">Build Systems&nbsp;</h2>
+	<p class="text-sm opacity-60">(Optional)</p>
+</div>
 {#each $formData.buildSystems as _, i}
 	<Form.Field {form} name="buildSystems">
 		<Form.Control>

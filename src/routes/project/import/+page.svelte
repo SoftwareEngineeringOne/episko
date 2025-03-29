@@ -8,72 +8,77 @@
 	import * as Tabs from '$lib/components/ui/tabs';
 	import Commands from '$lib/commands';
 
-	let loadPromise: Promise<void> | null = null;
-
-	async function pickFile(pick_dir: boolean) {
+	async function pickFile(pick_dir: boolean): Promise<string | null> {
 		return await open({
 			multiple: false,
 			directory: pick_dir
 		});
 	}
 
-	function loadFile() {
-		loadPromise = pickFile(false)
-			.then((path): Promise<Uuid> => {
-				if (path === null) {
-					throw Error('No path given');
-				}
-				return Commands.load_from_file(path);
-			})
-			.then((id) => {
+	async function loadFile() {
+		let file = await pickFile(false);
+
+		if (!file) {
+			toast.error('Failed to pick file');
+			return;
+		}
+
+		let promise = Commands.load_from_file(file);
+		toast.promise(promise, {
+			loading: `Loading ${file}`,
+			success: (id) => {
 				goto(`/project/${id}`);
-			});
+				return 'Successfully loaded project!';
+			},
+			error: 'Failed to load project'
+		});
 	}
 
-	function loadDirectory() {
-		loadPromise = pickFile(true)
-			.then((path): Promise<number> => {
-				if (path === null) {
-					throw Error('No path given');
-				}
-				return Commands.load_from_directory(path);
-			})
-			.then((amount) => {
-				toast(`Loaded ${amount} manifests!`);
-				goto('/project');
-			});
+	async function loadDirectory() {
+		let dir = await pickFile(true);
+
+		if (!dir) {
+			toast.error('Failed to pick directory');
+			return;
+		}
+
+		let promise = Commands.load_from_directory(dir);
+		toast.promise(promise, {
+			loading: `Loading ${dir}`,
+			success: (_) => {
+				goto(`/project/`);
+				return 'Successfully loaded projects!';
+			},
+			error: 'Failed to load projects'
+		});
 	}
 </script>
 
-<Tabs.Root value="file" class="w-[400px]">
-	<Tabs.List>
-		<Tabs.Trigger value="file">Load file</Tabs.Trigger>
-		<Tabs.Trigger value="directory">Load directory</Tabs.Trigger>
-	</Tabs.List>
-	<Tabs.Content value="file">
-		{#if loadPromise}
-			{#await loadPromise}
-				Loading file...
-			{:then}
-				Redirecting...
-			{:catch error}
-				Failed to load: ${error}
-			{/await}
-		{:else}
-			<Button onclick={loadFile} variant="outline">Load File</Button>
-		{/if}
-	</Tabs.Content>
-	<Tabs.Content value="directory">
-		{#if loadPromise}
-			{#await loadPromise}
-				Loading directory...
-			{:then}
-				Redirecting...
-			{:catch error}
-				Failed to load: ${error}
-			{/await}
-		{:else}
-			<Button onclick={loadDirectory} variant="outline">Load Directory</Button>
-		{/if}
-	</Tabs.Content>
-</Tabs.Root>
+<div class="w-full h-full flex justify-center items-center">
+	<Tabs.Root value="file" class="card bg-base-200 border border-base-300 shadow-sm">
+		<div class="card-body">
+			<h2 class="card-title">Import Project</h2>
+			<div class="divider"></div>
+			<Tabs.List>
+				<Tabs.Trigger value="file">Single Project</Tabs.Trigger>
+				<Tabs.Trigger value="directory">From Directory</Tabs.Trigger>
+			</Tabs.List>
+			<div class="card-actions flex w-full justify-center">
+				<Tabs.Content value="file" class="flex w-full justify-center flex-col">
+					<Button onclick={loadFile} variant="default" class="hover:cursor-pointer"
+						>Pick File</Button
+					>
+					<p class="text-sm font-semibold opacity-60 text-center">
+						Choose a single Manifest to load
+					</p>
+				</Tabs.Content>
+				<Tabs.Content value="directory" class="flex w-full justify-center flex-col">
+					<Button onclick={loadDirectory} variant="default" class="hover:cursor-pointer"
+						>Pick Directory</Button
+					>
+					<p class="text-sm font-semibold opacity-60 text-center">Choose a directory to search</p>
+				</Tabs.Content>
+			</div>
+		</div>
+	</Tabs.Root>
+</div>

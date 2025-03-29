@@ -138,6 +138,24 @@ pub async fn create_metadata(
 }
 
 #[tauri::command]
+pub async fn delete_metadata(
+    metadata: MetadataDto,
+    state: tauri::State<'_, Mutex<AppState>>,
+) -> Result<(), Error> {
+    let mut state = state.lock().await;
+
+    let metadata: Metadata = metadata.into();
+
+    state.config_handler.remove_saved_file(&metadata.directory);
+    state.config_handler.save_config()?;
+
+    metadata.remove_from_db(&state.db).await?;
+    Metadata::remove_file(&metadata.directory)?;
+
+    Ok(())
+}
+
+#[tauri::command]
 pub async fn load_from_file(
     path: &Path,
     state: tauri::State<'_, Mutex<AppState>>,

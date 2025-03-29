@@ -14,7 +14,7 @@ use uuid::Uuid;
 // Temporary for compatibility reasons.
 pub use crate::ApplyIf;
 
-use super::{property::Property, BuildSystem, Category, Ide, Language, Metadata};
+use super::{BuildSystem, Category, Ide, Language, Metadata, property::Property};
 
 /// To allow for flexible building all fields
 /// can start of as `None` or an empty `Vec`.
@@ -216,6 +216,13 @@ impl MetadataBuilder {
         self
     }
 
+    /// Update the preferred [`Ide`]
+    #[must_use]
+    pub fn update_ide(mut self, ide: Option<Ide>) -> Self {
+        self.preferred_ide = ide;
+        self
+    }
+
     /// Set the description
     #[must_use]
     pub fn description(mut self, description: &str) -> Self {
@@ -226,6 +233,13 @@ impl MetadataBuilder {
         self
     }
 
+    /// Update the description
+    #[must_use]
+    pub fn update_description(mut self, description: Option<String>) -> Self {
+        self.description = description;
+        self
+    }
+
     /// Set the repository url
     #[must_use]
     pub fn repository_url(mut self, url: &str) -> Self {
@@ -233,6 +247,13 @@ impl MetadataBuilder {
             0 => None,
             _ => Some(url.to_string()),
         };
+        self
+    }
+
+    /// Update the repository url
+    #[must_use]
+    pub fn update_repository_url(mut self, url: Option<String>) -> Self {
+        self.repository_url = url;
         self
     }
 

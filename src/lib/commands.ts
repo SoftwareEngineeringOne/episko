@@ -10,7 +10,7 @@ import type {
 	Statistic,
 	Uuid
 } from './types';
-import { parseMetadata, parseMetadataDco, parseMetadataPreviewArray } from './schemas/metadata';
+import { MetadataDtoSchema, parseMetadata, parseMetadataDco, parseMetadataPreviewArray } from './schemas/metadata';
 import { PagedMetadataPreviewSchema } from './schemas/pagedData';
 import { parseCategoryArray } from './schemas/category';
 import { parseLanguageArray } from './schemas/language';
@@ -57,6 +57,18 @@ export default {
 		return invoke('update_metadata', { id: id, updated: parseMetadataDco(updated) }).then((data) =>
 			parseMetadata(data)
 		);
+	},
+
+	async delete_metadata(metadata: Metadata): Promise<void> {
+		// as this is the only place where this transformation is needed
+		// it can reside here for now
+		let metadataDto = {
+			build_systems: metadata.buildSystems,
+			preferred_ide: metadata.preferredIde,
+			repository_url: metadata.repositoryUrl,
+			...metadata
+		}
+		return invoke('delete_metadata', { metadata: metadataDto })
 	},
 
 	async load_from_file(path: string): Promise<Uuid> {

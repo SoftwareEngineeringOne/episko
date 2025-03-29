@@ -58,6 +58,23 @@ impl MetadataHandler {
         Ok(())
     }
 
+    pub async fn delete_metadata(
+        metadata: &Metadata,
+        db: &DatabaseHandler,
+        config_handler: &mut ConfigHandler,
+    ) -> Result<()> {
+        // if part of dir, returns false but can be ignored
+        let _ = config_handler.remove_saved_file(&metadata.directory);
+
+        metadata
+            .remove_from_db(&db)
+            .await
+            .map_err(|err| Error::Delete(err.to_string()))?;
+        Metadata::remove_file(&metadata.directory).map_err(|err| Error::Delete(err.to_string()))?;
+
+        Ok(())
+    }
+
     /// Get paths to locations of manifests
     ///
     /// Loading should be done using tauri and events and stuff

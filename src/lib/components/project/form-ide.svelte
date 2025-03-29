@@ -4,6 +4,7 @@
 	import * as Form from '$lib/components/ui/form';
 	import { Input } from '$lib/components/ui/input';
 	import { Button } from '$lib/components/ui/button';
+	import { CircleCheck, CircleX } from 'lucide-svelte';
 
 	interface Props {
 		form: SuperForm<FormMetadata>;
@@ -14,33 +15,32 @@
 	const { form: formData } = form;
 
 	function removeIde() {
-		formData.update((data) => {
-			data.preferredIde = undefined;
-			return data;
-		});
+		$formData.preferredIde = undefined;
 	}
 
 	function addIde() {
-		formData.update((data) => {
-			data.preferredIde = { name: '' };
-			return data;
-		});
+		$formData.preferredIde = { name: '' };
 	}
 </script>
 
-{#if $formData.preferredIde}
-	<Form.Field {form} name="preferredIde.name">
-		<Form.Control>
-			{#snippet children({ props })}
-				<Form.Label>Preferred Ide</Form.Label>
-				<Input {...props} bind:value={$formData.preferredIde!.name} />
-			{/snippet}
-		</Form.Control>
-		<Form.FieldErrors />
-		<Form.Description>TBC: Title of the Project</Form.Description>
-	</Form.Field>
-	<Button variant="destructive" onclick={removeIde}>Remove</Button>
-{:else}
-	<h2>Preferred Ide</h2>
-	<Button variant="default" onclick={addIde}>Add</Button>
-{/if}
+<Form.Field {form} name="preferredIde.name">
+	<Form.Control>
+		{#snippet children({ props })}
+			<Form.Label class="flex flex-row">
+				<h2 class="text-sm">Preferred Ide&nbsp;</h2>
+				<p class="text-sm opacity-60">(Optional)</p>
+			</Form.Label>
+
+			<div class="flex flex-row gap-4">
+				{#if $formData.preferredIde}
+					<Input {...props} bind:value={$formData.preferredIde!.name} />
+					<Button variant="destructive" onclick={removeIde}><CircleX /></Button>
+				{:else}
+					<Input {...props} disabled class="bg-base-100" />
+					<Button variant="secondary" onclick={addIde}><CircleCheck /></Button>
+				{/if}
+			</div>
+		{/snippet}
+	</Form.Control>
+	<Form.FieldErrors />
+</Form.Field>
