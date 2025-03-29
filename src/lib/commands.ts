@@ -10,7 +10,12 @@ import type {
 	Statistic,
 	Uuid
 } from './types';
-import { MetadataDtoSchema, parseMetadata, parseMetadataDco, parseMetadataPreviewArray } from './schemas/metadata';
+import {
+	MetadataDtoSchema,
+	parseMetadata,
+	parseMetadataDco,
+	parseMetadataPreviewArray
+} from './schemas/metadata';
 import { PagedMetadataPreviewSchema } from './schemas/pagedData';
 import { parseCategoryArray } from './schemas/category';
 import { parseLanguageArray } from './schemas/language';
@@ -67,8 +72,8 @@ export default {
 			preferred_ide: metadata.preferredIde,
 			repository_url: metadata.repositoryUrl,
 			...metadata
-		}
-		return invoke('delete_metadata', { metadata: metadataDto })
+		};
+		return invoke('delete_metadata', { metadata: metadataDto });
 	},
 
 	async load_from_file(path: string): Promise<Uuid> {

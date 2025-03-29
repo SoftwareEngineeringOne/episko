@@ -65,7 +65,7 @@ mod tests {
     use super::*;
     use chrono::Utc;
     use episko_lib::metadata::{
-        BuildSystem, Category, Ide, Language, Metadata, property::Property as _,
+        property::Property as _, BuildSystem, Category, Ide, Language, Metadata,
     };
     use uuid::Uuid;
 

@@ -1,8 +1,8 @@
 use episko_lib::{
-    ApplyIf as _,
     metadata::{
-        BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder, property::Property,
+        property::Property, BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder,
     },
+    ApplyIf as _,
 };
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
@@ -77,7 +77,7 @@ impl MetadataDco {
 mod tests {
     use super::*;
     use episko_lib::metadata::{
-        BuildSystem, Category, Ide, Language, Metadata, property::Property as _,
+        property::Property as _, BuildSystem, Category, Ide, Language, Metadata,
     };
     use std::path::PathBuf;
 

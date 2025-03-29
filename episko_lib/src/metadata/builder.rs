@@ -14,7 +14,7 @@ use uuid::Uuid;
 // Temporary for compatibility reasons.
 pub use crate::ApplyIf;
 
-use super::{BuildSystem, Category, Ide, Language, Metadata, property::Property};
+use super::{property::Property, BuildSystem, Category, Ide, Language, Metadata};
 
 /// To allow for flexible building all fields
 /// can start of as `None` or an empty `Vec`.
