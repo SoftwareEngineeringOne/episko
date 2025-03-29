@@ -1,4 +1,5 @@
-import type { MetadataPreview, Filter } from '$lib/types';
+import Commands from '$lib/commands';
+import type { MetadataPreview, Filter, PagedMetadataPreview } from '$lib/types';
 
 export const pageState = $state<{
 	currentPage: number;
@@ -17,6 +18,14 @@ export const pageState = $state<{
 		language: null
 	}
 });
+
+export async function preloadFirstPage() {
+	const pagedData: PagedMetadataPreview = await Commands.get_all(1, pageState.filter);
+	pageState.loadedPreviews = pagedData.data;
+	pageState.currentPage = pagedData.pageNumber;
+	pageState.totalPages = pagedData.totalPages;
+	pageState.pageSize = pagedData.pageSize;
+}
 
 export function resetState() {
 	pageState.loadedPreviews = [];

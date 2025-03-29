@@ -7,8 +7,8 @@ use tokio::sync::Mutex;
 
 mod commands;
 use commands::{
-    create_metadata, get_all, get_all_categories, get_all_languages, get_with_id, init_cache,
-    load_from_directory, load_from_file, update_metadata,
+    create_metadata, get_all, get_all_categories, get_all_languages, get_statistics, get_with_id,
+    init_cache, load_from_directory, load_from_file, update_metadata,
 };
 
 pub mod model;
@@ -43,6 +43,7 @@ pub async fn run() -> Result<(), Box<dyn std::error::Error>> {
             get_with_id,
             get_all_categories,
             get_all_languages,
+            get_statistics,
             update_metadata,
             create_metadata,
             load_from_file,
@@ -70,6 +71,9 @@ pub enum Error {
 
     #[error(transparent)]
     Metadata(#[from] episko_lib::metadata::Error),
+
+    #[error(transparent)]
+    Statistics(#[from] episko_lib::statistics::Error),
 
     #[error("bad request: {0}")]
     BadRequest(String),

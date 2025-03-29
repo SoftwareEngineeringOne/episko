@@ -7,12 +7,14 @@ import type {
 	Metadata,
 	MetadataPreview,
 	PagedMetadataPreview,
+	Statistic,
 	Uuid
 } from './types';
 import { parseMetadata, parseMetadataDco, parseMetadataPreviewArray } from './schemas/metadata';
 import { PagedMetadataPreviewSchema } from './schemas/pagedData';
 import { parseCategoryArray } from './schemas/category';
 import { parseLanguageArray } from './schemas/language';
+import { parseStatistics } from './schemas/statistics';
 
 export default {
 	async init_cache(): Promise<void> {
@@ -41,6 +43,10 @@ export default {
 
 	async get_all_languages(): Promise<Language[]> {
 		return invoke('get_all_languages').then((data) => parseLanguageArray(data));
+	},
+
+	async get_statistics(): Promise<Statistic> {
+		return invoke('get_statistics').then((data) => parseStatistics(data))
 	},
 
 	async create_metadata(created: FormMetadata): Promise<Uuid> {

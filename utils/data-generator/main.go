@@ -3,12 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
-	"sync"
 	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/brianvoe/gofakeit/v7"
@@ -21,7 +21,6 @@ func main() {
 
 	gofakeit.Seed(time.Now().UnixNano())
 
-
 	var wg sync.WaitGroup
 
 	for i := 0; i < *numProjects; i++ {
@@ -32,13 +31,13 @@ func main() {
 	wg.Wait()
 }
 
-
 func createProject(projectNum int, baseDir string, wg *sync.WaitGroup) {
 	defer wg.Done()
 
 	languagesList := []string{"Go", "Python", "JavaScript", "TypeScript", "Rust", "Java", "C#"}
 	buildSystemsList := []string{"Make", "CMake", "Gradle", "Maven", "Webpack", "Bazel"}
-	idesList := []string{"VSCode", "IntelliJ", "Vim", "Emacs", "Atom", "Sublime"}
+	idesList := []string{"VSCode", "IntelliJ", "Vim", "Emacs", "Atom", "Sublime", "Neovim"}
+	categoryList := []string{"University", "Personal", "Networking", "Abandoned", "Work", "Experimental"}
 
 	title := gofakeit.AppName()
 	sanitizedTitle := sanitizeTitle(title)
@@ -56,9 +55,16 @@ func createProject(projectNum int, baseDir string, wg *sync.WaitGroup) {
 	}
 
 	numCategories := gofakeit.Number(0, 3)
-	categories := make([]string, 0, numCategories)
+	categorySet := make(map[string]struct{})
 	for j := 0; j < numCategories; j++ {
-		categories = append(categories, gofakeit.Word())
+		cat := categoryList[gofakeit.Number(0, len(categoryList)-1)]
+		categorySet[cat] = struct{}{}
+
+	}
+
+	categories := make([]string, 0, len(categorySet))
+	for c := range categorySet {
+		categories = append(categories, c)
 	}
 
 	numLanguages := gofakeit.Number(1, 3)
@@ -69,7 +75,7 @@ func createProject(projectNum int, baseDir string, wg *sync.WaitGroup) {
 		if gofakeit.Bool() {
 			version = fmt.Sprintf("%d.%d", gofakeit.Number(1, 5), gofakeit.Number(0, 9))
 		} else {
-			version = "unknown"
+			version = ""
 		}
 		key := fmt.Sprintf("%s:%s", lang, version)
 		languageSet[key] = struct{}{}
@@ -88,7 +94,7 @@ func createProject(projectNum int, baseDir string, wg *sync.WaitGroup) {
 		if gofakeit.Bool() {
 			version = fmt.Sprintf("%d.%d", gofakeit.Number(1, 3), gofakeit.Number(0, 9))
 		} else {
-			version = "unknown"
+			version = ""
 		}
 		key := fmt.Sprintf("%s:%s", bs, version)
 		buildSystemSet[key] = struct{}{}
@@ -102,7 +108,7 @@ func createProject(projectNum int, baseDir string, wg *sync.WaitGroup) {
 	var preferredIde string
 	if gofakeit.Bool() {
 		ide := idesList[gofakeit.Number(0, len(idesList)-1)]
-		preferredIde = fmt.Sprintf("%s:%d.%d", ide, gofakeit.Number(1, 2), gofakeit.Number(0, 9))
+		preferredIde = fmt.Sprintf("%s", ide)
 	}
 
 	var repositoryUrl string
@@ -151,7 +157,6 @@ func createProject(projectNum int, baseDir string, wg *sync.WaitGroup) {
 		log.Printf("Project %d (%q) created successfully.", projectNum, title)
 	}
 }
-
 
 func sanitizeTitle(title string) string {
 	safe := strings.ReplaceAll(title, " ", "_")

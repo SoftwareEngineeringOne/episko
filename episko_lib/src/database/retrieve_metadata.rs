@@ -1,6 +1,6 @@
 use super::{
-    dao::{ConversionError, MetadataDao, MetadataPreviewDao},
     DatabaseHandler, Filter, Result,
+    dao::{ConversionError, MetadataDao, MetadataPreviewDao},
 };
 use crate::metadata::{Metadata, MetadataPreview};
 use sqlx::{QueryBuilder, Row};
@@ -247,9 +247,11 @@ mod tests {
         let pagination_10 = Pagination::new(1, 10);
         let pagination_20 = Pagination::new(1, 20);
 
-        let result_10 = Metadata::all_preview_from_db(Some(pagination_10), None, &db).await;
-        let result_20 = Metadata::all_preview_from_db(Some(pagination_20), None, &db).await;
-        let result_all = Metadata::all_preview_from_db(None, None, &db).await;
+        let result_10 =
+            Metadata::all_preview_from_db(Some(pagination_10), Filter::default(), &db).await;
+        let result_20 =
+            Metadata::all_preview_from_db(Some(pagination_20), Filter::default(), &db).await;
+        let result_all = Metadata::all_preview_from_db(None, Filter::default(), &db).await;
 
         assert!(result_10.is_ok());
         assert!(result_20.is_ok());
@@ -279,10 +281,12 @@ mod tests {
             .await
             .expect("write test data with title to db");
 
-        let search_query = Some("test".to_string());
+        let search_query = "test";
         let pagination = Pagination::new(1, 10);
 
-        let result = Metadata::all_preview_from_db(Some(pagination), search_query, &db).await;
+        let result =
+            Metadata::all_preview_from_db(Some(pagination), Filter::with_query(search_query), &db)
+                .await;
 
         assert!(result.is_ok());
         let previews = result.unwrap();
@@ -318,7 +322,7 @@ mod tests {
         fill_db(41, &db).await;
         let pagination = Pagination::new(0, 10);
 
-        let result = Metadata::all_preview_from_db(Some(pagination), None, &db).await;
+        let result = Metadata::all_preview_from_db(Some(pagination), Filter::default(), &db).await;
 
         assert!(result.is_ok());
         let previews = result.unwrap();

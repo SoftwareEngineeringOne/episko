@@ -84,6 +84,17 @@ impl Statistic {
         return Ok(row.try_get("count")?);
     }
 
+    pub async fn number_of_languages(db: &DatabaseHandler) -> Result<u32, Error> {
+        let row = sqlx::query(
+            "SELECT count(DISTINCT name) AS count
+             FROM language;",
+        )
+        .fetch_one(db.conn())
+        .await?;
+
+        return Ok(row.try_get("count")?);
+    }
+
     /// Execute the given query and return the formatted result.
     async fn count_projects(
         db: &DatabaseHandler,
@@ -103,13 +114,7 @@ impl Statistic {
 
 #[cfg(test)]
 mod tests {
-    use crate::{
-        database::{
-            database_handler,
-            db_test::{build_systems, fill_db, ides},
-        },
-        metadata::build_system,
-    };
+    use crate::database::db_test::fill_db;
 
     use super::*;
     use sqlx::SqlitePool;

@@ -1,30 +1,16 @@
-use std::{
-    error::Error,
-    path::{Path, PathBuf},
-    str::FromStr,
-};
+use std::error::Error;
 
-use episko_lib::{
-    config::{config_handler::ConfigHandler, Config},
-    database::{DatabaseHandler, DatabaseObject},
-    files::File,
-    metadata::{
-        metadata_handler::MetadataHandler, property::Property, BuildSystem, Category, Ide,
-        Language, Metadata,
-    },
-};
-use uuid::Uuid;
 
-use episko_lib::statistics::statistic_handler::StatisticHandler;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
+    todo!();
     //let connection_str = String::from_str("sqlite://episko.db")?;
 
-    let ch = ConfigHandler::new()?;
-
-    let mut config = ch.load_config()?;
-    let db = DatabaseHandler::with_config(&config).await?;
+    // let ch = ConfigHandler::new()?;
+    //
+    // let mut config = ch.load_config()?;
+    // let db = DatabaseHandler::with_config(&config).await?;
 
     //let mut metadata_handler = MetadataHandler::new();
 
@@ -103,7 +89,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     // println!("Hashes are equal: {}", hash1 == hash2);
     //
 
-    println!("{:?}", StatisticHandler::generate_statistics(&db).await?);
+    // println!("{:?}", StatisticHandler::generate_statistics(&db).await?);
 
     Ok(())
 }

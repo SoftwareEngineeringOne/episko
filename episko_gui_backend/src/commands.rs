@@ -4,12 +4,13 @@ use tokio::sync::Mutex;
 use uuid::Uuid;
 
 use episko_lib::{
-    database::{retrieve_metadata::Pagination, DatabaseObject, Filter},
+    database::{DatabaseObject, Filter, retrieve_metadata::Pagination},
     files::File,
-    metadata::{metadata_handler::MetadataHandler, Category, Language, Metadata, MetadataPreview},
+    metadata::{Category, Language, Metadata, MetadataPreview, metadata_handler::MetadataHandler},
+    statistics::{Statistic, statistic_handler::StatisticHandler},
 };
 
-use crate::{model::MetadataDco, model::MetadataDto, AppState, Error};
+use crate::{AppState, Error, model::MetadataDco, model::MetadataDto};
 
 static PAGE_SIZE: u32 = 10;
 
@@ -90,6 +91,13 @@ pub async fn get_all_languages(
     let state = state.lock().await;
 
     Ok(Language::all_names(state.db.conn()).await?)
+}
+
+#[tauri::command]
+pub async fn get_statistics(state: tauri::State<'_, Mutex<AppState>>) -> Result<Statistic, Error> {
+    let state = state.lock().await;
+
+    Ok(StatisticHandler::generate_statistics(&state.db).await?)
 }
 
 #[tauri::command]

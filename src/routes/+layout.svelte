@@ -7,15 +7,23 @@
 	import { Separator } from '$lib/components/ui/separator/index.js';
 	import * as Sidebar from '$lib/components/ui/sidebar';
 	import { Moon, Sun } from 'lucide-svelte';
-	import { Toaster } from '$lib/components/ui/sonner';
 	import Commands from '$lib/commands';
+	import { loadStatistics } from './statistics/state.svelte';
+	import { onMount } from 'svelte';
+	import Toast from '$lib/components/toasts/Toast.svelte';
+	import { preloadFirstPage } from './project/state.svelte';
 
 	let { children } = $props();
 
+	// temporary solution, should be done in background
 	let initPromise = Commands.init_cache();
+
+	onMount(async () => {
+		await loadStatistics();
+		await preloadFirstPage();
+	});
 </script>
 
-<Toaster />
 <ModeWatcher />
 <Sidebar.Provider>
 	<AppSidebar />
@@ -52,5 +60,6 @@
 				</div>
 			{/await}
 		</div>
+		<!--<Toast />-->
 	</Sidebar.Inset>
 </Sidebar.Provider>

@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 use std::{
     collections::HashSet,
     env, fs, io,
-    path::{Path, PathBuf},
+    path::PathBuf,
 };
 use thiserror::Error;
 

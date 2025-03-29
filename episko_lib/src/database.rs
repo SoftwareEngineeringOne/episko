@@ -46,11 +46,21 @@ use uuid::Uuid;
 /// Result type for this module using [`enum@Error`]
 pub type Result<T> = std::result::Result<T, Error>;
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Deserialize, Clone, Default)]
 pub struct Filter {
     pub query: Option<String>,
     pub language: Option<String>,
     pub category: Option<String>,
+}
+
+impl Filter {
+    pub fn with_query(query: &str) -> Self {
+        Self {
+            query: Some(query.to_string()),
+            language: None,
+            category: None,
+        }
+    }
 }
 
 #[derive(Debug, Error)]
@@ -92,8 +102,8 @@ pub mod db_test {
 
     use super::*;
     use crate::{
-        metadata::{property::Property as _, Metadata, *},
         ApplyIf as _,
+        metadata::{Metadata, property::Property as _, *},
     };
     use chrono::{TimeDelta, Utc};
 
@@ -165,7 +175,7 @@ pub mod db_test {
 mod test {
     use sqlx::SqlitePool;
 
-    use crate::database::{db_test::fill_db, DatabaseHandler};
+    use crate::database::{DatabaseHandler, db_test::fill_db};
 
     #[sqlx::test]
     async fn setup_test_db(conn: SqlitePool) {
