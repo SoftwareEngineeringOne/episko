@@ -12,11 +12,7 @@
 //! The serialiaztion and deserialization of the file is done using
 //! [`serde`] and the [`files::File`] trait.
 use serde::{Deserialize, Serialize};
-use std::{
-    collections::HashSet,
-    env, fs, io,
-    path::PathBuf,
-};
+use std::{collections::HashSet, env, fs, io, path::PathBuf};
 use thiserror::Error;
 
 use crate::files;

@@ -4,13 +4,13 @@ use tokio::sync::Mutex;
 use uuid::Uuid;
 
 use episko_lib::{
-    database::{DatabaseObject, Filter, retrieve_metadata::Pagination},
+    database::{retrieve_metadata::Pagination, DatabaseObject, Filter},
     files::File,
-    metadata::{Category, Language, Metadata, MetadataPreview, metadata_handler::MetadataHandler},
-    statistics::{Statistic, statistic_handler::StatisticHandler},
+    metadata::{metadata_handler::MetadataHandler, Category, Language, Metadata, MetadataPreview},
+    statistics::{statistic_handler::StatisticHandler, Statistic},
 };
 
-use crate::{AppState, Error, model::MetadataDco, model::MetadataDto};
+use crate::{model::MetadataDco, model::MetadataDto, AppState, Error};
 
 static PAGE_SIZE: u32 = 10;
 

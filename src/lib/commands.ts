@@ -46,7 +46,7 @@ export default {
 	},
 
 	async get_statistics(): Promise<Statistic> {
-		return invoke('get_statistics').then((data) => parseStatistics(data))
+		return invoke('get_statistics').then((data) => parseStatistics(data));
 	},
 
 	async create_metadata(created: FormMetadata): Promise<Uuid> {
