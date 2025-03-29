@@ -2,8 +2,16 @@
 #![deny(clippy::pedantic)]
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-fn main() {
-    gui_lib::run();
+use env_logger::Env;
+
+#[tokio::main]
+async fn main() {
+    let env = Env::default()
+        .filter_or("EPISKO_LOG_LEVEL", "trace")
+        .write_style_or("EPISKO_LOG_STYLE", "auto");
+
+    env_logger::init_from_env(env);
+    gui_lib::run().await.expect("starting application");
 }
 
 #[cfg(test)]

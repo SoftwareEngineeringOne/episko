@@ -4,11 +4,7 @@
 
 use camino::Utf8PathBuf;
 use color_eyre::Result;
-use episko_lib::{
-    config::{config_handler::ConfigHandler, Config},
-    files::File,
-    metadata::Metadata,
-};
+use episko_lib::{config::config_handler::ConfigHandler, files::File, metadata::Metadata};
 
 use crate::connect_to_db;
 
@@ -17,11 +13,13 @@ use crate::connect_to_db;
 ///
 /// # Errors
 /// - [`color_eyre::Report`] when [`Metadata::validate_file`] fails
-pub async fn validate_manifest(file: &Utf8PathBuf, config_handler: &ConfigHandler) -> Result<()> {
-    // TODO
-    // let db = connect_to_db().await?;
-    //Metadata::validate_db(&Metadata::from_file(file.as_std_path())?, &db).await?;
+pub async fn validate_manifest(
+    file: &Utf8PathBuf,
+    config_handler: &mut ConfigHandler,
+) -> Result<()> {
     Metadata::validate_file(file.as_std_path())?;
+
+    cache_manifest(file, config_handler).await?;
     Ok(())
 }
 
@@ -33,17 +31,21 @@ pub async fn validate_manifest(file: &Utf8PathBuf, config_handler: &ConfigHandle
 ///
 /// # Errors
 /// - Error report when [`Metadata::update_in_db`] fails.
-pub async fn cache_manifest(file: &Utf8PathBuf, config_handler: &ConfigHandler) -> Result<()> {
-    let mut config = config_handler.load_config()?;
-    let db = connect_to_db(&config).await?;
+pub async fn cache_manifest(file: &Utf8PathBuf, config_handler: &mut ConfigHandler) -> Result<()> {
+    let db = connect_to_db(config_handler.config()).await?;
 
     let metadata = Metadata::from_file(file.as_std_path())?;
-    Metadata::update_in_db(&metadata, &db).await?;
+
+    if metadata.is_cached(&db).await? {
+        metadata.update_in_db(&db).await?;
+    } else {
+        metadata.write_to_db(&db).await?;
+    }
 
     // Reloading the config_handler / config isn't very pretty,
     // however I think it still that it's the simplest way to do this.
-    config.add_saved_file(metadata.directory());
-    config_handler.save_config(&config)?;
+    config_handler.add_saved_file(metadata.directory());
+    config_handler.save_config()?;
 
     Ok(())
 }

@@ -55,9 +55,49 @@ pub trait DatabaseObject: Sized + for<'r> FromRow<'r, SqliteRow> {
         executor: impl SqliteExecutor<'e> + 'e,
     ) -> BoxedFuture<'e, Result<bool>>;
 
+    /// Retrieve all unique names
+    fn all_names<'e>(executor: impl SqliteExecutor<'e> + 'e) -> BoxedFuture<'e, Result<Vec<Self>>>;
+
     /// Remove the given object from the database
     fn remove_from_db<'e>(
         &'e self,
         executor: impl SqliteExecutor<'e> + 'e,
     ) -> BoxedFuture<'e, Result<()>>;
+}
+
+#[cfg(test)]
+mod tests {
+    use sqlx::SqlitePool;
+
+    use crate::database::DatabaseObject;
+    use crate::metadata::Language;
+
+    #[sqlx::test]
+    async fn test_write_db_object(conn: SqlitePool) {
+        let category = Language::with_version("Rust", "1.85");
+
+        let result = category.write_to_db(&conn).await;
+
+        assert!(result.is_ok());
+        assert!(category.exists(&conn).await.unwrap());
+    }
+
+    #[sqlx::test]
+    async fn test_remove_db_object(conn: SqlitePool) {
+        let category = Language::with_version("Rust", "1.85");
+
+        category
+            .write_to_db(&conn)
+            .await
+            .expect("write category to db");
+
+        assert!(category.exists(&conn).await.unwrap());
+
+        category
+            .remove_from_db(&conn)
+            .await
+            .expect("remove category from db");
+
+        assert!(!category.exists(&conn).await.unwrap());
+    }
 }

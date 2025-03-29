@@ -1,14 +1,29 @@
 <script lang="ts">
 	import '../app.css';
 	import AppSidebar from '$lib/components/app-sidebar.svelte';
-	import { ModeWatcher } from 'mode-watcher';
+	import { ModeWatcher, mode } from 'mode-watcher';
 	import { toggleMode } from 'mode-watcher';
 	import { Button } from '$lib/components/ui/button';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 	import * as Sidebar from '$lib/components/ui/sidebar';
 	import { Moon, Sun } from 'lucide-svelte';
+	import Commands from '$lib/commands';
+	import { loadStatistics } from './statistics/state.svelte';
+	import { onMount } from 'svelte';
+	import { preloadFirstPage } from './project/state.svelte';
+	import { Toaster } from '$lib/components/ui/sonner';
 
 	let { children } = $props();
+
+	// temporary solution, should be done in background
+	let initPromise = Commands.init_cache();
+
+	onMount(async () => {
+		await loadStatistics();
+		await preloadFirstPage();
+	});
+
+	let lightMode = $derived($mode === 'light');
 </script>
 
 <ModeWatcher />
@@ -31,9 +46,28 @@
 					<span class="sr-only">Toggle theme</span>
 				</Button>
 			</div>
+			<input
+				type="checkbox"
+				value="lofi"
+				class="toggle theme-controller hidden"
+				bind:checked={lightMode}
+			/>
 		</header>
 		<div class="flex flex-1 flex-col gap-4 p-4 pt-0">
-			{@render children()}
+			{#await initPromise}
+				<div class="w-full h-full flex justify-center items-center flex-col">
+					<h1>Loading application</h1>
+					<p>This will be improved in the future, so that loading happens in the background</p>
+				</div>
+			{:then}
+				{@render children()}
+			{:catch error}
+				<div class="w-full h-full flex justify-center items-center flex-col">
+					<h1>Something went very wrong</h1>
+					<p>{error}</p>
+				</div>
+			{/await}
 		</div>
 	</Sidebar.Inset>
 </Sidebar.Provider>
+<Toaster richColors />

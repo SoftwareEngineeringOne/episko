@@ -80,21 +80,21 @@ pub type Result<T> = std::result::Result<T, Error>;
 /// Metadata structure containing information about a project.
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Metadata {
-    pub(crate) id: Uuid,
+    pub id: Uuid,
     #[serde(skip)]
-    pub(crate) directory: PathBuf,
-    pub(crate) title: String,
-    pub(crate) description: Option<String>,
+    pub directory: PathBuf,
+    pub title: String,
+    pub description: Option<String>,
     #[serde(rename = "category")]
-    pub(crate) categories: Vec<Category>,
+    pub categories: Vec<Category>,
     #[serde(rename = "language")]
-    pub(crate) languages: Vec<Language>,
+    pub languages: Vec<Language>,
     #[serde(rename = "build_system")]
-    pub(crate) build_systems: Vec<BuildSystem>,
-    pub(crate) preffered_ide: Option<Ide>,
-    pub(crate) repository_url: Option<String>,
-    pub(crate) created: DateTime<Utc>,
-    pub(crate) updated: DateTime<Utc>,
+    pub build_systems: Vec<BuildSystem>,
+    pub preferred_ide: Option<Ide>,
+    pub repository_url: Option<String>,
+    pub created: DateTime<Utc>,
+    pub updated: DateTime<Utc>,
 }
 
 impl Metadata {
@@ -122,19 +122,23 @@ impl Metadata {
         &self.directory
     }
 
+    /// !TODO!
     pub fn update_directory(&mut self, path: PathBuf) {
         self.directory = path;
     }
 
+    /// !TODO!
+    #[must_use]
     pub fn id(&self) -> Uuid {
         self.id
     }
 
+    /// !TODO!
     pub fn update_ids(&mut self) {
         self.categories.iter_mut().for_each(Property::update_id);
         self.languages.iter_mut().for_each(Property::update_id);
         self.build_systems.iter_mut().for_each(Property::update_id);
-        self.preffered_ide.iter_mut().for_each(Property::update_id);
+        self.preferred_ide.iter_mut().for_each(Property::update_id);
     }
 
     /// Generate a Sha256 hash based on the instance for
@@ -150,6 +154,17 @@ impl Metadata {
         hasher.update(string);
         Ok(hasher.finalize().into())
     }
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct MetadataPreview {
+    pub id: Uuid,
+    pub title: String,
+    pub description: Option<String>,
+    pub categories: Vec<Category>,
+    pub languages: Vec<Language>,
+    pub created: DateTime<Utc>,
+    pub updated: DateTime<Utc>,
 }
 
 #[derive(Debug, Error)]
@@ -172,6 +187,9 @@ pub enum Error {
     #[error("unable to save metadata: {0}")]
     Save(String),
 
+    #[error("unable to delete metadata: {0}")]
+    Delete(String),
+
     #[error("unable to find manifests in directory: {0}")]
     Directory(String),
 }
@@ -185,7 +203,7 @@ mod tests {
     fn test_metadata_checksum_is_consistent() {
         let metadata = get_simple_metadata();
         let checksum1 = metadata.get_hash().unwrap();
-        for i in 0..100 {
+        for _ in 0..100 {
             let checksum2 = metadata.get_hash().unwrap();
             assert_eq!(checksum1, checksum2)
         }

@@ -4,16 +4,16 @@ use sqlx::FromRow;
 
 use super::property::{self, Property};
 
-#[derive(Debug, Serialize, Deserialize, DatabaseObject, FromRow, PartialOrd, Ord)]
+#[derive(Debug, Serialize, Deserialize, DatabaseObject, FromRow, PartialOrd, Ord, Clone)]
 #[db(table = "language")]
 pub struct Language {
     #[serde(skip)]
     #[db(col = "id")]
     id: Vec<u8>,
     #[db(col = "name")]
-    pub(crate) name: String,
+    pub name: String,
     #[db(col = "version")]
-    pub(crate) version: Option<String>,
+    pub version: Option<String>,
 }
 
 impl Language {

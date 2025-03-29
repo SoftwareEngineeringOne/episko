@@ -122,6 +122,7 @@ impl DbObjectMeta {
     }
 
     /// Generates the necessary `impl` block for the target struct.
+    #[allow(clippy::too_many_lines)]
     fn generate_impl(&self) -> TokenStream {
         let (impl_generics, type_generics, where_clause) = self.generics.split_for_impl();
         let ident = &self.ident;
@@ -131,7 +132,7 @@ impl DbObjectMeta {
         let id_type = &self.id_type;
 
         let insert_sql = format!(
-            "INSERT INTO {} ({}) VALUES ({})",
+            "INSERT OR IGNORE INTO {} ({}) VALUES ({})",
             self.table,
             columns
                 .clone()
@@ -156,6 +157,12 @@ impl DbObjectMeta {
         let exists_sql = format!("SELECT EXISTS(SELECT 1 FROM {} WHERE id = ?)", self.table);
         let exists_sql_literal = syn::LitStr::new(&exists_sql, proc_macro2::Span::call_site());
         let id_field_ident = self.id_field_ident.clone();
+
+        let all_sql = format!(
+            "SELECT id, name, null as version FROM {} GROUP BY name",
+            self.table
+        );
+        let all_sql_literal = syn::LitStr::new(&all_sql, proc_macro2::Span::call_site());
 
         let remove_sql = format!("DELETE FROM {} WHERE id = ?", self.table);
         let remove_sql_literal = syn::LitStr::new(&remove_sql, proc_macro2::Span::call_site());
@@ -202,6 +209,18 @@ impl DbObjectMeta {
                             .fetch_one(executor)
                             .await?;
                         Ok(exists)
+                    })
+                }
+
+                fn all_names<'e>(
+                    executor: impl ::sqlx::SqliteExecutor<'e> + 'e,
+                ) -> ::std::pin::Pin<Box<dyn ::std::future::Future<Output = crate::database::Result<Vec<Self>>>
+                    + Send + 'e>> {
+                    Box::pin(async move {
+                        Ok(::sqlx::query_as::<_, Self>(#all_sql_literal)
+                                .fetch_all(executor)
+                                .await?
+                        )
                     })
                 }
 

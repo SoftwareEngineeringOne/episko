@@ -1,47 +1,39 @@
-export type Some<T> = {
-	_tag: 'Some';
-	value: T;
-};
+import type { z } from 'zod';
+import type {
+	MetadataDcoSchema,
+	MetadataFormSchema,
+	MetadataPreviewSchema,
+	MetadataSchema,
+	UuidSchema
+} from './schemas/metadata';
+import type { PagedMetadataPreviewSchema } from './schemas/pagedData.ts';
+import type { LanguageSchema } from './schemas/language';
+import type { CategorySchema } from './schemas/category';
+import type { BuildSystemSchema } from './schemas/buildSystem';
+import type { StatisticSchema } from './schemas/statistics';
 
-export type None = {
-	_tag: 'None';
-};
+export interface Filter {
+	query: string | null;
+	category: string | null;
+	language: string | null;
+}
 
-export type Option<T> = Some<T> | None;
+export type Metadata = z.infer<typeof MetadataSchema>;
 
-export type Metadata = {
-	// null uuid for new project (0000-0000-0000-0000-0000)
-	id: Uuid;
-	directory: string;
-	title: string;
-	description: Option<string>;
-	categories: Array<Category>;
-	languages: Array<Language>;
-	buildSystems: Array<BuildSystem>;
-	preferredIde: Option<Ide>;
-	repositoryUrl: Option<string>;
-	created: Date;
-	updated: Date;
-};
+export type MetadataPreview = z.infer<typeof MetadataPreviewSchema>;
 
-export type MetadataOverview = Pick<Metadata, 'title' | 'categories' | 'languages' | 'updated'>;
+export type PagedMetadataPreview = z.infer<typeof PagedMetadataPreviewSchema>;
 
-export type Category = {
-	name: string;
-};
+export type FormMetadata = z.infer<typeof MetadataFormSchema>;
 
-export type Language = {
-	name: string;
-	version: Option<string>;
-};
+export type MetadataDco = z.infer<typeof MetadataDcoSchema>;
 
-export type BuildSystem = {
-	name: string;
-	version: Option<string>;
-};
+export type Language = z.infer<typeof LanguageSchema>;
 
-export type Ide = {
-	name: string;
-};
+export type Category = z.infer<typeof CategorySchema>;
 
-type Uuid = string & { readonly __brand: unique symbol };
+export type BuildSystem = z.infer<typeof BuildSystemSchema>;
+
+export type Uuid = z.infer<typeof UuidSchema>;
+
+export type Statistic = z.infer<typeof StatisticSchema>;

@@ -1,4 +1,4 @@
-// #![deny(clippy::pedantic)]
+#![warn(clippy::pedantic)]
 //! # Episko Library
 //!
 //! This library is part of the projekt [Episko](https://github.com/SoftwareEngineeringOne/episko).
@@ -28,6 +28,7 @@ pub mod database;
 #[cfg(feature = "files")]
 pub mod files;
 pub mod metadata;
+pub mod statistics;
 
 /// Trait to perform a self consuming action based on a condition.
 pub trait ApplyIf: Sized {
