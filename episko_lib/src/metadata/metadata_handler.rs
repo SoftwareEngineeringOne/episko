@@ -45,7 +45,6 @@ impl MetadataHandler {
             .write_to_db(db)
             .await
             .map_err(|err| Error::Save(err.to_string()))?;
-
         metadata
             .write_file(metadata.directory())
             .map_err(|err| Error::Save(err.to_string()))?;

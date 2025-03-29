@@ -33,6 +33,7 @@ pub mod database_object;
 pub mod insert_metadata;
 pub mod remove_metadata;
 pub mod retrieve_metadata;
+pub mod retrieve_metrics;
 pub mod update_metadata;
 pub mod validate_stored_metadata;
 
@@ -103,13 +104,13 @@ pub mod db_test {
             el.write_to_db(db).await.expect("writing test data");
         }
     }
+    pub const ides: [&str; 4] = ["VSCode", "IntelliJ", "Sublime", "Vim"];
+    pub const categories: [&str; 5] = ["Web", "CLI", "GUI", "Embedded", "AI"];
+    pub const languages: [&str; 5] = ["Rust", "Python", "JavaScript", "Go", "C++"];
+    pub const build_systems: [&str; 5] = ["Cargo", "Make", "CMake", "NPM", "Bazel"];
 
     pub fn generate_test_metadata(count: usize) -> Vec<Metadata> {
         let base_time = Utc::now();
-        let ides = ["VSCode", "IntelliJ", "Sublime", "Vim"];
-        let categories = ["Web", "CLI", "GUI", "Embedded", "AI"];
-        let languages = ["Rust", "Python", "JavaScript", "Go", "C++"];
-        let build_systems = ["Cargo", "Make", "CMake", "NPM", "Bazel"];
 
         (0..count)
             .map(|i| {
