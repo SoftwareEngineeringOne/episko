@@ -4,7 +4,7 @@ use std::{env, fs, path::PathBuf};
 
 use crate::{config::CONFIG_FILE_NAME, files::File};
 
-use super::{Config, DIR_NAME, Error, Result};
+use super::{Config, Error, Result, DIR_NAME};
 
 /// The [`ConfigHandler`] is used to load and save the [`Config`] object
 /// to a file as defined in [`ConfigHandler::config_path`].

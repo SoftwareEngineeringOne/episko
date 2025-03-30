@@ -3,7 +3,7 @@
 //!
 //! This module contains little help functions.
 
-use color_eyre::{Result, eyre::eyre};
+use color_eyre::{eyre::eyre, Result};
 
 pub mod cli;
 pub mod creation;
