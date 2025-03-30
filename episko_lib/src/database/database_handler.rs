@@ -65,7 +65,8 @@ impl DatabaseHandler {
         &self.conn
     }
 
-    #[cfg(test)]
+    /// for tests only
+    #[doc(hidden)]
     pub fn with_conn(conn: SqlitePool) -> Self {
         Self { conn }
     }

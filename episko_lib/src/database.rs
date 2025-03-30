@@ -104,8 +104,8 @@ pub mod db_test {
 
     use super::*;
     use crate::{
-        metadata::{property::Property as _, Metadata, *},
         ApplyIf as _,
+        metadata::{Metadata, property::Property as _, *},
     };
     use chrono::{TimeDelta, Utc};
 
@@ -116,9 +116,9 @@ pub mod db_test {
             el.write_to_db(db).await.expect("writing test data");
         }
     }
-    pub const ides: [&str; 4] = ["VSCode", "IntelliJ", "Sublime", "Vim"];
-    pub const categories: [&str; 5] = ["Web", "CLI", "GUI", "Embedded", "AI"];
-    pub const languages: [&str; 5] = ["Rust", "Python", "JavaScript", "Go", "C++"];
+    pub const IDES: [&str; 4] = ["VSCode", "IntelliJ", "Sublime", "Vim"];
+    pub const CATEGORIES: [&str; 5] = ["Web", "CLI", "GUI", "Embedded", "AI"];
+    pub const LANGUAGES: [&str; 5] = ["Rust", "Python", "JavaScript", "Go", "C++"];
     pub const build_systems: [&str; 5] = ["Cargo", "Make", "CMake", "NPM", "Bazel"];
 
     pub fn generate_test_metadata(count: usize) -> Vec<Metadata> {
@@ -132,15 +132,15 @@ pub mod db_test {
                     .title(&format!("Test Project {}", i + 1))
                     .directory(".")
                     .apply_if(
-                        Some(categories[i % categories.len()]),
+                        Some(CATEGORIES[i % CATEGORIES.len()]),
                         MetadataBuilder::add_category,
                     )
                     .add_language(Language::with_version(
-                        languages[i % languages.len()],
+                        LANGUAGES[i % LANGUAGES.len()],
                         &format!("1.{}", i),
                     ))
                     .apply_if(
-                        (i % 2 == 0).then_some(Ide::new(ides[i % ides.len()])),
+                        (i % 2 == 0).then_some(Ide::new(IDES[i % IDES.len()])),
                         MetadataBuilder::preferred_ide,
                     )
                     .add_build_system(BuildSystem::with_version(
@@ -177,7 +177,7 @@ pub mod db_test {
 mod test {
     use sqlx::SqlitePool;
 
-    use crate::database::{db_test::fill_db, DatabaseHandler};
+    use crate::database::{DatabaseHandler, db_test::fill_db};
 
     #[sqlx::test]
     async fn setup_test_db(conn: SqlitePool) {

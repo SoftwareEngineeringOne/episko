@@ -14,7 +14,7 @@ use uuid::Uuid;
 // Temporary for compatibility reasons.
 pub use crate::ApplyIf;
 
-use super::{property::Property, BuildSystem, Category, Ide, Language, Metadata};
+use super::{BuildSystem, Category, Ide, Language, Metadata, property::Property};
 
 /// To allow for flexible building all fields
 /// can start of as `None` or an empty `Vec`.
@@ -132,7 +132,6 @@ impl MetadataBuilder {
     /// > This is not the cleanet solution and should be looked at, however
     /// > it allows for normalization of all builder methods.
     #[must_use]
-    #[cfg(not(test))]
     pub fn directory_path(mut self, path: &Path) -> Self {
         match path.canonicalize() {
             Ok(absolute_path) => {
@@ -142,16 +141,8 @@ impl MetadataBuilder {
                     self.directory = Some(absolute_path);
                 }
             }
-            Err(_) => self.directory = None,
+            Err(_) => self.directory = Some(path.to_path_buf()),
         }
-
-        self
-    }
-
-    #[must_use]
-    #[cfg(test)]
-    pub fn directory_path(mut self, path: &Path) -> Self {
-        self.directory = Some(path.to_path_buf());
 
         self
     }

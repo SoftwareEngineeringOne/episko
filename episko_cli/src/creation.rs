@@ -157,9 +157,9 @@ fn run_non_interactive_creation(
 #[cfg(test)]
 mod tests {
     use camino::Utf8PathBuf;
-    use episko_lib::{config::ConfigHandler, database::DatabaseHandler};
+    use episko_lib::config::ConfigHandler;
 
-    use crate::cli::{Cli, Commands, CreateArgs, tests::skip_if_stdout};
+    use crate::cli::{CreateArgs, tests::skip_if_stdout};
 
     use super::*;
 
