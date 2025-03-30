@@ -67,12 +67,14 @@ impl DatabaseHandler {
 
     /// for tests only
     #[doc(hidden)]
+    #[must_use]
     pub fn with_conn(conn: SqlitePool) -> Self {
         Self { conn }
     }
 
     /// for tests only
     #[doc(hidden)]
+    #[must_use]
     pub async fn in_memory() -> Self {
         Self::new("sqlite://")
             .await

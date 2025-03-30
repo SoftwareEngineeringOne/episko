@@ -154,14 +154,15 @@ impl ConfigHandler {
 
     /// for tests only
     #[doc(hidden)]
+    #[must_use]
     pub fn in_place() -> Self {
         let config_path = PathBuf::from(".");
 
         let config = Self::load_config(&config_path).expect("load config for test");
 
         Self {
-            config,
             config_path,
+            config,
         }
     }
 }

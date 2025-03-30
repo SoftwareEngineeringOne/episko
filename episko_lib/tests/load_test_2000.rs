@@ -7,7 +7,7 @@ use uuid::Uuid;
 mod common;
 
 #[sqlx::test]
-async fn test_read_write_5000(conn: SqlitePool) {
+async fn test_read_write_2000(conn: SqlitePool) {
     const AMOUNT: usize = 5000;
     let db = DatabaseHandler::with_conn(conn);
 
