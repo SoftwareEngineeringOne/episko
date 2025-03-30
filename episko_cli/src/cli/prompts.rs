@@ -10,7 +10,7 @@ use std::str::FromStr;
 use crate::ComplexArg;
 use camino::Utf8PathBuf;
 use color_eyre::Result;
-use dialoguer::{theme::ColorfulTheme, Input};
+use dialoguer::{Input, theme::ColorfulTheme};
 use episko_lib::metadata::{BuildSystem, Category, Ide, Language};
 
 /// Maximum number of input prompts for vec data
@@ -194,4 +194,259 @@ where
         data.push((name, version).try_into()?);
     }
     Ok(data)
+}
+
+#[cfg(test)]
+mod tests {
+    //! When using `cargo nextest` as a test runner, trying to display a dialogue
+    //! panics, due to the way the tests are seperated from a TTY environment.
+    //!
+    //! In some tests this is used to assert, that dialogues are started
+    //! when expected.
+    //!
+    //! However when using the default `cargo test` tests have access to
+    //! `STDOUT` and as such are able to print dialogues/don't panic.
+    //! In that case these tests are skipped by manually triggering the expected
+    //! panic.
+
+    use episko_lib::metadata::property::Property;
+
+    use crate::cli::tests::skip_if_stdout;
+
+    use super::*;
+
+    #[test]
+    #[should_panic(expected = "IO error: not a terminal")]
+    fn test_directory_starts_prompt() {
+        skip_if_stdout();
+
+        let result = directory_prompt(None);
+        result.unwrap();
+    }
+
+    #[test]
+    fn test_directory_with_default() {
+        let dir = Utf8PathBuf::from(".");
+
+        let result = directory_prompt(Some(dir.clone()));
+
+        assert!(result.is_ok());
+        let result = result.unwrap();
+
+        assert_eq!(result, dir)
+    }
+
+    #[test]
+    #[should_panic(expected = "IO error: not a terminal")]
+    fn test_title_starts_prompt() {
+        skip_if_stdout();
+
+        let result = title_prompt(None);
+        result.unwrap();
+    }
+
+    #[test]
+    fn test_title_with_default() {
+        let title = "Title".to_string();
+
+        let result = title_prompt(Some(title.clone()));
+
+        assert!(result.is_ok());
+        let result = result.unwrap();
+
+        assert_eq!(result, title)
+    }
+
+    #[test]
+    #[should_panic(expected = "IO error: not a terminal")]
+    fn test_description_starts_prompt() {
+        skip_if_stdout();
+
+        let result = description_prompt(None);
+        result.unwrap();
+    }
+
+    #[test]
+    fn test_description_with_default() {
+        let desc = Some("description".to_string());
+
+        let result = description_prompt(desc.clone());
+
+        assert!(result.is_ok());
+        let result = result.unwrap();
+
+        assert_eq!(result, desc)
+    }
+
+    #[test]
+    #[should_panic(expected = "IO error: not a terminal")]
+    fn test_categories_starts_prompt() {
+        skip_if_stdout();
+
+        let result = categories_prompt(&vec![]);
+        result.unwrap();
+    }
+
+    #[test]
+    fn test_categories_with_default() {
+        let cats = vec!["test".to_string(), "cool".to_string()];
+
+        let result = categories_prompt(&cats);
+
+        assert!(result.is_ok());
+        let result = result.unwrap();
+
+        assert_eq!(result.len(), cats.len());
+        for (i, category) in result.iter().enumerate() {
+            assert_eq!(category, &Category::from_str(&cats[i]).unwrap())
+        }
+    }
+
+    #[test]
+    #[should_panic(expected = "IO error: not a terminal")]
+    fn test_languages_starts_prompt() {
+        skip_if_stdout();
+
+        let result = languages_prompt(&vec![]);
+        result.unwrap();
+    }
+
+    #[test]
+    fn test_languages_with_default() {
+        let langs = vec![
+            ("rust".to_string(), "1.84.0".to_string()),
+            ("go".to_string(), "1.22.0".to_string()),
+            ("asm".to_string(), "0".to_string()),
+            ("asm".to_string(), "0".to_string()),
+        ];
+
+        looping_with_version(langs, languages_prompt);
+    }
+
+    #[test]
+    #[should_panic(expected = "name cant be empty")]
+    fn test_empty_language_should_fail() {
+        let langs = vec![":1.0".to_string()];
+
+        let result = languages_prompt(&langs);
+        result.unwrap();
+    }
+
+    #[test]
+    #[should_panic(expected = "IO error: not a terminal")]
+    fn test_build_system_starts_prompt() {
+        skip_if_stdout();
+        let result = languages_prompt(&vec![]);
+        result.unwrap();
+    }
+
+    #[test]
+    fn test_build_systems_with_default() {
+        let bss = vec![
+            ("Cargo".to_string(), "".to_string()),
+            ("CMake".to_string(), "22".to_string()),
+        ];
+
+        looping_with_version(bss, build_systems_prompt);
+    }
+
+    #[test]
+    #[should_panic(expected = "IO error: not a terminal")]
+    fn test_ide_starts_prompt() {
+        skip_if_stdout();
+
+        let result = ide_prompt(None);
+        result.unwrap();
+    }
+
+    #[test]
+    fn test_ide_with_default() {
+        let ide_str = "neovim".to_string();
+        let ide = Ide::from_str(ide_str.as_str()).unwrap();
+        let result = ide_prompt(Some(ide_str));
+
+        assert!(result.is_ok());
+        let result = result.unwrap();
+
+        assert!(result.is_some());
+        let result = result.unwrap();
+
+        assert_eq!(result, ide);
+    }
+
+    #[test]
+    #[should_panic(expected = "IO error: not a terminal")]
+    fn test_url_starts_prompt() {
+        skip_if_stdout();
+
+        let result = ide_prompt(None);
+        result.unwrap();
+    }
+
+    #[test]
+    fn test_url_with_default() {
+        let url = Some("https://episko.de".to_string());
+
+        let result = repository_url_prompt(url.clone());
+
+        assert!(result.is_ok());
+        let result = result.unwrap();
+
+        assert_eq!(result, url)
+    }
+
+    #[test]
+    #[should_panic(expected = "IO error: not a terminal")]
+    fn text_prompt_starts() {
+        skip_if_stdout();
+
+        text_prompt::<String>("test", true, None).unwrap();
+    }
+
+    #[test]
+    #[should_panic(expected = "IO error: not a terminal")]
+    fn optional_prompt_starts() {
+        skip_if_stdout();
+
+        optional_text_prompt::<String>("test", None).unwrap();
+    }
+
+    #[test]
+    #[should_panic(expected = "IO error: not a terminal")]
+    fn looping_prompt_starts() {
+        skip_if_stdout();
+        looping_prompt_with_version::<Language>("test", &vec![]).unwrap();
+    }
+
+    #[test]
+    fn looping_no_prompt_with_default() {
+        looping_prompt_with_version::<Language>("test", &vec!["rust:1.84".to_string()]).unwrap();
+    }
+
+    fn looping_with_version<T>(
+        values: Vec<(String, String)>,
+        func: impl FnOnce(&[String]) -> Result<Vec<T>>,
+    ) where
+        T: Property,
+    {
+        let combined_values: Vec<String> = values
+            .iter()
+            .map(|(name, version)| format!("{name}:{version}"))
+            .collect();
+        let result = func(&combined_values);
+
+        assert!(result.is_ok());
+        let result = result.unwrap();
+
+        assert_eq!(result.len(), values.len());
+
+        for (i, val) in values.iter().enumerate() {
+            assert_eq!(result[i].name(), val.0);
+            if val.1.is_empty() {
+                assert_eq!(result[i].version(), None);
+            } else {
+                assert_eq!(result[i].version(), Some(val.1.as_str()));
+            }
+        }
+    }
 }

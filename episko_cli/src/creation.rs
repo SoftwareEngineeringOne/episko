@@ -6,21 +6,21 @@ use std::str::FromStr;
 
 use crate::connect_to_db;
 
+use super::ComplexArg;
 use super::cli::{
+    CreateArgs,
     prompts::{
         build_systems_prompt, categories_prompt, description_prompt, directory_prompt, ide_prompt,
         languages_prompt, repository_url_prompt, title_prompt,
     },
-    CreateArgs,
 };
-use super::ComplexArg;
 use camino::Utf8Path;
 use color_eyre::Result;
 use episko_lib::{
     config::ConfigHandler,
     metadata::{
-        builder::ApplyIf, metadata_handler::MetadataHandler, BuildSystem, Category, Ide, Language,
-        Metadata, MetadataBuilder,
+        BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder, builder::ApplyIf,
+        metadata_handler::MetadataHandler,
     },
 };
 
@@ -33,7 +33,10 @@ use episko_lib::{
 /// - [`color_eyre::Report`] if [`MetadataBuilder::build`] fails
 /// - [`color_eyre::Report`] if [`Metadata::write_to_db`] fails
 /// - [`color_eyre::Report`] if [`Metadata::write_file`] fails
-pub async fn create_manifest(args: CreateArgs, config_handler: &mut ConfigHandler) -> Result<()> {
+pub async fn create_manifest(
+    args: CreateArgs,
+    config_handler: &mut ConfigHandler,
+) -> Result<Metadata> {
     let builder = Metadata::builder();
 
     let builder = if args.non_interactive {
@@ -47,7 +50,7 @@ pub async fn create_manifest(args: CreateArgs, config_handler: &mut ConfigHandle
     let db = connect_to_db(config_handler.config()).await?;
     MetadataHandler::save_metadata(&metadata, &db, config_handler).await?;
 
-    Ok(())
+    Ok(metadata)
 }
 
 /// Create a manifest with interactive prompts for missing attributes
@@ -149,4 +152,88 @@ fn run_non_interactive_creation(
         .build_systems(build_systems);
 
     Ok(builder)
+}
+
+#[cfg(test)]
+mod tests {
+    use camino::Utf8PathBuf;
+    use episko_lib::{config::ConfigHandler, database::DatabaseHandler};
+
+    use crate::cli::{Cli, Commands, CreateArgs, tests::skip_if_stdout};
+
+    use super::*;
+
+    #[tokio::test]
+    #[should_panic(expected = "IO error: not a terminal")]
+    async fn test_prompt_runs_interactive() {
+        skip_if_stdout();
+
+        let args = CreateArgs {
+            non_interactive: false,
+            ..Default::default()
+        };
+
+        run_and_unwrap(args).await;
+    }
+
+    #[tokio::test]
+    #[should_panic(expected = "directory missing")]
+    async fn test_no_directory() {
+        let args = CreateArgs {
+            non_interactive: true,
+            ..Default::default()
+        };
+
+        run_and_unwrap(args).await;
+    }
+
+    #[tokio::test]
+    #[should_panic(expected = "title missing")]
+    async fn test_no_title() {
+        let args = CreateArgs {
+            non_interactive: true,
+            directory: Some(Utf8PathBuf::from(".")),
+            ..Default::default()
+        };
+
+        run_and_unwrap(args).await;
+    }
+
+    #[tokio::test]
+    async fn test_valid_manifest() {
+        create_valid().await;
+    }
+
+    #[tokio::test]
+    async fn test_valid_manifest_properties() {
+        let metadata = create_valid().await;
+
+        assert_eq!(metadata.title, "Test".to_string());
+        assert_eq!(
+            metadata.languages[0],
+            Language::with_version("rust", "1.85")
+        );
+    }
+
+    async fn run_and_unwrap(args: CreateArgs) {
+        let mut ch = ConfigHandler::in_place();
+
+        create_manifest(args, &mut ch).await.unwrap();
+    }
+
+    async fn create_valid() -> Metadata {
+        let args = CreateArgs {
+            non_interactive: true,
+            directory: Some(Utf8PathBuf::from(".")),
+            title: Some("Test".to_string()),
+            languages: vec!["rust:1.85".to_string()],
+            ..Default::default()
+        };
+
+        let mut ch = ConfigHandler::in_place();
+
+        create_manifest(args, &mut ch)
+            .await
+            .expect("create manifest")
+    }
 }

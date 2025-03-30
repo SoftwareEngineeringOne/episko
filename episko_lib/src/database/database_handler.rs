@@ -2,9 +2,9 @@
 use std::time::Duration;
 
 use sqlx::{
+    SqlitePool,
     migrate::{MigrateDatabase, Migrator},
     sqlite::{SqliteConnectOptions, SqlitePoolOptions},
-    SqlitePool,
 };
 
 use sqlx::ConnectOptions;
@@ -58,16 +58,24 @@ impl DatabaseHandler {
         Ok(Self { conn })
     }
 
-    #[cfg(test)]
-    pub fn with_conn(conn: SqlitePool) -> Self {
-        Self { conn }
-    }
-
     /// Provides a reference to the [`SqlitePool`] which can be used
     /// as a [`sqlx::sqlite::SqliteExecutor`].
     #[must_use]
     pub fn conn(&self) -> &SqlitePool {
         &self.conn
+    }
+
+    #[cfg(test)]
+    pub fn with_conn(conn: SqlitePool) -> Self {
+        Self { conn }
+    }
+
+    /// for tests only
+    #[doc(hidden)]
+    pub async fn in_memory() -> Self {
+        Self::new("sqlite://")
+            .await
+            .expect("create in memory for test")
     }
 }
 

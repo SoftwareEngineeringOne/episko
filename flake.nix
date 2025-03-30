@@ -18,6 +18,7 @@
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             bacon
+            cargo-nextest
           ];
           nativeBuildInputs = with pkgs; [
             bun

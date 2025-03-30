@@ -31,7 +31,7 @@ pub enum Commands {
     Validate { file: Utf8PathBuf },
 }
 
-#[derive(Args, Clone)]
+#[derive(Args, Clone, Default)]
 pub struct CreateArgs {
     /// Create the file with given data without the interactive mode
     #[arg(short, long, action=ArgAction::SetTrue)]
@@ -60,4 +60,16 @@ pub struct CreateArgs {
     /// Repository URL of the project
     #[arg(short, long)]
     pub repository_url: Option<String>,
+}
+
+#[cfg(test)]
+pub mod tests {
+    /// Skip a test if stdout is used.
+    /// See test documentation in [`cli::prompts`] for more information
+    pub fn skip_if_stdout() {
+        if atty::is(atty::Stream::Stdout) {
+            eprintln!("Skipping test with stdout when not using nextest...");
+            panic!("IO error: not a terminal");
+        }
+    }
 }

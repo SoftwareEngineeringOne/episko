@@ -1,0 +1,3 @@
+database_path = "/home/simon/.cache/episko/cache.db"
+directories_to_load = []
+files_to_load = ["/home/simon/2_Uni/se/episko/episko_cli/manifest.toml"]

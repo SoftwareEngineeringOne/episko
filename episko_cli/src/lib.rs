@@ -3,7 +3,7 @@
 //!
 //! This module contains little help functions.
 
-use color_eyre::{eyre::eyre, Result};
+use color_eyre::{Result, eyre::eyre};
 
 pub mod cli;
 pub mod creation;
@@ -55,6 +55,19 @@ impl ComplexArg for String {
 /// # Errors
 /// - Error report when connecting to the database/creating the
 ///   [`DatabaseHandler`] fails.
+#[cfg(not(test))]
 pub async fn connect_to_db(config: &Config) -> Result<DatabaseHandler> {
     Ok(DatabaseHandler::with_config(config).await?)
+}
+
+#[cfg(test)]
+pub async fn connect_to_db(_: &Config) -> Result<DatabaseHandler> {
+    let db = DatabaseHandler::in_memory().await;
+
+    sqlx::migrate!()
+        .run(db.conn())
+        .await
+        .expect("setup db for tests");
+
+    Ok(db)
 }

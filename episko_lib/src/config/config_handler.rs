@@ -4,7 +4,7 @@ use std::{env, fs, path::PathBuf};
 
 use crate::{config::CONFIG_FILE_NAME, files::File};
 
-use super::{Config, Error, Result, DIR_NAME};
+use super::{Config, DIR_NAME, Error, Result};
 
 /// The [`ConfigHandler`] is used to load and save the [`Config`] object
 /// to a file as defined in [`ConfigHandler::config_path`].
@@ -149,6 +149,19 @@ impl ConfigHandler {
         #[cfg(not(any(unix, windows)))]
         {
             Err(Error::UnknownOs(env::consts::OS.to_string()))
+        }
+    }
+
+    /// for tests only
+    #[doc(hidden)]
+    pub fn in_place() -> Self {
+        let config_path = PathBuf::from(".");
+
+        let config = Self::load_config(&config_path).expect("load config for test");
+
+        Self {
+            config,
+            config_path,
         }
     }
 }

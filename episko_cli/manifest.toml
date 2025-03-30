@@ -1,14 +1,10 @@
-id = "43c75d32-483f-41c2-89b2-ac0171b0f534"
-ttle = "episko_cli"
-created = "2025-02-15T11:18:42.670283222Z"
-updated = "2025-02-15T11:18:42.670286102Z"
-
-[[category]]
-nme = "University"
+id = "34e53d57-fd12-45d2-a2ca-7641e391cd87"
+title = "Test"
+category = []
+build_system = []
+created = "2025-03-30T09:55:35.325552070Z"
+updated = "2025-03-30T09:55:35.325554360Z"
 
 [[language]]
-name = "Rust"
-version = "1.84"
-
-[[build_system]]
-name = "Cargo"
+name = "rust"
+version = "1.85"
