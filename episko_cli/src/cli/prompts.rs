@@ -10,7 +10,7 @@ use std::str::FromStr;
 use crate::ComplexArg;
 use camino::Utf8PathBuf;
 use color_eyre::Result;
-use dialoguer::{Input, theme::ColorfulTheme};
+use dialoguer::{theme::ColorfulTheme, Input};
 use episko_lib::metadata::{BuildSystem, Category, Ide, Language};
 
 /// Maximum number of input prompts for vec data

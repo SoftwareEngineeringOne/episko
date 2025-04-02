@@ -4,11 +4,11 @@ use sqlx::prelude::FromRow;
 use uuid::Uuid;
 
 use crate::{
-    ApplyIf as _,
     metadata::{
-        BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder, MetadataPreview,
-        property::Property,
+        property::Property, BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder,
+        MetadataPreview,
     },
+    ApplyIf as _,
 };
 
 /// DAO: Data Access Object

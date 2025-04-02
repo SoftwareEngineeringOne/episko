@@ -1,8 +1,8 @@
 use episko_lib::{
-    ApplyIf as _,
     metadata::{
-        BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder, property::Property,
+        property::Property, BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder,
     },
+    ApplyIf as _,
 };
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
