@@ -138,7 +138,7 @@ impl Statistic {
 mod tests {
     use crate::{
         database::db_test::fill_db,
-        metadata::{BuildSystem, Category, Ide, Language, Metadata, property::Property},
+        metadata::{property::Property, BuildSystem, Category, Ide, Language, Metadata},
     };
 
     use super::*;
