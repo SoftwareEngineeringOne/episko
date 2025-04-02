@@ -25,7 +25,6 @@ pub async fn validate_manifest(
 
 /// Caches a manifest file to the Database/Cache
 ///
-/// **TODO**
 /// Currently calls [`Metadata::update_in_db`], but this fails when the
 /// metadata isn't cached in the first place.
 ///
