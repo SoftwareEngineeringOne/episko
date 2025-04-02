@@ -4,7 +4,7 @@
 	import { interpolateRainbow, quantize } from 'd3';
 	import PieStatistic from './PieStatistic.svelte';
 
-	let statistics = statisticsState.statistic;
+	const statistics = $derived(statisticsState.statistic);
 </script>
 
 <div class="flex flex-col justify-center">

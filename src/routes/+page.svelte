@@ -3,8 +3,11 @@
 	import Commands from '$lib/commands';
 	import type { Filter, Uuid } from '$lib/types';
 	import { FolderGit } from 'lucide-svelte';
+	import { statisticsState } from './statistics/state.svelte';
 
 	const previewsPromise = Commands.get_all(1, {} as Filter).then((page) => page.data.slice(0, 4));
+
+	const statistics = $derived(statisticsState.statistic);
 </script>
 
 <div class="flex flex-col align-center h-full justify-start gap-4">
@@ -43,14 +46,22 @@
 			<div class="stats">
 				<div class="stat">
 					<div class="stat-title">Total Projects</div>
-					<div class="stat-value">12</div>
+					{#if statistics}
+						<div class="stat-value">{statistics.numberOfProjects}</div>
+					{:else}
+						<div class="stat-value">..</div>
+					{/if}
 					<div class="stat-desc">That's quite impressive!</div>
 				</div>
 			</div>
 			<div class="stats">
 				<div class="stat">
 					<div class="stat-title">Different Languages</div>
-					<div class="stat-value">4</div>
+					{#if statistics}
+						<div class="stat-value">{statistics.numberOfLanguages}</div>
+					{:else}
+						<div class="stat-value">..</div>
+					{/if}
 					<div class="stat-desc">You appear to be quite the polyglot</div>
 				</div>
 			</div>

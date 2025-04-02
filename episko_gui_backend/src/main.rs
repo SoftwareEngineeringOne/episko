@@ -7,7 +7,7 @@ use env_logger::Env;
 #[tokio::main]
 async fn main() {
     let env = Env::default()
-        .filter_or("EPISKO_LOG_LEVEL", "trace")
+        .filter_or("EPISKO_LOG_LEVEL", "warn")
         .write_style_or("EPISKO_LOG_STYLE", "auto");
 
     env_logger::init_from_env(env);

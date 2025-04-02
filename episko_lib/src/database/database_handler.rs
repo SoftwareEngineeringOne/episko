@@ -2,9 +2,9 @@
 use std::time::Duration;
 
 use sqlx::{
+    SqlitePool,
     migrate::{MigrateDatabase, Migrator},
     sqlite::{SqliteConnectOptions, SqlitePoolOptions},
-    SqlitePool,
 };
 
 use sqlx::ConnectOptions;
@@ -45,7 +45,7 @@ impl DatabaseHandler {
         }
 
         let mut opts: SqliteConnectOptions = url.parse()?;
-        opts = opts.log_statements(log::LevelFilter::Warn);
+        opts = opts.log_statements(log::LevelFilter::Trace);
 
         let conn = SqlitePoolOptions::new()
             .max_connections(12)
