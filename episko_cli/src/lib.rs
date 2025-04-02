@@ -3,7 +3,7 @@
 //!
 //! This module contains little help functions.
 
-use color_eyre::{eyre::eyre, Result};
+use color_eyre::{Result, eyre::eyre};
 
 pub mod cli;
 pub mod creation;
@@ -61,6 +61,7 @@ pub async fn connect_to_db(config: &Config) -> Result<DatabaseHandler> {
 }
 
 #[cfg(test)]
+#[doc(hidden)]
 pub async fn connect_to_db(_: &Config) -> Result<DatabaseHandler> {
     let db = DatabaseHandler::in_memory().await;
 

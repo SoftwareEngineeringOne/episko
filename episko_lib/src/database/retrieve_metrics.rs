@@ -138,7 +138,7 @@ impl Statistic {
 mod tests {
     use crate::{
         database::db_test::fill_db,
-        metadata::{property::Property, BuildSystem, Category, Ide, Language, Metadata},
+        metadata::{BuildSystem, Category, Ide, Language, Metadata, property::Property},
     };
 
     use super::*;
@@ -172,7 +172,7 @@ mod tests {
                 builder.preferred_ide(ide2.clone())
             };
 
-            builder.build().unwrap().write_to_db(&db).await.unwrap();
+            builder.build().unwrap().write_to_db(db).await.unwrap();
         }
     }
 
@@ -187,7 +187,7 @@ mod tests {
         let result = projects_by(&db).await.unwrap();
 
         for (_, value) in result {
-            assert_eq!(value, expected_per_key)
+            assert_eq!(value, expected_per_key);
         }
     }
 

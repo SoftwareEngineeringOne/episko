@@ -209,7 +209,7 @@ mod tests {
         let checksum1 = metadata.get_hash().unwrap();
         for _ in 0..100 {
             let checksum2 = metadata.get_hash().unwrap();
-            assert_eq!(checksum1, checksum2)
+            assert_eq!(checksum1, checksum2);
         }
     }
 

@@ -28,6 +28,7 @@ async fn test_read_write_2000(conn: SqlitePool) {
     assert_eq!(AMOUNT, count as usize);
 
     for (i, id) in ids.into_iter().enumerate() {
+        #[allow(clippy::expect_fun_call)]
         Metadata::from_db(&db, id)
             .await
             .expect(&format!("unable to retrieve a created element no. {i}"));

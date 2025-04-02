@@ -66,6 +66,9 @@ pub struct CreateArgs {
 pub mod tests {
     /// Skip a test if stdout is used.
     /// See test documentation in [`cli::prompts`] for more information
+    ///
+    /// # Panics
+    /// Skips the test by calling the corresponding panic to count it as "pass".
     pub fn skip_if_stdout() {
         if atty::is(atty::Stream::Stdout) {
             eprintln!("Skipping test with stdout when not using nextest...");

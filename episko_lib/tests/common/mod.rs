@@ -23,14 +23,17 @@ pub fn generate_metadata(num: usize) -> Metadata {
         builder = builder.preferred_ide(Ide::new(IDES[ide]));
     }
 
+    #[allow(clippy::needless_range_loop)]
     for i in 0..categories_amount {
         builder = builder.add_category(CATEGORIES[i]);
     }
 
+    #[allow(clippy::needless_range_loop)]
     for i in 0..languages_amount {
         builder = builder.add_language(Language::new(LANGUAGES[i]));
     }
 
+    #[allow(clippy::needless_range_loop)]
     for i in 0..build_systems_amount {
         builder = builder.add_build_system(BuildSystem::new(BUILD_SYSTEMS[i]));
     }

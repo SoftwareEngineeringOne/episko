@@ -104,11 +104,12 @@ pub mod db_test {
 
     use super::*;
     use crate::{
-        metadata::{property::Property as _, Metadata, *},
         ApplyIf as _,
+        metadata::{Metadata, property::Property as _, *},
     };
     use chrono::{TimeDelta, Utc};
 
+    #[doc(hidden)]
     pub async fn fill_db(amount: usize, db: &DatabaseHandler) {
         let test_data = generate_test_metadata(amount);
 
@@ -119,13 +120,16 @@ pub mod db_test {
     pub const IDES: [&str; 4] = ["VSCode", "IntelliJ", "Sublime", "Vim"];
     pub const CATEGORIES: [&str; 5] = ["Web", "CLI", "GUI", "Embedded", "AI"];
     pub const LANGUAGES: [&str; 5] = ["Rust", "Python", "JavaScript", "Go", "C++"];
-    pub const build_systems: [&str; 5] = ["Cargo", "Make", "CMake", "NPM", "Bazel"];
+    pub const BUILD_SYSTEMS: [&str; 5] = ["Cargo", "Make", "CMake", "NPM", "Bazel"];
 
+    #[must_use]
+    #[doc(hidden)]
     pub fn generate_test_metadata(count: usize) -> Vec<Metadata> {
         let base_time = Utc::now();
 
         (0..count)
             .map(|i| {
+                #[allow(clippy::cast_possible_wrap)]
                 let offset = TimeDelta::try_days(i as i64).unwrap();
 
                 Metadata::builder()
@@ -137,15 +141,15 @@ pub mod db_test {
                     )
                     .add_language(Language::with_version(
                         LANGUAGES[i % LANGUAGES.len()],
-                        &format!("1.{}", i),
+                        &format!("1.{i}"),
                     ))
                     .apply_if(
                         (i % 2 == 0).then_some(Ide::new(IDES[i % IDES.len()])),
                         MetadataBuilder::preferred_ide,
                     )
                     .add_build_system(BuildSystem::with_version(
-                        build_systems[i % build_systems.len()],
-                        &format!("2.{}", i),
+                        BUILD_SYSTEMS[i % BUILD_SYSTEMS.len()],
+                        &format!("2.{i}"),
                     ))
                     .apply_if(
                         (i % 3 == 0).then_some("Sample description"),
@@ -177,7 +181,7 @@ pub mod db_test {
 mod test {
     use sqlx::SqlitePool;
 
-    use crate::database::{db_test::fill_db, DatabaseHandler};
+    use crate::database::{DatabaseHandler, db_test::fill_db};
 
     #[sqlx::test]
     async fn setup_test_db(conn: SqlitePool) {

@@ -10,7 +10,7 @@ use std::str::FromStr;
 use crate::ComplexArg;
 use camino::Utf8PathBuf;
 use color_eyre::Result;
-use dialoguer::{theme::ColorfulTheme, Input};
+use dialoguer::{Input, theme::ColorfulTheme};
 use episko_lib::metadata::{BuildSystem, Category, Ide, Language};
 
 /// Maximum number of input prompts for vec data
@@ -233,7 +233,7 @@ mod tests {
         assert!(result.is_ok());
         let result = result.unwrap();
 
-        assert_eq!(result, dir)
+        assert_eq!(result, dir);
     }
 
     #[test]
@@ -254,7 +254,7 @@ mod tests {
         assert!(result.is_ok());
         let result = result.unwrap();
 
-        assert_eq!(result, title)
+        assert_eq!(result, title);
     }
 
     #[test]
@@ -275,7 +275,7 @@ mod tests {
         assert!(result.is_ok());
         let result = result.unwrap();
 
-        assert_eq!(result, desc)
+        assert_eq!(result, desc);
     }
 
     #[test]
@@ -283,7 +283,7 @@ mod tests {
     fn test_categories_starts_prompt() {
         skip_if_stdout();
 
-        let result = categories_prompt(&vec![]);
+        let result = categories_prompt(&[]);
         result.unwrap();
     }
 
@@ -298,7 +298,7 @@ mod tests {
 
         assert_eq!(result.len(), cats.len());
         for (i, category) in result.iter().enumerate() {
-            assert_eq!(category, &Category::from_str(&cats[i]).unwrap())
+            assert_eq!(category, &Category::from_str(&cats[i]).unwrap());
         }
     }
 
@@ -307,7 +307,7 @@ mod tests {
     fn test_languages_starts_prompt() {
         skip_if_stdout();
 
-        let result = languages_prompt(&vec![]);
+        let result = languages_prompt(&[]);
         result.unwrap();
     }
 
@@ -320,7 +320,7 @@ mod tests {
             ("asm".to_string(), "0".to_string()),
         ];
 
-        looping_with_version(langs, languages_prompt);
+        looping_with_version(&langs, languages_prompt);
     }
 
     #[test]
@@ -336,18 +336,18 @@ mod tests {
     #[should_panic(expected = "IO error: not a terminal")]
     fn test_build_system_starts_prompt() {
         skip_if_stdout();
-        let result = languages_prompt(&vec![]);
+        let result = languages_prompt(&[]);
         result.unwrap();
     }
 
     #[test]
     fn test_build_systems_with_default() {
         let bss = vec![
-            ("Cargo".to_string(), "".to_string()),
+            ("Cargo".to_string(), String::new()),
             ("CMake".to_string(), "22".to_string()),
         ];
 
-        looping_with_version(bss, build_systems_prompt);
+        looping_with_version(&bss, build_systems_prompt);
     }
 
     #[test]
@@ -392,7 +392,7 @@ mod tests {
         assert!(result.is_ok());
         let result = result.unwrap();
 
-        assert_eq!(result, url)
+        assert_eq!(result, url);
     }
 
     #[test]
@@ -415,16 +415,16 @@ mod tests {
     #[should_panic(expected = "IO error: not a terminal")]
     fn looping_prompt_starts() {
         skip_if_stdout();
-        looping_prompt_with_version::<Language>("test", &vec![]).unwrap();
+        looping_prompt_with_version::<Language>("test", &[]).unwrap();
     }
 
     #[test]
     fn looping_no_prompt_with_default() {
-        looping_prompt_with_version::<Language>("test", &vec!["rust:1.84".to_string()]).unwrap();
+        looping_prompt_with_version::<Language>("test", &["rust:1.84".to_string()]).unwrap();
     }
 
     fn looping_with_version<T>(
-        values: Vec<(String, String)>,
+        values: &[(String, String)],
         func: impl FnOnce(&[String]) -> Result<Vec<T>>,
     ) where
         T: Property,

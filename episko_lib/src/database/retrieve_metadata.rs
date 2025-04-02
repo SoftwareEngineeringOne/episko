@@ -1,6 +1,6 @@
 use super::{
-    dao::{ConversionError, MetadataDao, MetadataPreviewDao},
     DatabaseHandler, Filter, Result,
+    dao::{ConversionError, MetadataDao, MetadataPreviewDao},
 };
 use crate::metadata::{Metadata, MetadataPreview};
 use sqlx::{QueryBuilder, Row};
@@ -323,6 +323,6 @@ mod tests {
         assert!(result.is_ok());
         let previews = result.unwrap();
 
-        assert_eq!(previews.len(), 10)
+        assert_eq!(previews.len(), 10);
     }
 }

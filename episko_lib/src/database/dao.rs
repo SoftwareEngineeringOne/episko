@@ -4,11 +4,11 @@ use sqlx::prelude::FromRow;
 use uuid::Uuid;
 
 use crate::{
-    metadata::{
-        property::Property, BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder,
-        MetadataPreview,
-    },
     ApplyIf as _,
+    metadata::{
+        BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder, MetadataPreview,
+        property::Property,
+    },
 };
 
 /// DAO: Data Access Object
@@ -138,7 +138,7 @@ mod tests {
 
         let result: Result<Metadata, ConversionError> = dao.clone().try_into();
 
-        assert_eq!(result.is_ok(), true);
+        assert!(result.is_ok());
         let metadata = result.unwrap();
         assert_eq!(metadata.id, dao.id);
         assert_eq!(metadata.title, dao.title);
@@ -148,7 +148,7 @@ mod tests {
             dao.repository_url.as_deref()
         );
         assert_eq!(
-            metadata.preferred_ide.as_ref().map(|ide| ide.name()),
+            metadata.preferred_ide.as_ref().map(Property::name),
             dao.preferred_ide_name.as_deref()
         );
         assert_eq!(metadata.categories.len(), 1);

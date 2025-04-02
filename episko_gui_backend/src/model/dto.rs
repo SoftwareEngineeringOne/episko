@@ -62,7 +62,7 @@ mod tests {
     use super::*;
     use chrono::Utc;
     use episko_lib::metadata::{
-        property::Property as _, BuildSystem, Category, Ide, Language, Metadata,
+        BuildSystem, Category, Ide, Language, Metadata, property::Property as _,
     };
     use uuid::Uuid;
 
@@ -77,7 +77,7 @@ mod tests {
         let updated = Utc::now();
 
         let metadata = Metadata {
-            id: id.clone(),
+            id,
             directory: PathBuf::from("."),
             title: String::from("Test Project"),
             description: Some(String::from("A test project description")),
@@ -86,8 +86,8 @@ mod tests {
             build_systems: vec![build_system],
             preferred_ide: Some(ide),
             repository_url: Some(String::from("https://github.com/test/project")),
-            created: created.clone(),
-            updated: updated.clone(),
+            created,
+            updated,
         };
 
         // redefine everything to avoid implementing clone
