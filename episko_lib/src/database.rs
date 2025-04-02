@@ -54,7 +54,7 @@ pub struct Filter {
 }
 
 impl Filter {
-    /// !TODO!
+    /// Create a new [`Filter`] instance with the given search query.
     #[must_use]
     pub fn with_query(query: &str) -> Self {
         Self {
@@ -104,8 +104,8 @@ pub mod db_test {
 
     use super::*;
     use crate::{
-        metadata::{property::Property as _, Metadata, *},
         ApplyIf as _,
+        metadata::{Metadata, property::Property as _, *},
     };
     use chrono::{TimeDelta, Utc};
 
@@ -177,7 +177,7 @@ pub mod db_test {
 mod test {
     use sqlx::SqlitePool;
 
-    use crate::database::{db_test::fill_db, DatabaseHandler};
+    use crate::database::{DatabaseHandler, db_test::fill_db};
 
     #[sqlx::test]
     async fn setup_test_db(conn: SqlitePool) {

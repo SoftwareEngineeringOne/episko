@@ -5,9 +5,7 @@ use episko_lib::metadata::{BuildSystem, Category, Ide, Language, Metadata};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
-/// Dto data transfer object
-/// !TODO!
-/// (Used to avoid serde macros used for serialization etc)
+/// DTO: Data Transfer Object
 #[derive(Serialize, Deserialize, Debug)]
 pub struct MetadataDto {
     id: Uuid,
@@ -24,7 +22,6 @@ pub struct MetadataDto {
 }
 
 impl From<Metadata> for MetadataDto {
-    /// !TODO!
     fn from(metadata: Metadata) -> MetadataDto {
         MetadataDto {
             id: metadata.id,
@@ -65,7 +62,7 @@ mod tests {
     use super::*;
     use chrono::Utc;
     use episko_lib::metadata::{
-        property::Property as _, BuildSystem, Category, Ide, Language, Metadata,
+        BuildSystem, Category, Ide, Language, Metadata, property::Property as _,
     };
     use uuid::Uuid;
 

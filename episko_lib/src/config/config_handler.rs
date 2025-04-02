@@ -4,7 +4,7 @@ use std::{env, fs, path::PathBuf};
 
 use crate::{config::CONFIG_FILE_NAME, files::File};
 
-use super::{Config, Error, Result, DIR_NAME};
+use super::{Config, DIR_NAME, Error, Result};
 
 /// The [`ConfigHandler`] is used to load and save the [`Config`] object
 /// to a file as defined in [`ConfigHandler::config_path`].
@@ -48,10 +48,10 @@ impl ConfigHandler {
         &self.config.directories_to_load
     }
 
-    /// !TODO!
+    /// Save the current config to the path saved in the receiver instance.
     ///
     /// # Errors
-    /// !TODO!
+    /// - If the config file cannot be written
     pub fn save_config(&self) -> Result<()> {
         let config_file = self.config_path.join(CONFIG_FILE_NAME);
 

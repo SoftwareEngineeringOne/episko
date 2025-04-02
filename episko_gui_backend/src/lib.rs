@@ -14,14 +14,14 @@ use commands::{
 pub mod model;
 pub mod state;
 
-/// !TODO!
+/// Entry point for the Tauri application.
 ///
 /// # Errors
-/// !TODO!
+/// - If the configuration file cannot be loaded.
+/// - If the database cannot be initialized.
 ///
 /// # Panics
-/// !TODO!
-///
+/// - If the Tauri application fails to run.
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub async fn run() -> Result<(), Box<dyn std::error::Error>> {
     let config_handler = ConfigHandler::load()?;

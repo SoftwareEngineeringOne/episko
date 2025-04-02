@@ -1,6 +1,6 @@
 use super::{
-    dao::{ConversionError, MetadataDao, MetadataPreviewDao},
     DatabaseHandler, Filter, Result,
+    dao::{ConversionError, MetadataDao, MetadataPreviewDao},
 };
 use crate::metadata::{Metadata, MetadataPreview};
 use sqlx::{QueryBuilder, Row};
@@ -10,7 +10,6 @@ use uuid::Uuid;
 impl Metadata {
     /// Retrieves a single [`Metadata`] entry by ID from the database
     ///
-    /// !TODO!
     /// # Errors
     /// Returns `Err` if database query fails or data conversion fails
     pub async fn from_db(db: &DatabaseHandler, id: Uuid) -> Result<Self> {
@@ -22,7 +21,6 @@ impl Metadata {
 
     /// Retrieves paginated [`Metadata`] entries from database
     ///
-    /// !TODO!
     /// # Errors
     /// Returns `Err` if database query fails or data conversion fails
     pub async fn all_from_db(
@@ -44,7 +42,6 @@ impl Metadata {
     /// Retrieves paginated [`MetadataPreview`] entries with optional search
     ///
     /// # Errors
-    /// !TODO!
     /// Returns `Err` if database query fails or data conversion fails
     pub async fn all_preview_from_db(
         pagination: Option<Pagination>,
@@ -77,7 +74,6 @@ impl Metadata {
     /// Counts total [`Metadata`] entries with optional search filter
     ///
     /// # Errors
-    /// !TODO!
     /// Returns `Err` if database query fails
     pub async fn amount_cached(query: Option<String>, db: &DatabaseHandler) -> Result<u32> {
         let mut builder = QueryBuilder::new("SELECT COUNT(id) as count FROM metadata");

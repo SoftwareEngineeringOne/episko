@@ -10,7 +10,7 @@ impl StatisticHandler {
     /// Generate the newest statistics
     ///
     /// # Errors
-    /// !TODO!
+    /// - if any of the database queries fail
     pub async fn generate_statistics(db: &DatabaseHandler) -> Result<Statistic, Error> {
         Ok(Statistic {
             projects_by_language: Statistic::projects_by_language(db).await?,

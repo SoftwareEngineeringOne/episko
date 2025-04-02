@@ -11,7 +11,7 @@ impl Statistic {
     /// Retrieve the project count sorted by language.
     ///
     /// # Errors
-    /// !TODO!
+    /// - if the database query fails
     pub async fn projects_by_language(db: &DatabaseHandler) -> Result<HashMap<String, u32>, Error> {
         Self::count_projects(
             db,
@@ -30,7 +30,7 @@ impl Statistic {
     /// Retrieve the project count sorted by IDE.
     ///
     /// # Errors
-    /// !TODO!
+    /// - if the database query fails
     pub async fn projects_by_ide(db: &DatabaseHandler) -> Result<HashMap<String, u32>, Error> {
         Self::count_projects(
             db,
@@ -47,7 +47,7 @@ impl Statistic {
     /// Retrieve the project count sorted by category.
     ///
     /// # Errors
-    /// !TODO!
+    /// - if the database query fails
     pub async fn projects_by_category(db: &DatabaseHandler) -> Result<HashMap<String, u32>, Error> {
         Self::count_projects(
             db,
@@ -66,7 +66,7 @@ impl Statistic {
     /// Retrieve the project count sorted by build system
     ///
     /// # Errors
-    /// !TODO!
+    /// - if the database query fails
     pub async fn projects_by_build_system(
         db: &DatabaseHandler,
     ) -> Result<HashMap<String, u32>, Error> {
@@ -87,7 +87,7 @@ impl Statistic {
     /// Retrieve the total count of all projects.
     ///
     /// # Errors
-    /// !TODO!
+    /// - if the database query fails
     pub async fn number_of_projects(db: &DatabaseHandler) -> Result<u32, Error> {
         let row = sqlx::query(
             "SELECT count(id) AS count
@@ -99,10 +99,10 @@ impl Statistic {
         Ok(row.try_get("count")?)
     }
 
-    /// !TODO!
+    /// Retrieve the total count of all languages.
     ///
     /// # Errors
-    /// !TODO!
+    /// - if the database query fails
     pub async fn number_of_languages(db: &DatabaseHandler) -> Result<u32, Error> {
         let row = sqlx::query(
             "SELECT count(DISTINCT name) AS count
@@ -117,7 +117,7 @@ impl Statistic {
     /// Execute the given query and return the formatted result.
     ///
     /// # Errors
-    /// !TODO!
+    /// - if the database query fails
     async fn count_projects(
         db: &DatabaseHandler,
         query: String,
@@ -138,7 +138,7 @@ impl Statistic {
 mod tests {
     use crate::{
         database::db_test::fill_db,
-        metadata::{property::Property, BuildSystem, Category, Ide, Language, Metadata},
+        metadata::{BuildSystem, Category, Ide, Language, Metadata, property::Property},
     };
 
     use super::*;

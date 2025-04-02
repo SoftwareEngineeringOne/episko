@@ -1,16 +1,15 @@
 use episko_lib::{
-    metadata::{
-        property::Property, BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder,
-    },
     ApplyIf as _,
+    metadata::{
+        BuildSystem, Category, Ide, Language, Metadata, MetadataBuilder, property::Property,
+    },
 };
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 
 use crate::Error;
 
-/// Dco data creation object
-/// !TODO!
+/// DCO: Data Creation Object
 #[derive(Serialize, Deserialize, Debug)]
 pub struct MetadataDco {
     directory: PathBuf,
@@ -24,10 +23,10 @@ pub struct MetadataDco {
 }
 
 impl MetadataDco {
-    /// !TODO!
+    /// Create a new [`Metadata`] instance from the DCO.
     ///
     /// # Errors
-    /// !TODO!
+    /// - If the metadata cannot be created
     pub fn create(mut self) -> Result<Metadata, Error> {
         self.categories.iter_mut().for_each(Property::update_id);
         self.build_systems.iter_mut().for_each(Property::update_id);
@@ -49,10 +48,10 @@ impl MetadataDco {
             .build()?)
     }
 
-    /// !TODO!
+    /// Update an existing [`Metadata`] instance with the DCO.
     ///
     /// # Errors
-    /// !TODO!
+    /// - If the metadata cannot be updated
     pub fn update(mut self, metadata: Metadata) -> Result<Metadata, Error> {
         self.categories.iter_mut().for_each(Property::update_id);
         self.build_systems.iter_mut().for_each(Property::update_id);
@@ -77,7 +76,7 @@ impl MetadataDco {
 mod tests {
     use super::*;
     use episko_lib::metadata::{
-        property::Property as _, BuildSystem, Category, Ide, Language, Metadata,
+        BuildSystem, Category, Ide, Language, Metadata, property::Property as _,
     };
     use std::path::PathBuf;
 

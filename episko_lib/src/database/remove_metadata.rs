@@ -9,7 +9,7 @@ impl Metadata {
     /// delete it's manifest file.
     ///
     /// # Errors
-    /// !TODO!
+    /// - If the metadata cannot be removed from the database
     pub async fn remove_from_db(&self, db: &DatabaseHandler) -> Result<()> {
         sqlx::query("DELETE FROM metadata WHERE id = ?")
             .bind(self.id)
@@ -18,10 +18,10 @@ impl Metadata {
         Ok(())
     }
 
-    /// !TODO!
+    /// Remove a given Metadata object from the database based on its ID.
     ///
     /// # Errors
-    /// !TODO!
+    /// - If the metadata cannot be removed from the database
     pub async fn remove_non_existent_from_db(id: Uuid, db: &DatabaseHandler) -> Result<()> {
         sqlx::query("DELETE FROM metadata WHERE id = ?")
             .bind(id)

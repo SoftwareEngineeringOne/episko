@@ -1,5 +1,5 @@
-use sqlx::query;
 use sqlx::Row;
+use sqlx::query;
 
 use crate::metadata::Metadata;
 
@@ -9,10 +9,9 @@ impl Metadata {
     /// Validate the hash of a given metadata and update
     /// the cache if not up to date.
     ///
-    /// !TODO!
-    ///
     /// # Errors
-    /// !TODO!
+    /// - if the database query fails
+    /// - if the checksum cannot be calculated
     pub async fn validate_db(&self, db: &DatabaseHandler) -> Result<bool> {
         let checksum = self
             .get_hash()
@@ -29,10 +28,10 @@ impl Metadata {
         Ok(checksum == checksum_db)
     }
 
-    /// !TODO!
+    /// Check if a given metadata is already cached in the database.
     ///
     /// # Errors
-    /// !TODO!
+    /// - if the database query fails
     pub async fn is_cached(&self, db: &DatabaseHandler) -> Result<bool> {
         let row = query("SELECT count(id) as count FROM metadata WHERE id = ?")
             .bind(self.id)

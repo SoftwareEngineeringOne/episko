@@ -2,9 +2,9 @@
 use std::time::Duration;
 
 use sqlx::{
+    SqlitePool,
     migrate::{MigrateDatabase, Migrator},
     sqlite::{SqliteConnectOptions, SqlitePoolOptions},
-    SqlitePool,
 };
 
 use sqlx::ConnectOptions;
@@ -23,10 +23,10 @@ pub struct DatabaseHandler {
 }
 
 impl DatabaseHandler {
-    /// !TODO!
+    /// Creates a new instance using the databas path provided by the given [`Config`].
     ///
     /// # Errors
-    /// !TODO!
+    /// - [`Error::Db`] if the database cannot be created
     pub async fn with_config(config: &Config) -> Result<Self> {
         let url = format!(
             "sqlite:///{}",
@@ -38,14 +38,14 @@ impl DatabaseHandler {
     /// Creates a new instance using the provided url.
     ///
     /// # Errors
-    /// !TODO!
+    /// - [`Error::Db`] if the database cannot be created
     pub async fn new(url: &str) -> Result<Self> {
         if !sqlx::Sqlite::database_exists(url).await? {
             sqlx::Sqlite::create_database(url).await?;
         }
 
         let mut opts: SqliteConnectOptions = url.parse()?;
-        opts = opts.log_statements(log::LevelFilter::Trace);
+        opts = opts.log_statements(log::LevelFilter::Warn);
 
         let conn = SqlitePoolOptions::new()
             .max_connections(12)

@@ -13,17 +13,16 @@ use super::{Error, Metadata, Result};
 pub struct MetadataHandler;
 
 impl MetadataHandler {
-    /// !TODO!
+    /// Create a new [`MetadataHandler`] instance.
     #[must_use]
     pub fn new() -> Self {
         Self
     }
 
-    /// Loading should be done using tauri and events and stuff
-    /// This function will probably be removed?
+    /// Load all metadata files from the given [`Config`].
     ///
     /// # Errors
-    /// !TODO!
+    /// - if the file cannot be read
     pub fn load_from_config(&self, config: &Config) -> Result<Vec<Metadata>> {
         Ok(config
             .files_to_load
@@ -32,10 +31,11 @@ impl MetadataHandler {
             .collect())
     }
 
-    /// !TODO!
+    /// Save metadata to the database and file system.
     ///
     /// # Errors
-    /// !TODO!
+    /// - if the metadata cannot be saved to the database
+    /// - if the metadata cannot be saved to the file system
     pub async fn save_metadata(
         metadata: &Metadata,
         db: &DatabaseHandler,
@@ -58,12 +58,10 @@ impl MetadataHandler {
         Ok(())
     }
 
-    /// Get paths to locations of manifests
-    ///
-    /// Loading should be done using tauri and events and stuff
+    /// Get paths to locations of manifests in the given directory.
     ///
     /// # Errors
-    /// !TODO!
+    /// - if the directory cannot be read
     pub fn search_directory(dir: &Path) -> Result<Vec<PathBuf>> {
         glob(
             dir.join("**/manifest.toml")
@@ -73,13 +71,5 @@ impl MetadataHandler {
         .map_err(|err| Error::Directory(err.to_string()))?
         .map(|manifest| manifest.map_err(|err| Error::File(err.to_string())))
         .collect::<Result<Vec<_>>>()
-    }
-
-    /// !TODO!
-    ///
-    /// # Errors
-    /// !TODO!
-    pub fn search_metadata(_query: &str) -> Result<Vec<Metadata>> {
-        todo!()
     }
 }

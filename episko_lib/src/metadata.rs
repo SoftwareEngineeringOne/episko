@@ -122,18 +122,22 @@ impl Metadata {
         &self.directory
     }
 
-    /// !TODO!
+    /// Update the directory of the metadata object.
     pub fn update_directory(&mut self, path: PathBuf) {
         self.directory = path;
     }
 
-    /// !TODO!
+    /// Retrieve the title of the metadata object.
     #[must_use]
     pub fn id(&self) -> Uuid {
         self.id
     }
 
-    /// !TODO!
+    /// Update the id's of each of the properties.
+    /// These include categories, languages, build systems and preferred ide.
+    ///
+    /// This can used when the metadata object is created from a file and the
+    /// id's are not set yet.
     pub fn update_ids(&mut self) {
         self.categories.iter_mut().for_each(Property::update_id);
         self.languages.iter_mut().for_each(Property::update_id);
