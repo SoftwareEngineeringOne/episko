@@ -35,14 +35,5 @@
 ![light_mode](https://github.com/user-attachments/assets/63ba24c8-5b45-4ec3-b787-0a3fe3a4df3a)
 
 # Episko CLI
+
 ![image](https://github.com/user-attachments/assets/9b45410a-1389-4195-9288-3fcf6c03db9b)
-
-
-
-
-
-
-
-
-
-
